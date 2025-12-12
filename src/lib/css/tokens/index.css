@@ -1,0 +1,79 @@
+:root {
+    --v-font-display: 'Orbitron', system-ui, sans-serif;
+    --v-font-body: 'Inter', system-ui, sans-serif;
+
+    /* Font Size */
+    --v-font-size-xs: 0.6875rem; /* 11px */
+    --v-font-size-s: 0.75rem; /* 12px */
+    --v-font-size-default: 0.875rem; /* 14px */
+    --v-font-size-m: 0.875rem; /* 14px */
+    --v-font-size-l: 1rem; /* 16px */
+    --v-font-size-xl: 1.25rem; /* 20px */
+    --v-font-size-2xl: 1.5rem; /* 24px */
+    --v-font-size-3xl: 2.25rem; /* 36px */
+
+    /* Letter Spacing */
+    --v-letter-spacing-default: 0.25px;
+    --v-letter-spacing-m: 0.25px;
+
+    /* Space */
+    --v-space-xs: 0.25rem; /* 4px */
+    --v-space-s: 0.5rem; /* 8px */
+    --v-space-default: 1rem; /* 16px */
+    --v-space-m: 1rem; /* 16px */
+    --v-space-l: 1.5rem; /* 24px */
+    --v-space-xl: 2.25rem; /* 36px */
+    --v-space-2xl: 4.5rem; /* 72px */
+
+    /* Line Height */
+    --v-line-height-s: 1.2;
+    --v-line-height-default: 1.5;
+
+    /* Border Radius */
+    --v-radius-default: 3px;
+    --v-radius-m: 3px;
+
+    /* Core Colors */
+	--v-gray-1: #111113;
+    --v-gray-2: #18191b;
+    --v-gray-3: #212225;
+    --v-gray-4: #272a2d;
+    --v-gray-5: #2e3135;
+    --v-gray-6: #363a3f;
+    --v-gray-7: #43484e;
+    --v-gray-8: #5a6169;
+    --v-gray-9: #696e77;
+    --v-gray-10: #777b84;
+    --v-gray-11: #b0b4ba;
+    --v-gray-12: #edeef0;
+	/* --v-accent-1: #0b161a;
+	--v-accent-2: #101b20;
+	--v-accent-3: #082c36;
+	--v-accent-4: #003848;
+	--v-accent-5: #004558;
+	--v-accent-6: #045468;
+	--v-accent-7: #12677e;
+	--v-accent-8: #11809c;
+	--v-accent-9: #00a2c7;
+	--v-accent-10: #23afd0;
+	--v-accent-11: #4ccce6;
+	--v-accent-12: #b6ecf7; */
+	--v-accent-1: #0d1514;
+	--v-accent-2: #111c1b;
+	--v-accent-3: #0d2d2a;
+	--v-accent-4: #023b37;
+	--v-accent-5: #084843;
+	--v-accent-6: #145750;
+	--v-accent-7: #1c6961;
+	--v-accent-8: #207e73;
+	--v-accent-9: #12a594;
+	--v-accent-10: #0eb39e;
+	--v-accent-11: #0bd8b6;
+	--v-accent-12: #adf0dd;
+
+    /* Semantic Colors */
+    --v-color-background: var(--v-gray-1);
+    --v-color-accent: var(--v-accent-9);
+    --v-color-border: var(--v-gray-4);
+    --v-color-text: var(--v-gray-12);
+}

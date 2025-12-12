@@ -1,0 +1,100 @@
+
+/* Button */
+.v-button {
+    font-family: var(--v-font-body);
+    font-size: var(--v-font-size-default);
+    font-weight: 400;
+    letter-spacing: var(--v-letter-spacing-default);
+    border: 1px solid var(--v-color-border);
+    border-radius: var(--v-radius-default);
+    background-color: var(--v-color-accent);
+    height: 32px;
+    width: max-content;
+    color: var(--v-color-text);
+    cursor: pointer;
+    padding-inline: var(--v-space-default);
+}
+
+.v-button:hover {
+    background-color: var(--v-gray-12);
+    color: var(--v-gray-1);
+}
+
+/* Card */
+.v-card {
+    background-color: var(--v-gray-2);
+    border: 1px solid var(--v-color-border);
+    padding: var(--v-space-default);
+}
+
+/* Display */
+.v-display {
+    font-family: var(--v-font-display);
+    font-size: var(--v-font-size-3xl);
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+
+/* Layout */
+.v-layout {
+    padding: var(--v-space-m) var(--v-space-xl);
+}
+
+/* Flex */
+.v-flex {
+    display: flex;
+    gap: var(--v-space-default);
+    flex-direction: row;
+    justify-content: start;
+}
+
+.v-flex.has-direction-column {
+    flex-direction: column;
+}
+
+.v-flex.is-justify-between {
+    justify-content: space-between;
+}
+
+/* Text */
+.v-text {
+    font-family: var(--v-font-body);
+    font-size: var(--v-font-size-default);
+    line-height: var(--v-line-height-default);
+    letter-spacing: var(--v-letter-spacing-default);
+    margin: 0;
+    padding: 0;
+}
+
+.v-text.is-size-xs {
+    font-size: var(--v-font-size-xs);
+}
+
+.v-text.is-size-s {
+    font-size: var(--v-font-size-s);
+}
+
+.v-text.is-size-default {
+    font-size: var(--v-font-size-default);
+}
+
+.v-text.is-size-m {
+    font-size: var(--v-font-size-m);
+}
+
+.v-text.is-size-l {
+    font-size: var(--v-font-size-l);
+}
+
+.v-text.is-size-xl {
+    font-size: var(--v-font-size-xl);
+}
+
+.v-text.is-size-2xl {
+    font-size: var(--v-font-size-2xl);
+}
+
+.v-text.is-size-3xl {
+    font-size: var(--v-font-size-3xl);
+}
