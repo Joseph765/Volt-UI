@@ -3,7 +3,7 @@
 @import url('./components/index.css');
 
 ::selection {
-  background: var(--v-accent-9); /* The highlight color */
+  background-color: var(--v-accent-11); /* The highlight color */
   color: var(--v-color-text); /* The selected text color */
 }
 
