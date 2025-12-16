@@ -158,6 +158,7 @@
     --v-color-border: var(--v-gray-4);
     --v-color-text: var(--v-gray-12);
     --v-color-text-weak: var(--v-gray-11);
-    --v-color-text-weaker: var(--v-gray-8);
+    --v-color-text-weaker: var(--v-gray-10);
+    --v-color-text-weakest: var(--v-gray-8);
     --v-color-text-danger: var(--v-danger-9);
 }
