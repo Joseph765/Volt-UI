@@ -29,6 +29,9 @@
     /** @type { any } */
     export let autocomplete = 'off';
 
+    /** @type { string | undefined } */
+    export let style = undefined;
+
     /** @type { number } */
     let prefixWidth = 0;
 
@@ -41,7 +44,7 @@
         <label class="v-label {required ? "is-required" : ""}" for={name}>{label}</label>
     {/if}
 
-    <div class="v-input-wrapper {expanded ? "is-expanded" : "expanded"}">
+    <div class="v-input-wrapper {expanded ? "is-expanded" : undefined}">
         {#if $$slots.prefix}
           <span class="v-input-prefix" bind:clientWidth={prefixWidth}>
             <slot name="prefix" />
@@ -53,9 +56,10 @@
             {name}
             {required}
             {autocomplete}
+            {style}
             bind:value
             {...$$restProps}
-            class="v-input {expanded ? "is-expanded" : "expanded"} {error ? "is-danger" : ""} is-align-{align}"
+            class="v-input {expanded ? "is-expanded" : undefined} {error ? "is-danger" : undefined} is-align-{align}"
             style:padding-left={prefixWidth ? `${prefixWidth}px` : undefined}
             style:padding-right={(type === 'number' && suffixWidth) ? `${suffixWidth + 16}px` : suffixWidth ? `${suffixWidth + 16}px` : undefined}
         />

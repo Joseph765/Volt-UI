@@ -109,10 +109,11 @@
                         <Icon name="phone" />
                     </svelte:fragment>
                 </Input>
+                <Input type="text" name="custom" label="Custom Width" style="width: 22rem;" />
             </Flex>
             <Flex direction="column">
                 <Heading>Icon</Heading>
-                <Flex>
+                <Flex direction="column">
                     <Select
                         name="Country"
                         label="Country"
@@ -136,6 +137,95 @@
                             <Icon name="user" />
                         </span>
                     </Select>
+
+                    <Select
+                        name="Expanded"
+                        label="Expanded"
+                        options={[
+                            { value: 'developer', label: 'Developer' },
+                            { value: 'designer', label: 'Designer' },
+                        ]}
+                        expanded
+                    >
+                        <span slot="prefix">
+                            <Icon name="user" />
+                        </span>
+                    </Select>
+
+                    <Select
+                        name="Disabled"
+                        label="Disabled"
+                        options={[
+                            { value: 'us', label: 'United States' },
+                            { value: 'ca', label: 'Canada' },
+                            { value: 'mx', label: 'Mexico' },
+                        ]}
+                        placeholder="Choose a country..."
+                        disabled
+                    />
+
+                    <Select
+                        name="Error"
+                        label="Error"
+                        options={[
+                            { value: 'us', label: 'United States' },
+                            { value: 'ca', label: 'Canada' },
+                            { value: 'mx', label: 'Mexico' },
+                        ]}
+                        placeholder="Choose a country..."
+                        error="There is an error"
+                    />
+
+                    <Select
+                        name="Required"
+                        label="Label"
+                        options={[
+                            { value: 'us', label: 'United States' },
+                            { value: 'ca', label: 'Canada' },
+                            { value: 'mx', label: 'Mexico' },
+                        ]}
+                        placeholder="Choose a country..."
+                        required
+                    />
+
+                    <Select
+                        name="HelpText"
+                        label="Help Text"
+                        options={[
+                            { value: 'us', label: 'United States' },
+                            { value: 'ca', label: 'Canada' },
+                            { value: 'mx', label: 'Mexico' },
+                        ]}
+                        placeholder="Choose a country..."
+                        help="this is some helper text"
+                    />
+
+                    <Select
+                        name="Autocomplete"
+                        label="Autocomplete"
+                        options={[
+                            { value: 'mr', label: 'Mr' },
+                            { value: 'miss', label: 'Miss' },
+                            { value: 'ms', label: 'Ms' },
+                            { value: 'mrs', label: 'Mrs' },
+                            { value: 'dr', label: 'Dr' },
+                        ]}
+                        placeholder="Please Select"
+                        id="select"
+                        autocomplete="honorific-prefix"
+                    />
+
+                    <Select
+                        name="CustomWidth"
+                        label="Custom Width"
+                        options={[
+                            { value: 'mr', label: 'Mr' },
+                            { value: 'mrs', label: 'Mrs' },
+                        ]}
+                        placeholder="Please Select"
+                        id="customWidth"
+                        style="width: 22rem;"
+                    />
                 </Flex>
             </Flex>
             <Flex direction="column">

@@ -5,6 +5,12 @@
     /** @type { string } */
     export let name;
 
+    /** @type { boolean } */
+    export let expanded = false;
+
+    /** @type { boolean } */
+    export let required = false;
+
     /**
      * The currently selected value (string by default)
      * @type { string }
@@ -23,11 +29,23 @@
      */
     export let placeholder = 'Select an option...';
 
+    /** @type { string } */
+    export let error = '';
+
+    /** @type { string } */
+    export let help = '';
+
     /**
      * Whether the select is disabled
      * @type { boolean }
      */
     export let disabled = false;
+
+    /** @type { any } */
+    export let autocomplete = 'off';
+
+    /** @type { string | undefined } */
+    export let style = undefined;
 
     /** @type { number } */
     let prefixWidth = 0;
@@ -35,10 +53,10 @@
 
 <div class="v-label-wrapper">
     {#if label}
-        <label class="v-label" for={name}>{label}</label>
+        <label class="v-label {required ? "is-required" : ""}" for={name}>{label}</label>
     {/if}
 
-    <div class="v-select-container">
+    <div class="v-select-wrapper {expanded ? "is-expanded" : "expanded"} {error ? "is-danger" : undefined}" {style}>
         {#if $$slots.prefix}
             <span class="v-select-prefix" bind:clientWidth={prefixWidth}>
                 <slot name="prefix" />
@@ -47,8 +65,10 @@
 
         <select
             bind:value
-            {disabled}
             {name}
+            {disabled}
+            {required}
+            {autocomplete}
             {...$$restProps}
             class="v-select"
             class:has-placeholder={value === ''}
@@ -84,16 +104,29 @@
             </svg>
         </span>
     </div>
+
+    {#if error}
+        <span class="v-help-text is-danger">{error}</span>
+    {/if}
+
+    {#if help}
+        <span class="v-help-text">{help}</span>
+    {/if}
 </div>
 
 <style>
-    .v-select-container {
+    .v-select-wrapper {
         position: relative;
         display: flex;
         align-items: center;
         background-color: var(--v-color-surface);
         border: 1px solid var(--v-color-border);
         border-radius: var(--v-radius-default);
+        width: 12rem;
+    }
+
+    .v-select-wrapper.is-expanded {
+        width: 100%;
     }
 
     .v-select {
@@ -115,19 +148,36 @@
         border: none;
     }
 
-    .v-select-container:hover {
+    .v-select-wrapper:hover {
         border-color: var(--v-gray-7);
     }
 
-    .v-select-container:focus-within {
+    .v-select-wrapper:focus-within {
         outline: none;
         border-color: var(--v-color-highlight);
         box-shadow: 0 0 0 2px var(--v-color-highlight);
     }
 
-    .v-select:disabled {
-        opacity: 0.6;
+     .v-select-wrapper:has(.v-select:disabled) {
+        background-color: var(--v-gray-1);
+        border-color: var(--v-gray-3);
         cursor: not-allowed;
+    }
+
+    .v-select-wrapper:has(.v-select:disabled):hover {
+        border-color: var(--v-gray-3);
+    }
+
+    .v-select:disabled {
+        cursor: not-allowed;
+    }
+
+    .v-select-wrapper.is-danger {
+        border-color: var(--v-danger-9);
+    }
+
+    .v-select-wrapper.is-danger:hover {
+        border-color: var(--v-danger-10);
     }
 
     .v-select.has-placeholder {
