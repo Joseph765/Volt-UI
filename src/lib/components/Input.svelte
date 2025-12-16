@@ -20,14 +20,20 @@
     /** @type { string } */
     export let error = '';
 
+    /** @type { string } */
+    export let help = '';
+
+    /** @type { 'left' | 'right' } */
+    export let align = 'left';
+
+    /** @type { any } */
+    export let autocomplete = 'off';
+
     /** @type { number } */
     let prefixWidth = 0;
 
     /** @type { number } */
     let suffixWidth = 0;
-
-    /** @type { number } */
-    let wrapperWidth = 0;
 </script>
 
 <div class="v-label-wrapper">
@@ -35,7 +41,7 @@
         <label class="v-label {required ? "is-required" : ""}" for={name}>{label}</label>
     {/if}
 
-    <div class="v-input-wrapper {expanded ? "is-expanded" : "expanded"}" bind:clientWidth={wrapperWidth}>
+    <div class="v-input-wrapper {expanded ? "is-expanded" : "expanded"}">
         {#if $$slots.prefix}
           <span class="v-input-prefix" bind:clientWidth={prefixWidth}>
             <slot name="prefix" />
@@ -46,19 +52,12 @@
             {type}
             {name}
             {required}
+            {autocomplete}
             bind:value
             {...$$restProps}
-            class="v-input {expanded ? "is-expanded" : "expanded"} {error ? "is-danger" : ""}"
+            class="v-input {expanded ? "is-expanded" : "expanded"} {error ? "is-danger" : ""} is-align-{align}"
             style:padding-left={prefixWidth ? `${prefixWidth}px` : undefined}
-            style:padding-right={(type === 'number' && suffixWidth) ? `${suffixWidth + 16}px` : suffixWidth ? `${suffixWidth}px` : undefined}
-            style:width={
-              expanded ? undefined
-              : prefixWidth 
-              ? `${238 - (prefixWidth - 26)}px` 
-              : suffixWidth 
-              ? `${238 - (suffixWidth - 18)}px` 
-              : "238px"
-            }
+            style:padding-right={(type === 'number' && suffixWidth) ? `${suffixWidth + 16}px` : suffixWidth ? `${suffixWidth + 16}px` : undefined}
         />
     
         {#if $$slots.suffix}
@@ -70,5 +69,9 @@
 
     {#if error}
         <span class="v-help-text is-danger">{error}</span>
+    {/if}
+
+    {#if help}
+      <span class="v-help-text">{help}</span>
     {/if}
 </div>

@@ -9,6 +9,7 @@
         Icon,
         Input,
         Layout, 
+        Select,
         Text 
     } from "$lib";
 </script>
@@ -77,37 +78,68 @@
                 <Input type="text" name="disabled" label="Disabled" placeholder="Disabled" disabled />
                 <Input type="text" name="required" label="Required" placeholder="Required" value="Value" required />
                 <Input type="text" name="errorPresent" label="Error" error="This field is required" required />
-                
-                <Input label="Money in USD" name="money">
+                <Input label="Prefix" name="money">
                     <svelte:fragment slot="prefix">$</svelte:fragment>
                 </Input>
-                
-                <Input label="Amount" type="number" name="amount">
+                <Input label="Suffix" type="text" name="amount">
                     <svelte:fragment slot="suffix">cm</svelte:fragment>
                 </Input>
-    
+                <Input label="Suffix With Number" type="number" name="amountwithNumber">
+                    <svelte:fragment slot="suffix">cm</svelte:fragment>
+                </Input>
                 <Input type="text" name="expanded" expanded label="Expanded" placeholder="Expanded" />
-    
-                <Input label="Money in USD" name="money" expanded>
+                <Input label="Prefix Expanded" name="moneyExpanded" expanded>
                     <svelte:fragment slot="prefix">$</svelte:fragment>
                 </Input>
-    
-                <Input label="Amount" type="number" name="amount" expanded>
+                <Input label="Suffix Expanded" type="number" name="amountExpanded" expanded>
                     <svelte:fragment slot="suffix">cm</svelte:fragment>
                 </Input>
-    
-                <!-- <Input label="Website" bind:value={website}>
-                    <svelte:fragment slot="prefix">https://</svelte:fragment>
+                <Input type="text" name="helpText" label="Help Text" help="This is helper Text" />
+                <Input label="Unit" type="unit" name="unit" placeholder="1234" align="right">
+                    <svelte:fragment slot="suffix">cm</svelte:fragment>
                 </Input>
-    
-                <Input label="Search">
-                <svelte:fragment slot="prefix">
-                    🔍
-                </svelte:fragment>
-                <input placeholder="Search..." />
-                </Input> -->
+                <Input type="email" name="autocomplete" label="Autocomplete" placeholder="example@example.com" autocomplete="email" id="email" />
+                <Input label="Icon Prefix" name="iconPrefix">
+                    <svelte:fragment slot="prefix">
+                        <Icon name="search" />
+                    </svelte:fragment>
+                </Input>
+                <Input label="Icon Prefix 2" name="iconPrefix2">
+                    <svelte:fragment slot="prefix">
+                        <Icon name="phone" />
+                    </svelte:fragment>
+                </Input>
             </Flex>
-            <Flex>
+            <Flex direction="column">
+                <Heading>Icon</Heading>
+                <Flex>
+                    <Select
+                        name="Country"
+                        label="Country"
+                        options={[
+                            { value: 'us', label: 'United States' },
+                            { value: 'ca', label: 'Canada' },
+                            { value: 'mx', label: 'Mexico' },
+                        ]}
+                        placeholder="Choose a country..."
+                    />
+
+                    <Select
+                        name="Role"
+                        label="Role"
+                        options={[
+                            { value: 'developer', label: 'Developer' },
+                            { value: 'designer', label: 'Designer' },
+                        ]}
+                    >
+                        <span slot="prefix">
+                            <Icon name="user" />
+                        </span>
+                    </Select>
+                </Flex>
+            </Flex>
+            <Flex direction="column">
+                <Heading>Card</Heading>
                 <Card>
                     <Text>Card</Text>
                 </Card>

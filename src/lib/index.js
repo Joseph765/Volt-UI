@@ -8,6 +8,7 @@ import Heading from "./components/Heading.svelte";
 import Icon from "./components/Icon.svelte";
 import Input from "./components/Input.svelte";
 import Layout from "./components/Layout.svelte";
+import Select from "./components/Select.svelte";
 import Text from "./components/Text.svelte";
 
 export { 
@@ -20,5 +21,6 @@ export {
     Icon,
     Input,
     Layout,
+    Select,
     Text
 };

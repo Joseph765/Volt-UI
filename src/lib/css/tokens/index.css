@@ -150,11 +150,25 @@
 	--v-danger-10: #ec6142;
 	--v-danger-11: #ff977d;
 	--v-danger-12: #fbd3cb;
+    /* Indigo */
+	--v-highlight-1: #11131f;
+	--v-highlight-2: #141726;
+	--v-highlight-3: #182449;
+	--v-highlight-4: #1d2e62;
+	--v-highlight-5: #253974;
+	--v-highlight-6: #304384;
+	--v-highlight-7: #3a4f97;
+	--v-highlight-8: #435db1;
+	--v-highlight-9: #3e63dd;
+	--v-highlight-10: #5472e4;
+	--v-highlight-11: #9eb1ff;
+	--v-highlight-12: #d6e1ff;
 
     /* Semantic Colors */
     --v-color-background: var(--v-gray-1);
     --v-color-surface: var(--v-gray-2);
     --v-color-accent: var(--v-accent-9);
+	--v-color-highlight:  var(--v-highlight-10);
     --v-color-border: var(--v-gray-4);
     --v-color-text: var(--v-gray-12);
     --v-color-text-weak: var(--v-gray-11);
