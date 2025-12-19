@@ -11,25 +11,26 @@
     letter-spacing: var(--v-letter-spacing-default);
     border: 1px solid var(--v-accent-6);
     border-radius: var(--v-radius-default);
-    background-color: var(--v-color-accent);
+    background-color: var(--v-gray-12);
     height: 32px;
     width: max-content;
-    color: var(--v-color-text);
+    color: var(--v-color-text-contrast);
     cursor: pointer;
     padding-inline: var(--v-space-default);
 }
 
 .v-button:hover {
-    background-color: var(--v-accent-8);
+    background-color: var(--v-gray-11);
 }
 
 .v-button:focus-visible {
     outline: none; 
-    box-shadow: 0 0 0 3px var(--v-color-highlight);
+    box-shadow: 0 0 0 2px var(--v-color-highlight);
 }
 
 .v-button.is-secondary {
     background-color: var(--v-gray-1);
+    color: var(--v-color-text);
     border-color: var(--color-border);
 }
 
@@ -41,6 +42,7 @@
 .v-button.is-ghost {
     background-color: var(--v-gray-1);
     border-color: transparent;
+    color: var(--v-color-text);
 }
 
 .v-button.is-ghost:hover {
@@ -51,6 +53,7 @@
 .v-button.is-danger {
     background-color: var(--v-danger-9);
     border-color: var(--v-danger-6);
+    color: var(--v-color-text);
 }
 
 .v-button.is-danger:hover {
@@ -59,8 +62,7 @@
 }
 
 .v-button:disabled {
-    background-color: var(--v-accent-1);
-    color: var(--v-gray-4);
+    background-color: var(--v-gray-4);
     border-color: var(--v-gray-3);
     cursor: not-allowed;
 }
@@ -239,7 +241,7 @@
 }
 
 .v-input.is-danger:focus {
-    box-shadow: 0 0 0 2px var(--v-color-highlight);
+    box-shadow: 0 0 0 1px var(--v-color-highlight);
 }
 
 .v-input.is-align-right {

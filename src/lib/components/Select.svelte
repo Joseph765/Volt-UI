@@ -155,7 +155,7 @@
     .v-select-wrapper:focus-within {
         outline: none;
         border-color: var(--v-color-highlight);
-        box-shadow: 0 0 0 2px var(--v-color-highlight);
+        box-shadow: 0 0 0 1px var(--v-color-highlight);
     }
 
      .v-select-wrapper:has(.v-select:disabled) {

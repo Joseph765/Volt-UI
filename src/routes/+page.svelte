@@ -2,6 +2,7 @@
     import { 
         Button, 
         Card, 
+        Checkbox,
         Container,
         Display, 
         Flex, 
@@ -12,6 +13,12 @@
         Select,
         Text 
     } from "$lib";
+
+    let agree = false;
+    let notifications = true;
+    /** @type { any } */
+    let fruits = [];
+    let indeterminateParent = true;
 </script>
 
 <svelte:head>
@@ -226,6 +233,42 @@
                         id="customWidth"
                         style="width: 22rem;"
                     />
+                </Flex>
+            </Flex>
+            <Flex direction="column">
+                <Heading>Checkbox</Heading>
+                <Flex direction="column">
+                    <!-- Basic -->
+                    <Checkbox bind:checked={agree} label="I agree to the terms" />
+
+                    <!-- With slot for rich label -->
+                    <Checkbox bind:checked={notifications}>
+                        Send me <strong>email notifications</strong>
+                    </Checkbox>
+
+                    <!-- Group (array binding) -->
+                    {#each ['Apple', 'Banana', 'Orange'] as fruit}
+                        <Checkbox value={fruit} bind:group={fruits} label={fruit} />
+                    {/each}
+
+                    <p>Selected: {fruits.join(', ')}</p>
+
+                    <!-- Indeterminate (e.g. parent checkbox when some children selected) -->
+                    <Checkbox bind:checked={indeterminateParent} indeterminate={fruits.length > 0 && fruits.length < 3}>
+                        Select all fruits
+                    </Checkbox>
+
+                    <!-- Disabled -->
+                    <Checkbox checked disabled label="This is disabled" />
+
+                    <!-- Custom width/styling -->
+                    <Checkbox class="mb-4" style="width: 300px;" label="Full width example" />
+
+                    <!-- Indeterminate -->
+                    <Checkbox label="Indeterminate" indeterminate />
+
+                    <!-- Error -->
+                    <Checkbox label="Has error" error="This field is required" />
                 </Flex>
             </Flex>
             <Flex direction="column">

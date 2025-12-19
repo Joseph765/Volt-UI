@@ -168,9 +168,11 @@
     --v-color-background: var(--v-gray-1);
     --v-color-surface: var(--v-gray-2);
     --v-color-accent: var(--v-accent-9);
-	--v-color-highlight:  var(--v-highlight-10);
+	/* --v-color-highlight:  var(--v-highlight-10); */
+	--v-color-highlight:  var(--v-gray-12);
     --v-color-border: var(--v-gray-4);
     --v-color-text: var(--v-gray-12);
+	--v-color-text-contrast: var(--v-gray-1);
     --v-color-text-weak: var(--v-gray-11);
     --v-color-text-weaker: var(--v-gray-10);
     --v-color-text-weakest: var(--v-gray-8);
