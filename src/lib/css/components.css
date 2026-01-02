@@ -9,7 +9,7 @@
     font-size: var(--v-font-size-default);
     font-weight: 400;
     letter-spacing: var(--v-letter-spacing-default);
-    border: 1px solid var(--v-accent-6);
+    border: 1px solid var(--v-color-text);
     border-radius: var(--v-radius-default);
     background-color: var(--v-gray-12);
     height: 32px;

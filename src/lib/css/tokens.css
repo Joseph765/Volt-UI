@@ -112,7 +112,7 @@
 	--v-accent-11: #b1a9ff;
 	--v-accent-12: #e0dffe; */
     /* Violet */
-	--v-accent-1: #14121f;
+	/* --v-accent-1: #14121f;
 	--v-accent-2: #1b1525;
 	--v-accent-3: #291f43;
 	--v-accent-4: #33255b;
@@ -123,7 +123,7 @@
 	--v-accent-9: #6e56cf;
 	--v-accent-10: #7d66d9;
 	--v-accent-11: #baa7ff;
-	--v-accent-12: #e2ddfe;
+	--v-accent-12: #e2ddfe; */
     /* Ruby */
     /* --v-danger-1: #191113;
     --v-danger-2: #1e1517;
@@ -245,7 +245,7 @@
     --v-color-background: var(--v-gray-1);
     --v-color-surface: var(--v-gray-2);
     --v-color-surface-raised: var(--v-gray-3);
-    --v-color-accent: var(--v-accent-9);
+    /* --v-color-accent: var(--v-accent-9); */
 	--v-color-highlight:  var(--v-gray-12);
     --v-color-border: var(--v-gray-4);
     --v-color-text: var(--v-gray-12);
