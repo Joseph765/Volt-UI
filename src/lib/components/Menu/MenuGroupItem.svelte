@@ -1,0 +1,12 @@
+<script>
+    import { page } from '$app/state'; 
+    
+    /** @type {{ href: string; children?: import('svelte').Snippet }} */
+    let { href, children } = $props();
+    
+    let currentPath = $derived(page.url.pathname);
+</script>
+
+<a {href} class="v-menu-group-item {currentPath === href ? "is-active" : undefined}">
+    {@render children?.()}
+</a>

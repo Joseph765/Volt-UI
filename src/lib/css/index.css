@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
-@import url('./tokens/index.css');
-@import url('./components/index.css');
+@import url('./tokens.css');
+@import url('./components.css');
 
 ::selection {
   background-color: var(--v-highlight-6); /* The highlight color */

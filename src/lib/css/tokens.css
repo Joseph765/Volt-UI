@@ -167,6 +167,7 @@
     /* Semantic Colors */
     --v-color-background: var(--v-gray-1);
     --v-color-surface: var(--v-gray-2);
+    --v-color-surface-raised: var(--v-gray-3);
     --v-color-accent: var(--v-accent-9);
 	/* --v-color-highlight:  var(--v-highlight-10); */
 	--v-color-highlight:  var(--v-gray-12);
