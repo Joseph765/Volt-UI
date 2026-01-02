@@ -69,7 +69,7 @@ code.hljs {
 .hljs-subst,
 .hljs-punctuation,
 .hljs-operator {
-  color: var(--v-color-surface);
+  color: var(--v-color-text);
 }
 
 .hljs-operator {
@@ -86,7 +86,7 @@ code.hljs {
 }
 
 .hljs-template-variable {
-    color: var(--v-highlight-11);
+  color: var(--v-highlight-11);
 }
 
 /* base09 - Integers, Boolean, Constants, XML Attributes, Markup Link Url */
@@ -147,8 +147,9 @@ code.hljs {
 .hljs-template-tag,
 .diff .hljs-meta,
 .hljs-keyword {
-  color: #a71d5d;
+  color: var(--v-success-11);
 }
+
 .hljs-emphasis {
   color: #a71d5d;
   font-style: italic;

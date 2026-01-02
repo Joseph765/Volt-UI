@@ -351,10 +351,12 @@
     color: var(--v-color-text);
     text-decoration: none;
     padding: var(--v-space-m);
+    border-left: 4px solid transparent;
 }
 
 .v-menu-item.is-active {
     background-color: var(--v-color-surface-raised);
+    border-left: 4px solid var(--v-color-text);
 }
 
 .v-menu-item:hover {
@@ -394,6 +396,7 @@
     font-size: var(--v-font-size-m);
     color: var(--v-color-text);
     margin: 0;
+    border-left: 4px solid transparent;
 }
 
 .v-menu-group-items {

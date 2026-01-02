@@ -11,6 +11,7 @@
 
     let options = [
         { value: 'variants', label: 'Example: Variants' },
+        { value: 'disabled', label: 'Example: Disabled' },
         { value: 'icons', label: 'Example: Icons' }
     ];
 
@@ -21,10 +22,10 @@
     <Button variant="secondary">Secondary</Button>
     <Button variant="ghost">Ghost</Button>
     <Button variant="danger">Danger</Button>
-    <Button disabled>Disabled</Button>
 </Flex>`;
+    let example2 = `<Button disabled>Disabled</Button>`;
 
-    let example2 = `<Flex>
+    let example3 = `<Flex>
     <Button>
         <Icon name="plus" slot="start" />
         Add
@@ -57,17 +58,20 @@
         placeholder="Select an example..."
     />
     {#if selectedExample === "variants"}
-        <CodeExample code={example1.trim()}>
+        <CodeExample code={example1}>
             <Flex>
                 <Button>Primary</Button>
                 <Button variant="secondary">Secondary</Button>
                 <Button variant="ghost">Ghost</Button>
                 <Button variant="danger">Danger</Button>
-                <Button disabled>Disabled</Button>
             </Flex>
         </CodeExample>
+    {:else if selectedExample === "disabled"}
+        <CodeExample code={example2}>
+            <Button disabled>Disabled</Button>
+        </CodeExample>
     {:else if selectedExample === "icons"}
-        <CodeExample code={example2.trim()}>
+        <CodeExample code={example3}>
             <Flex>
                 <Button>
                     <Icon name="plus" slot="start" />
@@ -91,37 +95,4 @@
             </Flex>
         </CodeExample>
     {/if}
-    <!-- <Flex>
-        <Button>Primary</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="ghost">Ghost</Button>
-        <Button variant="danger">Danger</Button>
-    </Flex>
-    <Flex>
-        <Button disabled>Disabled Primary</Button>
-        <Button disabled variant="secondary">Disabled Secondary</Button>
-        <Button disabled variant="ghost">Disabled Ghost</Button>
-        <Button disabled variant="danger">Disabled Danger</Button>
-    </Flex>
-    <Flex>
-        <Button>
-            <Icon name="plus" slot="start" />
-            Add
-        </Button>
-        <Button>
-            <Icon name="plus" slot="end" />
-            Add
-        </Button>
-        <Button variant="secondary">
-            <Icon name="minus" slot="start" />
-            Remove
-        </Button>
-        <Button variant="ghost">
-            <Icon name="chevron-down" size="l" />
-        </Button>
-        <Button variant="danger">
-            <Icon name="x" slot="start" />
-            Delete
-        </Button>
-    </Flex> -->
 </Flex>
