@@ -9,7 +9,8 @@
         LayoutLogo, 
         Menu, 
         MenuGroup,
-        MenuGroupItem
+        MenuGroupItem,
+        MenuItem
     } from "$lib";
 </script>
 
@@ -25,6 +26,7 @@
     </LayoutLogo>
     <LayoutNav>
         <Menu>
+            <MenuItem href="/">Home</MenuItem>
             <MenuGroup title="Components">
                 <MenuGroupItem href="/components/button">Button</MenuGroupItem>
                 <MenuGroupItem href="/components/card">Card</MenuGroupItem>

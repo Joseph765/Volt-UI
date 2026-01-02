@@ -1,6 +1,7 @@
 import Button from "./components/Button.svelte";
 import Card from "./components/Card.svelte";
 import Checkbox from "./components/Checkbox.svelte";
+import CodeExample from "./components/CodeExample.svelte";
 import Container from "./components/Container.svelte";
 import Display from "./components/Display.svelte";
 import Flex from "./components/Flex.svelte";
@@ -24,6 +25,7 @@ export {
     Button,
     Card,
     Checkbox,
+    CodeExample,
     Container,
     Display,
     Flex,

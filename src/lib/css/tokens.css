@@ -163,13 +163,38 @@
 	--v-highlight-10: #5472e4;
 	--v-highlight-11: #9eb1ff;
 	--v-highlight-12: #d6e1ff;
+	/* Amber */
+	--v-warning-1: #16120c;
+	--v-warning-2: #1d180f;
+	--v-warning-3: #302008;
+	--v-warning-4: #3f2700;
+	--v-warning-5: #4d3000;
+	--v-warning-6: #5c3d05;
+	--v-warning-7: #714f19;
+	--v-warning-8: #8f6424;
+	--v-warning-9: #ffc53d;
+	--v-warning-10: #ffd60a;
+	--v-warning-11: #ffca16;
+	--v-warning-12: #ffe7b3;
+	/* Grass */
+	--v-success-1: #0e1511;
+	--v-success-2: #141a15;
+	--v-success-3: #1b2a1e;
+	--v-success-4: #1d3a24;
+	--v-success-5: #25482d;
+	--v-success-6: #2d5736;
+	--v-success-7: #366740;
+	--v-success-8: #3e7949;
+	--v-success-9: #46a758;
+	--v-success-10: #53b365;
+	--v-success-11: #71d083;
+	--v-success-12: #c2f0c2;
 
     /* Semantic Colors */
     --v-color-background: var(--v-gray-1);
     --v-color-surface: var(--v-gray-2);
     --v-color-surface-raised: var(--v-gray-3);
     --v-color-accent: var(--v-accent-9);
-	/* --v-color-highlight:  var(--v-highlight-10); */
 	--v-color-highlight:  var(--v-gray-12);
     --v-color-border: var(--v-gray-4);
     --v-color-text: var(--v-gray-12);

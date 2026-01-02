@@ -95,6 +95,11 @@
     padding: var(--v-space-default);
 }
 
+/* Code Example */
+.v-code-example {
+    padding: var(--v-space-m);
+}
+
 /* Container */
 .v-container {
     padding: var(--v-space-xl);
