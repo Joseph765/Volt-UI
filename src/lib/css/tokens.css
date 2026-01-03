@@ -254,4 +254,5 @@
     --v-color-text-weaker: var(--v-gray-10);
     --v-color-text-weakest: var(--v-gray-8);
     --v-color-text-danger: var(--v-danger-9);
+	--v-color-status-danger: var(--v-danger-9);
 }

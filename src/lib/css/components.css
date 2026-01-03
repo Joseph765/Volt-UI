@@ -197,7 +197,7 @@
     display: flex;
     flex-direction: column;
     justify-content: end;
-    gap: var(--v-space-s);
+    gap: var(--v-space-xs);
     -webkit-user-select: none; /* Safari, Chrome, Opera, Android */
     -moz-user-select: none; /* Firefox (historical prefix) */
     -ms-user-select: none; /* IE 10+ (historical prefix) */
@@ -413,6 +413,7 @@
 .v-layout-content {
     grid-area: content;
     background-color: var(--v-color-background);
+    overflow-y: auto;
 }
 
 .v-layout-header {
@@ -434,6 +435,7 @@
     grid-area: nav;
     border-right: 1px solid var(--v-color-border);
     padding: 0;
+    overflow-y: auto;
 }
 
 /* Menu */
@@ -682,4 +684,87 @@
 
 .v-text.is-size-3xl {
     font-size: var(--v-font-size-3xl);
+}
+
+/* Toggle */
+.v-toggle-container {
+    display: flex;
+    align-items: center;
+    gap: var(--v-space-s);
+}
+
+.v-toggle-container.is-danger,
+.v-toggle-container.has-help-text {
+    align-items: flex-start;
+}
+
+.v-toggle-container.is-danger .v-toggle:checked {
+    background-color: var(--v-color-status-danger);
+}
+
+.v-toggle-container.is-danger .v-toggle:checked:before {
+    background-color: var(--v-color-text);
+}
+
+.v-toggle {
+    appearance: none;
+    position: relative;
+    width: 48px;
+    height: 28px;
+    margin: 0;
+    background-color: var(--v-gray-5);
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+.v-toggle:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 5px;
+    background-color: var(--v-color-text);
+    -webkit-transition: .1s;
+    transition: .1s;
+    border-radius: 100%;
+}
+
+.v-toggle:checked:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(22px);
+    background-color: var(--v-color-background);
+}
+
+.v-toggle:checked {
+    background-color: var(--v-color-text);
+}
+
+.v-toggle:disabled {
+    background-color: var(--v-gray-3);
+    cursor: not-allowed;
+}
+
+.v-toggle:disabled:before {
+    background-color: var(--v-gray-9);
+}
+
+.v-toggle:checked:disabled {
+    background-color: var(--v-gray-10);
+}
+
+.v-toggle:checked:disabled:before {
+    background-color: var(--v-gray-6);
+}
+
+.v-toggle-container.is-disabled .v-toggle-label {
+    color: var(--v-color-text-weaker);
+    cursor: not-allowed;
+}
+
+.v-toggle-label {
+    font-family: var(--v-font-body);
+    font-size: var(--v-font-size-m);
+    letter-spacing: var(--v-letter-spacing-default);
 }

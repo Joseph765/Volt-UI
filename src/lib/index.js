@@ -20,6 +20,7 @@ import MenuHeading from "./components/Menu/MenuHeading.svelte";
 import MenuItem from "./components/Menu/MenuItem.svelte";
 import Select from "./components/Select.svelte";
 import Text from "./components/Text.svelte";
+import Toggle from "./components/Toggle.svelte";
 
 export { 
     Button,
@@ -43,5 +44,6 @@ export {
     MenuHeading,
     MenuItem,
     Select,
-    Text
+    Text,
+    Toggle
 };

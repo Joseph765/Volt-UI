@@ -4,11 +4,11 @@
     /** @type {{ title: string; children?: import('svelte').Snippet }} */
     let { title, children } = $props();
 
-    /** @type { string } */
-    let currentPath = $derived(page.url.pathname);
+    // /** @type { string } */
+    // let currentPath = $derived(page.url.pathname);
 
     /** @type { boolean } */
-    let isExpanded = $derived(currentPath.includes("/components"));
+    let isExpanded = $derived(true);
 </script>
 
 <div class="v-menu-group {isExpanded ? "is-expanded" : undefined}">
