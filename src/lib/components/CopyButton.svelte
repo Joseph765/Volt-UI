@@ -26,7 +26,7 @@
 
 <style>
     .v-copy-button {
-        background: transparent;
+        background: var(--v-color-background);
         border: 0;
         display: flex;
         align-items: center;

@@ -9,6 +9,9 @@
     /** @type { HTMLElement } */
     let codeElement;
 
+    /** @type { boolean } */
+    let expanded = false;
+
     onMount(() => {
         codeElement.textContent = code;
         hljs.highlightElement(codeElement);
@@ -19,8 +22,11 @@
     <div class="v-code-example">
         <slot />
     </div>
-    <pre class="v-code-block">
-        <CopyButton copyText={code} style="position: absolute; top: var(--v-space-s); right: var(--v-space-s);" />
+    <pre class="v-code-block {expanded ? "is-expanded" : ""}">
+        <CopyButton copyText={code} style="position: absolute; top: var(--v-space-m); right: var(--v-space-m);" />
         <code bind:this={codeElement} class="language-xml"></code>
+        {#if code.split(/\r\n|\r|\n/).length > 20 && !expanded}
+            <button on:click={() => expanded = !expanded} class="v-code-block-expand-button">{expanded ? "Show Less" : "Show More"}</button>
+        {/if}
     </pre>
 </div>

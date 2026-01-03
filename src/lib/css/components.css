@@ -691,8 +691,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--v-color-text);
-    color: var(--v-color-text-contrast);
+    background: var(--v-color-surface);
+    color: var(--v-color-text);
+    border: 1px solid var(--v-color-border);
     padding: var(--v-space-m);
     border-radius: var(--v-radius-m);
     width: 17rem;
@@ -716,7 +717,7 @@
 }
 
 .v-toast-close:hover {
-    background: var(--v-gray-11);
+    background: var(--v-gray-6);
 }
 
 /* Toast Group */

@@ -1,14 +1,39 @@
 .v-code-block {
     position: relative;
     display: flex;
+    max-height: 20.25rem;
+}
+
+.v-code-block.is-expanded {
+  max-height: 100%;
+}
+
+.v-code-block-expand-button {
+  position: absolute;
+  cursor: pointer;
+  bottom: 0px;
+  width: 100%;
+  height: 32px;
+  border: none;
+  background: var(--v-gray-a3);
+  font-family: var(--v-font-body);
+  font-size: var(--v-font-size-s);
+}
+
+.v-code-block-expand-button:hover {
+  background: var(--v-gray-a4);
+}
+
+.hljs {
+  overflow: hidden;
 }
 
 .v-code-example-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border: 1px solid var(--v-color-border);
-    border-radius: var(--v-radius-m);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--v-color-border);
+  border-radius: var(--v-radius-m);
 }
 
 .v-code-block,
@@ -126,7 +151,7 @@ code.hljs {
 .hljs-quote,
 .hljs-keyword.hljs-atrule,
 .hljs-regexp {
-  color: #183691;
+  color: var(--v-highlight-10);
 }
 
 /* base0D - Functions, Methods, Attribute IDs, Headings */
@@ -135,7 +160,7 @@ code.hljs {
 .ruby .hljs-property,
 .hljs-title.function_,
 .hljs-section {
-  color: #795da3;
+  color: var(--v-success-10);
 }
 
 /* base0E - Keywords, Storage, Selector, Markup Italic, Diff Changed */
@@ -145,9 +170,12 @@ code.hljs {
 /* .hljs-selector-attr, */
 /* .hljs-selector-pseudo, */
 .hljs-template-tag,
-.diff .hljs-meta,
-.hljs-keyword {
+.diff .hljs-meta {
   color: var(--v-success-11);
+}
+
+.hljs-keyword {
+  color: var(--v-danger-10);
 }
 
 .hljs-emphasis {
