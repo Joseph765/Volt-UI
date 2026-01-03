@@ -20,6 +20,8 @@ import MenuHeading from "./components/Menu/MenuHeading.svelte";
 import MenuItem from "./components/Menu/MenuItem.svelte";
 import Select from "./components/Select.svelte";
 import Text from "./components/Text.svelte";
+import Toast from "./components/Toast/Toast.svelte";
+import ToastGroup from "./components/Toast/ToastGroup.svelte";
 import Toggle from "./components/Toggle.svelte";
 
 export { 
@@ -45,5 +47,7 @@ export {
     MenuItem,
     Select,
     Text,
+    Toast,
+    ToastGroup,
     Toggle
 };

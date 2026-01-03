@@ -686,6 +686,50 @@
     font-size: var(--v-font-size-3xl);
 }
 
+/* Toast */
+.v-toast {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--v-color-text);
+    color: var(--v-color-text-contrast);
+    padding: var(--v-space-m);
+    border-radius: var(--v-radius-m);
+    width: 17rem;
+    height: 1.5rem;
+}
+
+.v-toast-message {
+    font-family: var(--v-font-body);
+    font-size: var(--v-font-size-m);
+}
+
+.v-toast-close {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    height: 32px;
+    border-radius: var(--v-radius-m);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.v-toast-close:hover {
+    background: var(--v-gray-11);
+}
+
+/* Toast Group */
+.v-toast-group {
+    position: absolute;
+    right: var(--v-space-xl);
+    bottom: var(--v-space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--v-space-m);
+    overflow: hidden;
+}
+
 /* Toggle */
 .v-toggle-container {
     display: flex;

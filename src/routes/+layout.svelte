@@ -10,7 +10,7 @@
         Menu, 
         MenuGroup,
         MenuGroupItem,
-        MenuItem
+        MenuItem,
     } from "$lib";
 </script>
 
@@ -53,6 +53,7 @@
                 <MenuGroupItem href="/components/menu">Menu</MenuGroupItem>
                 <MenuGroupItem href="/components/select">Select</MenuGroupItem>
                 <MenuGroupItem href="/components/text">Text</MenuGroupItem>
+                <MenuGroupItem href="/components/toast">Toast</MenuGroupItem>
                 <MenuGroupItem href="/components/toggle">Toggle</MenuGroupItem>
             </MenuGroup>
         </Menu>
