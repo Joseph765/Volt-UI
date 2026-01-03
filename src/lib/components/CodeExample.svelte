@@ -10,7 +10,6 @@
     let codeElement;
 
     onMount(() => {
-        console.log(codeElement);
         codeElement.textContent = code;
         hljs.highlightElement(codeElement);
     });

@@ -1,10 +1,59 @@
 <script>
     import { 
+        Checkbox,
+        CodeExample,
         Flex, 
         Heading,
+        Select,
+        Text
     } from "$lib";
+
+    let options = [
+        { value: 'basic', label: 'Example: Basic' },
+        { value: 'disabled', label: 'Example: Disabled' },
+        { value: 'indeterminate', label: 'Example: Indeterminate' },
+        { value: 'error', label: 'Example: Error' },
+        { value: 'customStyle', label: 'Example: Custom Style' }
+    ];
+
+    let selectedExample = 'basic';
+
+    let example1 = `<Checkbox label="I agree to the terms" />`;
+    let example2 = `<Checkbox checked disabled label="This is disabled" />`;
+    let example3 = `<Checkbox label="Indeterminate" indeterminate />`;
+    let example4 = `<Checkbox label="Has error" error="This field has error" />`;
+    let example5 = `<Checkbox style="width: 300px;" label="Custom style example" />`;
 </script>
 
 <Flex direction="column">
     <Heading>Checkbox</Heading>
+    <Text>Checkboxes allow user to choose one or more options from a limited set of options. If you have more than 10 options, please use Select component instead.</Text>
+    <Select
+        name="Country"
+        bind:options={options}
+        bind:value={selectedExample}
+        placeholder="Select an example..."
+        style={selectedExample === "customStyle" || selectedExample === "indeterminate" ? "width: 13rem;" : ""}
+    />
+    {#if selectedExample === "basic"}
+        <CodeExample code={example1}>
+            <Checkbox label="I agree to the terms" />
+        </CodeExample>
+    {:else if selectedExample === "disabled"}
+        <CodeExample code={example2}>
+           <Checkbox checked disabled label="This is disabled" />
+        </CodeExample>
+    {:else if selectedExample === "indeterminate"}
+        <CodeExample code={example3}>
+            <Checkbox label="Indeterminate" indeterminate />
+        </CodeExample>
+    {:else if selectedExample === "error"}
+        <CodeExample code={example4}>
+            <Checkbox label="Has error" error="This field has error" />
+        </CodeExample>
+    {:else if selectedExample === "customStyle"}
+        <CodeExample code={example5}>
+            <Checkbox style="width: 300px;" label="Custom style example" />
+        </CodeExample>
+    {/if}
 </Flex>

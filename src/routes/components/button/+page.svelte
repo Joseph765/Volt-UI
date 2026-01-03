@@ -24,7 +24,6 @@
     <Button variant="danger">Danger</Button>
 </Flex>`;
     let example2 = `<Button disabled>Disabled</Button>`;
-
     let example3 = `<Flex>
     <Button>
         <Icon name="plus" slot="start" />
