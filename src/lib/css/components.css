@@ -691,13 +691,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--v-color-surface);
+    background: var(--v-color-surface-raised);
     color: var(--v-color-text);
-    border: 1px solid var(--v-color-border);
+    border: 1px solid var(--v-gray-7);
     padding: var(--v-space-m);
     border-radius: var(--v-radius-m);
     width: 17rem;
     height: 1.5rem;
+}
+
+.v-toast.is-danger {
+    background-color: var(--v-danger-4);
+    border-color: var(--v-danger-7)
+}
+
+.v-toast.is-danger .v-toast-dismiss:hover {
+    background-color: var(--v-danger-6);
 }
 
 .v-toast-message {
@@ -705,7 +714,7 @@
     font-size: var(--v-font-size-m);
 }
 
-.v-toast-close {
+.v-toast-dismiss {
     border: none;
     background: transparent;
     cursor: pointer;
@@ -716,7 +725,7 @@
     align-items: center;
 }
 
-.v-toast-close:hover {
+.v-toast-dismiss:hover {
     background: var(--v-gray-6);
 }
 

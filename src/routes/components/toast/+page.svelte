@@ -13,8 +13,7 @@
 
     let options = $state([
         { value: 'basic', label: 'Example: Basic' },
-        { value: 'disabled', label: 'Example: Disabled' },
-        { value: 'icons', label: 'Example: Icons' }
+        { value: 'danger', label: 'Example: Danger' }
     ]);
 
     let selectedExample = $state('basic');
@@ -61,27 +60,28 @@
     }
 <\/script>
 
+<Button onclick={() => addToast("Copied to clipboard", "neutral")}>Add Toast</Button>
+
 <ToastGroup>
     {#each toasts as toast (toast.id)}
         <Toast id={toast.id} onDismiss={() => removeToast(toast.id)}>{toast.message}</Toast>
     {/each}
 </ToastGroup>`;
-    let example2 = ``;
-    let example3 = ``;
-
+    let example2 = `<script>
     /**
      * @typedef { object } Toast
      * @property { string } id - Id of Toast
      * @property { string } message - Message displayed on Toast
      * @property { NodeJS.Timeout } timeoutId - Id to clear timeout set on Toast
+     * @property { 'neutral' | 'danger' } status - Status of Toast
     */
 
     /** @type { Toast[] } */
     let toasts = $state([]);
     let nextId = $state(1);
 
-    /** @param { string } message - Message displayed on Toast */
-    function addToast(message) {
+    /** @param { string } message @param { 'neutral' | 'danger' } status - Message displayed on Toast */
+    function addToast(message, status) {
         // Auto-dismiss after 5 seconds
         const timeoutId = setTimeout(() => {
             removeToast(newToast.id);
@@ -91,7 +91,59 @@
         const newToast = { 
             id: nextId.toString(),
             message: message,
-            timeoutId: timeoutId
+            timeoutId: timeoutId,
+            status: status
+        }
+
+        toasts = [...toasts, newToast];
+        nextId++;
+    }
+
+    /** @param { string } id - id of Toast*/
+    function removeToast(id) {
+        // Clear timeout if it exists
+        const toast = toasts.find((t) => t.id === id);
+        if (toast?.timeoutId) {
+            clearTimeout(toast.timeoutId);
+        }
+
+        toasts = toasts.filter((t) => t.id !== id);
+    }
+<\/script>
+
+<Button onclick={() => addToast("No internet connection", "danger")}>Danger Toast</Button>
+
+<ToastGroup>
+    {#each toasts as toast (toast.id)}
+        <Toast id={toast.id} onDismiss={() => removeToast(toast.id)} status={toast.status}>{toast.message}</Toast>
+    {/each}
+</ToastGroup>`;
+
+    /**
+     * @typedef { object } Toast
+     * @property { string } id - Id of Toast
+     * @property { string } message - Message displayed on Toast
+     * @property { NodeJS.Timeout } timeoutId - Id to clear timeout set on Toast
+     * @property { 'neutral' | 'danger' } status - Status of Toast
+    */
+
+    /** @type { Toast[] } */
+    let toasts = $state([]);
+    let nextId = $state(1);
+
+    /** @param { string } message @param { 'neutral' | 'danger' } status - Message displayed on Toast */
+    function addToast(message, status) {
+        // Auto-dismiss after 5 seconds
+        const timeoutId = setTimeout(() => {
+            removeToast(newToast.id);
+        }, 2000);
+
+        /** @type { Toast } */
+        const newToast = { 
+            id: nextId.toString(),
+            message: message,
+            timeoutId: timeoutId,
+            status: status
         }
 
         toasts = [...toasts, newToast];
@@ -121,63 +173,17 @@
     />
     {#if selectedExample === "basic"}
         <CodeExample code={example1}>
-            <Button onclick={() => addToast("Copied to clipboard")}>Add Toast</Button>
+            <Button onclick={() => addToast("Copied to clipboard", "neutral")}>Add Toast</Button>
         </CodeExample>
-    {:else if selectedExample === "disabled"}
+    {:else if selectedExample === "danger"}
         <CodeExample code={example2}>
-
-        </CodeExample>
-    {:else if selectedExample === "icons"}
-        <CodeExample code={example3}>
-
+            <Button onclick={() => addToast("No internet connection", "danger")}>Danger Toast</Button>
         </CodeExample>
     {/if}
 </Flex>
 
-<!-- <script>
-    /**
-     * @typedef { object } Toast
-     * @property { string } id - Id of Toast
-     * @property { string } message - Message displayed on Toast
-     * @property { NodeJS.Timeout } timeoutId - Id to clear timeout set on Toast
-    */
-
-    /** @type { Toast[] } */
-    let toasts = $state([]);
-    let nextId = $state(1);
-
-    /** @param { string } message - Message displayed on Toast */
-    function addToast(message) {
-        // Auto-dismiss after 5 seconds
-        const timeoutId = setTimeout(() => {
-            removeToast(newToast.id);
-        }, 2000);
-
-        /** @type { Toast } */
-        const newToast = { 
-            id: nextId.toString(),
-            message: message,
-            timeoutId: timeoutId
-        }
-
-        toasts = [...toasts, newToast];
-        nextId++;
-    }
-
-    /** @param { string } id - id of Toast*/
-    function removeToast(id) {
-        // Clear timeout if it exists
-        const toast = toasts.find((t) => t.id === id);
-        if (toast?.timeoutId) {
-            clearTimeout(toast.timeoutId);
-        }
-
-        toasts = toasts.filter((t) => t.id !== id);
-    }
-</script> -->
-
 <ToastGroup>
     {#each toasts as toast (toast.id)}
-        <Toast id={toast.id} onDismiss={() => removeToast(toast.id)}>{toast.message}</Toast>
+        <Toast id={toast.id} onDismiss={() => removeToast(toast.id)} status={toast.status}>{toast.message}</Toast>
     {/each}
 </ToastGroup>
