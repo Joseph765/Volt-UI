@@ -31,7 +31,7 @@
     <Badge variant="success" strong>Success</Badge>
 </Flex>`;
     let example3 = `<Badge variant="success">
-    <Icon name="arrow-big-up" slot="icon" size="s" />
+    <Icon name="chevron-up" slot="icon" size="s" />
     22%
 </Badge>`;
 </script>
