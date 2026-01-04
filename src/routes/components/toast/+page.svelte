@@ -28,6 +28,7 @@
 
     /** @type { Toast[] } */
     let toasts = $state([]);
+    /** @type { number } */
     let nextId = $state(1);
 
     /** @param { string } message - Message displayed on Toast */
@@ -78,6 +79,7 @@
 
     /** @type { Toast[] } */
     let toasts = $state([]);
+    /** @type { number } */
     let nextId = $state(1);
 
     /** @param { string } message @param { 'neutral' | 'danger' } status - Message displayed on Toast */
@@ -129,6 +131,7 @@
 
     /** @type { Toast[] } */
     let toasts = $state([]);
+    /** @type { number } */
     let nextId = $state(1);
 
     /** @param { string } message @param { 'neutral' | 'danger' } status - Message displayed on Toast */

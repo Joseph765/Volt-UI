@@ -14,6 +14,7 @@
         { value: 'types', label: 'Example: Types' },
         { value: 'disabled', label: 'Example: Disabled' },
         { value: 'required', label: 'Example: Required' },
+        { value: 'error', label: 'Example: Error' },
         { value: 'prefixAndSuffix', label: 'Example: Prefix & Suffix' },
         { value: 'expanded', label: 'Example: Expanded' },
         { value: 'helpText', label: 'Example: Help Text' },
@@ -52,6 +53,7 @@
     </Input>
 </Flex>`;
     let example8 = `<Input type="text" name="custom" label="Custom Width" style="width: 22rem;" />`;
+    let example9 = `<Input type="text" name="errorPresent" label="Error" error="Incorrect format" />`;
 </script>
 
 <Flex direction="column">
@@ -78,6 +80,10 @@
     {:else if selectedExample === "required"}
         <CodeExample code={example3}>
             <Input type="text" name="required" label="Required" placeholder="Required" value="Value" required />
+        </CodeExample>
+    {:else if selectedExample === "error"}
+        <CodeExample code={example9}>
+            <Input type="text" name="errorPresent" label="Error" error="Incorrect format" />
         </CodeExample>
     {:else if selectedExample === "prefixAndSuffix"}
         <CodeExample code={example4}>

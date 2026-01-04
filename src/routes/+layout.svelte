@@ -50,7 +50,8 @@
                 <!-- <MenuGroupItem href="/components/icon">Icon</MenuGroupItem> -->
                 <MenuGroupItem href="/components/input">Input</MenuGroupItem>
                 <!-- <MenuGroupItem href="/components/layout">Layout</MenuGroupItem> -->
-                <!-- <MenuGroupItem href="/components/menu">Menu</MenuGroupItem> -->
+                <MenuGroupItem href="/components/menu">Menu</MenuGroupItem>
+                <MenuGroupItem href="/components/radio">Radio</MenuGroupItem>
                 <MenuGroupItem href="/components/select">Select</MenuGroupItem>
                 <MenuGroupItem href="/components/text">Text</MenuGroupItem>
                 <MenuGroupItem href="/components/toast">Toast</MenuGroupItem>

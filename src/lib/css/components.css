@@ -227,6 +227,29 @@
     padding: 0;
 }
 
+/* Fieldset */
+.v-fieldset {
+    position: relative;
+    border: none;
+    padding: 0;
+    padding-top: var(--v-space-s);
+}
+
+.v-fieldset-legend {
+    display: flex;
+    gap: var(--v-space-xs);
+}
+
+.v-fieldset-required {
+    font-size: var(--v-font-size-s);
+    color: var(--v-danger-9);
+}
+
+.v-fieldset-label {
+    font-family: var(--v-font-body);
+    font-size: var(--v-font-size-m);
+}
+
 /* Flex */
 .v-flex {
     display: flex;
@@ -534,6 +557,94 @@
 
 .v-menu-group-item:hover {
     background-color: var(--v-color-surface-raised);
+}
+
+/* Radio */
+.v-radio-wrapper .v-radio {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.v-radio-wrapper .v-radio-label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 20px;
+}
+
+.v-radio-wrapper .v-radio-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--v-color-border);
+    border-radius: 50%;
+    background: var(--v-color-surface-raised);
+    margin: 0;
+    padding: 0;
+}
+
+.v-radio-wrapper.is-danger .v-radio-label::before {
+    border-color: var(--v-color-status-danger);
+}
+
+.v-radio-wrapper.is-danger .v-radio:checked + .v-radio-label::before {
+    background-color: var(--v-color-status-danger);
+    border-color: var(--v-color-status-danger);
+}
+
+.v-radio-label {
+    font-family: var(--v-font-body);
+    font-size: var(--v-font-size-m);
+    letter-spacing: var(--v-letter-spacing-default);
+}
+
+.v-radio-wrapper.has-help-text .v-radio-label,
+.v-radio-wrapper.is-danger .v-radio-label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--v-space-xs);
+}
+
+.v-radio-wrapper.is-disabled .v-radio-label {
+    color: var(--v-color-text-weakest);
+    cursor: not-allowed;
+}
+
+.v-radio-wrapper.is-disabled .v-radio-label::before {
+    background-color: var(--v-gray-3);
+}
+
+.v-radio-wrapper.is-disabled .v-radio:checked + .v-radio-label::before {
+    background-color: var(--v-gray-9);
+    border-color: var(--v-color-border);
+}
+
+.v-radio-wrapper .v-radio:checked + .v-radio-label::before {
+    border-color: var(--v-color-text);
+    background-color: var(--v-color-text);
+}
+
+.v-radio-wrapper .v-radio-label::after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    background: var(--v-color-background);
+    border-radius: 50%;
+}
+
+.v-radio-wrapper .v-radio:checked + .v-radio-label::after {
+    display: block;
 }
 
 /* Select  */
