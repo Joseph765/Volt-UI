@@ -34,6 +34,7 @@
     /* Border Radius */
     --v-radius-default: 3px;
     --v-radius-m: 3px;
+	--v-radius-rounded: 9999px;
 
     /* Core Colors */
 	/* Gray */
@@ -268,5 +269,8 @@
     --v-color-text-weaker: var(--v-gray-10);
     --v-color-text-weakest: var(--v-gray-8);
     --v-color-text-danger: var(--v-danger-9);
+	--v-color-status-neutral: var(--v-gray-9);
 	--v-color-status-danger: var(--v-danger-9);
+	--v-color-status-warning: var(--v-warning-9);
+	--v-color-status-success: var(--v-success-9);
 }

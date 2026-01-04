@@ -40,6 +40,7 @@
                 <MenuGroupItem href="/tokens/radius">Radius</MenuGroupItem>
             </MenuGroup> -->
             <MenuGroup title="Components">
+                <MenuGroupItem href="/components/badge">Badge</MenuGroupItem>
                 <MenuGroupItem href="/components/button">Button</MenuGroupItem>
                 <!-- <MenuGroupItem href="/components/card">Card</MenuGroupItem> -->
                 <MenuGroupItem href="/components/checkbox">Checkbox</MenuGroupItem>

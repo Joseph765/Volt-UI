@@ -1,4 +1,54 @@
 
+/* Badge */
+.v-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--v-space-xs);
+    width: min-content;
+    font-family: var(--v-font-body);
+    font-size: var(--v-font-size-s);
+    background-color: var(--v-color-surface);
+    border: 1px solid var(--v-color-border);
+    border-radius: var(--v-radius-rounded);
+    padding: var(--v-space-xs) var(--v-space-m);
+}
+
+.v-badge.is-strong {
+    background-color: var(--v-color-status-neutral);
+    border-color: var(--v-gray-10);
+}
+
+.v-badge.is-danger {
+    background-color: var(--v-danger-4);
+    border-color: var(--v-danger-7);
+}
+
+.v-badge.is-danger.is-strong {
+    background-color: var(--v-color-status-danger);
+    border-color: var(--v-danger-10);
+}
+
+.v-badge.is-warning {
+    background-color: var(--v-warning-4);
+    border-color: var(--v-warning-7);
+}
+
+.v-badge.is-warning.is-strong {
+    background-color: var(--v-color-status-warning);
+    border-color: var(--v-warning-10);
+    color: var(--v-color-text-contrast);
+}
+
+.v-badge.is-success {
+    background-color: var(--v-success-4);
+    border-color: var(--v-success-7);
+}
+
+.v-badge.is-success.is-strong {
+    background-color: var(--v-color-status-success);
+    border-color: var(--v-success-10);
+}
+
 /* Button */
 .v-button {
     display: flex;
