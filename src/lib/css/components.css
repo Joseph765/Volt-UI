@@ -108,6 +108,10 @@
     align-items: flex-start;
 }
 
+.v-checkbox-wrapper.is-danger:hover .v-checkbox-box {
+    border-color: var(--v-danger-10);
+}
+
 .v-checkbox-wrapper:has(input:disabled) {
     opacity: 0.6;
     cursor: not-allowed;
@@ -140,6 +144,11 @@
 
 .v-checkbox-wrapper:hover .v-checkbox-box {
     border-color: var(--v-gray-9);
+}
+
+.v-checkbox-wrapper.is-danger .v-checkbox-input:checked ~ .v-checkbox-box {
+    background-color: var(--v-color-status-danger);
+    border-color: var(--v-color-status-danger);
 }
 
 .v-checkbox-input:checked ~ .v-checkbox-box {
