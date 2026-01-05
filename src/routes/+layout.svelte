@@ -28,7 +28,9 @@
         <LayoutMenuButton on:click={() => open = !open}></LayoutMenuButton>
     </LayoutHeader>
     <LayoutLogo>
-        <Display>Volt</Display>
+        <Display>
+            <a href="/" style="color: var(--v-color-text); text-decoration: none;">Volt</a>
+        </Display>
     </LayoutLogo>
     <LayoutNav {open}>
         <Menu>
