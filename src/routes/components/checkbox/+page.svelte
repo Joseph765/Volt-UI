@@ -26,7 +26,7 @@
 
 <Flex direction="column">
     <Text size="3xl" weight="bold" as="h2">Checkbox</Text>
-    <Text>Checkboxes allow user to choose one or more options from a limited set of options. If you have more than 10 options, please use Select component instead.</Text>
+    <Text size="xl" variant="weak">Checkboxes allow user to choose one or more options from a limited set of options. If you have more than 10 options, please use Select component instead.</Text>
     <Select
         name="Country"
         bind:options={options}

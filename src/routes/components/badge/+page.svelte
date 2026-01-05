@@ -36,7 +36,7 @@
 
 <Flex direction="column">
     <Text size="3xl" weight="bold" as="h2">Badge</Text>
-    <Text>Badges are used to inform users of the status of an object or of an action that's been taken. Commonly used in tabular data to indicate status.</Text>
+    <Text size="xl" variant="weak">Badges are used to inform users of the status of an object or of an action that's been taken. Commonly used in tabular data to indicate status.</Text>
     <Select
         name="Country"
         bind:options={options}

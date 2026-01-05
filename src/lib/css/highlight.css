@@ -35,7 +35,7 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  border: 1px solid var(--v-color-border);
+  /* border: 1px solid var(--v-color-border); */
   border-radius: var(--v-radius-m);
   width: 100%;
 }
@@ -58,7 +58,7 @@ pre code.hljs {
   display: block;
   overflow-x: auto;
   padding: var(--v-space-m);
-  border-top: 1px solid var(--v-color-border);
+  border: 1px solid var(--v-color-border);
   margin: 0;
 }
 

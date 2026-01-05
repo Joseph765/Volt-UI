@@ -267,11 +267,27 @@
     }
 }
 
+/* Code */
+.v-code {
+    font-family: var(--v-font-mono);
+    font-size: var(--v-font-size-m);
+    font-weight: 400;
+    line-height: var(--v-line-height-m);
+    background: var(--v-gray-5);
+    padding-inline: var(--v-space-s);
+    border-radius: var(--v-radius-m);
+}
+
 /* Code Example */
 .v-code-example {
     max-height: 33dvh;
     overflow-y: auto;
     padding: var(--v-space-m);
+    border-top: 1px solid var(--v-color-border);
+    border-right: 1px solid var(--v-color-border);
+    border-bottom: 0;
+    border-left: 1px solid var(--v-color-border);
+    resize: horizontal;
 }
 
 /* Container */
@@ -318,11 +334,23 @@
     gap: var(--v-space-default);
     flex-direction: row;
     justify-content: start;
-    flex-wrap: wrap;
+    width: 100%;
+}
+
+.v-flex.has-direction-row {
+    flex-direction: row;
 }
 
 .v-flex.has-direction-column {
     flex-direction: column;
+}
+
+.v-flex.has-direction-column-reverse {
+    flex-direction: column-reverse;
+}
+
+.v-flex.has-direction-row-reverse {
+    flex-direction: row-reverse;
 }
 
 .v-flex.is-justify-between {
@@ -347,6 +375,82 @@
 
 .v-flex.has-gap-2xl {
     gap: var(--v-space-2xl);
+}
+
+.v-flex.has-flex-wrap {
+    flex-wrap: wrap;
+}
+
+.v-flex.has-flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+.v-flex.has-justify-start {
+    justify-content: start;
+}
+
+.v-flex.has-justify-end {
+    justify-content: end;
+}
+
+.v-flex.has-justify-flex-start {
+    justify-content: flex-start;
+}
+
+.v-flex.has-justify-flex-end {
+    justify-content: flex-end;
+}
+
+.v-flex.has-justify-center {
+    justify-content: center;
+}
+
+.v-flex.has-justify-space-between {
+    justify-content: space-between;
+}
+
+.v-flex.has-justify-space-around {
+    justify-content: space-around;
+}
+
+.v-flex.has-justify-space-evenly {
+    justify-content: space-evenly;
+}
+
+.v-flex.is-align-strech {
+    align-items: stretch;
+}
+
+.v-flex.is-align-flex-start {
+    align-items: flex-start;
+}
+
+.v-flex.is-align-flex-end {
+    align-items: flex-end;
+}
+
+.v-flex.is-align-center {
+    align-items: center;
+}
+
+.v-flex.is-align-baseline {
+    align-items: baseline;
+}
+
+.v-flex.is-align-start {
+    align-items: start;
+}
+
+.v-flex.is-align-end {
+    align-items: end;
+}
+
+.v-flex.is-align-self-start {
+    align-items: self-start;
+}
+
+.v-flex.is-align-self-end {
+    align-items: self-end;
 }
 
 /* Help Text */

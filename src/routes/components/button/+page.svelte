@@ -48,7 +48,7 @@
 
 <Flex direction="column">
     <Text size="3xl" weight="bold" as="h2">Button</Text>
-    <Text>Buttons are used for interface actions. Primary style should be used only once per section for main call-to-action, while other styles can appear more frequently.</Text>
+    <Text size="xl" variant="weak">Buttons are used for interface actions. Primary style should be used only once per section for main call-to-action, while other styles can appear more frequently.</Text>
     <Select
         name="Country"
         bind:options={options}

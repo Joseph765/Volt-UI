@@ -2,6 +2,7 @@ import Badge from "./components/Badge.svelte";
 import Button from "./components/Button.svelte";
 import Card from "./components/Card.svelte";
 import Checkbox from "./components/Checkbox.svelte";
+import Code from "./components/Code.svelte";
 import CodeExample from "./components/CodeExample.svelte";
 import Container from "./components/Container.svelte";
 import Fieldset from "./components/Fieldset.svelte";
@@ -30,6 +31,7 @@ export {
     Button,
     Card,
     Checkbox,
+    Code,
     CodeExample,
     Container,
     Fieldset,
