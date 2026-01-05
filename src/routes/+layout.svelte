@@ -9,7 +9,6 @@
         LayoutNav, 
         NavGroup,
         NavGroupItem,
-        NavItem,
         Text
     } from "$lib";
 
@@ -56,7 +55,7 @@
             <!-- <NavGroupItem href="/components/flex">Flex</NavGroupItem> -->
             <!-- <NavGroupItem href="/components/icon">Icon</NavGroupItem> -->
             <NavGroupItem href="/components/input">Input</NavGroupItem>
-            <!-- <NavGroupItem href="/components/layout">Layout</NavGroupItem> -->
+            <NavGroupItem href="/components/layout">Layout</NavGroupItem>
             <NavGroupItem href="/components/link">Link</NavGroupItem>
             <NavGroupItem href="/components/navigation">Navigation</NavGroupItem>
             <NavGroupItem href="/components/radio">Radio</NavGroupItem>

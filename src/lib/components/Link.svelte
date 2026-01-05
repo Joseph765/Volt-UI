@@ -7,11 +7,15 @@
 
     /** @type { string } */
     export let target = "";
+
+    /** @type { string } */
+    export let style = "";
 </script>
 
 <a
     {href}
     {target}
+    {style}
     rel={target === "_blank" ? "noopener noreferrer" : undefined}
     class="v-link is-size-{size}"
 >

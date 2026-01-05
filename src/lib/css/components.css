@@ -269,6 +269,8 @@
 
 /* Code Example */
 .v-code-example {
+    max-height: 32rem;
+    overflow-y: auto;
     padding: var(--v-space-m);
 }
 
