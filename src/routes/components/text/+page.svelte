@@ -1,9 +1,7 @@
 <script>
-    import { 
-        Button, 
+    import {
         CodeExample,
-        Flex, 
-        Icon,
+        Flex,
         Select,
         Text
     } from "$lib";
