@@ -1,4 +1,5 @@
 <script>
+    import { beforeNavigate } from "$app/navigation";
     import {
         CodeExample,
         Container,
@@ -26,9 +27,21 @@
     /** @type { boolean } */
     let open = false;
 
+    beforeNavigate(() => {
+        // Closes navigation when navigating to a new page
+        open = false;
+    });
+
     let example1 = `<script>
+    import { beforeNavigate } from "$app/navigation";
+
     /** @type { boolean } */
     let open = false;
+
+    beforeNavigate(() => {
+        // Closes navigation when navigating to a new page
+        open = false;
+    });
 <\/script>
 
 <Layout>

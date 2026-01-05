@@ -1,4 +1,6 @@
 <script>
+    import { beforeNavigate } from "$app/navigation";
+
     import { 
         Container, 
         Layout, 
@@ -14,6 +16,11 @@
 
     /** @type { boolean } */
     let open = false;
+
+    beforeNavigate(() => {
+        // Closes navigation when navigating to a new page
+        open = false;
+    });
 </script>
 
 <svelte:head>

@@ -1,7 +1,7 @@
 <script>
     import { page } from '$app/state'; 
     
-    /** @type {{ href: string; children?: import('svelte').Snippet }} */
+    /** @type {{ href: string; children?: import('svelte').Snippet;}} */
     let { href, children } = $props();
     
     let currentPath = $derived(page.url.pathname);
