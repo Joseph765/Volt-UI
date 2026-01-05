@@ -5,6 +5,7 @@ import Checkbox from "./components/Checkbox.svelte";
 import Code from "./components/Code.svelte";
 import CodeExample from "./components/CodeExample.svelte";
 import Container from "./components/Container.svelte";
+import CopyCode from "./components/CopyCode.svelte";
 import Fieldset from "./components/Fieldset.svelte";
 import Flex from "./components/Flex.svelte";
 import Icon from "./components/Icon.svelte";
@@ -34,6 +35,7 @@ export {
     Code,
     CodeExample,
     Container,
+    CopyCode,
     Fieldset,
     Flex,
     Icon,

@@ -60,13 +60,13 @@
     font-weight: 400;
     letter-spacing: var(--v-letter-spacing-default);
     border: 1px solid var(--v-color-text);
-    border-radius: var(--v-radius-default);
+    border-radius: var(--v-radius-m);
     background-color: var(--v-gray-12);
     height: 32px;
     width: max-content;
     color: var(--v-color-text-contrast);
     cursor: pointer;
-    padding-inline: var(--v-space-default);
+    padding-inline: var(--v-space-m);
 }
 
 .v-button:focus-visible {
@@ -144,7 +144,7 @@
 .v-card {
     background-color: var(--v-gray-2);
     border: 1px solid var(--v-color-border);
-    padding: var(--v-space-default);
+    padding: var(--v-space-m);
 }
 
 /* Checkbox */
@@ -179,7 +179,7 @@
     height: 1.25rem;
     flex-shrink: 0;
     border: 1px solid var(--v-gray-7);
-    border-radius: var(--v-radius-default);
+    border-radius: var(--v-radius-m);
     background-color: var(--v-color-surface);
     display: flex;
     align-items: center;
@@ -276,6 +276,9 @@
     background: var(--v-gray-5);
     padding-inline: var(--v-space-s);
     border-radius: var(--v-radius-m);
+    width: min-content;
+    height: min-content;
+    white-space: nowrap;
 }
 
 /* Code Example */
@@ -333,8 +336,22 @@
 
 @media (min-width: 82rem) {
     .v-container {
-        padding: var(--v-space-xl);
+        padding: var(--v-space-2xl);
     }
+}
+
+/* Copy Code */
+.v-copy-code {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--v-font-mono);
+    font-size: var(--v-font-size-m);
+    line-height: var(--v-line-height-m);
+    background: var(--v-color-surface-raised);
+    padding: var(--v-space-s);
+    border: 1px solid var(--v-color-border);
+    border-radius: var(--v-radius-m);
 }
 
 /* Fieldset */
@@ -363,7 +380,7 @@
 /* Flex */
 .v-flex {
     display: flex;
-    gap: var(--v-space-default);
+    gap: var(--v-space-m);
     flex-direction: row;
     justify-content: start;
     align-items: initial;
@@ -949,7 +966,7 @@
     align-items: center;
     background-color: var(--v-color-surface);
     border: 1px solid var(--v-color-border);
-    border-radius: var(--v-radius-default);
+    border-radius: var(--v-radius-m);
     width: 12rem;
 }
 
@@ -1115,6 +1132,18 @@
 
 .v-text.has-weight-bold {
     font-weight: 600;
+}
+
+.v-text.has-measure-s {
+    max-width: 40ch;
+}
+
+.v-text.has-measure-m {
+    max-width: 60ch;
+}
+
+.v-text.has-measure-l {
+    max-width: 80ch;
 }
 
 /* Toast */

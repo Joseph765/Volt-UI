@@ -12,21 +12,7 @@
     --v-font-size-2xl: 1.5rem; /* 24px */
     --v-font-size-3xl: 2.25rem; /* 36px */
 
-    /* Letter Spacing */
-    /* --v-letter-spacing-s: 0.075px;
-    --v-letter-spacing-default: 0.25px;
-    --v-letter-spacing-m: 0.25px;
-	--v-letter-spacing-l: 0.5px;
-	--v-letter-spacing-xl: 0.75px; */
-
 	/* Line Height */
-	/* --v-line-height-xs: calc(1 / 0.50);
-	--v-line-height-s: calc(1 / 0.75);
-	--v-line-height-m: calc(1.25 / 0.875);
-	--v-line-height-l: calc(1.5 / 1);
-	--v-line-height-xl: calc(1.75 / 1.25);
-	--v-line-height-2xl: calc(2 / 1.5);
-	--v-line-height-3xl: calc(2.5 / 2.25); */
 	--v-line-height-xs: 1.8;
 	--v-line-height-s: 1.7;
 	--v-line-height-m: 1.6;
@@ -38,14 +24,12 @@
     /* Space */
     --v-space-xs: 0.25rem; /* 4px */
     --v-space-s: 0.5rem; /* 8px */
-    --v-space-default: 1rem; /* 16px */
     --v-space-m: 1rem; /* 16px */
     --v-space-l: 1.5rem; /* 24px */
     --v-space-xl: 2.25rem; /* 36px */
     --v-space-2xl: 4.5rem; /* 72px */
 
     /* Border Radius */
-    --v-radius-default: 3px;
     --v-radius-m: 3px;
 	--v-radius-rounded: 9999px;
 

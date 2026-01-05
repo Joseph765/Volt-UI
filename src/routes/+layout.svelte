@@ -48,32 +48,34 @@
             <NavGroupItem href="/">Forms</NavGroupItem>
         </MenuGroup> -->
         <NavGroup title="Design Tokens">
-            <NavGroupItem href="/tokens#color">Color</NavGroupItem>
-            <NavGroupItem href="/tokens/typography">Typography</NavGroupItem>
-            <NavGroupItem href="/tokens/space">Space</NavGroupItem>
-            <NavGroupItem href="/tokens/radius">Radius</NavGroupItem>
+            <NavGroupItem href="/tokens#color">Colors</NavGroupItem>
+            <NavGroupItem href="/tokens#font-size">Font Size</NavGroupItem>
+            <NavGroupItem href="/tokens#line-height">Line Height</NavGroupItem>
+            <NavGroupItem href="/tokens#space">Space</NavGroupItem>
+            <NavGroupItem href="/tokens#radius">Radius</NavGroupItem>
         </NavGroup>
         <NavGroup title="Components">
             <NavGroupItem href="/components/badge">Badge</NavGroupItem>
             <NavGroupItem href="/components/button">Button</NavGroupItem>
-            <!-- <NavGroupItem href="/components/card">Card</NavGroupItem> -->
+            <NavGroupItem href="/components/card">Card</NavGroupItem>
             <NavGroupItem href="/components/checkbox">Checkbox</NavGroupItem>
             <NavGroupItem href="/components/container">Container</NavGroupItem>
             <NavGroupItem href="/components/flex">Flex</NavGroupItem>
-            <!-- <NavGroupItem href="/components/icon">Icon</NavGroupItem> -->
+            <NavGroupItem href="/components/icon">Icon</NavGroupItem>
             <NavGroupItem href="/components/input">Input</NavGroupItem>
             <NavGroupItem href="/components/layout">Layout</NavGroupItem>
             <NavGroupItem href="/components/link">Link</NavGroupItem>
             <NavGroupItem href="/components/navigation">Navigation</NavGroupItem>
             <NavGroupItem href="/components/radio">Radio</NavGroupItem>
             <NavGroupItem href="/components/select">Select</NavGroupItem>
+            <NavGroupItem href="/components/table">Table</NavGroupItem>
             <NavGroupItem href="/components/text">Text</NavGroupItem>
             <NavGroupItem href="/components/toast">Toast</NavGroupItem>
             <NavGroupItem href="/components/toggle">Toggle</NavGroupItem>
         </NavGroup>
     </LayoutNav>
     <LayoutContent>
-        <Container>
+        <Container size="xl">
             <slot />
         </Container>
     </LayoutContent>

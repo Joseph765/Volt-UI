@@ -10,8 +10,14 @@
 
     /** @type { 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' } – the HTML tag to render as */
     export let as = "p";
+
+    /** @type { 's' | 'm' | 'l' } */
+    export let measure = "m";
+
+    /** @type { string } */
+    export let style = "";
 </script>
 
-<svelte:element this={as} class="v-text is-size-{size} is-{variant} has-weight-{weight}">
+<svelte:element this={as} class="v-text is-size-{size} is-{variant} has-weight-{weight} has-measure-{measure}" {style}>
     <slot />
 </svelte:element>
