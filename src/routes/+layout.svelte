@@ -12,6 +12,9 @@
         MenuGroupItem,
         MenuItem,
     } from "$lib";
+
+    /** @type { boolean } */
+    let open = false;
 </script>
 
 <svelte:head>
@@ -20,11 +23,15 @@
 </svelte:head>
 
 <Layout>
-    <LayoutHeader></LayoutHeader>
+    <LayoutHeader>
+        <button class="v-layout-mobile-menu" aria-label="mobile-menu" on:click={() => open = !open}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+        </button>
+    </LayoutHeader>
     <LayoutLogo>
         <Display>Volt</Display>
     </LayoutLogo>
-    <LayoutNav>
+    <LayoutNav {open}>
         <Menu>
             <!-- <MenuItem href="/">Getting Started</MenuItem> -->
             <!-- <MenuGroup title="Getting Started">
