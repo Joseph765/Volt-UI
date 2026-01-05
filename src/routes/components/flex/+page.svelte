@@ -318,6 +318,8 @@
                     </td>
                     <td class="v-table-data">This defines the default behavior for how flex items are laid out along the cross axis on the current line.</td>
                     <td class="v-table-data">
+                        <Code>initial</Code>
+                        |
                         <Code>strech</Code>
                         |
                         <Code>flex-start</Code>

@@ -334,6 +334,7 @@
     gap: var(--v-space-default);
     flex-direction: row;
     justify-content: start;
+    align-items: initial;
     width: 100%;
 }
 
@@ -415,6 +416,10 @@
 
 .v-flex.has-justify-space-evenly {
     justify-content: space-evenly;
+}
+
+.v-flex.is-align-initial {
+    align-items: initial;
 }
 
 .v-flex.is-align-strech {
