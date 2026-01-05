@@ -69,10 +69,6 @@
     padding-inline: var(--v-space-default);
 }
 
-.v-button:hover {
-    background-color: var(--v-gray-11);
-}
-
 .v-button:focus-visible {
     outline: none; 
     box-shadow: 0 0 0 2px var(--v-color-highlight);
@@ -84,31 +80,16 @@
     border-color: var(--color-border);
 }
 
-.v-button.is-secondary:hover {
-    background-color: var(--v-gray-3);
-    color: var(--color-text);
-}
-
 .v-button.is-ghost {
     background-color: var(--v-gray-1);
     border-color: transparent;
     color: var(--v-color-text);
 }
 
-.v-button.is-ghost:hover {
-    background-color: var(--v-gray-3);
-    color: var(--color-text);
-}
-
 .v-button.is-danger {
     background-color: var(--v-danger-9);
     border-color: var(--v-danger-6);
     color: var(--v-color-text);
-}
-
-.v-button.is-danger:hover {
-    background-color: var(--v-danger-8);
-    color: var(--color-text);
 }
 
 .v-button:disabled {
@@ -138,6 +119,27 @@
     cursor: not-allowed;
 }
 
+@media (pointer: fine) {
+    .v-button:hover {
+        background-color: var(--v-gray-11);
+    }
+
+    .v-button.is-secondary:hover {
+        background-color: var(--v-gray-3);
+        color: var(--color-text);
+    }
+
+    .v-button.is-ghost:hover {
+        background-color: var(--v-gray-3);
+        color: var(--color-text);
+    }
+
+    .v-button.is-danger:hover {
+        background-color: var(--v-danger-8);
+        color: var(--color-text);
+    }
+}
+
 /* Card */
 .v-card {
     background-color: var(--v-gray-2);
@@ -156,10 +158,6 @@
 
 .v-checkbox-wrapper.is-danger {
     align-items: flex-start;
-}
-
-.v-checkbox-wrapper.is-danger:hover .v-checkbox-box {
-    border-color: var(--v-danger-10);
 }
 
 .v-checkbox-wrapper:has(input:disabled) {
@@ -192,10 +190,6 @@
     border: 1px solid var(--v-danger-9);
 }
 
-.v-checkbox-wrapper:hover .v-checkbox-box {
-    border-color: var(--v-gray-9);
-}
-
 .v-checkbox-wrapper.is-danger .v-checkbox-input:checked ~ .v-checkbox-box {
     background-color: var(--v-color-status-danger);
     border-color: var(--v-color-status-danger);
@@ -206,17 +200,7 @@
     border-color: var(--v-gray-12);
 }
 
-.v-checkbox-input:checked:hover ~ .v-checkbox-box {
-    background-color: var(--v-gray-11);
-    border-color: var(--v-gray-11);
-}
-
 .v-checkbox-input:disabled ~ .v-checkbox-box {
-    background-color: var(--v-gray-10);
-    border-color: var(--v-gray-10);
-}
-
-.v-checkbox-input:disabled:hover ~ .v-checkbox-box {
     background-color: var(--v-gray-10);
     border-color: var(--v-gray-10);
 }
@@ -241,11 +225,6 @@
     border-color: var(--v-gray-12);
 }
 
-.v-checkbox-input:indeterminate:hover ~ .v-checkbox-box {
-    background-color: var(--v-gray-11);
-    border-color: var(--v-gray-11);
-}
-
 .v-checkbox-input:checked ~ .v-checkbox-box .v-checkbox-check,
 .v-checkbox-wrapper .v-checkbox-box .v-checkbox-indeterminate {
     opacity: 1;
@@ -263,6 +242,31 @@
     user-select: none; /* Standard syntax (IE 11+, Edge, modern browsers) */
 }
 
+@media (pointer: fine) {
+    .v-checkbox-wrapper:hover .v-checkbox-box {
+        border-color: var(--v-gray-9);
+    }
+
+    .v-checkbox-wrapper.is-danger:hover .v-checkbox-box {
+        border-color: var(--v-danger-10);
+    }
+
+    .v-checkbox-input:checked:hover ~ .v-checkbox-box {
+        background-color: var(--v-gray-11);
+        border-color: var(--v-gray-11);
+    }
+
+    .v-checkbox-input:indeterminate:hover ~ .v-checkbox-box {
+        background-color: var(--v-gray-11);
+        border-color: var(--v-gray-11);
+    }
+
+    .v-checkbox-input:disabled:hover ~ .v-checkbox-box {
+        background-color: var(--v-gray-10);
+        border-color: var(--v-gray-10);
+    }
+}
+
 /* Code Example */
 .v-code-example {
     padding: var(--v-space-m);
@@ -270,11 +274,17 @@
 
 /* Container */
 .v-container {
-    padding: var(--v-space-xl);
+    padding: var(--v-space-l);
 }
 
 .v-container.is-debug {
     outline: 1px solid var(--v-danger-10);
+}
+
+@media (min-width: 82rem) {
+    .v-container {
+        padding: var(--v-space-xl);
+    }
 }
 
 /* Display */
@@ -401,34 +411,18 @@
     box-shadow: 0 0 0 2px var(--v-color-highlight);
 }
 
-.v-input:focus:hover {
-    border-color: var(--v-color-highlight);
-}
-
 .v-input:disabled {
     background-color: var(--v-gray-1);
     border-color: var(--v-gray-3);
     cursor: not-allowed;
 }
 
-.v-input:disabled:hover {
-    border-color: var(--v-gray-3);
-}
-
 .v-input::placeholder {
     color: var(--v-color-text-weakest);
 }
 
-.v-input:hover {
-    border-color: var(--v-gray-7);
-}
-
 .v-input.is-danger {
     border-color: var(--v-danger-9);
-}
-
-.v-input.is-danger:hover {
-    border-color: var(--v-danger-10);
 }
 
 .v-input.is-danger:focus {
@@ -461,6 +455,24 @@
     padding-right: var(--v-space-s);
 }
 
+@media (pointer: fine) {
+    .v-input:hover {
+        border-color: var(--v-gray-7);
+    }
+
+    .v-input:disabled:hover {
+        border-color: var(--v-gray-3);
+    }
+
+    .v-input:focus:hover {
+        border-color: var(--v-color-highlight);
+    }
+
+    .v-input.is-danger:hover {
+        border-color: var(--v-danger-10);
+    }
+}
+
 /* Label */
 .v-label-wrapper {
     display: flex;
@@ -488,14 +500,13 @@
     grid-template-areas: 
         "header header"
         "content content";
-    /* height: 100dvh; */
+    height: 100dvh;
 }
 
 .v-layout-content {
     grid-area: content;
     background-color: var(--v-color-background);
     overflow-y: auto;
-    /* height: calc(100dvh - 4.5rem); */
 }
 
 .v-layout-header {
@@ -609,10 +620,6 @@
     border-left: 4px solid var(--v-color-text);
 }
 
-.v-menu-item:hover {
-    background-color: var(--v-color-surface-raised);
-}
-
 /* Menu Group */
 .v-menu-group {
     display: flex;
@@ -630,10 +637,6 @@
     width: 100%;
     padding: var(--v-space-m) var(--v-space-m);
     cursor: pointer;
-}
-
-.v-menu-group-expander:hover {
-    background-color: var(--v-color-surface-raised);
 }
 
 .v-menu-group.is-expanded .v-menu-group-items {
@@ -671,8 +674,18 @@
     border-left: 4px solid var(--v-gray-12);
 }
 
-.v-menu-group-item:hover {
-    background-color: var(--v-color-surface-raised);
+@media (pointer: fine) {
+    .v-menu-item:hover {
+        background-color: var(--v-color-surface-raised);
+    }
+
+    .v-menu-group-expander:hover {
+        background-color: var(--v-color-surface-raised);
+    }
+
+    .v-menu-group-item:hover {
+        background-color: var(--v-color-surface-raised);
+    }
 }
 
 /* Radio */
@@ -797,10 +810,6 @@
     border: none;
 }
 
-.v-select-wrapper:hover {
-    border-color: var(--v-gray-7);
-}
-
 .v-select-wrapper:focus-within {
     outline: none;
     border-color: var(--v-color-highlight);
@@ -813,20 +822,12 @@
     cursor: not-allowed;
 }
 
-.v-select-wrapper:has(.v-select:disabled):hover {
-    border-color: var(--v-gray-3);
-}
-
 .v-select:disabled {
     cursor: not-allowed;
 }
 
 .v-select-wrapper.is-danger {
     border-color: var(--v-danger-9);
-}
-
-.v-select-wrapper.is-danger:hover {
-    border-color: var(--v-danger-10);
 }
 
 .v-select.has-placeholder {
@@ -869,6 +870,20 @@
 .v-select-arrow svg {
     width: 1.25rem;
     height: 1.25rem;
+}
+
+@media (pointer: fine) {
+    .v-select-wrapper:hover {
+        border-color: var(--v-gray-7);
+    }
+
+    .v-select-wrapper:has(.v-select:disabled):hover {
+        border-color: var(--v-gray-3);
+    }
+
+    .v-select-wrapper.is-danger:hover {
+        border-color: var(--v-danger-10);
+    }
 }
 
 /* Text */
@@ -932,10 +947,6 @@
     border-color: var(--v-danger-7)
 }
 
-.v-toast.is-danger .v-toast-dismiss:hover {
-    background-color: var(--v-danger-6);
-}
-
 .v-toast-message {
     font-family: var(--v-font-body);
     font-size: var(--v-font-size-m);
@@ -952,8 +963,15 @@
     align-items: center;
 }
 
-.v-toast-dismiss:hover {
-    background: var(--v-gray-6);
+
+@media (pointer: fine) {
+    .v-toast.is-danger .v-toast-dismiss:hover {
+        background-color: var(--v-danger-6);
+    }
+    
+    .v-toast-dismiss:hover {
+        background: var(--v-gray-6);
+    }
 }
 
 /* Toast Group */

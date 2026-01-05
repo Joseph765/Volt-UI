@@ -16,6 +16,6 @@ body {
   font-family: var(--v-font-body);
   background-color: var(--v-color-background);
   color: var(--v-color-text);
-  height: 100dvh;
+  /* height: 100dvh; */
   width: 100%;
 }
