@@ -8,10 +8,9 @@
         LayoutLogo, 
         LayoutMenuButton,
         LayoutNav, 
-        Menu, 
-        MenuGroup,
-        MenuGroupItem,
-        MenuItem,
+        NavGroup,
+        NavGroupItem,
+        NavItem,
     } from "$lib";
 
     /** @type { boolean } */
@@ -33,40 +32,38 @@
         </Display>
     </LayoutLogo>
     <LayoutNav {open}>
-        <Menu>
-            <!-- <MenuItem href="/">Getting Started</MenuItem> -->
-            <!-- <MenuGroup title="Getting Started">
-                <MenuGroupItem href="/">Installation</MenuGroupItem>
-                <MenuGroupItem href="/">Layout</MenuGroupItem>
-                <MenuGroupItem href="/">Grid</MenuGroupItem>
-                <MenuGroupItem href="/">Forms</MenuGroupItem>
-            </MenuGroup>
-            <MenuGroup title="Design Tokens">
-                <MenuGroupItem href="/tokens/button">Color</MenuGroupItem>
-                <MenuGroupItem href="/tokens/typography">Typography</MenuGroupItem>
-                <MenuGroupItem href="/tokens/space">Space</MenuGroupItem>
-                <MenuGroupItem href="/tokens/radius">Radius</MenuGroupItem>
-            </MenuGroup> -->
-            <MenuGroup title="Components">
-                <MenuGroupItem href="/components/badge">Badge</MenuGroupItem>
-                <MenuGroupItem href="/components/button">Button</MenuGroupItem>
-                <!-- <MenuGroupItem href="/components/card">Card</MenuGroupItem> -->
-                <MenuGroupItem href="/components/checkbox">Checkbox</MenuGroupItem>
-                <!-- <MenuGroupItem href="/components/container">Container</MenuGroupItem> -->
-                <!-- <MenuGroupItem href="/components/display">Display</MenuGroupItem> -->
-                <!-- <MenuGroupItem href="/components/flex">Flex</MenuGroupItem> -->
-                <!-- <MenuGroupItem href="/components/heading">Heading</MenuGroupItem> -->
-                <!-- <MenuGroupItem href="/components/icon">Icon</MenuGroupItem> -->
-                <MenuGroupItem href="/components/input">Input</MenuGroupItem>
-                <!-- <MenuGroupItem href="/components/layout">Layout</MenuGroupItem> -->
-                <MenuGroupItem href="/components/menu">Menu</MenuGroupItem>
-                <MenuGroupItem href="/components/radio">Radio</MenuGroupItem>
-                <MenuGroupItem href="/components/select">Select</MenuGroupItem>
-                <MenuGroupItem href="/components/text">Text</MenuGroupItem>
-                <MenuGroupItem href="/components/toast">Toast</MenuGroupItem>
-                <MenuGroupItem href="/components/toggle">Toggle</MenuGroupItem>
-            </MenuGroup>
-        </Menu>
+        <!-- <MenuItem href="/">Getting Started</MenuItem> -->
+        <!-- <MenuGroup title="Getting Started">
+            <NavGroupItem href="/">Installation</NavGroupItem>
+            <NavGroupItem href="/">Layout</NavGroupItem>
+            <NavGroupItem href="/">Grid</NavGroupItem>
+            <NavGroupItem href="/">Forms</NavGroupItem>
+        </MenuGroup>
+        <MenuGroup title="Design Tokens">
+            <NavGroupItem href="/tokens/button">Color</NavGroupItem>
+            <NavGroupItem href="/tokens/typography">Typography</NavGroupItem>
+            <NavGroupItem href="/tokens/space">Space</NavGroupItem>
+            <NavGroupItem href="/tokens/radius">Radius</NavGroupItem>
+        </MenuGroup> -->
+        <NavGroup title="Components">
+            <NavGroupItem href="/components/badge">Badge</NavGroupItem>
+            <NavGroupItem href="/components/button">Button</NavGroupItem>
+            <!-- <NavGroupItem href="/components/card">Card</NavGroupItem> -->
+            <NavGroupItem href="/components/checkbox">Checkbox</NavGroupItem>
+            <!-- <NavGroupItem href="/components/container">Container</NavGroupItem> -->
+            <!-- <NavGroupItem href="/components/display">Display</NavGroupItem> -->
+            <!-- <NavGroupItem href="/components/flex">Flex</NavGroupItem> -->
+            <!-- <NavGroupItem href="/components/heading">Heading</NavGroupItem> -->
+            <!-- <NavGroupItem href="/components/icon">Icon</NavGroupItem> -->
+            <NavGroupItem href="/components/input">Input</NavGroupItem>
+            <!-- <NavGroupItem href="/components/layout">Layout</NavGroupItem> -->
+            <NavGroupItem href="/components/navigation">Navigation</NavGroupItem>
+            <NavGroupItem href="/components/radio">Radio</NavGroupItem>
+            <NavGroupItem href="/components/select">Select</NavGroupItem>
+            <NavGroupItem href="/components/text">Text</NavGroupItem>
+            <NavGroupItem href="/components/toast">Toast</NavGroupItem>
+            <NavGroupItem href="/components/toggle">Toggle</NavGroupItem>
+        </NavGroup>
     </LayoutNav>
     <LayoutContent>
         <Container>

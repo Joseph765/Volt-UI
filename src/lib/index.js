@@ -16,11 +16,9 @@ import LayoutHeader from "./components/Layout/LayoutHeader.svelte";
 import LayoutLogo from "./components/Layout/LayoutLogo.svelte";
 import LayoutMenuButton from "./components/Layout/LayoutMenuButton.svelte";
 import LayoutNav from "./components/Layout/LayoutNav.svelte";
-import Menu from "./components/Menu/Menu.svelte";
-import MenuGroup from "./components/Menu/MenuGroup.svelte";
-import MenuGroupItem from "./components/Menu/MenuGroupItem.svelte";
-import MenuHeading from "./components/Menu/MenuHeading.svelte";
-import MenuItem from "./components/Menu/MenuItem.svelte";
+import NavGroup from "./components/Nav/NavGroup.svelte";
+import NavGroupItem from "./components/Nav/NavGroupItem.svelte";
+import NavItem from "./components/Nav/NavItem.svelte";
 import Radio from "./components/Radio.svelte";
 import Select from "./components/Select.svelte";
 import Text from "./components/Text.svelte";
@@ -47,11 +45,9 @@ export {
     LayoutLogo,
     LayoutMenuButton,
     LayoutNav,
-    Menu,
-    MenuGroup,
-    MenuGroupItem,
-    MenuHeading,
-    MenuItem,
+    NavGroup,
+    NavGroupItem,
+    NavItem,
     Radio,
     Select,
     Text,

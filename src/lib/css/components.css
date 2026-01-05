@@ -588,24 +588,10 @@
     }
 }
 
-/* Menu */
-.v-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-}
+/* Nav */
 
-/* Menu Heading */
-.v-menu-heading {
-    font-family: var(--v-font-body);
-    font-weight: 600;
-    font-size: var(--v-font-size-m);
-    padding: var(--v-space-s) var(--v-space-m);
-    margin: 0;
-}
-
-/* Menu Item */
-.v-menu-item {
+/* Nav Item */
+.v-nav-item {
     font-family: var(--v-font-body);
     font-weight: 400;
     font-size: var(--v-font-size-m);
@@ -615,19 +601,19 @@
     border-left: 4px solid transparent;
 }
 
-.v-menu-item.is-active {
+.v-nav-item.is-active {
     background-color: var(--v-color-surface-raised);
     border-left: 4px solid var(--v-color-text);
 }
 
-/* Menu Group */
-.v-menu-group {
+/* Nav Group */
+.v-nav-group {
     display: flex;
     flex-direction: column;
     gap: 0;
 }
 
-.v-menu-group-expander {
+.v-nav-group-expander {
     background: transparent;
     border: none;
     text-align: start;
@@ -639,11 +625,11 @@
     cursor: pointer;
 }
 
-.v-menu-group.is-expanded .v-menu-group-items {
+.v-nav-group.is-expanded .v-nav-group-items {
     display: flex;
 }
 
-.v-menu-group-heading {
+.v-nav-group-heading {
     font-family: var(--v-font-body);
     font-weight: 600;
     font-size: var(--v-font-size-m);
@@ -652,13 +638,13 @@
     border-left: 4px solid transparent;
 }
 
-.v-menu-group-items {
+.v-nav-group-items {
     display: none;
     flex-direction: column;
     gap: 0;
 }
 
-.v-menu-group-item {
+.v-nav-group-item {
     font-family: var(--v-font-body);
     font-weight: 400;
     font-size: var(--v-font-size-m);
@@ -668,22 +654,22 @@
     padding: var(--v-space-m) var(--v-space-l);
 }
 
-.v-menu-group-item.is-active {
+.v-nav-group-item.is-active {
     background-color: var(--v-color-surface-raised);
     color: var(--v-color-text);
     border-left: 4px solid var(--v-gray-12);
 }
 
 @media (pointer: fine) {
-    .v-menu-item:hover {
+    .v-nav-item:hover {
         background-color: var(--v-color-surface-raised);
     }
 
-    .v-menu-group-expander:hover {
+    .v-nav-group-expander:hover {
         background-color: var(--v-color-surface-raised);
     }
 
-    .v-menu-group-item:hover {
+    .v-nav-group-item:hover {
         background-color: var(--v-color-surface-raised);
     }
 }

@@ -7,6 +7,6 @@
     let currentPath = $derived(page.url.pathname);
 </script>
 
-<a {href} class="v-menu-item {currentPath === href ? "is-active" : undefined}">
+<a {href} class="v-nav-item {currentPath === href ? "is-active" : undefined}">
     {@render children?.()}
 </a>
