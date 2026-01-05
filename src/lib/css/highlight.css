@@ -15,7 +15,7 @@
   width: 100%;
   height: 32px;
   border: none;
-  background: var(--v-gray-a3);
+  background: rgba(12, 12, 12, 0.9);
   font-family: var(--v-font-body);
   font-size: var(--v-font-size-s);
 }
@@ -23,7 +23,7 @@
 
 @media (pointer: fine) {
   .v-code-block-expand-button:hover {
-    background: var(--v-gray-a4);
+    background: rgba(16, 16, 16, 0.9);
   }
 }
 

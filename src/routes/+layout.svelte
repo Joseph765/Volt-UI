@@ -51,7 +51,7 @@
             <NavGroupItem href="/components/button">Button</NavGroupItem>
             <!-- <NavGroupItem href="/components/card">Card</NavGroupItem> -->
             <NavGroupItem href="/components/checkbox">Checkbox</NavGroupItem>
-            <!-- <NavGroupItem href="/components/container">Container</NavGroupItem> -->
+            <NavGroupItem href="/components/container">Container</NavGroupItem>
             <!-- <NavGroupItem href="/components/flex">Flex</NavGroupItem> -->
             <!-- <NavGroupItem href="/components/icon">Icon</NavGroupItem> -->
             <NavGroupItem href="/components/input">Input</NavGroupItem>

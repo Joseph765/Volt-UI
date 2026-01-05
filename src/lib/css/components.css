@@ -269,7 +269,7 @@
 
 /* Code Example */
 .v-code-example {
-    max-height: 32rem;
+    max-height: 33dvh;
     overflow-y: auto;
     padding: var(--v-space-m);
 }
