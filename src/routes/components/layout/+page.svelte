@@ -72,7 +72,7 @@
 <Flex direction="column" gap="xl">
     <Flex direction="column">
         <Text size="3xl" weight="bold" as="h2">Layout</Text>
-        <Text size="xl" variant="weak">Layout component is used to create the main layout of an app. Layout currently comes with one main configuration: two-column.</Text>
+        <Text size="xl" variant="weak">A structural component that defines the overall page structure with header and side navigation areas.</Text>
     </Flex>
     <Flex direction="column">
         <Select

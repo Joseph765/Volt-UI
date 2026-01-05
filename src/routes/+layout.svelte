@@ -46,13 +46,13 @@
             <NavGroupItem href="/">Layout</NavGroupItem>
             <NavGroupItem href="/">Grid</NavGroupItem>
             <NavGroupItem href="/">Forms</NavGroupItem>
-        </MenuGroup>
-        <MenuGroup title="Design Tokens">
-            <NavGroupItem href="/tokens/button">Color</NavGroupItem>
+        </MenuGroup> -->
+        <NavGroup title="Design Tokens">
+            <NavGroupItem href="/tokens#color">Color</NavGroupItem>
             <NavGroupItem href="/tokens/typography">Typography</NavGroupItem>
             <NavGroupItem href="/tokens/space">Space</NavGroupItem>
             <NavGroupItem href="/tokens/radius">Radius</NavGroupItem>
-        </MenuGroup> -->
+        </NavGroup>
         <NavGroup title="Components">
             <NavGroupItem href="/components/badge">Badge</NavGroupItem>
             <NavGroupItem href="/components/button">Button</NavGroupItem>

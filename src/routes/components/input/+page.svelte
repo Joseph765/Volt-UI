@@ -58,7 +58,7 @@
 <Flex direction="column" gap="xl">
     <Flex direction="column">
         <Text size="3xl" weight="bold" as="h2">Input</Text>
-        <Text size="xl" variant="weak">Inputs are used to allow users to provide text input when the expected input is short. As well as plain text, Input supports various types of text, including passwords and numbers.</Text>
+        <Text size="xl" variant="weak">A field that captures single-line text or data input from the user.</Text>
     </Flex>
     <Flex direction="column">
         <Select

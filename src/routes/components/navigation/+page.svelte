@@ -24,7 +24,7 @@
 <Flex direction="column" gap="xl">
     <Flex direction="column">
         <Text size="3xl" weight="bold" as="h2">Navigation</Text>
-        <Text size="xl" variant="weak">Navigation is used to display the primary navigation in the sidebar of an application. Navigation includes a list of links that users use to move between sections of the application.</Text>
+        <Text size="xl" variant="weak">A component for creating lists of navigational items to be used within the layout's sidebar.</Text>
     </Flex>
     <Flex direction="column">
         <Select

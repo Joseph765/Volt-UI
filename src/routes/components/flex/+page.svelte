@@ -114,7 +114,7 @@
 <Flex direction="column" gap="xl">
     <Flex direction="column">
         <Text size="3xl" weight="bold" as="h2">Flex</Text>
-        <Text size="xl" variant="weak">Layout model for arranging items</Text>
+        <Text size="xl" variant="weak">A utility component that provides flexible layout control using CSS Flexbox properties.</Text>
     </Flex>
     <Flex direction="column">
         <Select
@@ -198,12 +198,12 @@
                         <Card>2</Card>
                         <Card>3</Card>
                     </Flex>
-                    <Flex justify="space-between">
+                    <Flex justify="between">
                         <Card>1</Card>
                         <Card>2</Card>
                         <Card>3</Card>
                     </Flex>
-                    <Flex justify="space-around">
+                    <Flex justify="around">
                         <Card>1</Card>
                         <Card>2</Card>
                         <Card>3</Card>
@@ -267,6 +267,8 @@
                     </td>
                     <td class="v-table-data">Explicitly controls the space between flex items.</td>
                     <td class="v-table-data">
+                        <Code>none</Code>
+                        |
                         <Code>xs</Code>
                         |
                         <Code>s</Code>
@@ -305,11 +307,11 @@
                         |
                         <Code>center</Code>
                         |
-                        <Code>space-between</Code>
+                        <Code>between</Code>
                         |
-                        <Code>space-around</Code>
+                        <Code>around</Code>
                         |
-                        <Code>space-evenly</Code>
+                        <Code>evenly</Code>
                     </td>
                 </tr>
                 <tr>

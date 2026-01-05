@@ -166,7 +166,7 @@
 <Flex direction="column" gap="xl">
     <Flex direction="column">
         <Text size="3xl" weight="bold" as="h2">Toast</Text>
-        <Text size="xl" variant="weak">Toasts are non-disruptive messages that appear in the interface to provide quick, at-a-glance feedback on the outcome of an action.</Text>
+        <Text size="xl" variant="weak">A temporary, non-intrusive notification that appears in the bottom-right corner to provide feedback.</Text>
     </Flex>
     <Flex direction="column">
         <Select

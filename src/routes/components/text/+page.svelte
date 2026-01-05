@@ -40,7 +40,7 @@
 <Flex direction="column" gap="xl">
     <Flex direction="column">
         <Text size="3xl" weight="bold" as="h2">Text</Text>
-        <Text size="xl" variant="weak">Text description</Text>
+        <Text size="xl" variant="weak">A typographic component for styling and displaying text with consistent typography scales.</Text>
     </Flex>
     <Flex direction="column">
         <Select

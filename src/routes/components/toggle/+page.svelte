@@ -34,7 +34,7 @@
 <Flex direction="column" gap="xl">
     <Flex direction="column">
         <Text size="3xl" weight="bold" as="h2">Toggle</Text>
-        <Text size="xl" variant="weak">Toggle switch gives control over a feature or option that can be turned on or off. If a physical switch would work for the action, a toggle is probably the best component to use.</Text>
+        <Text size="xl" variant="weak">A switch control that allows users to turn an option on or off.</Text>
     </Flex>
     <Flex direction="column">
         <Select

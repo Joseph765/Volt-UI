@@ -37,7 +37,7 @@
 <Flex direction="column" gap="xl">
     <Flex direction="column">
         <Text size="3xl" weight="bold" as="h2">Badge</Text>
-        <Text size="xl" variant="weak">Badges are used to inform users of the status of an object or of an action that's been taken. Commonly used in tabular data to indicate status.</Text>
+        <Text size="xl" variant="weak">A small, inline label that displays status, counts, or categorical information</Text>
     </Flex>
     <Flex direction="column">
         <Select

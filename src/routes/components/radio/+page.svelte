@@ -53,7 +53,7 @@
 <Flex direction="column" gap="xl">
     <Flex direction="column">
         <Text size="3xl" weight="bold" as="h2">Radio</Text>
-        <Text size="xl" variant="weak">Radio buttons are graphical user interface elements that allow user to choose only one option from a predefined set of mutually exclusive options.</Text>
+        <Text size="xl" variant="weak">A control that allows users to select exactly one option from a set.</Text>
     </Flex>
     <Flex direction="column">
         <Select
