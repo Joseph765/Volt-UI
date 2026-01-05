@@ -1,10 +1,10 @@
 <script>
     import { 
         Flex, 
-        Heading,
+        Text
     } from "$lib";
 </script>
 
 <Flex direction="column">
-    <Heading>Icon</Heading>
+    <Text size="3xl" weight="bold" as="h2">Icon</Text>
 </Flex>

@@ -1,7 +1,6 @@
 <script>
     import { 
         Container, 
-        Display, 
         Layout, 
         LayoutContent, 
         LayoutHeader, 
@@ -11,6 +10,7 @@
         NavGroup,
         NavGroupItem,
         NavItem,
+        Text
     } from "$lib";
 
     /** @type { boolean } */
@@ -27,9 +27,11 @@
         <LayoutMenuButton on:click={() => open = !open}></LayoutMenuButton>
     </LayoutHeader>
     <LayoutLogo>
-        <Display>
-            <a href="/" style="color: var(--v-color-text); text-decoration: none;">Volt</a>
-        </Display>
+        <a href="/" style="color: var(--v-color-text); text-decoration: none;">
+            <Text size="3xl" weight="bold" as="h1">
+                Volt
+            </Text>
+        </a>
     </LayoutLogo>
     <LayoutNav {open}>
         <!-- <MenuItem href="/">Getting Started</MenuItem> -->
@@ -51,9 +53,7 @@
             <!-- <NavGroupItem href="/components/card">Card</NavGroupItem> -->
             <NavGroupItem href="/components/checkbox">Checkbox</NavGroupItem>
             <!-- <NavGroupItem href="/components/container">Container</NavGroupItem> -->
-            <!-- <NavGroupItem href="/components/display">Display</NavGroupItem> -->
             <!-- <NavGroupItem href="/components/flex">Flex</NavGroupItem> -->
-            <!-- <NavGroupItem href="/components/heading">Heading</NavGroupItem> -->
             <!-- <NavGroupItem href="/components/icon">Icon</NavGroupItem> -->
             <NavGroupItem href="/components/input">Input</NavGroupItem>
             <!-- <NavGroupItem href="/components/layout">Layout</NavGroupItem> -->

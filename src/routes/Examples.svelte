@@ -3,13 +3,9 @@
         Button, 
         Card, 
         Checkbox,
-        Container,
-        Display, 
         Flex, 
-        Heading,
         Icon,
         Input,
-        Layout, 
         Select,
         Text 
     } from "$lib";
@@ -23,11 +19,11 @@
 
 <Flex direction="column" gap="2xl">
     <Flex direction="column">
-        <Display>Introducing Volt</Display>
+        <Text size="3xl" as="h2" weight="bold">Introducing Volt</Text>
         <Text>Production-grade component library and design tokens for high-performance crypto interfaces.</Text>
     </Flex>
     <Flex direction="column">
-        <Heading>Button</Heading>
+        <Text size="3xl" weight="bold" as="h2">Button</Text>
         <Flex>
             <Button>Primary</Button>
             <Button variant="secondary">Secondary</Button>
@@ -63,7 +59,7 @@
         </Flex>
     </Flex>
     <Flex direction="column">
-        <Heading>Icon</Heading>
+        <Text size="3xl" weight="bold" as="h2">Icon</Text>
         <Flex>
             <Icon name="plus" size="l" />
             <Icon name="minus" size="l" />
@@ -72,7 +68,7 @@
         </Flex>
     </Flex>
     <Flex direction="column">
-        <Heading>Input</Heading>
+        <Text size="3xl" weight="bold" as="h2">Input</Text>
         <Input type="text" name="email" label="Email" placeholder="Example@example.com" />
         <Input type="password" name="password" label="Password" placeholder="Password" />
         <Input type="text" name="disabled" label="Disabled" placeholder="Disabled" disabled />
@@ -112,7 +108,7 @@
         <Input type="text" name="custom" label="Custom Width" style="width: 22rem;" />
     </Flex>
     <Flex direction="column">
-        <Heading>Icon</Heading>
+        <Text size="3xl" weight="bold" as="h2">Icon</Text>
         <Flex direction="column">
             <Select
                 name="Country"
@@ -229,7 +225,7 @@
         </Flex>
     </Flex>
     <Flex direction="column">
-        <Heading>Checkbox</Heading>
+        <Text size="3xl" weight="bold" as="h2">Checkbox</Text>
         <Flex direction="column">
             <!-- Basic -->
             <Checkbox bind:checked={agree} label="I agree to the terms" />
@@ -265,7 +261,7 @@
         </Flex>
     </Flex>
     <Flex direction="column">
-        <Heading>Card</Heading>
+        <Text size="3xl" weight="bold" as="h2">Card</Text>
         <Card>
             <Text>Card</Text>
         </Card>

@@ -1,10 +1,8 @@
 <script>
     import { 
         Badge,
-        Button, 
         CodeExample,
         Flex, 
-        Heading,
         Icon,
         Select,
         Text
@@ -37,7 +35,7 @@
 </script>
 
 <Flex direction="column">
-    <Heading>Badge</Heading>
+    <Text size="3xl" weight="bold" as="h2">Badge</Text>
     <Text>Badges are used to inform users of the status of an object or of an action that's been taken. Commonly used in tabular data to indicate status.</Text>
     <Select
         name="Country"

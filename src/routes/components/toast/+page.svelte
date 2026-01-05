@@ -3,8 +3,6 @@
         Button, 
         CodeExample,
         Flex, 
-        Heading,
-        Icon,
         Select,
         Text,
         Toast,
@@ -166,8 +164,8 @@
 </script>
 
 <Flex direction="column">
-    <Heading>Toast</Heading>
-    <Text>Toasts are non-disruptive messages that appear in the interface to provide quick, at-a-glance feedback on the outcome of an action.</Text>
+    <Text size="3xl" weight="bold" as="h2">Toast</Text>
+    <Text size="xl" variant="weak">Toasts are non-disruptive messages that appear in the interface to provide quick, at-a-glance feedback on the outcome of an action.</Text>
     <Select
         name="Country"
         bind:options={options}

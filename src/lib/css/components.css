@@ -56,7 +56,7 @@
     justify-content: center;
     gap: var(--v-space-s);
     font-family: var(--v-font-body);
-    font-size: var(--v-font-size-default);
+    font-size: var(--v-font-size-m);
     font-weight: 400;
     letter-spacing: var(--v-letter-spacing-default);
     border: 1px solid var(--v-color-text);
@@ -287,15 +287,6 @@
     }
 }
 
-/* Display */
-.v-display {
-    font-family: var(--v-font-display);
-    font-size: var(--v-font-size-3xl);
-    font-weight: 600;
-    margin: 0;
-    padding: 0;
-}
-
 /* Fieldset */
 .v-fieldset {
     position: relative;
@@ -354,14 +345,6 @@
 
 .v-flex.has-gap-2xl {
     gap: var(--v-space-2xl);
-}
-
-/* Heading */
-.v-heading {
-    font-family: var(--v-font-display);
-    font-size: var(--v-font-size-2xl);
-    margin: 0;
-    padding: 0;
 }
 
 /* Help Text */
@@ -875,43 +858,66 @@
 /* Text */
 .v-text {
     font-family: var(--v-font-body);
-    font-size: var(--v-font-size-default);
-    line-height: var(--v-line-height-default);
-    letter-spacing: var(--v-letter-spacing-default);
+    font-weight: 400;
+    font-size: var(--v-font-size-m);
+    line-height: var(--v-line-height-m);
     margin: 0;
     padding: 0;
 }
 
 .v-text.is-size-xs {
     font-size: var(--v-font-size-xs);
+    line-height: var(--v-line-height-xs);
 }
 
 .v-text.is-size-s {
     font-size: var(--v-font-size-s);
-}
-
-.v-text.is-size-default {
-    font-size: var(--v-font-size-default);
+    line-height: var(--v-line-height-s);
 }
 
 .v-text.is-size-m {
     font-size: var(--v-font-size-m);
+    line-height: var(--v-line-height-m);
 }
 
 .v-text.is-size-l {
     font-size: var(--v-font-size-l);
+    line-height: var(--v-line-height-l);
 }
 
 .v-text.is-size-xl {
     font-size: var(--v-font-size-xl);
+    line-height: var(--v-line-height-xl);
 }
 
 .v-text.is-size-2xl {
     font-size: var(--v-font-size-2xl);
+    line-height: var(--v-line-height-2xl);
 }
 
 .v-text.is-size-3xl {
     font-size: var(--v-font-size-3xl);
+    line-height: var(--v-line-height-3xl);
+}
+
+.v-text.is-weak {
+    color: var(--v-color-text-weak);
+}
+
+.v-text.is-weaker {
+    color: var(--v-color-text-weaker);
+}
+
+.v-text.is-weakest {
+    color: var(--v-color-text-weakest);
+}
+
+.v-text.has-weight-regular {
+    font-weight: 400;
+}
+
+.v-text.has-weight-bold {
+    font-weight: 600;
 }
 
 /* Toast */

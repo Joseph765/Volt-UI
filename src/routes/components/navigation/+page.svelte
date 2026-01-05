@@ -1,9 +1,7 @@
 <script>
     import { 
-        Button, 
         CodeExample,
         Flex, 
-        Heading,
         NavGroup,
         NavGroupItem,
         Select,
@@ -24,8 +22,8 @@
 </script>
 
 <Flex direction="column">
-    <Heading>Navigation</Heading>
-    <Text>Navigation is used to display the primary navigation in the sidebar of an application. Navigation includes a list of links that users use to move between sections of the application.</Text>
+    <Text size="3xl" weight="bold" as="h2">Navigation</Text>
+    <Text size="xl" variant="weak">Navigation is used to display the primary navigation in the sidebar of an application. Navigation includes a list of links that users use to move between sections of the application.</Text>
     <Select
         name="Country"
         bind:options={options}

@@ -1,10 +1,7 @@
 <script>
     import { 
-        Button, 
         CodeExample,
         Flex, 
-        Heading,
-        Icon,
         Select,
         Text,
         Toggle
@@ -35,8 +32,8 @@
 </script>
 
 <Flex direction="column">
-    <Heading>Toggle</Heading>
-    <Text>Toggle switch gives control over a feature or option that can be turned on or off. If a physical switch would work for the action, a toggle is probably the best component to use.</Text>
+    <Text size="3xl" weight="bold" as="h2">Toggle</Text>
+    <Text size="xl" variant="weak">Toggle switch gives control over a feature or option that can be turned on or off. If a physical switch would work for the action, a toggle is probably the best component to use.</Text>
     <Select
         name="Country"
         bind:options={options}

@@ -1,9 +1,7 @@
 <script>
     import { 
-        Checkbox,
         CodeExample,
         Flex, 
-        Heading,
         Icon,
         Select,
         Text
@@ -115,8 +113,8 @@
 </script>
 
 <Flex direction="column">
-    <Heading>Select</Heading>
-    <Text>Select lets users choose one option from an options menu. Consider using select when you have 5 or more options to choose from.</Text>
+    <Text size="3xl" weight="bold" as="h2">Select</Text>
+    <Text size="xl" variant="weak">Select lets users choose one option from an options menu. Consider using select when you have 5 or more options to choose from.</Text>
     <Select
         name="Country"
         bind:options={options}

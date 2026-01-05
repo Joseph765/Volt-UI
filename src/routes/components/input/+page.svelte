@@ -2,8 +2,7 @@
     import { 
         Button, 
         CodeExample,
-        Flex, 
-        Heading,
+        Flex,
         Icon,
         Input,
         Select,
@@ -57,8 +56,8 @@
 </script>
 
 <Flex direction="column">
-    <Heading>Input</Heading>
-    <Text>Inputs are used to allow users to provide text input when the expected input is short. As well as plain text, Input supports various types of text, including passwords and numbers.</Text>
+    <Text size="3xl" weight="bold" as="h2">Input</Text>
+    <Text size="xl" variant="weak">Inputs are used to allow users to provide text input when the expected input is short. As well as plain text, Input supports various types of text, including passwords and numbers.</Text>
     <Select
         name="Country"
         bind:options={options}

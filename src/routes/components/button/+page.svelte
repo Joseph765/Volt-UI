@@ -3,7 +3,6 @@
         Button, 
         CodeExample,
         Flex, 
-        Heading,
         Icon,
         Select,
         Text
@@ -48,7 +47,7 @@
 </script>
 
 <Flex direction="column">
-    <Heading>Button</Heading>
+    <Text size="3xl" weight="bold" as="h2">Button</Text>
     <Text>Buttons are used for interface actions. Primary style should be used only once per section for main call-to-action, while other styles can appear more frequently.</Text>
     <Select
         name="Country"

@@ -2,8 +2,7 @@
     import { 
         CodeExample,
         Fieldset,
-        Flex, 
-        Heading,
+        Flex,
         Radio,
         Select,
         Text
@@ -52,8 +51,8 @@
 </script>
 
 <Flex direction="column">
-    <Heading>Radio</Heading>
-    <Text>Radio buttons are graphical user interface elements that allow user to choose only one option from a predefined set of mutually exclusive options.</Text>
+    <Text size="3xl" weight="bold" as="h2">Radio</Text>
+    <Text size="xl" variant="weak">Radio buttons are graphical user interface elements that allow user to choose only one option from a predefined set of mutually exclusive options.</Text>
     <Select
         name="Country"
         bind:options={options}

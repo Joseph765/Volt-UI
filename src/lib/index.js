@@ -4,10 +4,8 @@ import Card from "./components/Card.svelte";
 import Checkbox from "./components/Checkbox.svelte";
 import CodeExample from "./components/CodeExample.svelte";
 import Container from "./components/Container.svelte";
-import Display from "./components/Display.svelte";
 import Fieldset from "./components/Fieldset.svelte";
 import Flex from "./components/Flex.svelte";
-import Heading from "./components/Heading.svelte";
 import Icon from "./components/Icon.svelte";
 import Input from "./components/Input.svelte";
 import Layout from "./components/Layout/Layout.svelte";
@@ -16,6 +14,7 @@ import LayoutHeader from "./components/Layout/LayoutHeader.svelte";
 import LayoutLogo from "./components/Layout/LayoutLogo.svelte";
 import LayoutMenuButton from "./components/Layout/LayoutMenuButton.svelte";
 import LayoutNav from "./components/Layout/LayoutNav.svelte";
+import Link from "./components/Link.svelte";
 import NavGroup from "./components/Nav/NavGroup.svelte";
 import NavGroupItem from "./components/Nav/NavGroupItem.svelte";
 import NavItem from "./components/Nav/NavItem.svelte";
@@ -33,10 +32,8 @@ export {
     Checkbox,
     CodeExample,
     Container,
-    Display,
     Fieldset,
     Flex,
-    Heading,
     Icon,
     Input,
     Layout,
@@ -45,6 +42,7 @@ export {
     LayoutLogo,
     LayoutMenuButton,
     LayoutNav,
+    Link,
     NavGroup,
     NavGroupItem,
     NavItem,
