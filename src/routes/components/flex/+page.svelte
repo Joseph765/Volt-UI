@@ -248,7 +248,7 @@
             <tbody class="v-table-body">
                 <tr>
                     <td class="v-table-data">
-                        <Code>Direction</Code>
+                        <Code>direction</Code>
                     </td>
                     <td class="v-table-data" style="min-width: 250px;">Defines the direction flex items are placed in the flex container.</td>
                     <td class="v-table-data" style="min-width: 300px;">
@@ -263,7 +263,7 @@
                 </tr>
                 <tr>
                     <td class="v-table-data">
-                        <Code>Gap</Code>
+                        <Code>gap</Code>
                     </td>
                     <td class="v-table-data">Explicitly controls the space between flex items.</td>
                     <td class="v-table-data">
@@ -282,7 +282,7 @@
                 </tr>
                 <tr>
                     <td class="v-table-data">
-                        <Code>Wrap</Code>
+                        <Code>wrap</Code>
                     </td>
                     <td class="v-table-data">Allows the items to wrap as needed.</td>
                     <td class="v-table-data">
@@ -291,7 +291,7 @@
                 </tr>
                 <tr>
                     <td class="v-table-data">
-                        <Code>Justify</Code>
+                        <Code>justify</Code>
                     </td>
                     <td class="v-table-data">Defines the alignment along the main axis.</td>
                     <td class="v-table-data">
@@ -314,7 +314,7 @@
                 </tr>
                 <tr>
                     <td class="v-table-data">
-                        <Code>Align</Code>
+                        <Code>align</Code>
                     </td>
                     <td class="v-table-data">This defines the default behavior for how flex items are laid out along the cross axis on the current line.</td>
                     <td class="v-table-data">

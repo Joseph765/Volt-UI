@@ -163,24 +163,28 @@
     }
 </script>
 
-<Flex direction="column">
-    <Text size="3xl" weight="bold" as="h2">Toast</Text>
-    <Text size="xl" variant="weak">Toasts are non-disruptive messages that appear in the interface to provide quick, at-a-glance feedback on the outcome of an action.</Text>
-    <Select
-        name="Country"
-        bind:options={options}
-        bind:value={selectedExample}
-        placeholder="Select an example..."
-    />
-    {#if selectedExample === "basic"}
-        <CodeExample code={example1}>
-            <Button onclick={() => addToast("Copied to clipboard", "neutral")}>Add Toast</Button>
-        </CodeExample>
-    {:else if selectedExample === "danger"}
-        <CodeExample code={example2}>
-            <Button onclick={() => addToast("No internet connection", "danger")}>Danger Toast</Button>
-        </CodeExample>
-    {/if}
+<Flex direction="column" gap="xl">
+    <Flex direction="column">
+        <Text size="3xl" weight="bold" as="h2">Toast</Text>
+        <Text size="xl" variant="weak">Toasts are non-disruptive messages that appear in the interface to provide quick, at-a-glance feedback on the outcome of an action.</Text>
+    </Flex>
+    <Flex direction="column">
+        <Select
+            name="Country"
+            bind:options={options}
+            bind:value={selectedExample}
+            placeholder="Select an example..."
+        />
+        {#if selectedExample === "basic"}
+            <CodeExample code={example1}>
+                <Button onclick={() => addToast("Copied to clipboard", "neutral")}>Add Toast</Button>
+            </CodeExample>
+        {:else if selectedExample === "danger"}
+            <CodeExample code={example2}>
+                <Button onclick={() => addToast("No internet connection", "danger")}>Danger Toast</Button>
+            </CodeExample>
+        {/if}
+    </Flex>
 </Flex>
 
 <ToastGroup>

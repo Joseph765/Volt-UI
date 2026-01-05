@@ -112,143 +112,133 @@
 />`;
 </script>
 
-<Flex direction="column">
-    <Text size="3xl" weight="bold" as="h2">Select</Text>
-    <Text size="xl" variant="weak">Select lets users choose one option from an options menu. Consider using select when you have 5 or more options to choose from.</Text>
-    <Select
-        name="Country"
-        bind:options={options}
-        bind:value={selectedExample}
-        placeholder="Select an example..."
-        style={selectedExample === "customStyle" ? "width: 13rem;" : ""}
-    />
-    {#if selectedExample === "basic"}
-        <CodeExample code={example1}>
-            <Select
-                name="Country"
-                label="Country"
-                options={[
-                    { value: 'us', label: 'United States' },
-                    { value: 'ca', label: 'Canada' },
-                    { value: 'mx', label: 'Mexico' },
-                ]}
-                placeholder="Choose a country..."
-            />
-        </CodeExample>
-    {:else if selectedExample === "prefix"}
-        <CodeExample code={example2}>
-           <Select
-                name="Role"
-                label="Role"
-                options={[
-                    { value: 'developer', label: 'Developer' },
-                    { value: 'designer', label: 'Designer' },
-                ]}
-            >
-                <span slot="prefix">
-                    <Icon name="user" />
-                </span>
-            </Select>
-        </CodeExample>
-    {:else if selectedExample === "expanded"}
-        <CodeExample code={example3}>
-            <Select
-                name="Expanded"
-                label="Expanded"
-                options={[
-                    { value: "developer", label: "Developer" },
-                    { value: "designer", label: "Designer" },
-                ]}
-                expanded
-            >
-                <span slot="prefix">
-                    <Icon name="user" />
-                </span>
-            </Select>
-        </CodeExample>
-    {:else if selectedExample === "disabled"}
-        <CodeExample code={example4}>
-            <Select
-                name="Disabled"
-                label="Disabled"
-                options={[
-                    { value: "us", label: "United States" },
-                    { value: "ca", label: "Canada" },
-                    { value: "mx", label: "Mexico" },
-                ]}
-                placeholder="Choose a country..."
-                disabled
-            />
-        </CodeExample>
-    {:else if selectedExample === "error"}
-        <CodeExample code={example5}>
-            <Select
-                name="Error"
-                label="Error"
-                options={[
-                    { value: "us", label: "United States" },
-                    { value: "ca", label: "Canada" },
-                    { value: "mx", label: "Mexico" },
-                ]}
-                placeholder="Choose a country..."
-                error="There is an error"
-            />
-        </CodeExample>
-    {:else if selectedExample === "required"}
-        <CodeExample code={example6}>
-            <Select
-                name="Required"
-                label="Label"
-                options={[
-                    { value: "us", label: "United States" },
-                    { value: "ca", label: "Canada" },
-                    { value: "mx", label: "Mexico" },
-                ]}
-                placeholder="Choose a country..."
-                required
-            />
-        </CodeExample>
-    {:else if selectedExample === "helpText"}
-        <CodeExample code={example7}>
-            <Select
-                name="HelpText"
-                label="Help Text"
-                options={[
-                    { value: "us", label: "United States" },
-                    { value: "ca", label: "Canada" },
-                    { value: "mx", label: "Mexico" },
-                ]}
-                placeholder="Choose a country..."
-                help="this is some helper text"
-            />
-        </CodeExample>
-    {:else if selectedExample === "customStyle"}
-        <CodeExample code={example8}>
-            <Select
-                name="CustomWidth"
-                label="Custom Width"
-                options={[
-                    { value: "mr", label: "Mr" },
-                    { value: "mrs", label: "Mrs" },
-                ]}
-                placeholder="Please Select"
-                id="customWidth"
-                style="width: 22rem;"
-            />
-        </CodeExample>
-    {/if}
+<Flex direction="column" gap="xl">
+    <Flex direction="column">
+        <Text size="3xl" weight="bold" as="h2">Select</Text>
+        <Text size="xl" variant="weak">Select lets users choose one option from an options menu. Consider using select when you have 5 or more options to choose from.</Text>
+    </Flex>
+    <Flex direction="column">
+        <Select
+            name="Country"
+            bind:options={options}
+            bind:value={selectedExample}
+            placeholder="Select an example..."
+            style={selectedExample === "customStyle" ? "width: 13rem;" : ""}
+        />
+        {#if selectedExample === "basic"}
+            <CodeExample code={example1}>
+                <Select
+                    name="Country"
+                    label="Country"
+                    options={[
+                        { value: 'us', label: 'United States' },
+                        { value: 'ca', label: 'Canada' },
+                        { value: 'mx', label: 'Mexico' },
+                    ]}
+                    placeholder="Choose a country..."
+                />
+            </CodeExample>
+        {:else if selectedExample === "prefix"}
+            <CodeExample code={example2}>
+               <Select
+                    name="Role"
+                    label="Role"
+                    options={[
+                        { value: 'developer', label: 'Developer' },
+                        { value: 'designer', label: 'Designer' },
+                    ]}
+                >
+                    <span slot="prefix">
+                        <Icon name="user" />
+                    </span>
+                </Select>
+            </CodeExample>
+        {:else if selectedExample === "expanded"}
+            <CodeExample code={example3}>
+                <Select
+                    name="Expanded"
+                    label="Expanded"
+                    options={[
+                        { value: "developer", label: "Developer" },
+                        { value: "designer", label: "Designer" },
+                    ]}
+                    expanded
+                >
+                    <span slot="prefix">
+                        <Icon name="user" />
+                    </span>
+                </Select>
+            </CodeExample>
+        {:else if selectedExample === "disabled"}
+            <CodeExample code={example4}>
+                <Select
+                    name="Disabled"
+                    label="Disabled"
+                    options={[
+                        { value: "us", label: "United States" },
+                        { value: "ca", label: "Canada" },
+                        { value: "mx", label: "Mexico" },
+                    ]}
+                    placeholder="Choose a country..."
+                    disabled
+                />
+            </CodeExample>
+        {:else if selectedExample === "error"}
+            <CodeExample code={example5}>
+                <Select
+                    name="Error"
+                    label="Error"
+                    options={[
+                        { value: "us", label: "United States" },
+                        { value: "ca", label: "Canada" },
+                        { value: "mx", label: "Mexico" },
+                    ]}
+                    placeholder="Choose a country..."
+                    error="There is an error"
+                />
+            </CodeExample>
+        {:else if selectedExample === "required"}
+            <CodeExample code={example6}>
+                <Select
+                    name="Required"
+                    label="Label"
+                    options={[
+                        { value: "us", label: "United States" },
+                        { value: "ca", label: "Canada" },
+                        { value: "mx", label: "Mexico" },
+                    ]}
+                    placeholder="Choose a country..."
+                    required
+                />
+            </CodeExample>
+        {:else if selectedExample === "helpText"}
+            <CodeExample code={example7}>
+                <Select
+                    name="HelpText"
+                    label="Help Text"
+                    options={[
+                        { value: "us", label: "United States" },
+                        { value: "ca", label: "Canada" },
+                        { value: "mx", label: "Mexico" },
+                    ]}
+                    placeholder="Choose a country..."
+                    help="this is some helper text"
+                />
+            </CodeExample>
+        {:else if selectedExample === "customStyle"}
+            <CodeExample code={example8}>
+                <Select
+                    name="CustomWidth"
+                    label="Custom Width"
+                    options={[
+                        { value: "mr", label: "Mr" },
+                        { value: "mrs", label: "Mrs" },
+                    ]}
+                    placeholder="Please Select"
+                    id="customWidth"
+                    style="width: 22rem;"
+                />
+            </CodeExample>
+        {/if}
+    </Flex>
 </Flex>
-
-<!-- <Flex direction="column">
-    <Select
-        name="CustomWidth"
-        label="Custom Width"
-        options={[
-            { value: 'mr', label: 'Mr' },
-            { value: 'mrs', label: 'Mrs' },
-        ]}
-        placeholder="Please Select"
-        id="customWidth"
-        style="width: 22rem;"
-    />
-</Flex> -->
