@@ -488,14 +488,14 @@
     grid-template-areas: 
         "header header"
         "content content";
-    background-color: var(--v-color-surface);
-    height: 100dvh;
+    /* height: 100dvh; */
 }
 
 .v-layout-content {
     grid-area: content;
     background-color: var(--v-color-background);
     overflow-y: auto;
+    /* height: calc(100dvh - 4.5rem); */
 }
 
 .v-layout-header {
@@ -503,6 +503,7 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid var(--v-color-border);
+    background-color: var(--v-color-surface);
     padding: var(--v-space-m);
 }
 
@@ -523,6 +524,7 @@
     border-bottom: 1px solid var(--v-color-border);
     align-items: center;
     padding-inline: var(--v-space-m);
+    background-color: var(--v-color-surface);
 }
 
 .v-layout-nav {
@@ -531,6 +533,7 @@
     border-right: 1px solid var(--v-color-border);
     padding: 0;
     overflow-y: auto;
+    background-color: var(--v-color-surface);
 }
 
 @media (max-width: 82rem) {
@@ -539,7 +542,6 @@
         position: absolute;
         left: 0;
         top: 4.5rem;
-        background-color: var(--v-color-surface);
         width: 16rem;
         height: calc(100dvh - 4.5rem);
         z-index: 1000;

@@ -4,8 +4,8 @@
 @import url('./highlight.css');
 
 ::selection {
-  background-color: var(--v-color-highlight); /* The highlight color */
-  color: var(--v-color-text-contrast); /* The selected text color */
+  background-color: var(--v-color-highlight);
+  color: var(--v-color-text-contrast);
 }
 
 html,
@@ -16,6 +16,6 @@ body {
   font-family: var(--v-font-body);
   background-color: var(--v-color-background);
   color: var(--v-color-text);
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
 }
