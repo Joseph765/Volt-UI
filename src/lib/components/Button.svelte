@@ -6,7 +6,7 @@
     export let disabled = false;
 </script>
 
-<button class="v-button is-{variant}" disabled={disabled} tabindex="0" {...$$restProps}>
+<button class="v-button is-{variant}" disabled={disabled} tabindex="0" {...$$restProps} on:click>
     <slot name="start" />
     <slot />
     <slot name="end" />

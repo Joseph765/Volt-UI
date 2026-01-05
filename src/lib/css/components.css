@@ -489,7 +489,7 @@
         "header header"
         "content content";
     background-color: var(--v-color-surface);
-    height: 100vh;
+    height: 100dvh;
 }
 
 .v-layout-content {
@@ -506,7 +506,7 @@
     padding: var(--v-space-m);
 }
 
-.v-layout-mobile-menu {
+.v-layout-menu-button {
     border: none;
     background: transparent;
     cursor: pointer;
@@ -514,10 +514,6 @@
     height: 32px;
     width: 32px;
     border-radius: var(--v-radius-m);
-}
-
-.v-layout-mobile-menu:hover {
-    background-color: var(--v-gray-6);
 }
 
 .v-layout-logo {
@@ -568,8 +564,14 @@
         display: block;
     }
 
-    .v-layout-mobile-menu {
+    .v-layout-menu-button {
         display: none;
+    }
+}
+
+@media (pointer: fine) {
+    .v-layout-menu-button:hover {
+        background-color: var(--v-gray-6);
     }
 }
 

@@ -5,8 +5,9 @@
         Layout, 
         LayoutContent, 
         LayoutHeader, 
-        LayoutNav, 
         LayoutLogo, 
+        LayoutMenuButton,
+        LayoutNav, 
         Menu, 
         MenuGroup,
         MenuGroupItem,
@@ -24,9 +25,7 @@
 
 <Layout>
     <LayoutHeader>
-        <button class="v-layout-mobile-menu" aria-label="mobile-menu" on:click={() => open = !open}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
-        </button>
+        <LayoutMenuButton on:click={() => open = !open}></LayoutMenuButton>
     </LayoutHeader>
     <LayoutLogo>
         <Display>Volt</Display>

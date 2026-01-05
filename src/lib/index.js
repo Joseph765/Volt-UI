@@ -14,6 +14,7 @@ import Layout from "./components/Layout/Layout.svelte";
 import LayoutContent from "./components/Layout/LayoutContent.svelte";
 import LayoutHeader from "./components/Layout/LayoutHeader.svelte";
 import LayoutLogo from "./components/Layout/LayoutLogo.svelte";
+import LayoutMenuButton from "./components/Layout/LayoutMenuButton.svelte";
 import LayoutNav from "./components/Layout/LayoutNav.svelte";
 import Menu from "./components/Menu/Menu.svelte";
 import MenuGroup from "./components/Menu/MenuGroup.svelte";
@@ -44,6 +45,7 @@ export {
     LayoutContent,
     LayoutHeader,
     LayoutLogo,
+    LayoutMenuButton,
     LayoutNav,
     Menu,
     MenuGroup,
