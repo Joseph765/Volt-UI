@@ -1226,7 +1226,7 @@
 .v-toggle {
     appearance: none;
     position: relative;
-    width: 48px;
+    min-width: 46px;
     height: 28px;
     margin: 0;
     background-color: var(--v-gray-5);
