@@ -14,10 +14,17 @@
     /** @type { 's' | 'm' | 'l' } */
     export let measure = "m";
 
+    /** @type { boolean } */
+    export let mono = false;
+
+    /** @type { 'start' | 'center' | 'end' }*/
+    export let align = "start";
+
     /** @type { string } */
     export let style = "";
+
 </script>
 
-<svelte:element this={as} class="v-text is-size-{size} is-{variant} has-weight-{weight} has-measure-{measure}" {style}>
+<svelte:element this={as} class="v-text is-size-{size} is-{variant} has-weight-{weight} has-measure-{measure} is-align-{align} {mono ? "is-mono" : undefined}" {style}>
     <slot />
 </svelte:element>

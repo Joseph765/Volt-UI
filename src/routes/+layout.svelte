@@ -48,11 +48,12 @@
             <NavGroupItem href="/">Forms</NavGroupItem>
         </MenuGroup> -->
         <NavGroup title="Design Tokens">
-            <NavGroupItem href="/tokens#color">Colors</NavGroupItem>
+            <NavGroupItem href="/tokens#font">Font</NavGroupItem>
             <NavGroupItem href="/tokens#font-size">Font Size</NavGroupItem>
             <NavGroupItem href="/tokens#line-height">Line Height</NavGroupItem>
             <NavGroupItem href="/tokens#space">Space</NavGroupItem>
-            <NavGroupItem href="/tokens#radius">Radius</NavGroupItem>
+            <NavGroupItem href="/tokens#radius">Border Radius</NavGroupItem>
+            <NavGroupItem href="/tokens#color">Color</NavGroupItem>
         </NavGroup>
         <NavGroup title="Components">
             <NavGroupItem href="/components/badge">Badge</NavGroupItem>

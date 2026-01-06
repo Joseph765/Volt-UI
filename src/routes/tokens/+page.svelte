@@ -11,74 +11,28 @@
         <Text size="3xl" weight="bold" as="h2">Design Tokens</Text>
         <Text size="xl" variant="weak">Foundational values that define the visual style of the design system, including colors, typography, spacing, and more.</Text>
     </Flex>
-    <section id="color">
+    <section id="font">
         <Flex direction="column">
-            <Text weight="bold" size="xl">Colors</Text>
+            <Text weight="bold" size="xl">Font</Text>
             <div class="tokens">
                 <div class="tokens-header">
-                    <Text variant="weak">Color</Text>
+                    <Text variant="weak">Example</Text>
                     <Text variant="weak">Description</Text>
                     <Text variant="weak">Token</Text>
                 </div>
                 <div class="token">
-                    <div class="token-example" style="background-color: var(--v-color-background);"></div>
-                    <Text measure="s">Background color of the content area.</Text>
-                    <CopyCode code="var(--v-color-background)" />
+                    <div class="token-example">
+                        <Text size="m" align="center">Inter</Text>
+                    </div>
+                    <Text measure="s">Font family for the Volt design system.</Text>
+                    <CopyCode code="var(--v-font-body)" />
                 </div>
                 <div class="token">
-                    <div class="token-example" style="background-color: var(--v-color-surface);"></div>
-                    <Text measure="s">Background color of surfaces on top of the background.</Text>
-                    <CopyCode code="var(--v-color-surface)" />
-                </div>
-                <div class="token">
-                    <div class="token-example" style="background-color: var(--v-color-text);"></div>
-                    <Text measure="s">Default color for body text.</Text>
-                    <CopyCode code="var(--v-color-text)" />
-                </div>
-                <div class="token">
-                    <div class="token-example" style="background-color: var(--v-color-text-weak);"></div>
-                    <Text measure="s">Subdued color for body text.</Text>
-                    <CopyCode code="var(--v-color-text-weak)" />
-                </div>
-                <div class="token">
-                    <div class="token-example" style="background-color: var(--v-color-text-weaker);"></div>
-                    <Text measure="s">More subdued color for body text.</Text>
-                    <CopyCode code="var(--v-color-text-weaker)" />
-                </div>
-                <div class="token">
-                    <div class="token-example" style="background-color: var(--v-color-text-weakest);"></div>
-                    <Text measure="s">Darkest text color used in placeholders for form elements.</Text>
-                    <CopyCode code="var(--v-color-text-weakest)" />
-                </div>
-                <div class="token">
-                    <div class="token-example" style="background-color: var(--v-color-border);"></div>
-                    <Text measure="s">Default border color.</Text>
-                    <CopyCode code="var(--v-color-border)" />
-                </div>
-                <!-- <div class="token">
-                    <div class="token-example" style="background-color: var(--v-color-text-danger);"></div>
-                    <Text>Use on text when there is an error present.</Text>
-                    <Code>var(--v-color-text-danger)</Code>
-                </div> -->
-                <div class="token">
-                    <div class="token-example" style="background-color: var(--v-color-status-danger);"></div>
-                    <Text measure="s">Use when there is an error present.</Text>
-                    <CopyCode code="var(--v-color-status-danger)" />
-                </div>
-                <div class="token">
-                    <div class="token-example" style="background-color: var(--v-color-status-warning);"></div>
-                    <Text measure="s">Use to warn the user.</Text>
-                    <CopyCode code="var(--v-color-status-warning)" />
-                </div>
-                <div class="token">
-                    <div class="token-example" style="background-color: var(--v-color-status-success);"></div>
-                    <Text measure="s">Use when there is an error present.</Text>
-                    <CopyCode code="var(--v-color-status-success)" />
-                </div>
-                <div class="token">
-                    <div class="token-example" style="background-color: var(--v-color-status-neutral);"></div>
-                    <Text measure="s">Solid color used on components like badge when there is no status indication.</Text>
-                    <CopyCode code="var(--v-color-status-neutral)" />
+                    <div class="token-example">
+                        <Text size="m" mono align="center">Roboto Mono</Text>
+                    </div>
+                    <Text measure="s">Only used for code snippets and examples.</Text>
+                    <CopyCode code="var(--v-font-mono)" />
                 </div>
             </div>
         </Flex>
@@ -261,7 +215,7 @@
     </section>
     <section id="radius">
         <Flex direction="column">
-            <Text weight="bold" size="xl">Radius</Text>
+            <Text weight="bold" size="xl">Border Radius</Text>
             <div class="tokens">
                 <div class="tokens-header">
                     <Text variant="weak">Example</Text>
@@ -281,6 +235,78 @@
                     </div>
                     <Text measure="s">Rounded border radius used in certain components.</Text>
                     <CopyCode code="var(--v-radius-rounded)" />
+                </div>
+            </div>
+        </Flex>
+    </section>
+    <section id="color">
+        <Flex direction="column">
+            <Text weight="bold" size="xl">Color</Text>
+            <div class="tokens">
+                <div class="tokens-header">
+                    <Text variant="weak">Color</Text>
+                    <Text variant="weak">Description</Text>
+                    <Text variant="weak">Token</Text>
+                </div>
+                <div class="token">
+                    <div class="token-example" style="background-color: var(--v-color-background);"></div>
+                    <Text measure="s">Background color of the content area.</Text>
+                    <CopyCode code="var(--v-color-background)" />
+                </div>
+                <div class="token">
+                    <div class="token-example" style="background-color: var(--v-color-surface);"></div>
+                    <Text measure="s">Background color of surfaces on top of the background.</Text>
+                    <CopyCode code="var(--v-color-surface)" />
+                </div>
+                <div class="token">
+                    <div class="token-example" style="background-color: var(--v-color-text);"></div>
+                    <Text measure="s">Default color for body text.</Text>
+                    <CopyCode code="var(--v-color-text)" />
+                </div>
+                <div class="token">
+                    <div class="token-example" style="background-color: var(--v-color-text-weak);"></div>
+                    <Text measure="s">Subdued color for body text.</Text>
+                    <CopyCode code="var(--v-color-text-weak)" />
+                </div>
+                <div class="token">
+                    <div class="token-example" style="background-color: var(--v-color-text-weaker);"></div>
+                    <Text measure="s">More subdued color for body text.</Text>
+                    <CopyCode code="var(--v-color-text-weaker)" />
+                </div>
+                <div class="token">
+                    <div class="token-example" style="background-color: var(--v-color-text-weakest);"></div>
+                    <Text measure="s">Darkest text color used in placeholders for form elements.</Text>
+                    <CopyCode code="var(--v-color-text-weakest)" />
+                </div>
+                <div class="token">
+                    <div class="token-example" style="background-color: var(--v-color-border);"></div>
+                    <Text measure="s">Default border color.</Text>
+                    <CopyCode code="var(--v-color-border)" />
+                </div>
+                <!-- <div class="token">
+                    <div class="token-example" style="background-color: var(--v-color-text-danger);"></div>
+                    <Text>Use on text when there is an error present.</Text>
+                    <Code>var(--v-color-text-danger)</Code>
+                </div> -->
+                <div class="token">
+                    <div class="token-example" style="background-color: var(--v-color-status-danger);"></div>
+                    <Text measure="s">Use when there is an error present.</Text>
+                    <CopyCode code="var(--v-color-status-danger)" />
+                </div>
+                <div class="token">
+                    <div class="token-example" style="background-color: var(--v-color-status-warning);"></div>
+                    <Text measure="s">Use to warn the user.</Text>
+                    <CopyCode code="var(--v-color-status-warning)" />
+                </div>
+                <div class="token">
+                    <div class="token-example" style="background-color: var(--v-color-status-success);"></div>
+                    <Text measure="s">Use when there is an error present.</Text>
+                    <CopyCode code="var(--v-color-status-success)" />
+                </div>
+                <div class="token">
+                    <div class="token-example" style="background-color: var(--v-color-status-neutral);"></div>
+                    <Text measure="s">Solid color used on components like badge when there is no status indication.</Text>
+                    <CopyCode code="var(--v-color-status-neutral)" />
                 </div>
             </div>
         </Flex>

@@ -1079,6 +1079,10 @@
     padding: 0;
 }
 
+.v-text.is-mono {
+    font-family: var(--v-font-mono);
+}
+
 .v-text.is-size-xs {
     font-size: var(--v-font-size-xs);
     line-height: var(--v-line-height-xs);
@@ -1144,6 +1148,18 @@
 
 .v-text.has-measure-l {
     max-width: 80ch;
+}
+
+.v-text.is-align-start {
+    text-align: start;
+}
+
+.v-text.is-align-center {
+    text-align: center;
+}
+
+.v-text.is-align-end {
+    text-align: end;
 }
 
 /* Toast */
