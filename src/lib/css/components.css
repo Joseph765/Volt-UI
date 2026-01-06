@@ -74,6 +74,10 @@
     box-shadow: 0 0 0 2px var(--v-color-highlight);
 }
 
+.v-button.is-expanded {
+    width: 100%;
+}
+
 .v-button.is-secondary {
     background-color: var(--v-gray-1);
     color: var(--v-color-text);
@@ -144,7 +148,34 @@
 .v-card {
     background-color: var(--v-gray-2);
     border: 1px solid var(--v-color-border);
+    border-radius: var(--v-radius-m);
+}
+
+.v-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: var(--v-space-m);
+    border-bottom: 1px solid var(--v-color-border);
+}
+
+.v-card-content {
+    padding: var(--v-space-m);
+}
+
+.v-card.has-space-none .v-card-content,
+.v-card.has-space-none .v-card-header {
+    padding: 0;
+}
+
+.v-card.has-space-m .v-card-content,
+.v-card.has-space-m .v-card-header {
+    padding: var(--v-space-m);
+}
+
+.v-card.has-space-l .v-card-content,
+.v-card.has-space-l .v-card-header {
+    padding: var(--v-space-l);
 }
 
 /* Checkbox */
@@ -1136,6 +1167,10 @@
 
 .v-text.has-weight-bold {
     font-weight: 600;
+}
+
+.v-text.has-measure-s {
+    max-width: none;
 }
 
 .v-text.has-measure-s {

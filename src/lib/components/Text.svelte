@@ -11,7 +11,7 @@
     /** @type { 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' } – the HTML tag to render as */
     export let as = "p";
 
-    /** @type { 's' | 'm' | 'l' } */
+    /** @type { 'none' | 's' | 'm' | 'l' } */
     export let measure = "m";
 
     /** @type { boolean } */
