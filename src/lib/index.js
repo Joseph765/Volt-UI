@@ -30,6 +30,7 @@ import TableHead from "./components/Table/TableHead.svelte";
 import TableHeader from "./components/Table/TableHeader.svelte";
 import TableRow from "./components/Table/TableRow.svelte";
 import Text from "./components/Text.svelte";
+import Textarea from "./components/Textarea.svelte";
 import Toast from "./components/Toast/Toast.svelte";
 import ToastGroup from "./components/Toast/ToastGroup.svelte";
 import Toggle from "./components/Toggle.svelte";
@@ -67,6 +68,7 @@ export {
     TableHeader,
     TableRow,
     Text,
+    Textarea,
     Toast,
     ToastGroup,
     Toggle

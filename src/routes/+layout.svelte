@@ -72,6 +72,7 @@
             <NavGroupItem href="/components/select">Select</NavGroupItem>
             <NavGroupItem href="/components/table">Table</NavGroupItem>
             <NavGroupItem href="/components/text">Text</NavGroupItem>
+            <NavGroupItem href="/components/textarea">Textarea</NavGroupItem>
             <NavGroupItem href="/components/toast">Toast</NavGroupItem>
             <NavGroupItem href="/components/toggle">Toggle</NavGroupItem>
         </NavGroup>

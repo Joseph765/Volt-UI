@@ -1334,6 +1334,78 @@
     text-align: end;
 }
 
+/* Textarea */
+.v-textarea-wrapper {
+    position: relative;
+    width: max-content;
+    box-sizing: border-box;
+}
+
+.v-textarea-wrapper.is-expanded {
+    width: 100%;
+}
+
+.v-textarea {
+    padding: var(--v-space-s) var(--v-space-s);
+    border: 1px solid var(--v-color-border);
+    border-radius: var(--v-radius-sharp);
+    font-size: var(--v-font-size-m);
+    background-color: var(--v-color-surface);
+    color: var(--v-color-text);
+    width: 16rem;
+    box-sizing: border-box;
+}
+
+.v-textarea.is-expanded {
+    width: 100%;
+}
+
+.v-textarea:focus {
+    outline: none;
+    border-color: var(--v-color-highlight);
+    box-shadow: 0 0 0 2px var(--v-color-highlight);
+}
+
+.v-textarea:disabled {
+    background-color: var(--v-gray-1);
+    border-color: var(--v-gray-3);
+    cursor: not-allowed;
+}
+
+.v-textarea::placeholder {
+    color: var(--v-color-text-weakest);
+}
+
+.v-textarea.is-danger {
+    border-color: var(--v-color-danger);
+}
+
+.v-textarea.is-danger:focus {
+    box-shadow: 0 0 0 1px var(--v-color-highlight);
+}
+
+.v-textarea.is-align-right {
+    text-align: right;
+}
+
+@media (pointer: fine) {
+    .v-textarea:hover {
+        border-color: var(--v-gray-7);
+    }
+
+    .v-textarea:disabled:hover {
+        border-color: var(--v-gray-3);
+    }
+
+    .v-textarea:focus:hover {
+        border-color: var(--v-color-highlight);
+    }
+
+    .v-textarea.is-danger:hover {
+        border-color: var(--v-color-danger);
+    }
+}
+
 /* Toast */
 .v-toast {
     display: flex;
