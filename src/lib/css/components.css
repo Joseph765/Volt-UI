@@ -146,9 +146,13 @@
 
 /* Card */
 .v-card {
-    background-color: var(--v-gray-2);
+    background-color: var(--v-color-surface);
     border: 1px solid var(--v-color-border);
     border-radius: var(--v-radius-m);
+}
+
+.v-card.is-ghost {
+    background-color: var(--v-color-background);
 }
 
 .v-card-header {
@@ -362,7 +366,7 @@
 }
 
 .v-container.is-debug {
-    outline: 1px solid var(--v-danger-10);
+    outline: 1px dashed var(--v-danger-10);
 }
 
 @media (min-width: 82rem) {
@@ -1097,6 +1101,95 @@
 
     .v-select-wrapper.is-danger:hover {
         border-color: var(--v-danger-10);
+    }
+}
+
+/* Table */
+.v-table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.v-table {
+    table-layout: auto;
+    width: 100%;
+    font-family: var(--v-font-body);
+    border-collapse: collapse;
+    overflow: scroll;
+}
+
+.v-table-caption {
+    text-align: start;
+    font-family: var(--v-font-body);
+    font-size: var(--v-font-size-2xl);
+    padding-bottom: var(--v-space-m);
+}
+
+.v-table-head {
+    text-align: start;
+    padding: var(--v-space-m);
+    font-family: var(--v-font-body);
+    font-weight: 400;
+    font-size: var(--v-font-size-m);
+    line-height: var(--v-line-height-m);
+    border-block-end: 1px solid var(--v-color-border);
+    background-color: var(--v-color-surface);
+}
+
+.v-table-cell {
+    text-align: start;
+    font-family: var(--v-font-body);
+    font-weight: 400;
+    font-size: var(--v-font-size-m);
+    line-height: var(--v-line-height-m);
+    padding: var(--v-space-m);
+    border-block-end: 1px solid var(--v-color-border);
+    white-space: nowrap;
+}
+
+.v-table.is-striped .v-table-row:nth-child(even) {
+    background-color: var(--v-color-surface);
+}
+
+.v-card .v-table .v-table-body .v-table-row:last-child .v-table-cell {
+    border-block-end-color: transparent;
+}
+
+.v-table-cell.is-align-start {
+    text-align: start;
+}
+
+.v-table-cell.is-align-center {
+    text-align: center;
+}
+
+.v-table-cell.is-align-end {
+    text-align: end;
+}
+
+.v-table-head.is-align-start {
+    text-align: start;
+}
+
+.v-table-head.is-align-center {
+    text-align: center;
+}
+
+.v-table-head.is-align-end {
+    text-align: end;
+}
+
+.v-table-cell.is-truncated {
+    max-inline-size: 0;
+    inline-size: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (pointer: fine) {
+    .v-table.is-interactive .v-table-row:hover {
+        background-color: var(--v-color-surface-raised);
     }
 }
 

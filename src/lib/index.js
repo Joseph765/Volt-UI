@@ -22,6 +22,12 @@ import NavGroupItem from "./components/Nav/NavGroupItem.svelte";
 import NavItem from "./components/Nav/NavItem.svelte";
 import Radio from "./components/Radio.svelte";
 import Select from "./components/Select.svelte";
+import Table from "./components/Table/Table.svelte";
+import TableBody from "./components/Table/TableBody.svelte";
+import TableCell from "./components/Table/TableCell.svelte";
+import TableHead from "./components/Table/TableHead.svelte";
+import TableHeader from "./components/Table/TableHeader.svelte";
+import TableRow from "./components/Table/TableRow.svelte";
 import Text from "./components/Text.svelte";
 import Toast from "./components/Toast/Toast.svelte";
 import ToastGroup from "./components/Toast/ToastGroup.svelte";
@@ -52,6 +58,12 @@ export {
     NavItem,
     Radio,
     Select,
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
     Text,
     Toast,
     ToastGroup,
