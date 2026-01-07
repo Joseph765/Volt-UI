@@ -29,9 +29,9 @@
 <Flex direction="column">
     <Tabs 
         tabs={[
-            { id: "one", label: "label 1" },
-            { id: "two", label: "label 2" },
-            { id: "three", label: "label 3" },
+            { id: "one", label: "Label 1" },
+            { id: "two", label: "Label 2" },
+            { id: "three", label: "Label 3" },
         ]} 
         selected={selectedTab}
         onClick={(/** @type { string } */ id) => selectedTab = id}
@@ -63,9 +63,9 @@
                 <Flex direction="column">
                     <Tabs 
                         tabs={[
-                            { id: "one", label: "label 1" },
-                            { id: "two", label: "label 2" },
-                            { id: "three", label: "label 3" },
+                            { id: "one", label: "Label 1" },
+                            { id: "two", label: "Label 2" },
+                            { id: "three", label: "Label 3" },
                         ]} 
                         selected={selectedTab}
                         onClick={(/** @type { string } */ id) => selectedTab = id}

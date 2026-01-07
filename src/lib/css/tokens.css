@@ -30,7 +30,7 @@
     --v-space-2xl: 4.5rem; /* 72px */
 
     /* Border Radius */
-    --v-radius-sharp: 3px;
+    --v-radius-sharp: 8px;
 	--v-radius-round: 9999px;
 
 	/* Breakpoints */
@@ -53,6 +53,34 @@
 	--v-gray-10: #7b7b7b;
 	--v-gray-11: #b4b4b4;
 	--v-gray-12: #eeeeee;
+
+	--v-gray-1: #101211;
+	--v-gray-2: #171918;
+	--v-gray-3: #202221;
+	--v-gray-4: #272a29;
+	--v-gray-5: #2e3130;
+	--v-gray-6: #373b39;
+	--v-gray-7: #444947;
+	--v-gray-8: #5b625f;
+	--v-gray-9: #63706b;
+	--v-gray-10: #717d79;
+	--v-gray-11: #adb5b2;
+	--v-gray-12: #eceeed;
+
+	/* --v-gray-0: #070707; */
+	--v-gray-0: #050505;
+	--v-gray-1: #121113;
+	--v-gray-2: #1a191b;
+	--v-gray-3: #232225;
+	--v-gray-4: #2b292d;
+	--v-gray-5: #323035;
+	--v-gray-6: #3c393f;
+	--v-gray-7: #49474e;
+	--v-gray-8: #625f69;
+	--v-gray-9: #6f6d78;
+	--v-gray-10: #7c7a85;
+	--v-gray-11: #b5b2bc;
+	--v-gray-12: #eeeef0;
     /* Red */
 	--v-danger-1: #191111;
 	--v-danger-2: #201314;
@@ -131,6 +159,21 @@
 	--v-success-10: #33b074;
 	--v-success-11: #3dd68c;
 	--v-success-12: #b1f1cb;
+
+	/* Violet */
+	--v-accent-1: #14121f;
+	--v-accent-2: #1b1525;
+	--v-accent-3: #291f43;
+	--v-accent-4: #33255b;
+	--v-accent-5: #3c2e69;
+	--v-accent-6: #473876;
+	--v-accent-7: #56468b;
+	--v-accent-8: #6958ad;
+	--v-accent-9: #6e56cf;
+	--v-accent-10: #7d66d9;
+	--v-accent-11: #baa7ff;
+	--v-accent-12: #e2ddfe;
+
 	--v-gray-a1: #00000000;
 	--v-gray-a2: #ffffff09;
 	--v-gray-a3: #ffffff12;
@@ -145,14 +188,19 @@
 	--v-gray-a12: #ffffffed;
 
     /* Semantic Colors */
-    --v-color-background: var(--v-gray-1);
+    --v-color-background: var(--v-gray-0);
+
+	/* Accent */
+	--v-color-accent: var(--v-accent-9);
+
 	/* Surfaces */
-    --v-color-surface: var(--v-gray-2);
+    --v-color-surface: var(--v-gray-1);
     --v-color-surface-raised: var(--v-gray-3);
 	--v-color-surface-info: var(--v-info-4);
 	--v-color-surface-warning: var(--v-warning-4);
 	--v-color-surface-danger: var(--v-danger-4);
 	--v-color-surface-success: var(--v-success-4);
+	
 	/* Borders */
     --v-color-border: var(--v-gray-4);
 	--v-color-border-info: var(--v-info-7);
@@ -160,16 +208,28 @@
 	--v-color-border-danger: var(--v-danger-7);
 	--v-color-border-success: var(--v-success-7);
 
-	--v-color-highlight:  var(--v-gray-12);
+	/* Highlight */
+	--v-color-highlight:  var(--v-color-accent);
+
+	/* Text colors */
     --v-color-text: var(--v-gray-12);
+	--v-color-text-accent: var(--v-accent-11);
 	--v-color-text-contrast: var(--v-gray-1);
     --v-color-text-weak: var(--v-gray-11);
     --v-color-text-weaker: var(--v-gray-10);
     --v-color-text-weakest: var(--v-gray-8);
-	/* New Tokens */
+
+	/* Status Colors */
 	--v-color-neutral: var(--v-gray-9);
 	--v-color-info: var(--v-info-9);
 	--v-color-danger: var(--v-danger-9);
 	--v-color-warning: var(--v-warning-9);
 	--v-color-success: var(--v-success-9);
+
+	/* Theme */
+	/* --v-color-background: #0E0F0F; */
+	/* --v-color-background: #090A0A;
+	--v-color-surface: #171A1A;
+	--v-color-surface-raised: #202424; */
+	/* --v-color-background: #070411; */
 }
