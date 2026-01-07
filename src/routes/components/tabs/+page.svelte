@@ -5,6 +5,7 @@
         Flex,
         Link,
         Select,
+        Tabs,
         Text
     } from "$lib";
 
@@ -13,12 +14,35 @@
     ];
 
     let selectedExample = 'basic';
+    /** @type { string } */
+    let selectedTab = "one";
 
-    let example1 = `<Flex direction="column">
-    <Banner variant="info">We've updated your plan, make sure you know how these changes affect it. <Link href="#">Learn more.</Link></Banner>
-    <Banner variant="warning">Payment details missing. To stay on your current plan, <Link href="#">add payment details.</Link></Banner>
-    <Banner variant="danger">We're experiencing an incident. Please see our <Link href="#">status page</Link> for more details.</Banner>
-    <Banner variant="success">Your order has been shipped and will arrive on May 27th. <Link href="#">Track order.</Link></Banner>
+    let example1 = `<script>
+    import { 
+        Tabs
+    } from "$lib";
+
+    /** @type { string } */
+    let selectedTab = "one";
+<\/script>
+
+<Flex direction="column">
+    <Tabs 
+        tabs={[
+            { id: "one", label: "label 1" },
+            { id: "two", label: "label 2" },
+            { id: "three", label: "label 3" },
+        ]} 
+        selected={selectedTab}
+        onClick={(/** @type { string } */ id) => selectedTab = id}
+    />
+    {#if selectedTab === "one"}
+        <Text>Content for tab 1</Text>
+    {:else if selectedTab === "two"}
+        <Text>Content for tab 2</Text>
+    {:else if selectedTab === "three"}
+        <Text>Content for tab 3</Text>
+    {/if}
 </Flex>`;
 </script>
 
@@ -27,7 +51,7 @@
         <Text size="3xl" weight="bold" as="h2">Tabs</Text>
         <Text size="xl" variant="weak">A navigation component that organizes content into separate panels, allowing users to switch between views with clickable tab labels.</Text>
     </Flex>
-    <!-- <Flex direction="column">
+    <Flex direction="column">
         <Select
             name="examples"
             bind:options={options}
@@ -37,12 +61,24 @@
         {#if selectedExample === "basic"}
             <CodeExample code={example1}>
                 <Flex direction="column">
-                    <Banner variant="info">We've updated your plan, make sure you know how these changes affect it. <Link href="#">Learn more.</Link></Banner>
-                    <Banner variant="warning">Payment details missing. To stay on your current plan, <Link href="#">add payment details.</Link></Banner>
-                    <Banner variant="danger">We're experiencing an incident. Please see our <Link href="#">status page</Link> for more details.</Banner>
-                    <Banner variant="success">Your order has been shipped and will arrive on May 27th. <Link href="#">Track order.</Link></Banner>
+                    <Tabs 
+                        tabs={[
+                            { id: "one", label: "label 1" },
+                            { id: "two", label: "label 2" },
+                            { id: "three", label: "label 3" },
+                        ]} 
+                        selected={selectedTab}
+                        onClick={(/** @type { string } */ id) => selectedTab = id}
+                    />
+                    {#if selectedTab === "one"}
+                        <Text>Content for tab 1</Text>
+                    {:else if selectedTab === "two"}
+                        <Text>Content for tab 2</Text>
+                    {:else if selectedTab === "three"}
+                        <Text>Content for tab 3</Text>
+                    {/if}
                 </Flex>
             </CodeExample>
         {/if}
-    </Flex> -->
+    </Flex>
 </Flex>

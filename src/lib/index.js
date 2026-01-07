@@ -70,6 +70,7 @@ export {
     TableHead,
     TableHeader,
     TableRow,
+    Tabs,
     Text,
     Textarea,
     Toast,
