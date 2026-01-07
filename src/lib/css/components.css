@@ -49,6 +49,16 @@
     border-color: var(--v-color-success);
 }
 
+.v-badge.is-info {
+    background-color: var(--v-color-surface-info);
+    border-color: var(--v-color-border-info);
+}
+
+.v-badge.is-info.is-strong {
+    background-color: var(--v-color-info);
+    border-color: var(--v-color-info);
+}
+
 /* Banner */
 .v-banner {
     display: flex;

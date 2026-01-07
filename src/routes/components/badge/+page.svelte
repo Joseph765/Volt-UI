@@ -21,12 +21,14 @@
     <Badge variant="danger">Danger</Badge>
     <Badge variant="warning">Warning</Badge>
     <Badge variant="success">Success</Badge>
+    <Badge variant="info">Info</Badge>
 </Flex>`;
     let example2 = `<Flex>
     <Badge strong>Neutral</Badge>
     <Badge variant="danger" strong>Danger</Badge>
     <Badge variant="warning" strong>Warning</Badge>
     <Badge variant="success" strong>Success</Badge>
+    <Badge variant="info" strong>Info</Badge>
 </Flex>`;
     let example3 = `<Badge variant="success">
     <Icon name="chevron-up" slot="icon" size="s" />
@@ -53,6 +55,7 @@
                     <Badge variant="danger">Danger</Badge>
                     <Badge variant="warning">Warning</Badge>
                     <Badge variant="success">Success</Badge>
+                    <Badge variant="info">Info</Badge>
                 </Flex>
             </CodeExample>
         {:else if selectedExample === "strong"}
@@ -62,6 +65,7 @@
                     <Badge variant="danger" strong>Danger</Badge>
                     <Badge variant="warning" strong>Warning</Badge>
                     <Badge variant="success" strong>Success</Badge>
+                    <Badge variant="info" strong>Info</Badge>
                 </Flex>
             </CodeExample>
         {:else if selectedExample === "icon"}

@@ -1,5 +1,5 @@
 <script>
-    /** @type { "neutral" | "danger" | "warning" | "success"} */
+    /** @type { "neutral" | "danger" | "warning" | "success" | "info" } */
     export let variant = "neutral";
 
     /** @type { boolean } */
