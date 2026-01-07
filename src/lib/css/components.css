@@ -447,7 +447,7 @@
 }
 
 .v-fieldset-required {
-    font-size: var(--v-font-size-s);
+    font-size: var(--v-font-size-xl);
     color: var(--v-color-danger);
 }
 
@@ -710,10 +710,14 @@
     font-family: var(--v-font-body);
     font-size: var(--v-font-size-m);
     color: var(--v-color-text);
+    display: flex;
+    align-items: center;
+    gap: var(--v-space-xs);
 }
 
 .v-label.is-required::after {
     content: "*";
+    font-size: var(--v-font-size-xl);
     color: var(--v-color-danger);
     margin-left: var(--v-space-xs);
 }
@@ -1036,6 +1040,12 @@
 
 .v-radio-wrapper .v-radio:checked + .v-radio-label::after {
     display: block;
+}
+
+/* Required */
+.v-required {
+    font-size: var(--v-font-size-xl);
+    color: var(--v-color-danger);
 }
 
 /* Select  */

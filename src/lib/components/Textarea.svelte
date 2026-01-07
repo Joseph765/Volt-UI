@@ -32,7 +32,12 @@
 
 <div class="v-label-wrapper">
     {#if label}
-        <label class="v-label {required ? "is-required" : ""}" for={name}>{label}</label>
+        <label class="v-label" for={name}>
+          {label}
+          {#if required}
+            <span class="v-required">*</span>
+          {/if}
+        </label>
     {/if}
 
     <div class="v-textarea-wrapper {expanded ? "is-expanded" : undefined}">
