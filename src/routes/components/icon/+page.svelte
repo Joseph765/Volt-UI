@@ -45,7 +45,7 @@
     </Flex>
     <Flex direction="column">
         <Select
-            name="example"
+            name="examples"
             bind:options={options}
             bind:value={selectedExample}
             placeholder="Select an example..."

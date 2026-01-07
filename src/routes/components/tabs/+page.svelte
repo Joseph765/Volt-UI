@@ -24,10 +24,10 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Banner</Text>
-        <Text size="xl" variant="weak">A prominent full-width strip that displays important messages, alerts, or announcements with optional actions.</Text>
+        <Text size="3xl" weight="bold" as="h2">Tabs</Text>
+        <Text size="xl" variant="weak">A navigation component that organizes content into separate panels, allowing users to switch between views with clickable tab labels.</Text>
     </Flex>
-    <Flex direction="column">
+    <!-- <Flex direction="column">
         <Select
             name="examples"
             bind:options={options}
@@ -44,5 +44,5 @@
                 </Flex>
             </CodeExample>
         {/if}
-    </Flex>
+    </Flex> -->
 </Flex>

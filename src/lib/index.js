@@ -30,6 +30,7 @@ import TableCell from "./components/Table/TableCell.svelte";
 import TableHead from "./components/Table/TableHead.svelte";
 import TableHeader from "./components/Table/TableHeader.svelte";
 import TableRow from "./components/Table/TableRow.svelte";
+import Tabs from "./components/Tabs.svelte";
 import Text from "./components/Text.svelte";
 import Textarea from "./components/Textarea.svelte";
 import Toast from "./components/Toast/Toast.svelte";
