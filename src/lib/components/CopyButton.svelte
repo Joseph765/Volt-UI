@@ -33,7 +33,7 @@
         justify-content: center;
         border: 1px solid var(--v-color-text);
         padding: var(--v-space-s);
-        border-radius: var(--v-radius-m);
+        border-radius: var(--v-radius-sharp);
         height: 32px;
         cursor: pointer;
     }

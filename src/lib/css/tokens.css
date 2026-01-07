@@ -30,8 +30,8 @@
     --v-space-2xl: 4.5rem; /* 72px */
 
     /* Border Radius */
-    --v-radius-m: 3px;
-	--v-radius-rounded: 9999px;
+    --v-radius-sharp: 3px;
+	--v-radius-round: 9999px;
 
 	/* Breakpoints */
 	--v-breakpoint-s: 20rem; /* 320px */
@@ -67,18 +67,18 @@
 	--v-danger-11: #ff9592;
 	--v-danger-12: #ffd1d9;
 	/* Blue */
-	--v-highlight-1: #0d1520;
-	--v-highlight-2: #111927;
-	--v-highlight-3: #0d2847;
-	--v-highlight-4: #003362;
-	--v-highlight-5: #004074;
-	--v-highlight-6: #104d87;
-	--v-highlight-7: #205d9e;
-	--v-highlight-8: #2870bd;
-	--v-highlight-9: #0090ff;
-	--v-highlight-10: #3b9eff;
-	--v-highlight-11: #70b8ff;
-	--v-highlight-12: #c2e6ff;
+	--v-info-1: #0d1520;
+	--v-info-2: #111927;
+	--v-info-3: #0d2847;
+	--v-info-4: #003362;
+	--v-info-5: #004074;
+	--v-info-6: #104d87;
+	--v-info-7: #205d9e;
+	--v-info-8: #2870bd;
+	--v-info-9: #0090ff;
+	--v-info-10: #3b9eff;
+	--v-info-11: #70b8ff;
+	--v-info-12: #c2e6ff;
 	/* Amber */
 	/* --v-warning-1: #16120c;
 	--v-warning-2: #1d180f;
@@ -146,19 +146,30 @@
 
     /* Semantic Colors */
     --v-color-background: var(--v-gray-1);
+	/* Surfaces */
     --v-color-surface: var(--v-gray-2);
     --v-color-surface-raised: var(--v-gray-3);
-    /* --v-color-accent: var(--v-accent-9); */
-	--v-color-highlight:  var(--v-gray-12);
+	--v-color-surface-info: var(--v-info-4);
+	--v-color-surface-warning: var(--v-warning-4);
+	--v-color-surface-danger: var(--v-danger-4);
+	--v-color-surface-success: var(--v-success-4);
+	/* Borders */
     --v-color-border: var(--v-gray-4);
+	--v-color-border-info: var(--v-info-7);
+	--v-color-border-warning: var(--v-warning-7);
+	--v-color-border-danger: var(--v-danger-7);
+	--v-color-border-success: var(--v-success-7);
+
+	--v-color-highlight:  var(--v-gray-12);
     --v-color-text: var(--v-gray-12);
 	--v-color-text-contrast: var(--v-gray-1);
     --v-color-text-weak: var(--v-gray-11);
     --v-color-text-weaker: var(--v-gray-10);
     --v-color-text-weakest: var(--v-gray-8);
-    --v-color-text-danger: var(--v-danger-9);
-	--v-color-status-neutral: var(--v-gray-9);
-	--v-color-status-danger: var(--v-danger-9);
-	--v-color-status-warning: var(--v-warning-9);
-	--v-color-status-success: var(--v-success-9);
+	/* New Tokens */
+	--v-color-neutral: var(--v-gray-9);
+	--v-color-info: var(--v-info-9);
+	--v-color-danger: var(--v-danger-9);
+	--v-color-warning: var(--v-warning-9);
+	--v-color-success: var(--v-success-9);
 }

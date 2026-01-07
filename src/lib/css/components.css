@@ -9,44 +9,78 @@
     font-size: var(--v-font-size-s);
     background-color: var(--v-color-surface);
     border: 1px solid var(--v-color-border);
-    border-radius: var(--v-radius-rounded);
+    border-radius: var(--v-radius-round);
     padding: var(--v-space-xs) var(--v-space-m);
 }
 
 .v-badge.is-strong {
-    background-color: var(--v-color-status-neutral);
-    border-color: var(--v-gray-10);
+    background-color: var(--v-color-neutral);
+    border-color: var(--v-color-neutral);
 }
 
 .v-badge.is-danger {
-    background-color: var(--v-danger-4);
-    border-color: var(--v-danger-7);
+    background-color: var(--v-color-surface-danger);
+    border-color: var(--v-color-border-danger);
 }
 
 .v-badge.is-danger.is-strong {
-    background-color: var(--v-color-status-danger);
-    border-color: var(--v-danger-10);
+    background-color: var(--v-color-danger);
+    border-color: var(--v-color-danger);
 }
 
 .v-badge.is-warning {
-    background-color: var(--v-warning-4);
-    border-color: var(--v-warning-7);
+    background-color: var(--v-color-surface-warning);
+    border-color: var(--v-color-border-warning);
 }
 
 .v-badge.is-warning.is-strong {
-    background-color: var(--v-color-status-warning);
-    border-color: var(--v-warning-10);
+    background-color: var(--v-color-warning);
+    border-color: var(--v-color-warning);
     color: var(--v-color-text-contrast);
 }
 
 .v-badge.is-success {
-    background-color: var(--v-success-4);
-    border-color: var(--v-success-7);
+    background-color: var(--v-color-surface-success);
+    border-color: var(--v-color-border-success);
 }
 
 .v-badge.is-success.is-strong {
-    background-color: var(--v-color-status-success);
-    border-color: var(--v-success-10);
+    background-color: var(--v-color-success);
+    border-color: var(--v-color-success);
+}
+
+/* Banner */
+.v-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--v-space-m);
+    padding: var(--v-space-m);
+    background-color: var(--v-color-surface-info);
+    border: 1px solid var(--v-color-border-info);
+    color: var(--v-color-text);
+    border-radius: var(--v-radius-sharp);
+    font: var(--v-font-body);
+    font-size: var(--v-font-size-m);
+}
+
+.v-banner-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.v-banner.is-warning {
+    background-color: var(--v-color-surface-warning);
+    border: 1px solid var(--v-color-border-warning);
+}
+
+.v-banner.is-danger {
+    background-color: var(--v-color-surface-danger);
+    border: 1px solid var(--v-color-border-danger);
+}
+
+.v-banner.is-success {
+    background-color: var(--v-color-surface-success);
+    border: 1px solid var(--v-color-border-success);
 }
 
 /* Button */
@@ -60,7 +94,7 @@
     font-weight: 400;
     letter-spacing: var(--v-letter-spacing-default);
     border: 1px solid var(--v-color-text);
-    border-radius: var(--v-radius-m);
+    border-radius: var(--v-radius-sharp);
     background-color: var(--v-gray-12);
     height: 32px;
     width: max-content;
@@ -91,8 +125,8 @@
 }
 
 .v-button.is-danger {
-    background-color: var(--v-danger-9);
-    border-color: var(--v-danger-6);
+    background-color: var(--v-color-danger);
+    border-color: var(--v-color-danger);
     color: var(--v-color-text);
 }
 
@@ -148,7 +182,7 @@
 .v-card {
     background-color: var(--v-color-surface);
     border: 1px solid var(--v-color-border);
-    border-radius: var(--v-radius-m);
+    border-radius: var(--v-radius-sharp);
 }
 
 .v-card.is-ghost {
@@ -214,7 +248,7 @@
     height: 1.25rem;
     flex-shrink: 0;
     border: 1px solid var(--v-gray-7);
-    border-radius: var(--v-radius-m);
+    border-radius: var(--v-radius-sharp);
     background-color: var(--v-color-surface);
     display: flex;
     align-items: center;
@@ -222,12 +256,12 @@
 }
 
 .v-checkbox-box.is-danger {
-    border: 1px solid var(--v-danger-9);
+    border: 1px solid var(--v-color-danger);
 }
 
 .v-checkbox-wrapper.is-danger .v-checkbox-input:checked ~ .v-checkbox-box {
-    background-color: var(--v-color-status-danger);
-    border-color: var(--v-color-status-danger);
+    background-color: var(--v-color-danger);
+    border-color: var(--v-color-danger);
 }
 
 .v-checkbox-input:checked ~ .v-checkbox-box {
@@ -310,7 +344,7 @@
     line-height: var(--v-line-height-m);
     background: var(--v-gray-5);
     padding-inline: var(--v-space-s);
-    border-radius: var(--v-radius-m);
+    border-radius: var(--v-radius-sharp);
     width: min-content;
     height: min-content;
     white-space: nowrap;
@@ -366,7 +400,7 @@
 }
 
 .v-container.is-debug {
-    outline: 1px dashed var(--v-danger-10);
+    outline: 1px dashed var(--v-color-danger);
 }
 
 @media (min-width: 82rem) {
@@ -386,7 +420,7 @@
     background: var(--v-color-surface-raised);
     padding: var(--v-space-s);
     border: 1px solid var(--v-color-border);
-    border-radius: var(--v-radius-m);
+    border-radius: var(--v-radius-sharp);
 }
 
 /* Fieldset */
@@ -404,7 +438,7 @@
 
 .v-fieldset-required {
     font-size: var(--v-font-size-s);
-    color: var(--v-danger-9);
+    color: var(--v-color-danger);
 }
 
 .v-fieldset-label {
@@ -558,7 +592,7 @@
 }
 
 .v-help-text.is-danger {
-    color: var(--v-color-text-danger);
+    color: var(--v-color-danger);
 }
 
 /* Input */
@@ -575,7 +609,7 @@
 .v-input {
     padding: var(--v-space-s) var(--v-space-s);
     border: 1px solid var(--v-color-border);
-    border-radius: var(--v-radius-m);
+    border-radius: var(--v-radius-sharp);
     font-size: var(--v-font-size-m);
     background-color: var(--v-color-surface);
     color: var(--v-color-text);
@@ -604,7 +638,7 @@
 }
 
 .v-input.is-danger {
-    border-color: var(--v-danger-9);
+    border-color: var(--v-color-danger);
 }
 
 .v-input.is-danger:focus {
@@ -651,7 +685,7 @@
     }
 
     .v-input.is-danger:hover {
-        border-color: var(--v-danger-10);
+        border-color: var(--v-color-danger);
     }
 }
 
@@ -670,7 +704,7 @@
 
 .v-label.is-required::after {
     content: "*";
-    color: var(--v-danger-9);
+    color: var(--v-color-danger);
     margin-left: var(--v-space-xs);
 }
 
@@ -707,7 +741,7 @@
     padding: var(--v-space-xs);
     height: 32px;
     width: 32px;
-    border-radius: var(--v-radius-m);
+    border-radius: var(--v-radius-sharp);
 }
 
 .v-layout-logo {
@@ -938,12 +972,12 @@
 }
 
 .v-radio-wrapper.is-danger .v-radio-label::before {
-    border-color: var(--v-color-status-danger);
+    border-color: var(--v-color-danger);
 }
 
 .v-radio-wrapper.is-danger .v-radio:checked + .v-radio-label::before {
-    background-color: var(--v-color-status-danger);
-    border-color: var(--v-color-status-danger);
+    background-color: var(--v-color-danger);
+    border-color: var(--v-color-danger);
 }
 
 .v-radio-label {
@@ -1001,7 +1035,7 @@
     align-items: center;
     background-color: var(--v-color-surface);
     border: 1px solid var(--v-color-border);
-    border-radius: var(--v-radius-m);
+    border-radius: var(--v-radius-sharp);
     width: 12rem;
 }
 
@@ -1045,7 +1079,7 @@
 }
 
 .v-select-wrapper.is-danger {
-    border-color: var(--v-danger-9);
+    border-color: var(--v-color-danger);
 }
 
 .v-select.has-placeholder {
@@ -1100,7 +1134,7 @@
     }
 
     .v-select-wrapper.is-danger:hover {
-        border-color: var(--v-danger-10);
+        border-color: var(--v-color-danger);
     }
 }
 
@@ -1299,14 +1333,14 @@
     color: var(--v-color-text);
     border: 1px solid var(--v-gray-7);
     padding: var(--v-space-m);
-    border-radius: var(--v-radius-m);
+    border-radius: var(--v-radius-sharp);
     width: 17rem;
     height: 1.5rem;
 }
 
 .v-toast.is-danger {
-    background-color: var(--v-danger-4);
-    border-color: var(--v-danger-7)
+    background-color: var(--v-color-surface-danger);
+    border-color: var(--v-color-border-danger)
 }
 
 .v-toast-message {
@@ -1319,7 +1353,7 @@
     background: transparent;
     cursor: pointer;
     height: 32px;
-    border-radius: var(--v-radius-m);
+    border-radius: var(--v-radius-sharp);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1360,7 +1394,7 @@
 }
 
 .v-toggle-container.is-danger .v-toggle:checked {
-    background-color: var(--v-color-status-danger);
+    background-color: var(--v-color-danger);
 }
 
 .v-toggle-container.is-danger .v-toggle:checked:before {

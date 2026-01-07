@@ -36,7 +36,7 @@
   flex-direction: column;
   gap: 0;
   /* border: 1px solid var(--v-color-border); */
-  border-radius: var(--v-radius-m);
+  border-radius: var(--v-radius-sharp);
   width: 100%;
 }
 
@@ -115,7 +115,7 @@ code.hljs {
 }
 
 .hljs-template-variable {
-  color: var(--v-highlight-11);
+  color: var(--v-info-11);
 }
 
 /* base09 - Integers, Boolean, Constants, XML Attributes, Markup Link Url */
@@ -125,7 +125,7 @@ code.hljs {
 .hljs-attr,
 .hljs-variable.constant_,
 .hljs-literal {
-  color: var(--v-highlight-11);
+  color: var(--v-info-11);
 }
 
 /* base0A - Classes, Markup Bold, Search Text Background */
@@ -155,7 +155,7 @@ code.hljs {
 .hljs-quote,
 .hljs-keyword.hljs-atrule,
 .hljs-regexp {
-  color: var(--v-highlight-10);
+  color: var(--v-info-10);
 }
 
 /* base0D - Functions, Methods, Attribute IDs, Headings */

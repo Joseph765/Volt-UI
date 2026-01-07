@@ -1,4 +1,5 @@
 import Badge from "./components/Badge.svelte";
+import Banner from "./components/Banner.svelte";
 import Button from "./components/Button.svelte";
 import Card from "./components/Card.svelte";
 import Checkbox from "./components/Checkbox.svelte";
@@ -35,6 +36,7 @@ import Toggle from "./components/Toggle.svelte";
 
 export { 
     Badge,
+    Banner,
     Button,
     Card,
     Checkbox,

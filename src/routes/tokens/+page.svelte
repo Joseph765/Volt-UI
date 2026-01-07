@@ -170,42 +170,42 @@
                 </div>
                 <div class="token">
                     <div class="token-example">
-                        <div style="border-top: 2px solid var(--v-color-status-neutral); width: var(--v-space-xs);"></div>
+                        <div style="border-top: 2px solid var(--v-color-surface-solid); width: var(--v-space-xs);"></div>
                     </div>
                     <Text measure="s">Extra small spacing.</Text>
                     <CopyCode code="var(--v-space-xs)" />
                 </div>
                 <div class="token">
                     <div class="token-example">
-                        <div style="border-top: 2px solid var(--v-color-status-neutral); width: var(--v-space-s);"></div>
+                        <div style="border-top: 2px solid var(--v-color-surface-solid); width: var(--v-space-s);"></div>
                     </div>
                     <Text measure="s">Small spacing</Text>
                     <CopyCode code="var(--v-space-s)" />
                 </div>
                 <div class="token">
                     <div class="token-example">
-                        <div style="border-top: 2px solid var(--v-color-status-neutral); width: var(--v-space-m);"></div>
+                        <div style="border-top: 2px solid var(--v-color-surface-solid); width: var(--v-space-m);"></div>
                     </div>
                     <Text measure="s">Default spacing.</Text>
                     <CopyCode code="var(--v-space-m)" />
                 </div>
                 <div class="token">
                     <div class="token-example">
-                        <div style="border-top: 2px solid var(--v-color-status-neutral); width: var(--v-space-l);"></div>
+                        <div style="border-top: 2px solid var(--v-color-surface-solid); width: var(--v-space-l);"></div>
                     </div>
                     <Text measure="s">Large spacing.</Text>
                     <CopyCode code="var(--v-space-l)" />
                 </div>
                 <div class="token">
                     <div class="token-example">
-                        <div style="border-top: 2px solid var(--v-color-status-neutral); width: var(--v-space-xl);"></div>
+                        <div style="border-top: 2px solid var(--v-color-surface-solid); width: var(--v-space-xl);"></div>
                     </div>
                     <Text measure="s">Extra large spacing.</Text>
                     <CopyCode code="var(--v-space-xl)" />
                 </div>
                 <div class="token">
                     <div class="token-example">
-                        <div style="border-top: 2px solid var(--v-color-status-neutral); width: var(--v-space-2xl);"></div>
+                        <div style="border-top: 2px solid var(--v-color-surface-solid); width: var(--v-space-2xl);"></div>
                     </div>
                     <Text measure="s">Extra extra large spacing.</Text>
                     <CopyCode code="var(--v-space-2xl)" />
@@ -224,17 +224,17 @@
                 </div>
                 <div class="token">
                     <div class="token-example">
-                        <div style="border-top: 4px solid var(--v-color-status-neutral); border-right: 4px solid var(--v-color-status-neutral); width: 2rem; height: 2rem; border-top-right-radius: var(--v-radius-m);"></div>
+                        <div style="border-top: 4px solid var(--v-color-surface-solid); border-right: 4px solid var(--v-color-surface-solid); width: 2rem; height: 2rem; border-top-right-radius: var(--v-radius-sharp);"></div>
                     </div>
                     <Text measure="s">Default border radius.</Text>
-                    <CopyCode code="var(--v-radius-m)" />
+                    <CopyCode code="var(--v-radius-sharp)" />
                 </div>
                 <div class="token">
                     <div class="token-example">
-                        <div style="border-top: 4px solid var(--v-color-status-neutral); border-right: 4px solid var(--v-color-status-neutral); width: 2rem; height: 2rem; border-top-right-radius: var(--v-radius-rounded);"></div>
+                        <div style="border-top: 4px solid var(--v-color-surface-solid); border-right: 4px solid var(--v-color-surface-solid); width: 2rem; height: 2rem; border-top-right-radius: var(--v-radius-round);"></div>
                     </div>
                     <Text measure="s">Rounded border radius used in certain components.</Text>
-                    <CopyCode code="var(--v-radius-rounded)" />
+                    <CopyCode code="var(--v-radius-round)" />
                 </div>
             </div>
         </Flex>
@@ -283,30 +283,25 @@
                     <Text measure="s">Default border color.</Text>
                     <CopyCode code="var(--v-color-border)" />
                 </div>
-                <!-- <div class="token">
-                    <div class="token-example" style="background-color: var(--v-color-text-danger);"></div>
-                    <Text>Use on text when there is an error present.</Text>
-                    <Code>var(--v-color-text-danger)</Code>
-                </div> -->
                 <div class="token">
-                    <div class="token-example" style="background-color: var(--v-color-status-danger);"></div>
+                    <div class="token-example" style="background-color: var(--v-color-danger);"></div>
                     <Text measure="s">Use when there is an error present.</Text>
-                    <CopyCode code="var(--v-color-status-danger)" />
+                    <CopyCode code="var(--v-color-danger)" />
                 </div>
                 <div class="token">
-                    <div class="token-example" style="background-color: var(--v-color-status-warning);"></div>
+                    <div class="token-example" style="background-color: var(--v-color-warning);"></div>
                     <Text measure="s">Use to warn the user.</Text>
-                    <CopyCode code="var(--v-color-status-warning)" />
+                    <CopyCode code="var(--v-color-warning)" />
                 </div>
                 <div class="token">
-                    <div class="token-example" style="background-color: var(--v-color-status-success);"></div>
+                    <div class="token-example" style="background-color: var(--v-color-success);"></div>
                     <Text measure="s">Use when there is an error present.</Text>
-                    <CopyCode code="var(--v-color-status-success)" />
+                    <CopyCode code="var(--v-color-success)" />
                 </div>
                 <div class="token">
-                    <div class="token-example" style="background-color: var(--v-color-status-neutral);"></div>
+                    <div class="token-example" style="background-color: var(--v-color-surface-solid);"></div>
                     <Text measure="s">Solid color used on components like badge when there is no status indication.</Text>
-                    <CopyCode code="var(--v-color-status-neutral)" />
+                    <CopyCode code="var(--v-color-surface-solid)" />
                 </div>
             </div>
         </Flex>
@@ -330,7 +325,7 @@
         flex-direction: column;
         gap: var(--v-space-m);
         border: 1px solid var(--v-color-border);
-        border-radius: var(--v-radius-m);
+        border-radius: var(--v-radius-sharp);
         padding: var(--v-space-s);
         background-color: var(--v-color-surface);
     }
@@ -341,7 +336,7 @@
         align-items: center;
         width: 100%;
         height: 4rem;
-        border-radius: var(--v-radius-m);
+        border-radius: var(--v-radius-sharp);
         border: 1px solid var(--v-color-border);
         overflow: hidden;
     }
@@ -365,7 +360,7 @@
         .token-example {
             width: 4rem;
             height: 4rem;
-            border-radius: var(--v-radius-m);
+            border-radius: var(--v-radius-sharp);
         }
     }
 </style>

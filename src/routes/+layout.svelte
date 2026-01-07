@@ -57,6 +57,7 @@
         </NavGroup>
         <NavGroup title="Components">
             <NavGroupItem href="/components/badge">Badge</NavGroupItem>
+            <NavGroupItem href="/components/banner">Banner</NavGroupItem>
             <NavGroupItem href="/components/button">Button</NavGroupItem>
             <NavGroupItem href="/components/card">Card</NavGroupItem>
             <NavGroupItem href="/components/checkbox">Checkbox</NavGroupItem>
