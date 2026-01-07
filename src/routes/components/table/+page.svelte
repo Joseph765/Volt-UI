@@ -8,6 +8,7 @@
         Select,
         Table,
         TableBody,
+        TableCaption,
         TableCell,
         TableHead,
         TableHeader,
@@ -22,6 +23,7 @@
         { value: 'interactive', label: 'Example: Interactive' },
         { value: 'align', label: 'Example: Align' },
         { value: 'truncate', label: 'Example: Truncate' },
+        { value: 'caption', label: 'Example: Caption' },
     ];
 
     let selectedExample = 'basic';
@@ -75,41 +77,41 @@
 <\/script>
 
 <Table striped>
-        <TableHeader>
-            <TableRow>
-                <TableHead>Col 1</TableHead>
-                <TableHead>Col 2</TableHead>
-                <TableHead>Col 3</TableHead>
-            </TableRow>
-        </TableHeader>
-        <TableBody>
-            <TableRow>
-                <TableCell>Value 1.1</TableCell>
-                <TableCell>Value 1.2</TableCell>
-                <TableCell>Value 1.3</TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell>Value 2.1</TableCell>
-                <TableCell>Value 2.2</TableCell>
-                <TableCell>Value 2.3</TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell>Value 3.1</TableCell>
-                <TableCell>Value 3.2</TableCell>
-                <TableCell>Value 3.3</TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell>Value 4.1</TableCell>
-                <TableCell>Value 4.2</TableCell>
-                <TableCell>Value 4.3</TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell>Value 5.1</TableCell>
-                <TableCell>Value 5.2</TableCell>
-                <TableCell>Value 5.3</TableCell>
-            </TableRow>
-        </TableBody>
-    </Table>`;
+    <TableHeader>
+        <TableRow>
+            <TableHead>Col 1</TableHead>
+            <TableHead>Col 2</TableHead>
+            <TableHead>Col 3</TableHead>
+        </TableRow>
+    </TableHeader>
+    <TableBody>
+        <TableRow>
+            <TableCell>Value 1.1</TableCell>
+            <TableCell>Value 1.2</TableCell>
+            <TableCell>Value 1.3</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Value 2.1</TableCell>
+            <TableCell>Value 2.2</TableCell>
+            <TableCell>Value 2.3</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Value 3.1</TableCell>
+            <TableCell>Value 3.2</TableCell>
+            <TableCell>Value 3.3</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Value 4.1</TableCell>
+            <TableCell>Value 4.2</TableCell>
+            <TableCell>Value 4.3</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Value 5.1</TableCell>
+            <TableCell>Value 5.2</TableCell>
+            <TableCell>Value 5.3</TableCell>
+        </TableRow>
+    </TableBody>
+</Table>`;
     let example3 = `<script>
     import { 
         Card,
@@ -270,6 +272,47 @@
         </TableBody>
     </Table>
 </Card>`;
+    let example7 = `<script>
+    import { 
+        Table,
+        TableBody,
+        TableCaption,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow
+    } from "$lib";
+<\/script>
+
+<Table>
+    <TableCaption>
+        <Text size="2xl">Caption</Text>
+    </TableCaption>
+    <TableHeader>
+        <TableRow>
+            <TableHead>Col 1</TableHead>
+            <TableHead>Col 2</TableHead>
+            <TableHead>Col 3</TableHead>
+        </TableRow>
+    </TableHeader>
+    <TableBody>
+        <TableRow>
+            <TableCell>Value 1.1</TableCell>
+            <TableCell>Value 1.2</TableCell>
+            <TableCell>Value 1.3</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Value 2.1</TableCell>
+            <TableCell>Value 2.2</TableCell>
+            <TableCell>Value 2.3</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Value 3.1</TableCell>
+            <TableCell>Value 3.2</TableCell>
+            <TableCell>Value 3.3</TableCell>
+        </TableRow>
+    </TableBody>
+</Table>`;
 </script>
 
 <Flex direction="column" gap="xl">
@@ -475,6 +518,38 @@
                         </TableBody>
                     </Table>
                 </Card>
+            </CodeExample>
+        {:else if selectedExample === "caption"}
+            <CodeExample code={example7}>
+                <Table>
+                    <TableCaption>
+                        <Text size="2xl">Caption</Text>
+                    </TableCaption>
+                    <TableHeader>
+                        <TableRow>
+                            <TableHead>Col 1</TableHead>
+                            <TableHead>Col 2</TableHead>
+                            <TableHead>Col 3</TableHead>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell>Value 1.1</TableCell>
+                            <TableCell>Value 1.2</TableCell>
+                            <TableCell>Value 1.3</TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>Value 2.1</TableCell>
+                            <TableCell>Value 2.2</TableCell>
+                            <TableCell>Value 2.3</TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>Value 3.1</TableCell>
+                            <TableCell>Value 3.2</TableCell>
+                            <TableCell>Value 3.3</TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
             </CodeExample>
         {/if}
     </Flex>

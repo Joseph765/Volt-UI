@@ -25,6 +25,7 @@ import Radio from "./components/Radio.svelte";
 import Select from "./components/Select.svelte";
 import Table from "./components/Table/Table.svelte";
 import TableBody from "./components/Table/TableBody.svelte";
+import TableCaption from "./components/Table/TableCaption.svelte";
 import TableCell from "./components/Table/TableCell.svelte";
 import TableHead from "./components/Table/TableHead.svelte";
 import TableHeader from "./components/Table/TableHeader.svelte";
@@ -63,6 +64,7 @@ export {
     Select,
     Table,
     TableBody,
+    TableCaption,
     TableCell,
     TableHead,
     TableHeader,
