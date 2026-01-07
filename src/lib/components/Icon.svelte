@@ -1,5 +1,5 @@
 <script>
-    /** @type { 'plus' | 'minus' | 'chevron-down' | 'chevron-up' | 'x' | 'search' | 'phone' | 'user' | 'arrow-up' | 'move-up' | 'arrow-big-up' } */
+    /** @type { 'plus' | 'minus' | 'chevron-down' | 'chevron-up' | 'x' | 'search' | 'phone' | 'user' | 'arrow-up' | 'arrow-down' | 'circle-question-mark' | 'info' | 'triangle-alert' | 'circle-check' } */
     export let name;
 
     /** @type { 's' | 'm' | 'l' } */
@@ -27,10 +27,16 @@
             <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
         {:else if name === "arrow-up"}
             <path d="m5 12 7-7 7 7"/><path d="M12 19V5"/>
-        {:else if name === "move-up"}
-            <path d="M8 6L12 2L16 6"/><path d="M12 2V22"/>
-        {:else if name === "arrow-big-up"}
-            <path d="M9 13a1 1 0 0 0-1-1H5.061a1 1 0 0 1-.75-1.811l6.836-6.835a1.207 1.207 0 0 1 1.707 0l6.835 6.835a1 1 0 0 1-.75 1.811H16a1 1 0 0 0-1 1v6a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1z"/>
+        {:else if name === "arrow-down"}
+            <path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>
+        {:else if name === "circle-question-mark"}
+            <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>
+        {:else if name === "info"}
+            <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+        {:else if name === "triangle-alert"}
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>
+        {:else if name === "circle-check"}
+            <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
         {/if}
     </svg>
 {:else} 
