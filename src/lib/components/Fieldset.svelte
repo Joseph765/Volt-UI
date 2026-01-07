@@ -10,7 +10,7 @@
     <legend class="v-fieldset-legend">
         <div class="v-fieldset-label">{label}</div>
         {#if required}
-            <div class="v-fieldset-required">*</div>
+            <span class="v-required">*</span>
         {/if}
     </legend>
     <slot />

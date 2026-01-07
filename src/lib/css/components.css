@@ -715,13 +715,6 @@
     gap: var(--v-space-xs);
 }
 
-.v-label.is-required::after {
-    content: "*";
-    font-size: var(--v-font-size-xl);
-    color: var(--v-color-danger);
-    margin-left: var(--v-space-xs);
-}
-
 /* Layout */
 .v-layout {
     display: grid;
@@ -1044,8 +1037,9 @@
 
 /* Required */
 .v-required {
-    font-size: var(--v-font-size-xl);
+    font-size: var(--v-font-size-2xl);
     color: var(--v-color-danger);
+    height: 17px;
 }
 
 /* Select  */
