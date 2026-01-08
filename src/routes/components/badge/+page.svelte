@@ -38,7 +38,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Badge</Text>
+        <Text size="3xl" weight="black" as="h2">Badge</Text>
         <Text size="xl" variant="weak">A small, inline label that displays status, counts, or categorical information</Text>
     </Flex>
     <Flex direction="column">

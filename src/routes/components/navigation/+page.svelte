@@ -23,7 +23,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Navigation</Text>
+        <Text size="3xl" weight="black" as="h2">Navigation</Text>
         <Text size="xl" variant="weak">A component for creating lists of navigational items to be used within the layout's sidebar.</Text>
     </Flex>
     <Flex direction="column">

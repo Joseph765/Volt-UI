@@ -48,7 +48,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Tabs</Text>
+        <Text size="3xl" weight="black" as="h2">Tabs</Text>
         <Text size="xl" variant="weak">A navigation component that organizes content into separate panels, allowing users to switch between views with clickable tab labels.</Text>
     </Flex>
     <Flex direction="column">

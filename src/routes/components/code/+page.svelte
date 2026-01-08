@@ -19,7 +19,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Code</Text>
+        <Text size="3xl" weight="black" as="h2">Code</Text>
         <Text size="xl" variant="weak">An inline text component that styles short code snippets with a monospaced font for clear readability.</Text>
     </Flex>
     <Flex direction="column">

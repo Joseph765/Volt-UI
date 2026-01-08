@@ -317,7 +317,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Table</Text>
+        <Text size="3xl" weight="black" as="h2">Table</Text>
         <Text size="xl" variant="weak">A structured component for displaying tabular data in rows and columns with consistent styling and layout.</Text>
     </Flex>
     <Flex direction="column">

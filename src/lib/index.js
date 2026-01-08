@@ -7,6 +7,7 @@ import Code from "./components/Code.svelte";
 import CodeExample from "./components/CodeExample.svelte";
 import Container from "./components/Container.svelte";
 import CopyCode from "./components/CopyCode.svelte";
+import Divider from "./components/Divider.svelte";
 import Fieldset from "./components/Fieldset.svelte";
 import Flex from "./components/Flex.svelte";
 import Icon from "./components/Icon.svelte";
@@ -47,6 +48,7 @@ export {
     CodeExample,
     Container,
     CopyCode,
+    Divider,
     Fieldset,
     Flex,
     Icon,

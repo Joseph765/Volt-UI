@@ -58,7 +58,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Container</Text>
+        <Text size="3xl" weight="black" as="h2">Container</Text>
         <Text size="xl" variant="weak">A wrapper that constrains content width and applies consistent padding.</Text>
     </Flex>
     <Flex direction="column">

@@ -48,7 +48,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Button</Text>
+        <Text size="3xl" weight="black" as="h2">Button</Text>
         <Text size="xl" variant="weak">An interactive element that triggers actions or submits forms when clicked.</Text>
     </Flex>
     <Flex direction="column">

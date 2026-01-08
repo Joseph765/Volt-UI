@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 @import url('./tokens.css');
 @import url('./components.css');
 @import url('./highlight.css');
 
 ::selection {
-  background-color: var(--v-color-highlight);
-  color: var(--v-color-text-contrast);
+  background-color: var(--v-accent-7);
+  color: var(--v-color-text);
 }
 
 html,
@@ -16,6 +17,5 @@ body {
   font-family: var(--v-font-body);
   background-color: var(--v-color-background);
   color: var(--v-color-text);
-  /* height: 100dvh; */
   width: 100%;
 }

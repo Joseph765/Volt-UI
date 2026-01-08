@@ -34,8 +34,8 @@
     </LayoutHeader>
     <LayoutLogo>
         <a href="/" style="color: var(--v-color-text); text-decoration: none;">
-            <Text size="3xl" weight="bold" as="h1">
-                Volt
+            <Text size="3xl" weight="bold" as="h1" style="font-weight: 900;">
+                VOLT
             </Text>
         </a>
     </LayoutLogo>

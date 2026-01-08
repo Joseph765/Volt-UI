@@ -26,7 +26,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Checkbox</Text>
+        <Text size="3xl" weight="black" as="h2">Checkbox</Text>
         <Text size="xl" variant="weak">A control that allows users to select one or more options from a set.</Text>
     </Flex>
     <Flex direction="column">

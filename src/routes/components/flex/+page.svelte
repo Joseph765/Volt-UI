@@ -113,7 +113,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Flex</Text>
+        <Text size="3xl" weight="black" as="h2">Flex</Text>
         <Text size="xl" variant="weak">A utility component that provides flexible layout control using CSS Flexbox properties.</Text>
     </Flex>
     <Flex direction="column">

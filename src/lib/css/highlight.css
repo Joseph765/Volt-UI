@@ -111,7 +111,7 @@ code.hljs {
 .hljs-selector-tag,
 .hljs-name,
 .hljs-deletion {
-  color: var(--v-success-11);
+  color: var(--v-accent-11);
 }
 
 .hljs-template-variable {
@@ -133,7 +133,7 @@ code.hljs {
 .hljs-class .hljs-title,
 .hljs-title.class_
 {
-  color: #795da3;
+  color: var(--v-success-10);
 }
 
 .hljs-strong {

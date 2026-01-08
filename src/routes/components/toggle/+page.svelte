@@ -33,7 +33,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Toggle</Text>
+        <Text size="3xl" weight="black" as="h2">Toggle</Text>
         <Text size="xl" variant="weak">A switch control that allows users to turn an option on or off.</Text>
     </Flex>
     <Flex direction="column">

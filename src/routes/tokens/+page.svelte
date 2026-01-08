@@ -8,7 +8,7 @@
 
 <Flex direction="column" gap="2xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Design Tokens</Text>
+        <Text size="3xl" weight="black" as="h2">Design Tokens</Text>
         <Text size="xl" variant="weak">Foundational values that define the visual style of the design system, including colors, typography, spacing, and more.</Text>
     </Flex>
     <section id="font">
