@@ -33,10 +33,11 @@
         <LayoutMenuButton on:click={() => open = !open}></LayoutMenuButton>
     </LayoutHeader>
     <LayoutLogo>
-        <a href="/" style="color: var(--v-color-text); text-decoration: none;">
-            <Text size="3xl" weight="bold" as="h1">
-                Volt
-            </Text>
+        <!-- <a href="/" class="logo">
+            <span class="logo-ui">VOLT</span> UI
+        </a> -->
+        <a href="/" class="logo">
+            VOLT <span class="logo-ui">UI</span>
         </a>
     </LayoutLogo>
     <LayoutNav {open}>
@@ -63,6 +64,7 @@
             <NavGroupItem href="/components/checkbox">Checkbox</NavGroupItem>
             <NavGroupItem href="/components/code">Code</NavGroupItem>
             <NavGroupItem href="/components/container">Container</NavGroupItem>
+            <NavGroupItem href="/components/divider">Divider</NavGroupItem>
             <NavGroupItem href="/components/fieldset">Fieldset</NavGroupItem>
             <NavGroupItem href="/components/flex">Flex</NavGroupItem>
             <NavGroupItem href="/components/icon">Icon</NavGroupItem>
@@ -89,4 +91,25 @@
 
 <style>
     @import "$lib/css";
+
+    .logo {
+        font-family: var(--v-font);
+        font-size: var(--v-font-size-2xl);
+        font-weight: var(--v-font-weight-black);
+        letter-spacing: -0.2px;
+        text-decoration: none;
+        color: var(--v-color-text);
+        text-transform: uppercase;
+    }
+
+    .logo-accent {
+        color: var(--v-accent-10);
+        padding-inline: -2px;
+    }
+
+    .logo-ui {
+        background-color: var(--v-accent-5);
+        padding: 2px 8px;
+        border-radius: var(--v-radius-sharp);
+    }
 </style>

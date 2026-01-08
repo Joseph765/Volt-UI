@@ -52,7 +52,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Radio</Text>
+        <Text size="3xl" weight="black" as="h2">Radio</Text>
         <Text size="xl" variant="weak">A control that allows users to select exactly one option from a set.</Text>
     </Flex>
     <Flex direction="column">

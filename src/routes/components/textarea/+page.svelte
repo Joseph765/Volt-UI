@@ -32,7 +32,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Input</Text>
+        <Text size="3xl" weight="black" as="h2">Input</Text>
         <Text size="xl" variant="weak">A field that captures single-line text or data input from the user.</Text>
     </Flex>
     <Flex direction="column">

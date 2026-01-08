@@ -40,7 +40,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Icon</Text>
+        <Text size="3xl" weight="black" as="h2">Icon</Text>
         <Text size="xl" variant="weak">A scalable vector component for displaying symbolic icons with customizable size, color, and accessibility features.</Text>
     </Flex>
     <Flex direction="column">

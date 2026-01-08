@@ -1,7 +1,7 @@
 :root {
 	/* Font Family */
-    --v-font-body: 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
-	--v-font-mono: 'Roboto Mono', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Ubuntu Mono', Consolas, 'Courier New', monospace;
+    --v-font: 'Outfit', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+	--v-font-mono: 'Geist Mono', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Ubuntu Mono', Consolas, 'Courier New', monospace;
 
     /* Font Size */
     --v-font-size-xs: 0.6875rem; /* 11px */
@@ -12,6 +12,11 @@
     --v-font-size-2xl: 1.5rem; /* 24px */
     --v-font-size-3xl: 2.25rem; /* 36px */
 
+	/* Font Weight */
+	--v-font-weight-regular: 400;
+	--v-font-weight-bold: 600;
+	--v-font-weight-black: 800;
+
 	/* Line Height */
 	--v-line-height-xs: 1.8;
 	--v-line-height-s: 1.7;
@@ -20,6 +25,15 @@
 	--v-line-height-xl: 1.4;
 	--v-line-height-2xl: 1.3;
 	--v-line-height-3xl: 1.2;
+
+	/* Letter Spacing */
+	--v-letter-spacing-xs: 0.5px;
+	--v-letter-spacing-s: 0.25px;
+	--v-letter-spacing-m: 0.2px;
+	--v-letter-spacing-l: 0.2px;
+	--v-letter-spacing-xl: 0.2px;
+	--v-letter-spacing-2xl: 0.15px;
+	--v-letter-spacing-3xl: 0.1px;
 
     /* Space */
     --v-space-xs: 0.25rem; /* 4px */
@@ -30,7 +44,7 @@
     --v-space-2xl: 4.5rem; /* 72px */
 
     /* Border Radius */
-    --v-radius-sharp: 3px;
+    --v-radius-sharp: 8px;
 	--v-radius-round: 9999px;
 
 	/* Breakpoints */
@@ -40,19 +54,19 @@
 	--v-breakpoint-xl: 82rem; /* 1312px */
 	--v-breakpoint-2xl: 99rem; /* 1584rem */
 
-	/* Gray */
-	--v-gray-1: #111111;
-	--v-gray-2: #191919;
-	--v-gray-3: #222222;
-	--v-gray-4: #2a2a2a;
-	--v-gray-5: #313131;
-	--v-gray-6: #3a3a3a;
-	--v-gray-7: #484848;
-	--v-gray-8: #606060;
-	--v-gray-9: #6e6e6e;
-	--v-gray-10: #7b7b7b;
-	--v-gray-11: #b4b4b4;
-	--v-gray-12: #eeeeee;
+	/* Muave */
+	--v-gray-1: #050505;
+	--v-gray-2: #121113;
+	--v-gray-3: #1a191b;
+	--v-gray-4: #2b292d;
+	--v-gray-5: #323035;
+	--v-gray-6: #3c393f;
+	--v-gray-7: #49474e;
+	--v-gray-8: #625f69;
+	--v-gray-9: #6f6d78;
+	--v-gray-10: #7c7a85;
+	--v-gray-11: #b5b2bc;
+	--v-gray-12: #eeeef0;
     /* Red */
 	--v-danger-1: #191111;
 	--v-danger-2: #201314;
@@ -79,19 +93,6 @@
 	--v-info-10: #3b9eff;
 	--v-info-11: #70b8ff;
 	--v-info-12: #c2e6ff;
-	/* Amber */
-	/* --v-warning-1: #16120c;
-	--v-warning-2: #1d180f;
-	--v-warning-3: #302008;
-	--v-warning-4: #3f2700;
-	--v-warning-5: #4d3000;
-	--v-warning-6: #5c3d05;
-	--v-warning-7: #714f19;
-	--v-warning-8: #8f6424;
-	--v-warning-9: #ffc53d;
-	--v-warning-10: #ffd60a;
-	--v-warning-11: #ffca16;
-	--v-warning-12: #ffe7b3; */
 	/* Yellow */
 	--v-warning-1: #14120b;
 	--v-warning-2: #1b180f;
@@ -105,19 +106,6 @@
 	--v-warning-10: #ffff57;
 	--v-warning-11: #f5e147;
 	--v-warning-12: #f6eeb4;
-	/* Grass */
-	/* --v-success-1: #0e1511;
-	--v-success-2: #141a15;
-	--v-success-3: #1b2a1e;
-	--v-success-4: #1d3a24;
-	--v-success-5: #25482d;
-	--v-success-6: #2d5736;
-	--v-success-7: #366740;
-	--v-success-8: #3e7949;
-	--v-success-9: #46a758;
-	--v-success-10: #53b365;
-	--v-success-11: #71d083;
-	--v-success-12: #c2f0c2; */
 	/* Green */
 	--v-success-1: #0e1512;
 	--v-success-2: #121b17;
@@ -131,21 +119,26 @@
 	--v-success-10: #33b074;
 	--v-success-11: #3dd68c;
 	--v-success-12: #b1f1cb;
-	--v-gray-a1: #00000000;
-	--v-gray-a2: #ffffff09;
-	--v-gray-a3: #ffffff12;
-	--v-gray-a4: #ffffff1b;
-	--v-gray-a5: #ffffff22;
-	--v-gray-a6: #ffffff2c;
-	--v-gray-a7: #ffffff3b;
-	--v-gray-a8: #ffffff55;
-	--v-gray-a9: #ffffff64;
-	--v-gray-a10: #ffffff72;
-	--v-gray-a11: #ffffffaf;
-	--v-gray-a12: #ffffffed;
+	/* Violet */
+	--v-accent-1: #14121f;
+	--v-accent-2: #1b1525;
+	--v-accent-3: #291f43;
+	--v-accent-4: #33255b;
+	--v-accent-5: #3c2e69;
+	--v-accent-6: #473876;
+	--v-accent-7: #56468b;
+	--v-accent-8: #6958ad;
+	--v-accent-9: #6e56cf;
+	--v-accent-10: #7d66d9;
+	--v-accent-11: #baa7ff;
+	--v-accent-12: #e2ddfe;
 
     /* Semantic Colors */
     --v-color-background: var(--v-gray-1);
+
+	/* Accent */
+	--v-color-accent: var(--v-accent-9);
+
 	/* Surfaces */
     --v-color-surface: var(--v-gray-2);
     --v-color-surface-raised: var(--v-gray-3);
@@ -153,6 +146,7 @@
 	--v-color-surface-warning: var(--v-warning-4);
 	--v-color-surface-danger: var(--v-danger-4);
 	--v-color-surface-success: var(--v-success-4);
+	
 	/* Borders */
     --v-color-border: var(--v-gray-4);
 	--v-color-border-info: var(--v-info-7);
@@ -160,13 +154,18 @@
 	--v-color-border-danger: var(--v-danger-7);
 	--v-color-border-success: var(--v-success-7);
 
-	--v-color-highlight:  var(--v-gray-12);
+	/* Highlight */
+	--v-color-highlight:  var(--v-accent-9);
+
+	/* Text colors */
     --v-color-text: var(--v-gray-12);
+	--v-color-text-accent: var(--v-accent-11);
 	--v-color-text-contrast: var(--v-gray-1);
     --v-color-text-weak: var(--v-gray-11);
     --v-color-text-weaker: var(--v-gray-10);
     --v-color-text-weakest: var(--v-gray-8);
-	/* New Tokens */
+
+	/* Status Colors */
 	--v-color-neutral: var(--v-gray-9);
 	--v-color-info: var(--v-info-9);
 	--v-color-danger: var(--v-danger-9);

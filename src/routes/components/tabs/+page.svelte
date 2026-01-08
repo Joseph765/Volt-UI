@@ -29,9 +29,9 @@
 <Flex direction="column">
     <Tabs 
         tabs={[
-            { id: "one", label: "label 1" },
-            { id: "two", label: "label 2" },
-            { id: "three", label: "label 3" },
+            { id: "one", label: "Label 1" },
+            { id: "two", label: "Label 2" },
+            { id: "three", label: "Label 3" },
         ]} 
         selected={selectedTab}
         onClick={(/** @type { string } */ id) => selectedTab = id}
@@ -48,7 +48,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Tabs</Text>
+        <Text size="3xl" weight="black" as="h2">Tabs</Text>
         <Text size="xl" variant="weak">A navigation component that organizes content into separate panels, allowing users to switch between views with clickable tab labels.</Text>
     </Flex>
     <Flex direction="column">
@@ -63,9 +63,9 @@
                 <Flex direction="column">
                     <Tabs 
                         tabs={[
-                            { id: "one", label: "label 1" },
-                            { id: "two", label: "label 2" },
-                            { id: "three", label: "label 3" },
+                            { id: "one", label: "Label 1" },
+                            { id: "two", label: "Label 2" },
+                            { id: "three", label: "Label 3" },
                         ]} 
                         selected={selectedTab}
                         onClick={(/** @type { string } */ id) => selectedTab = id}

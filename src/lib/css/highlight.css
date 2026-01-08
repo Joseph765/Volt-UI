@@ -16,7 +16,7 @@
   height: 32px;
   border: none;
   background: rgba(12, 12, 12, 0.9);
-  font-family: var(--v-font-body);
+  font-family: var(--v-font);
   font-size: var(--v-font-size-s);
 }
 
@@ -29,6 +29,7 @@
 
 .hljs {
   overflow: hidden;
+  border-radius: 0 0 var(--v-radius-sharp) var(--v-radius-sharp);
 }
 
 .v-code-example-wrapper {
@@ -74,7 +75,7 @@ code.hljs {
 .hljs::selection,
 .hljs ::selection {
   background-color: var(--v-color-highlight);
-  color: var(--v-color-text-contrast);
+  color: var(--v-color-text);
 }
 
 
@@ -111,7 +112,7 @@ code.hljs {
 .hljs-selector-tag,
 .hljs-name,
 .hljs-deletion {
-  color: var(--v-success-11);
+  color: var(--v-accent-11);
 }
 
 .hljs-template-variable {
@@ -133,7 +134,7 @@ code.hljs {
 .hljs-class .hljs-title,
 .hljs-title.class_
 {
-  color: #795da3;
+  color: var(--v-success-10);
 }
 
 .hljs-strong {

@@ -5,7 +5,7 @@
     /** @type { 'default' | 'weak' | 'weaker' | 'weakest' } */
     export let variant = "default";
 
-    /** @type { 'regular' | 'bold' } */
+    /** @type { 'regular' | 'bold' | 'black' } */
     export let weight = "regular";
 
     /** @type { 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' } – the HTML tag to render as */

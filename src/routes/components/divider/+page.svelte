@@ -1,9 +1,8 @@
 <script>
     import {
-        Code,
         CodeExample,
+        Divider,
         Flex,
-        Link,
         Select,
         Text
     } from "$lib";
@@ -14,13 +13,13 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<Code>Hello World</Code>`;
+    let example1 = `<Divider />`;
 </script>
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Code</Text>
-        <Text size="xl" variant="weak">An inline text component that styles short code snippets with a monospaced font for clear readability.</Text>
+        <Text size="3xl" weight="black" as="h2">Divider</Text>
+        <Text size="xl" variant="weak">A lightweight horizontal line that visually separates content.</Text>
     </Flex>
     <Flex direction="column">
         <Select
@@ -31,7 +30,7 @@
         />
         {#if selectedExample === "basic"}
             <CodeExample code={example1}>
-                <Code>Hello World</Code>
+                <Divider />
             </CodeExample>
         {/if}
     </Flex>

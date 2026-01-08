@@ -49,7 +49,7 @@
         <LayoutMenuButton on:click={() => open = !open}></LayoutMenuButton>
     </LayoutHeader>
     <LayoutLogo>
-        <Link href="/" style="text-decoration: none;">
+        <Link href="/" style="text-decoration: none; color: var(--v-color-text);">
             <Text size="3xl" weight="bold" as="h1">Logo</Text>
         </Link>
     </LayoutLogo>
@@ -71,7 +71,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Layout</Text>
+        <Text size="3xl" weight="black" as="h2">Layout</Text>
         <Text size="xl" variant="weak">A structural component that defines the overall page structure with header and side navigation areas.</Text>
     </Flex>
     <Flex direction="column">
@@ -88,7 +88,7 @@
                         <LayoutMenuButton on:click={() => open = !open}></LayoutMenuButton>
                     </LayoutHeader>
                     <LayoutLogo>
-                        <Link href="/" style="text-decoration: none;">
+                        <Link href="/" style="text-decoration: none; color: var(--v-color-text);">
                             <Text size="3xl" weight="bold" as="h1">Logo</Text>
                         </Link>
                     </LayoutLogo>

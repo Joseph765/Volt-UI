@@ -31,7 +31,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid var(--v-color-text);
+        border: 1px solid var(--v-color-accent);
+        color: var(--v-accent-11);
         padding: var(--v-space-s);
         border-radius: var(--v-radius-sharp);
         height: 32px;
@@ -39,6 +40,6 @@
     }
 
     .v-copy-button:hover {
-        background-color: var(--v-gray-5);
+        background-color: var(--v-accent-2);
     }
 </style>

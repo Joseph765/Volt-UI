@@ -1,4 +1,7 @@
 <script>
+    /** @type { 'default' | 'none' }*/
+    export let space = "default";
+
     /** @type { 's' | 'm' | 'l' | 'xl' | '2xl' } */
     export let size = "2xl";
 
@@ -9,6 +12,6 @@
     export let debug = false;
 </script>
 
-<div class="v-container {debug ? "is-debug" : undefined} is-size-{size} is-align-{align}">
+<div class="v-container {debug ? "is-debug" : undefined} is-size-{size} is-align-{align} has-space-{space}">
     <slot />
 </div>

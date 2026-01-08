@@ -33,7 +33,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Fieldset</Text>
+        <Text size="3xl" weight="black" as="h2">Fieldset</Text>
         <Text size="xl" variant="weak">A grouping component that organizes related form elements with a shared label.</Text>
     </Flex>
     <Flex direction="column">

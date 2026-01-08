@@ -28,7 +28,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="bold" as="h2">Link</Text>
+        <Text size="3xl" weight="black" as="h2">Link</Text>
         <Text size="xl" variant="weak">An interactive text element that navigates to another page or resource.</Text>
     </Flex>
     <Flex direction="column">
