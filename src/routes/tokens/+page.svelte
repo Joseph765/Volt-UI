@@ -22,16 +22,16 @@
                 </div>
                 <div class="token">
                     <div class="token-example">
-                        <Text size="m" align="center">Inter</Text>
+                        <Text size="m" align="center">Circular</Text>
                     </div>
                     <Text measure="s">Font family for the Volt design system.</Text>
                     <CopyCode code="var(--v-font)" />
                 </div>
                 <div class="token">
                     <div class="token-example">
-                        <Text size="m" mono align="center">Roboto Mono</Text>
+                        <Text size="m" mono align="center">Geist Mono</Text>
                     </div>
-                    <Text measure="s">Only used for code snippets and examples.</Text>
+                    <Text measure="s">Only used for code snippets and code examples.</Text>
                     <CopyCode code="var(--v-font-mono)" />
                 </div>
             </div>

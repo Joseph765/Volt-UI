@@ -29,6 +29,7 @@
 
 .hljs {
   overflow: hidden;
+  border-radius: 0 0 var(--v-radius-sharp) var(--v-radius-sharp);
 }
 
 .v-code-example-wrapper {

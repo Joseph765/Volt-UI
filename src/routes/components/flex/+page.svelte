@@ -350,7 +350,7 @@
     .v-table {
         table-layout: auto;
         width: 100%;
-        font-family: var(--v-font-body);
+        font-family: var(--v-font);
         border-collapse: collapse;
         overflow: scroll;
     }
@@ -362,7 +362,7 @@
 
     .v-table-caption {
         text-align: start;
-        font-family: var(--v-font-body);
+        font-family: var(--v-font);
         font-size: var(--v-font-size-2xl);
         padding-bottom: var(--v-space-m);
     }
@@ -370,7 +370,7 @@
     .v-table-heading {
         text-align: start;
         padding: var(--v-space-m);
-        font-family: var(--v-font-body);
+        font-family: var(--v-font);
         font-weight: 400;
         font-size: var(--v-font-size-m);
         line-height: var(--v-line-height-m);
@@ -379,7 +379,7 @@
     }
 
     .v-table-data {
-        font-family: var(--v-font-body);
+        font-family: var(--v-font);
         font-weight: 400;
         font-size: var(--v-font-size-m);
         line-height: var(--v-line-height-m);
