@@ -32,8 +32,8 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Input</Text>
-        <Text size="xl" variant="weak">A field that captures single-line text or data input from the user.</Text>
+        <Text size="3xl" weight="black" as="h2">Textarea</Text>
+        <Text size="xl" variant="weak">A multi-line text field that allows users to enter longer-form input or comments.</Text>
     </Flex>
     <Flex direction="column">
         <Select
