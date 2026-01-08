@@ -75,7 +75,7 @@ code.hljs {
 .hljs::selection,
 .hljs ::selection {
   background-color: var(--v-color-highlight);
-  color: var(--v-color-text-contrast);
+  color: var(--v-color-text);
 }
 
 

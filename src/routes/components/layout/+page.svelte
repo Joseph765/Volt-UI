@@ -49,7 +49,7 @@
         <LayoutMenuButton on:click={() => open = !open}></LayoutMenuButton>
     </LayoutHeader>
     <LayoutLogo>
-        <Link href="/" style="text-decoration: none;">
+        <Link href="/" style="text-decoration: none; color: var(--v-color-text);">
             <Text size="3xl" weight="bold" as="h1">Logo</Text>
         </Link>
     </LayoutLogo>
@@ -88,7 +88,7 @@
                         <LayoutMenuButton on:click={() => open = !open}></LayoutMenuButton>
                     </LayoutHeader>
                     <LayoutLogo>
-                        <Link href="/" style="text-decoration: none;">
+                        <Link href="/" style="text-decoration: none; color: var(--v-color-text);">
                             <Text size="3xl" weight="bold" as="h1">Logo</Text>
                         </Link>
                     </LayoutLogo>
