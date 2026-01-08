@@ -1,8 +1,7 @@
 :root {
 	/* Font Family */
-    --v-font: 'Outfit', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    --v-font-body: 'Outfit', Roboto, 'Helvetica Neue', Arial, sans-serif;
-	--v-font-mono: 'Roboto Mono', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Ubuntu Mono', Consolas, 'Courier New', monospace;
+    --v-font: 'Outfit', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+	--v-font-mono: 'Geist Mono', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Ubuntu Mono', Consolas, 'Courier New', monospace;
 
     /* Font Size */
     --v-font-size-xs: 0.6875rem; /* 11px */

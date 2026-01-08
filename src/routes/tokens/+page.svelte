@@ -25,7 +25,7 @@
                         <Text size="m" align="center">Inter</Text>
                     </div>
                     <Text measure="s">Font family for the Volt design system.</Text>
-                    <CopyCode code="var(--v-font-body)" />
+                    <CopyCode code="var(--v-font)" />
                 </div>
                 <div class="token">
                     <div class="token-example">

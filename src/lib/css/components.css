@@ -124,60 +124,6 @@
     border-inline-start: 6px solid var(--v-success-11);
 }
 
-/* .v-banner-wrapper {
-    --shape-offset: 10px;
-    --shape-upper-left: 0  var(--shape-offset),var(--shape-offset) 0;
-    --shape-upper-right:calc(100% - var(--shape-offset)) 0, 100% var(--shape-offset);
-    --shape-lower-right:100% calc(100% - var(--shape-offset) ), calc(100% - var(--shape-offset)) 100%;
-    --shape-lower-left:var(--shape-offset) 100%,0  calc(100% - var(--shape-offset));
-    --octagon: polygon(var(--shape-upper-left), var(--shape-upper-right),var(--shape-lower-right),var(--shape-lower-left));
-
-    background: var(--v-info-4);
-    clip-path: var(--octagon);
-}
-
-.v-banner {
-    display: flex;
-    align-items: center;
-    gap: var(--v-space-m);
-    padding: var(--v-space-m);
-    background: linear-gradient(45deg, var(--v-info-3), var(--v-info-2) 70%);
-    color: var(--v-color-text);
-    font: var(--v-font-body);
-    font-size: var(--v-font-size-m);
-    clip-path: var(--octagon);
-    margin: 2px;
-}
-
-.v-banner-icon {
-    width: 20px;
-    height: 20px;
-}
-
-.v-banner.is-warning {
-    background: linear-gradient(45deg, var(--v-color-surface-warning), var(--v-warning-3) 70%);
-}
-
-.v-banner-wrapper.is-warning {
-    background-color: var(--v-color-border-warning);
-}
-
-.v-banner.is-danger {
-    background: linear-gradient(45deg, var(--v-color-surface-danger), var(--v-danger-3) 70%);
-}
-
-.v-banner-wrapper.is-danger {
-    background-color: var(--v-color-border-danger);
-}
-
-.v-banner.is-success {
-    background: linear-gradient(45deg, var(--v-color-surface-success), var(--v-success-3) 70%);
-}
-
-.v-banner-wrapper.is-success {
-    background-color: var(--v-color-border-success);
-} */
-
 /* Button */
 .v-button {
     display: flex;
@@ -702,7 +648,7 @@
 
 /* Help Text */
 .v-help-text {
-    font-family: var(--v-font-body);
+    font-family: var(--v-font);
     font-size: var(--v-font-size-s);
     line-height: var(--v-line-height-s);
     letter-spacing: var(--v-letter-spacing-s);
@@ -823,7 +769,7 @@
 }
 
 .v-label {
-    font-family: var(--v-font-body);
+    font-family: var(--v-font);
     font-size: var(--v-font-size-m);
     font-weight: var(--v-font-weight-regular);
     letter-spacing: var(--v-letter-spacing-m);
@@ -1004,7 +950,7 @@
 
 /* Nav */
 .v-nav-item {
-    font-family: var(--v-font-body);
+    font-family: var(--v-font);
     font-weight: var(--v-font-weight-regular);
     font-size: var(--v-font-size-m);
     line-height: var(--v-line-height-m);
@@ -1043,7 +989,7 @@
 }
 
 .v-nav-group-heading {
-    font-family: var(--v-font-body);
+    font-family: var(--v-font);
     font-weight: var(--v-font-weight-heading);
     font-size: var(--v-font-size-m);
     letter-spacing: var(--v-letter-spacing-m);
@@ -1059,7 +1005,7 @@
 }
 
 .v-nav-group-item {
-    font-family: var(--v-font-body);
+    font-family: var(--v-font);
     font-weight: var(--v-font-weight-body);
     font-size: var(--v-font-size-m);
     letter-spacing: var(--v-letter-spacing-m);
@@ -1131,7 +1077,7 @@
 }
 
 .v-radio-label {
-    font-family: var(--v-font-body);
+    font-family: var(--v-font);
     font-size: var(--v-font-size-m);
     font-weight: var(--v-font-weight-regular);
     letter-spacing: var(--v-letter-spacing-m);
@@ -1423,7 +1369,7 @@
 
 /* Text */
 .v-text {
-    font-family: var(--v-font-body);
+    font-family: var(--v-font);
     font-weight: var(--v-font-weight-body);
     font-size: var(--v-font-size-m);
     line-height: var(--v-line-height-m);
@@ -1744,7 +1690,7 @@
 }
 
 .v-toggle-label {
-    font-family: var(--v-font-body);
+    font-family: var(--v-font);
     font-size: var(--v-font-size-m);
     letter-spacing: var(--v-letter-spacing-m);
     font-weight: var(--v-font-weight-regular);
