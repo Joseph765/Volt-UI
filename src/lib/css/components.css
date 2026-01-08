@@ -175,6 +175,7 @@
 .v-button:disabled {
     background-color: var(--v-gray-4);
     border-color: var(--v-gray-3);
+    color: var(--v-color-text-weaker);
     cursor: not-allowed;
 }
 
@@ -212,16 +213,34 @@
         border-color: var(--v-color-accent);
     }
 
+    .v-button.is-secondary:disabled:hover {
+        background-color: var(--v-gray-1);
+        color: var(--v-gray-4);
+        border-color: var(--v-gray-3);
+    }
+
     .v-button.is-ghost:hover {
         background-color: var(--v-color-background);
         color: var(--v-accent-11);
         border: 1px solid var(--v-accent-9);
     }
 
+    .v-button.is-ghost:disabled:hover {
+        background-color: var(--color-background);
+        border: none;
+        color: var(--v-gray-4);
+    }
+
     .v-button.is-danger:hover {
         background-color: var(--v-color-background);
         color: var(--v-color-danger);
         border-color: var(--v-color-danger);
+    }
+
+    .v-button:disabled:hover {
+        background-color: var(--v-gray-4);
+        color: var(--v-color-text-weaker);
+        border-color: var(--v-gray-3);
     }
 }
 
