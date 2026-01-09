@@ -18,8 +18,8 @@
     export let help = "";
 </script>
 
-<div class="v-toggle-container {error ? "is-danger" : undefined} {disabled ? "is-disabled" : undefined} {help ? "has-help-text" : undefined}">
-    <input class="v-toggle" type="checkbox" {checked} {name} {disabled}>
+<div class="v-toggle-wrapper {error ? "is-danger" : undefined} {disabled ? "is-disabled" : undefined} {help ? "has-help-text" : undefined}">
+    <input class="v-toggle" type="checkbox" {checked} {name} {disabled} tabindex="0">
     <div class="v-flex has-direction-column has-gap-xs">
         <label class="v-toggle-label" for={name}>{label}</label>
         {#if error}

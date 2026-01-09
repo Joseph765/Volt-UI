@@ -146,8 +146,8 @@
 }
 
 .v-button:focus-visible {
-    outline: none; 
-    box-shadow: 0 0 0 2px var(--v-color-highlight);
+    outline: 2px solid var(--v-color-info);
+    outline-offset: 2px;
 }
 
 .v-button.is-expanded {
@@ -345,8 +345,8 @@
 }
 
 .v-checkbox-input:focus-visible ~ .v-checkbox-box {
-    box-shadow: 0 0 0 3px var(--v-color-highlight);
-    border-color: var(--v-color-highlight);
+    outline: 2px solid var(--v-color-info);
+    outline-offset: 2px;
 }
 
 .v-checkbox-check {
@@ -380,31 +380,6 @@
     user-select: none; /* Standard syntax (IE 11+, Edge, modern browsers) */
 }
 
-/* @media (pointer: fine) {
-    .v-checkbox-wrapper:hover .v-checkbox-box {
-        border-color: var(--v-gray-9);
-    }
-
-    .v-checkbox-wrapper.is-danger:hover .v-checkbox-box {
-        border-color: var(--v-danger-10);
-    }
-
-    .v-checkbox-input:checked:hover ~ .v-checkbox-box {
-        background-color: var(--v-color-background);
-        border-color: var(--v-gray-11);
-    }
-
-    .v-checkbox-input:indeterminate:hover ~ .v-checkbox-box {
-        background-color: var(--v-gray-11);
-        border-color: var(--v-gray-11);
-    }
-
-    .v-checkbox-input:disabled:hover ~ .v-checkbox-box {
-        background-color: var(--v-gray-10);
-        border-color: var(--v-gray-10);
-    }
-} */
-
 /* Code */
 .v-code {
     font-family: var(--v-font-mono);
@@ -421,6 +396,7 @@
 /* Code Example */
 .v-code-example {
     max-height: 33dvh;
+    max-width: calc(100% - (var(--v-space-m) * 2) - 2px);
     overflow-y: auto;
     padding: var(--v-space-m);
     border-top: 1px solid var(--v-color-border);
@@ -511,6 +487,13 @@
     padding: 0;
     padding-top: var(--v-space-s);
 }
+
+/* .v-fieldset:focus-within {
+    outline: none;  
+    border-color: var(--v-color-highlight);
+    box-shadow: 0 0 0 2px var(--v-color-highlight);
+    border-radius: var(--v-radius-sharp);
+} */
 
 .v-fieldset-legend {
     display: flex;
@@ -713,7 +696,7 @@
 .v-input:focus {
     outline: none;
     border-color: var(--v-color-highlight);
-    box-shadow: 0 0 0 2px var(--v-color-highlight);
+    box-shadow: 0 0 1px 2px var(--v-color-highlight);
 }
 
 .v-input:disabled {
@@ -1076,6 +1059,11 @@
 }
 
 /* Radio */
+.v-radio-wrapper {
+    width: max-content;
+    border-radius: var(--v-radius-sharp);
+}
+
 .v-radio-wrapper .v-radio {
     position: absolute;
     opacity: 0;
@@ -1165,6 +1153,11 @@
     display: block;
 }
 
+.v-radio-wrapper:focus-within {
+    outline: 2px solid var(--v-color-info);
+    outline-offset: 2px;
+}
+
 /* Required */
 .v-required {
     font-family: var(--v-font);
@@ -1212,7 +1205,7 @@
 .v-select-wrapper:focus-within {
     outline: none;
     border-color: var(--v-color-highlight);
-    box-shadow: 0 0 0 1px var(--v-color-highlight);
+    box-shadow: 0 0 1px 2px var(--v-color-highlight);
 }
 
 .v-select-wrapper:has(.v-select:disabled) {
@@ -1401,9 +1394,18 @@
     padding-block-end: var(--v-space-s);
 }
 
-.v-tab.is-active {
+.v-tab[aria-selected="true"] {
     border-bottom: 2px solid var(--v-color-accent);
     color: var(--v-color-text-accent);
+}
+
+.v-tabs:focus-visible,
+.v-tab:focus-visible,
+.v-tab-panel:focus-visible {
+    outline: 2px solid var(--v-color-info);
+    outline-offset: 1px;
+    border-radius: var(--v-radius-sharp);
+    border-color: transparent;
 }
 
 /* Text */
@@ -1548,7 +1550,7 @@
 .v-textarea:focus {
     outline: none;
     border-color: var(--v-color-highlight);
-    box-shadow: 0 0 0 2px var(--v-color-highlight);
+    box-shadow: 0 0 1px 2px var(--v-color-highlight);
 }
 
 .v-textarea:disabled {
@@ -1652,22 +1654,22 @@
 }
 
 /* Toggle */
-.v-toggle-container {
+.v-toggle-wrapper {
     display: flex;
     align-items: center;
     gap: var(--v-space-s);
 }
 
-.v-toggle-container.is-danger,
-.v-toggle-container.has-help-text {
+.v-toggle-wrapper.is-danger,
+.v-toggle-wrapper.has-help-text {
     align-items: flex-start;
 }
 
-.v-toggle-container.is-danger .v-toggle:checked {
+.v-toggle-wrapper.is-danger .v-toggle:checked {
     background-color: var(--v-color-danger);
 }
 
-.v-toggle-container.is-danger .v-toggle:checked:before {
+.v-toggle-wrapper.is-danger .v-toggle:checked:before {
     background-color: var(--v-color-text);
 }
 
@@ -1716,14 +1718,14 @@
 }
 
 .v-toggle:checked:disabled {
-    background-color: var(--v-gray-10);
+    background-color: var(--v-accent-4);
 }
 
 .v-toggle:checked:disabled:before {
-    background-color: var(--v-gray-6);
+    background-color: var(--v-gray-9);
 }
 
-.v-toggle-container.is-disabled .v-toggle-label {
+.v-toggle-wrapper.is-disabled .v-toggle-label {
     color: var(--v-color-text-weaker);
     cursor: not-allowed;
 }
@@ -1733,4 +1735,9 @@
     font-size: var(--v-font-size-m);
     letter-spacing: var(--v-letter-spacing-m);
     font-weight: var(--v-font-weight-regular);
+}
+
+.v-toggle:focus-visible {
+    outline: 2px solid var(--v-color-info);
+    outline-offset: 2px;
 }

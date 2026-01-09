@@ -31,6 +31,7 @@ import TableCell from "./components/Table/TableCell.svelte";
 import TableHead from "./components/Table/TableHead.svelte";
 import TableHeader from "./components/Table/TableHeader.svelte";
 import TableRow from "./components/Table/TableRow.svelte";
+import Tab from "./components/Tab.svelte";
 import Tabs from "./components/Tabs.svelte";
 import Text from "./components/Text.svelte";
 import Textarea from "./components/Textarea.svelte";
@@ -72,6 +73,7 @@ export {
     TableHead,
     TableHeader,
     TableRow,
+    Tab,
     Tabs,
     Text,
     Textarea,

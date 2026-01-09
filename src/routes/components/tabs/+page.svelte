@@ -5,6 +5,7 @@
         Flex,
         Link,
         Select,
+        Tab,
         Tabs,
         Text
     } from "$lib";
@@ -14,36 +15,41 @@
     ];
 
     let selectedExample = 'basic';
-    /** @type { string } */
-    let selectedTab = "one";
 
     let example1 = `<script>
     import { 
+        Tab,
         Tabs
     } from "$lib";
 
     /** @type { string } */
     let selectedTab = "one";
+
+    let tabs = [
+        { id: "one", label: "Label 1" },
+        { id: "two", label: "Label 2" },
+        { id: "three", label: "Label 3" },
+    ];
 <\/script>
 
-<Flex direction="column">
-    <Tabs 
-        tabs={[
-            { id: "one", label: "Label 1" },
-            { id: "two", label: "Label 2" },
-            { id: "three", label: "Label 3" },
-        ]} 
-        selected={selectedTab}
-        onClick={(/** @type { string } */ id) => selectedTab = id}
-    />
-    {#if selectedTab === "one"}
-        <Text>Content for tab 1</Text>
-    {:else if selectedTab === "two"}
-        <Text>Content for tab 2</Text>
-    {:else if selectedTab === "three"}
-        <Text>Content for tab 3</Text>
-    {/if}
-</Flex>`;
+<Tabs 
+    {tabs} 
+    selected={selectedTab}
+    onClick={(/** @type { string } */ id) => selectedTab = id}
+>
+    <Tab id="one" selected={selectedTab}>Content 1</Tab>
+    <Tab id="two" selected={selectedTab}>Content 2</Tab>
+    <Tab id="three" selected={selectedTab}>Content 3</Tab>
+</Tabs>`;
+
+    /** @type { string } */
+    let selectedTab = "one";
+
+    let tabs = [
+        { id: "one", label: "Label 1" },
+        { id: "two", label: "Label 2" },
+        { id: "three", label: "Label 3" },
+    ];
 </script>
 
 <Flex direction="column" gap="xl">
@@ -60,24 +66,15 @@
         />
         {#if selectedExample === "basic"}
             <CodeExample code={example1}>
-                <Flex direction="column">
-                    <Tabs 
-                        tabs={[
-                            { id: "one", label: "Label 1" },
-                            { id: "two", label: "Label 2" },
-                            { id: "three", label: "Label 3" },
-                        ]} 
-                        selected={selectedTab}
-                        onClick={(/** @type { string } */ id) => selectedTab = id}
-                    />
-                    {#if selectedTab === "one"}
-                        <Text>Content for tab 1</Text>
-                    {:else if selectedTab === "two"}
-                        <Text>Content for tab 2</Text>
-                    {:else if selectedTab === "three"}
-                        <Text>Content for tab 3</Text>
-                    {/if}
-                </Flex>
+                <Tabs 
+                    {tabs} 
+                    selected={selectedTab}
+                    onClick={(/** @type { string } */ id) => selectedTab = id}
+                >
+                    <Tab id="one" selected={selectedTab}>Content 1</Tab>
+                    <Tab id="two" selected={selectedTab}>Content 2</Tab>
+                    <Tab id="three" selected={selectedTab}>Content 3</Tab>
+                </Tabs>
             </CodeExample>
         {/if}
     </Flex>
