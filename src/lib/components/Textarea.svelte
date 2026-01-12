@@ -21,7 +21,7 @@
     export let help = '';
 
     /** @type { 'start' | 'end' } */
-    export let align = 'end';
+    export let align = 'start';
 
     /** @type { any } */
     export let autocomplete = 'off';
