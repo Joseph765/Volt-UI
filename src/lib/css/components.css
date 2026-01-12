@@ -740,6 +740,8 @@
 
 .v-input-prefix,
 .v-input-suffix {
+    display: flex;
+    align-items: center;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
