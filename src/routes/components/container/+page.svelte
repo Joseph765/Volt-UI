@@ -1,10 +1,17 @@
 <script>
     import { 
         Card,
+        Code,
         CodeExample,
         Container,
         Flex, 
         Select,
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow,
         Text
     } from "$lib";
 
@@ -114,4 +121,35 @@
             </CodeExample>
         {/if}
     </Flex>
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead>Property</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead>Type</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow>
+                <TableCell><Code>space</Code></TableCell>
+                <TableCell>Changes the padding applied to the container.</TableCell>
+                <TableCell><Code>default</Code> | <Code>none</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>size</Code></TableCell>
+                <TableCell>Changes the maximum width of the container.</TableCell>
+                <TableCell><Code>s</Code> | <Code>m</Code> | <Code>l</Code> | <Code>xl</Code> | <Code>2xl</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>align</Code></TableCell>
+                <TableCell>Determines which direction the container is aligned.</TableCell>
+                <TableCell><Code>start</Code> | <Code>center</Code> | <Code>end</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>debug</Code></TableCell>
+                <TableCell>Adds a red outline to the container.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+        </TableBody>
+    </Table>
 </Flex>

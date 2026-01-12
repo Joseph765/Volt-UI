@@ -2,14 +2,22 @@
     import { 
         Button,
         Card,
+        Code,
         CodeExample,
         Flex,
         Select,
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow,
         Text
     } from "$lib";
 
     let options = [
         { value: 'basic', label: 'Example: Basic' },
+        { value: 'variant', label: 'Example: Variant' },
         { value: 'space', label: 'Example: Space' },
         { value: 'header', label: 'Example: Header' },
         { value: 'headerWithAction', label: 'Example: Header With Action' }
@@ -32,6 +40,10 @@
     <Button slot="header-end">Action</Button>
     <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
 </Card>`;
+    let example5 = `<Flex direction="column">
+    <Card variant="default">Default</Card>
+    <Card variant="ghost">Ghost</Card>
+</Flex>`;
 </script>
 
 <Flex direction="column" gap="xl">
@@ -49,6 +61,13 @@
         {#if selectedExample === "basic"}
             <CodeExample code={example1}>
                 <Card>Basic</Card>
+            </CodeExample>
+        {:else if selectedExample === "variant"}
+            <CodeExample code={example5}>
+                <Flex direction="column">
+                    <Card variant="default">Default</Card>
+                    <Card variant="ghost">Ghost</Card>
+                </Flex>
             </CodeExample>
         {:else if selectedExample === "space"}
             <CodeExample code={example2}>
@@ -75,4 +94,25 @@
             </CodeExample>
         {/if}
     </Flex>
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead>Property</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead>Type</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow>
+                <TableCell><Code>variant</Code></TableCell>
+                <TableCell>Changes style of the card. In the ghost style, the background is darkened.</TableCell>
+                <TableCell><Code>default</Code> | <Code>ghost</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>space</Code></TableCell>
+                <TableCell>The amount of padding applied to the card.</TableCell>
+                <TableCell><Code>none</Code> | <Code>m</Code> | <Code>l</Code></TableCell>
+            </TableRow>
+        </TableBody>
+    </Table>
 </Flex>

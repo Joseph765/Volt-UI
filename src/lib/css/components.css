@@ -3,12 +3,6 @@
     background-color: var(--v-gray-9) !important;
     border-color: var(--v-gray-9) !important;
 }
-
-/* .is-grayscale .v-badge {
-    background-color: var(--v-color-surface) !important;
-    color: var(--v-color-text) !important;
-    border-color: var(--v-gray-7) !important;
-} */
  
 @media (pointer: fine) {
     .grayscale-wrapper:hover .is-grayscale .v-checkbox-input.example-version ~ .v-checkbox-box {
@@ -36,7 +30,6 @@
         border-color: var(--v-color-accent) !important;
     }
 
-    /* Link */
     .grayscale-wrapper:hover .is-grayscale .v-link {
         color: var(--v-color-text-accent) !important;
     }

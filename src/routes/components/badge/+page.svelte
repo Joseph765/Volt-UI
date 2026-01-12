@@ -1,10 +1,17 @@
 <script>
     import { 
         Badge,
+        Code,
         CodeExample,
         Flex, 
         Icon,
         Select,
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow,
         Text
     } from "$lib";
 
@@ -77,4 +84,25 @@
             </CodeExample>
         {/if}
     </Flex>
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead>Property</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead>Type</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow>
+                <TableCell><Code>variant</Code></TableCell>
+                <TableCell>The style of the badge indicating status.</TableCell>
+                <TableCell><Code>neutral</Code> | <Code>danger</Code> | <Code>warning</Code> | <Code>success</Code> | <Code>info</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>strong</Code></TableCell>
+                <TableCell>More prominate secondary style for badges.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+        </TableBody>
+    </Table>
 </Flex>

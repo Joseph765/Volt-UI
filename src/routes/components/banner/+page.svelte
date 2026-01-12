@@ -1,10 +1,17 @@
 <script>
     import {
         Banner,
+        Code,
         CodeExample,
         Flex,
         Link,
         Select,
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow,
         Text
     } from "$lib";
 
@@ -16,8 +23,8 @@
 
     let example1 = `<Flex direction="column">
     <Banner variant="info">We've updated your plan, make sure you know how these changes affect it. <Link href="#">Learn more.</Link></Banner>
-    <Banner variant="warning">Payment details missing. To stay on your current plan, <Link href="#">add payment details.</Link></Banner>
     <Banner variant="danger">We're experiencing an incident. Please see our <Link href="#">status page</Link> for more details.</Banner>
+    <Banner variant="warning">Payment details missing. To stay on your current plan, <Link href="#">add payment details.</Link></Banner>
     <Banner variant="success">Your order has been shipped and will arrive on May 27th. <Link href="#">Track order.</Link></Banner>
 </Flex>`;
 </script>
@@ -38,11 +45,27 @@
             <CodeExample code={example1}>
                 <Flex direction="column">
                     <Banner variant="info">We've updated your plan, make sure you know how these changes affect it. <Link href="#">Learn more.</Link></Banner>
-                    <Banner variant="warning">Payment details missing. To stay on your current plan, <Link href="#">add payment details.</Link></Banner>
                     <Banner variant="danger">We're experiencing an incident. Please see our <Link href="#">status page</Link> for more details.</Banner>
+                    <Banner variant="warning">Payment details missing. To stay on your current plan, <Link href="#">add payment details.</Link></Banner>
                     <Banner variant="success">Your order has been shipped and will arrive on May 27th. <Link href="#">Track order.</Link></Banner>
                 </Flex>
             </CodeExample>
         {/if}
     </Flex>
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead>Property</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead>Type</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow>
+                <TableCell><Code>variant</Code></TableCell>
+                <TableCell>The style of the banner indicating status.</TableCell>
+                <TableCell><Code>info</Code> | <Code>danger</Code> | <Code>warning</Code> | <Code>success</Code></TableCell>
+            </TableRow>
+        </TableBody>
+    </Table>
 </Flex>

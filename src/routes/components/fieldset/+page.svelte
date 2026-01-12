@@ -1,12 +1,17 @@
 <script>
     import {
-        Banner,
+        Code,
         CodeExample,
         Fieldset,
         Flex,
-        Link,
         Radio,
         Select,
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow,
         Text
     } from "$lib";
 
@@ -63,4 +68,20 @@
             </CodeExample>
         {/if}
     </Flex>
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead>Property</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead>Type</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow>
+                <TableCell><Code>required</Code></TableCell>
+                <TableCell>Adds a red asterisk to the label for required fields.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+        </TableBody>
+    </Table>
 </Flex>
