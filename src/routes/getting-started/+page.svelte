@@ -14,12 +14,12 @@
     <Flex direction="column" gap="2xl">
         <Flex direction="column">
             <Text size="3xl" weight="black" as="h2">Getting Started</Text>
-            <Text size="xl" variant="weak">
+            <Text size="l" variant="weak">
                 Volt UI is a modern design system for building consistent, high-quality interfaces fast. 
                 It gives you reusable components, design tokens, and utilities so your UI stays cohesive 
                 without slowing you down.
             </Text>
-            <Text size="xl" variant="weak">
+            <Text size="l" variant="weak">
                 Built on Svelte — chosen for its simplicity, tiny bundles, near-zero runtime, 
                 and code that feels like plain HTML/CSS/JS. Our mission: make beautiful interfaces 
                 quick and enjoyable to build.
@@ -28,11 +28,13 @@
 
         <Flex direction="column">
             <Text size="2xl" weight="bold">Installation</Text>
+            <Text size="l" variant="weak">Install with npm:</Text>
             <CopyCode code="npm install volt-ui" style="background-color: var(--v-color-surface);" />
         </Flex>
 
         <Flex direction="column">
             <Text size="2xl" weight="bold">Importing styles</Text>
+            <Text size="l" variant="weak">Add this to your main Svelte file:</Text>
             <CodeExample codeOnly code={`<script>
   import "volt-ui/dist/volt-ui.css";
 <\/script>`} />
@@ -52,7 +54,7 @@
             <Text size="l" variant="weak" measure="l">
                 Ready to use components — buttons, forms, navigation and more. 
                 Start with the Layout component to get your structure and spacing right from the beginning. 
-                See the full collection in the <Link size="l" href="/components/button">components</Link> documentation.
+                See the full collection in the <Link size="l" href="/components">components</Link> documentation.
             </Text>
         </Flex>
     </Flex>

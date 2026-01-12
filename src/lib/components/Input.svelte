@@ -63,6 +63,8 @@
             {autocomplete}
             {style}
             bind:value
+            on:change
+            on:keydown
             {...$$restProps}
             class="v-input {expanded ? "is-expanded" : undefined} {error ? "is-danger" : undefined} is-align-{align}"
             style:padding-left={prefixWidth ? `${prefixWidth}px` : undefined}

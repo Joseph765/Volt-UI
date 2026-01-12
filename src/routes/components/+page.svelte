@@ -1,19 +1,24 @@
 <script>
     import components from "./components.json";
-
     import {
-        Badge,
-        Banner,
-        Button,
-        Card,
-        Code,
-        CodeExample,
-        Container,
-        CopyCode,
         Flex,
-        Link,
+        Icon,
+        Input,
         Text
     } from "$lib";
+    
+    let componentResults = components;
+    let searchTerm = "";
+    $: if (searchTerm) {
+        search(searchTerm.toLocaleLowerCase());
+    } else {
+        componentResults = components;
+    }
+
+    /** @param { string } searchTerm - Search term entered by input */
+    function search(searchTerm) {
+        componentResults = components.filter((component) => component.name.toLocaleLowerCase().includes(searchTerm));
+    }
 </script>
 
 <Flex direction="column" gap="2xl">
@@ -23,21 +28,28 @@
             Reusable, accessible components for building consistent interfaces quickly.
         </Text>
     </Flex>
-    <section class="components">
-        {#each components as component}
-            <a href="/components/{component.name.toLocaleLowerCase()}" class="component-card">
-                <div class="showcase" inert>
-                    {@html component.example}
-                </div>
-                <div style="padding: var(--v-space-m); border-top: 1px solid var(--v-color-border);">
-                    <Flex direction="column">
-                        <Text as="h4" weight="bold" size="2xl">{component.name}</Text>
-                        <Text measure="none" variant="weak">{component.description}</Text>
-                    </Flex>
-                </div>
-            </a>
-        {/each}
-    </section>
+    <Flex direction="column" gap="l">
+        <Input type="search" name="componentSearch" placeholder="Search" expanded bind:value={searchTerm}>
+            <svelte:fragment slot="prefix">
+                <Icon name="search" />
+            </svelte:fragment>
+        </Input>
+        <section class="components">
+            {#each componentResults as component}
+                <a href="/components/{component.name.toLocaleLowerCase()}" class="component-card">
+                    <div class="showcase" inert>
+                        {@html component.example}
+                    </div>
+                    <div style="padding: var(--v-space-m); border-top: 1px solid var(--v-color-border);">
+                        <Flex direction="column">
+                            <Text as="h4" weight="bold" size="2xl">{component.name}</Text>
+                            <Text measure="none" variant="weak">{component.description}</Text>
+                        </Flex>
+                    </div>
+                </a>
+            {/each}
+        </section>
+    </Flex>
 </Flex>
 
 <style>
@@ -55,7 +67,7 @@
 
     .components {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        grid-template-columns: repeat(auto-fit, 378px);
         gap: var(--v-space-l);
         width: 100%;
     }
@@ -73,6 +85,12 @@
         .component-card:hover {
             border-color: var(--v-color-accent);
             box-shadow: 0 0 12px 2px var(--v-color-highlight);
+        }
+    }
+    
+    @media (max-width: 82rem) {
+        .components {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         }
     }
 </style>
