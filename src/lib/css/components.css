@@ -484,7 +484,7 @@
     font-size: var(--v-font-size-m);
     line-height: var(--v-line-height-m);
     background: var(--v-color-surface-raised);
-    padding: var(--v-space-s);
+    padding: var(--v-space-s) var(--v-space-s) var(--v-space-s) var(--v-space-m);
     border: 1px solid var(--v-color-border);
     border-radius: var(--v-radius-sharp);
 }
