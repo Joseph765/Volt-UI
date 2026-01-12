@@ -40,7 +40,7 @@
                     <div class="showcase" inert>
                         {@html component.example}
                     </div>
-                    <div style="padding: var(--v-space-m); border-top: 1px solid var(--v-color-border);">
+                    <div style="padding: var(--v-space-m); border-block-start: 1px solid var(--v-color-border);">
                         <Flex direction="column">
                             <Text as="h4" weight="bold" size="2xl">{component.name}</Text>
                             <Text measure="none" variant="weak">{component.description}</Text>

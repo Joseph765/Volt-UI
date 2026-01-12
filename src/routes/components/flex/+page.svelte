@@ -364,7 +364,7 @@
         text-align: start;
         font-family: var(--v-font);
         font-size: var(--v-font-size-2xl);
-        padding-bottom: var(--v-space-m);
+        padding-block-end: var(--v-space-m);
     }
 
     .v-table-heading {
@@ -374,7 +374,7 @@
         font-weight: 400;
         font-size: var(--v-font-size-m);
         line-height: var(--v-line-height-m);
-        border-bottom: 1px solid var(--v-color-border);
+        border-block-end: 1px solid var(--v-color-border);
         background-color: var(--v-color-surface);
     }
 
@@ -384,6 +384,6 @@
         font-size: var(--v-font-size-m);
         line-height: var(--v-line-height-m);
         padding: var(--v-space-m);
-        border-bottom: 1px solid var(--v-color-border);
+        border-block-end: 1px solid var(--v-color-border);
     }
 </style>

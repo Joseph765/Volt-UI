@@ -175,42 +175,42 @@
                     </div>
                     <div class="token">
                         <div class="token-example">
-                            <div style="border-top: 2px solid var(--v-color-neutral); width: var(--v-space-xs);"></div>
+                            <div style="border-block-start: 2px solid var(--v-color-neutral); width: var(--v-space-xs);"></div>
                         </div>
                         <Text measure="s">Extra small spacing.</Text>
                         <CopyCode code="var(--v-space-xs)" />
                     </div>
                     <div class="token">
                         <div class="token-example">
-                            <div style="border-top: 2px solid var(--v-color-neutral); width: var(--v-space-s);"></div>
+                            <div style="border-block-start: 2px solid var(--v-color-neutral); width: var(--v-space-s);"></div>
                         </div>
                         <Text measure="s">Small spacing</Text>
                         <CopyCode code="var(--v-space-s)" />
                     </div>
                     <div class="token">
                         <div class="token-example">
-                            <div style="border-top: 2px solid var(--v-color-neutral); width: var(--v-space-m);"></div>
+                            <div style="border-block-start: 2px solid var(--v-color-neutral); width: var(--v-space-m);"></div>
                         </div>
                         <Text measure="s">Default spacing.</Text>
                         <CopyCode code="var(--v-space-m)" />
                     </div>
                     <div class="token">
                         <div class="token-example">
-                            <div style="border-top: 2px solid var(--v-color-neutral); width: var(--v-space-l);"></div>
+                            <div style="border-block-start: 2px solid var(--v-color-neutral); width: var(--v-space-l);"></div>
                         </div>
                         <Text measure="s">Large spacing.</Text>
                         <CopyCode code="var(--v-space-l)" />
                     </div>
                     <div class="token">
                         <div class="token-example">
-                            <div style="border-top: 2px solid var(--v-color-neutral); width: var(--v-space-xl);"></div>
+                            <div style="border-block-start: 2px solid var(--v-color-neutral); width: var(--v-space-xl);"></div>
                         </div>
                         <Text measure="s">Extra large spacing.</Text>
                         <CopyCode code="var(--v-space-xl)" />
                     </div>
                     <div class="token">
                         <div class="token-example">
-                            <div style="border-top: 2px solid var(--v-color-neutral); width: var(--v-space-2xl);"></div>
+                            <div style="border-block-start: 2px solid var(--v-color-neutral); width: var(--v-space-2xl);"></div>
                         </div>
                         <Text measure="s">Extra extra large spacing.</Text>
                         <CopyCode code="var(--v-space-2xl)" />
@@ -229,14 +229,14 @@
                     </div>
                     <div class="token">
                         <div class="token-example">
-                            <div style="border-top: 4px solid var(--v-color-neutral); border-right: 4px solid var(--v-color-neutral); width: 2rem; height: 2rem; border-top-right-radius: var(--v-radius-sharp);"></div>
+                            <div style="border-block-start: 4px solid var(--v-color-neutral); border-inline-end: 4px solid var(--v-color-neutral); width: 2rem; height: 2rem; border-radius: 0 var(--v-radius-sharp) 0 0;"></div>
                         </div>
                         <Text measure="s">Default border radius.</Text>
                         <CopyCode code="var(--v-radius-sharp)" />
                     </div>
                     <div class="token">
                         <div class="token-example">
-                            <div style="border-top: 4px solid var(--v-color-neutral); border-right: 4px solid var(--v-color-neutral); width: 2rem; height: 2rem; border-top-right-radius: var(--v-radius-round);"></div>
+                            <div style="border-block-start: 4px solid var(--v-color-neutral); border-inline-end: 4px solid var(--v-color-neutral); width: 2rem; height: 2rem; border-radius: 0 var(--v-radius-round) 0 0;"></div>
                         </div>
                         <Text measure="s">Rounded border radius used in certain components.</Text>
                         <CopyCode code="var(--v-radius-round)" />
