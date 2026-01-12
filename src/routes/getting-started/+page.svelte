@@ -36,7 +36,7 @@
             <Text size="2xl" weight="bold">Importing styles</Text>
             <Text size="l" variant="weak">Add this to your main Svelte file:</Text>
             <CodeExample codeOnly code={`<script>
-  import "volt-ui/dist/volt-ui.css";
+  import "volt-ui/dist/index.css";
 <\/script>`} />
         </Flex>
 
