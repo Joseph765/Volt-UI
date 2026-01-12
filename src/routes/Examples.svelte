@@ -91,7 +91,7 @@
             <svelte:fragment slot="suffix">cm</svelte:fragment>
         </Input>
         <Input type="text" name="helpText" label="Help Text" help="This is helper Text" />
-        <Input label="Unit" type="unit" name="unit" placeholder="1234" align="right">
+        <Input label="Unit" type="unit" name="unit" placeholder="1234" align="end">
             <svelte:fragment slot="suffix">cm</svelte:fragment>
         </Input>
         <Input type="email" name="autocomplete" label="Autocomplete" placeholder="example@example.com" autocomplete="email" id="email" />

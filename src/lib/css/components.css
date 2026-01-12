@@ -734,8 +734,8 @@
     box-shadow: 0 0 0 1px var(--v-color-highlight);
 }
 
-.v-input.is-align-inline-end {
-    text-align: right;
+.v-input.is-align-end {
+    text-align: end;
 }
 
 .v-input-prefix,
@@ -1612,8 +1612,8 @@
     box-shadow: 0 0 0 1px var(--v-color-highlight);
 }
 
-.v-textarea.is-align-inline-end {
-    text-align: right;
+.v-textarea.is-align-end {
+    text-align: end;
 }
 
 @media (pointer: fine) {

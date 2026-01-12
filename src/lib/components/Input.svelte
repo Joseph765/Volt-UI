@@ -23,8 +23,8 @@
     /** @type { string } */
     export let help = '';
 
-    /** @type { 'left' | 'right' } */
-    export let align = 'left';
+    /** @type { 'start' | 'end' } */
+    export let align = 'start';
 
     /** @type { any } */
     export let autocomplete = 'off';
