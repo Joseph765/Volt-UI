@@ -39,14 +39,14 @@
         cursor: pointer;
     }
 
-    .v-copy-button:hover {
-        background-color: var(--v-accent-2);
+    .v-copy-button:focus-visible {
+        outline: 2px solid var(--v-color-info);
+        outline-offset: 2px;
     }
-
+    
     @media (pointer: fine) {
-        .v-copy-button:focus-visible {
-            outline: 2px solid var(--v-color-info);
-            outline-offset: 2px;
+        .v-copy-button:hover {
+            background-color: var(--v-accent-2);
         }
     }
 </style>

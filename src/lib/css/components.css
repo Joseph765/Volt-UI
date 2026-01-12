@@ -1332,6 +1332,14 @@
     padding-bottom: var(--v-space-m);
 }
 
+.v-table-header .v-table-row .v-table-head:first-child {
+    border-radius: var(--v-radius-sharp) 0 0 0;
+}
+
+.v-table-header .v-table-row .v-table-head:last-child {
+    border-radius: 0 var(--v-radius-sharp) 0 0;
+}
+
 .v-table-head {
     text-align: start;
     padding: var(--v-space-m);
