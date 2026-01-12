@@ -77,7 +77,7 @@
             {...$$restProps}
             class="v-select"
             class:has-placeholder={value === ''}
-            style:padding-left={prefixWidth ? `${prefixWidth}px` : undefined}
+            style:padding-inline-start={prefixWidth ? `${prefixWidth}px` : undefined}
         >
             {#if placeholder}
                 <option value="" disabled selected hidden>

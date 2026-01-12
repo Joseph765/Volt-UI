@@ -67,8 +67,8 @@
             on:keydown
             {...$$restProps}
             class="v-input {expanded ? "is-expanded" : undefined} {error ? "is-danger" : undefined} is-align-{align}"
-            style:padding-left={prefixWidth ? `${prefixWidth}px` : undefined}
-            style:padding-right={(type === 'number' && suffixWidth) ? `${suffixWidth + 16}px` : suffixWidth ? `${suffixWidth + 16}px` : undefined}
+            style:padding-inline-start={prefixWidth ? `${prefixWidth}px` : undefined}
+            style:padding-inline-end={(type === 'number' && suffixWidth) ? `${suffixWidth + 16}px` : suffixWidth ? `${suffixWidth + 16}px` : undefined}
         />
     
         {#if $$slots.suffix}

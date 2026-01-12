@@ -101,7 +101,7 @@
     },
     { 
         "name": "Toast",
-        "description": "A temporary, non-intrusive notification that appears in the bottom-right corner to provide feedback.",
+        "description": "A temporary, non-intrusive notification that appears in the bottom-inline-end corner to provide feedback.",
         "example": "<div class='v-toast'><span class='v-toast-message'>Copied to clipboard</span><button class='v-toast-dismiss' aria-label='close' onclick={onDismiss}><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-x-icon lucide-x'><path d='M18 6 6 18'/><path d='m6 6 12 12'/></svg></button></div>"
     },
     { 
