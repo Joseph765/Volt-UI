@@ -1,9 +1,9 @@
 <script>
-    /** @type {{ title: string; children?: import('svelte').Snippet }} */
-    let { title, children } = $props();
+    /** @type {{ title: string; open?: boolean, children?: import('svelte').Snippet }} */
+    let { title, open = true, children } = $props();
 
     /** @type { boolean } */
-    let isExpanded = $derived(true);
+    let isExpanded = $derived(open);
 </script>
 
 <div class="v-nav-group {isExpanded ? "is-expanded" : undefined}">

@@ -1,4 +1,6 @@
 <script>
+    import "$lib/css/index.css";
+
     import { beforeNavigate } from "$app/navigation";
 
     import { 
@@ -11,6 +13,7 @@
         LayoutNav, 
         NavGroup,
         NavGroupItem,
+        NavItem,
         Text
     } from "$lib";
 
@@ -33,22 +36,14 @@
         <LayoutMenuButton on:click={() => open = !open}></LayoutMenuButton>
     </LayoutHeader>
     <LayoutLogo>
-        <!-- <a href="/" class="logo">
-            <span class="logo-ui">VOLT</span> UI
-        </a> -->
         <a href="/" class="logo">
             VOLT <span class="logo-ui">UI</span>
         </a>
     </LayoutLogo>
     <LayoutNav {open}>
-        <!-- <MenuItem href="/">Getting Started</MenuItem> -->
-        <!-- <MenuGroup title="Getting Started">
-            <NavGroupItem href="/">Installation</NavGroupItem>
-            <NavGroupItem href="/">Layout</NavGroupItem>
-            <NavGroupItem href="/">Grid</NavGroupItem>
-            <NavGroupItem href="/">Forms</NavGroupItem>
-        </MenuGroup> -->
+        <NavItem href="/getting-started">Getting Started</NavItem>
         <NavGroup title="Design Tokens">
+            <NavGroupItem href="/tokens#top">All tokens</NavGroupItem>
             <NavGroupItem href="/tokens#font">Font</NavGroupItem>
             <NavGroupItem href="/tokens#font-size">Font Size</NavGroupItem>
             <NavGroupItem href="/tokens#line-height">Line Height</NavGroupItem>
@@ -57,6 +52,7 @@
             <NavGroupItem href="/tokens#color">Color</NavGroupItem>
         </NavGroup>
         <NavGroup title="Components">
+            <NavGroupItem href="/components">All Components</NavGroupItem>
             <NavGroupItem href="/components/badge">Badge</NavGroupItem>
             <NavGroupItem href="/components/banner">Banner</NavGroupItem>
             <NavGroupItem href="/components/button">Button</NavGroupItem>
@@ -83,15 +79,13 @@
         </NavGroup>
     </LayoutNav>
     <LayoutContent>
-        <Container size="xl">
+        <!-- <Container size="xl"> -->
             <slot />
-        </Container>
+        <!-- </Container> -->
     </LayoutContent>
 </Layout>
 
 <style>
-    @import "$lib/css";
-
     .logo {
         font-family: var(--v-font);
         font-size: var(--v-font-size-2xl);

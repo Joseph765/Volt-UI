@@ -1,5 +1,5 @@
 <script>
-    /** @type { 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl' | '3xl' } */
+    /** @type { 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl' | '3xl' | '4xl' } */
     export let size = "m";
 
     /** @type { 'default' | 'weak' | 'weaker' | 'weakest' } */
@@ -17,14 +17,17 @@
     /** @type { boolean } */
     export let mono = false;
 
-    /** @type { 'start' | 'center' | 'end' }*/
+    /** @type { 'start' | 'center' | 'end' } */
     export let align = "start";
+
+    /** @type { string } */
+    export let id = "";
 
     /** @type { string } */
     export let style = "";
 
 </script>
 
-<svelte:element this={as} class="v-text is-size-{size} is-{variant} has-weight-{weight} has-measure-{measure} is-align-{align} {mono ? "is-mono" : undefined}" {style}>
+<svelte:element this={as} {id} class="v-text is-size-{size} is-{variant} has-weight-{weight} has-measure-{measure} is-align-{align} {mono ? "is-mono" : undefined}" {style}>
     <slot />
 </svelte:element>

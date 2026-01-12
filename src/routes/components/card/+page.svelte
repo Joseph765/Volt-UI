@@ -23,19 +23,15 @@
     <Card space="m">Medium space</Card>
     <Card space="l">Large space</Card>
 </Flex>`;
-    let example3 = `<Flex direction="column">
-    <Card>
-        <Text as="h2" weight="bold" slot="header">Header content</Text>
-        <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
-    </Card>
-</Flex>`;
-    let example4 = `<Flex direction="column">
-    <Card>
-        <Text as="h2" weight="bold" slot="header">Header content</Text>
-        <Button slot="header-end">Action</Button>
-        <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
-    </Card>
-</Flex>`;
+    let example3 = `<Card>
+    <Text as="h2" weight="bold" slot="header">Header content</Text>
+    <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
+</Card>`;
+    let example4 = `<Card>
+    <Text as="h2" weight="bold" slot="header">Header content</Text>
+    <Button slot="header-end">Action</Button>
+    <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
+</Card>`;
 </script>
 
 <Flex direction="column" gap="xl">
@@ -64,22 +60,18 @@
             </CodeExample>
         {:else if selectedExample === "header"}
             <CodeExample code={example3}>
-                <Flex direction="column">
-                    <Card>
-                        <Text as="h2" weight="bold" slot="header">Header content</Text>
-                        <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
-                    </Card>
-                </Flex>
+                <Card>
+                    <Text as="h2" weight="bold" slot="header">Header content</Text>
+                    <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
+                </Card>
             </CodeExample>
         {:else if selectedExample === "headerWithAction"}
             <CodeExample code={example4}>
-                <Flex direction="column">
-                    <Card>
-                        <Text as="h2" weight="bold" slot="header">Header content</Text>
-                        <Button slot="header-end">Action</Button>
-                        <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
-                    </Card>
-                </Flex>
+                <Card>
+                    <Text as="h2" weight="bold" slot="header">Header content</Text>
+                    <Button slot="header-end">Action</Button>
+                    <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
+                </Card>
             </CodeExample>
         {/if}
     </Flex>

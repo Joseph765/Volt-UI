@@ -10,8 +10,11 @@
 
     /** @type { boolean } */
     export let debug = false;
+
+    /** @type { string } */
+    export let id = "";
 </script>
 
-<div class="v-container {debug ? "is-debug" : undefined} is-size-{size} is-align-{align} has-space-{space}">
+<div {id} class="v-container {debug ? "is-debug" : undefined} is-size-{size} is-align-{align} has-space-{space}">
     <slot />
 </div>
