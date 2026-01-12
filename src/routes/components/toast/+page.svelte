@@ -166,7 +166,7 @@
 <Flex direction="column" gap="xl">
     <Flex direction="column">
         <Text size="3xl" weight="black" as="h2">Toast</Text>
-        <Text size="xl" variant="weak">A temporary, non-intrusive notification that appears in the bottom-inline-end corner to provide feedback.</Text>
+        <Text size="xl" variant="weak">A temporary, non-intrusive notification that appears in the bottom-right corner to provide feedback.</Text>
     </Flex>
     <Flex direction="column">
         <Select
