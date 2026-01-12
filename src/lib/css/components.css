@@ -1,3 +1,60 @@
+/* Grayscale */
+.is-grayscale .v-checkbox-input.example-version ~ .v-checkbox-box {
+    background-color: var(--v-gray-9) !important;
+    border-color: var(--v-gray-9) !important;
+}
+
+/* .is-grayscale .v-badge {
+    background-color: var(--v-color-surface) !important;
+    color: var(--v-color-text) !important;
+    border-color: var(--v-gray-7) !important;
+} */
+ 
+@media (pointer: fine) {
+    .grayscale-wrapper:hover .is-grayscale .v-checkbox-input.example-version ~ .v-checkbox-box {
+        background-color: var(--v-color-accent) !important;
+        border-color: var(--v-color-accent) !important;
+    }
+
+    .grayscale-wrapper:hover .is-grayscale .v-badge {
+        background-color: var(--v-info-4) !important;
+        border-color: var(--v-color-border-info) !important;
+        color: var(--v-info-12) !important;
+    }
+
+    .grayscale-wrapper:hover .is-grayscale .v-banner {
+        background-color: var(--v-info-4) !important;
+        border-inline-start: 6px solid var(--v-info-11) !important;
+    }
+
+    .grayscale-wrapper:hover .is-grayscale .v-container {
+        outline-color: var(--v-color-danger) !important; 
+    }
+
+    .grayscale-wrapper:hover .is-grayscale .v-button {
+        background-color: var(--v-accent-5) !important;
+        border-color: var(--v-color-accent) !important;
+    }
+
+    /* Link */
+    .grayscale-wrapper:hover .is-grayscale .v-link {
+        color: var(--v-color-text-accent) !important;
+    }
+
+    .grayscale-wrapper:hover .is-grayscale .v-radio:checked + .v-radio-label::before {
+        border-color: var(--v-color-accent) !important;
+        background-color: var(--v-color-accent) !important;
+    }
+
+    .grayscale-wrapper:hover .is-grayscale .v-tab[aria-selected="true"] {
+        border-block-end: 2px solid var(--v-color-accent) !important;
+        color: var(--v-color-text-accent) !important;
+    }
+
+    .grayscale-wrapper:hover .is-grayscale .v-toggle:checked {
+        background-color: var(--v-color-accent);
+    }
+}
 
 /* Badge */
 .v-badge {
@@ -345,11 +402,6 @@
 .v-checkbox-input:checked ~ .v-checkbox-box {
     background-color: var(--v-color-accent);
     border-color: var(--v-color-accent);
-}
-
-.v-checkbox-input.example-version ~ .v-checkbox-box {
-    background-color: var(--v-gray-9);
-    border-color: var(--v-gray-9);
 }
 
 .v-checkbox-input:disabled ~ .v-checkbox-box {

@@ -9,6 +9,7 @@
     
     let componentResults = components;
     let searchTerm = "";
+
     $: if (searchTerm) {
         search(searchTerm.toLocaleLowerCase());
     } else {
@@ -36,8 +37,8 @@
         </Input>
         <section class="components">
             {#each componentResults as component}
-                <a href="/components/{component.name.toLocaleLowerCase()}" class="component-card">
-                    <div class="showcase" inert>
+                <a href="/components/{component.name.toLocaleLowerCase()}" class="component-card grayscale-wrapper">
+                    <div class="showcase is-grayscale" inert>
                         {@html component.example}
                     </div>
                     <div style="padding: var(--v-space-m); border-block-start: 1px solid var(--v-color-border);">

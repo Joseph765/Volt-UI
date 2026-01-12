@@ -2,7 +2,7 @@
     { 
         "name": "Badge",
         "description": "A small, inline label that displays status, counts, or categorical information",
-        "example": "<div class='v-badge'>Badge</div>"
+        "example": "<div class='v-badge is-info' style='background-color: var(--v-color-surface); color: var(--v-color-text); border-color: var(--v-gray-7);'>Badge</div>"
     },
     { 
         "name": "Banner",
