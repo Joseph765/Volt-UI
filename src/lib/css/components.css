@@ -17,18 +17,18 @@
     }
 
     .grayscale-wrapper:hover .is-grayscale .v-badge {
-        background-color: var(--v-accent-4) !important;
-        border-color: var(--v-color-accent) !important;
-        color: var(--v-accent-12) !important;
+        background-color: var(--v-info-4) !important;
+        border-color: var(--v-color-border-info) !important;
+        color: var(--v-info-12) !important;
     }
 
     .grayscale-wrapper:hover .is-grayscale .v-banner {
-        background-color: var(--v-accent-4) !important;
-        border-inline-start: 6px solid var(--v-accent-11) !important;
+        background-color: var(--v-info-4) !important;
+        border-inline-start: 6px solid var(--v-info-11) !important;
     }
 
     .grayscale-wrapper:hover .is-grayscale .v-container {
-        outline-color: var(--v-color-accent) !important; 
+        outline-color: var(--v-color-danger) !important; 
     }
 
     .grayscale-wrapper:hover .is-grayscale .v-button {
