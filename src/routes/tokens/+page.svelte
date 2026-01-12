@@ -1,10 +1,12 @@
 <script>
     import {
+        Card,
         Container,
         CopyCode,
         Flex,
         Text
     } from "$lib";
+    import CopyColorScale from "./CopyColorScale.svelte";
 </script>
 
 <div id="top"></div>
@@ -314,6 +316,47 @@
                         <CopyCode code="var(--v-color-surface-solid)" />
                     </div>
                 </div>
+            </Flex>
+        </section>
+        <section id="color-scales">
+            <Flex direction="column">
+                <Text weight="bold" size="xl">Color Scales</Text>
+                <Card style="overflow-x: auto;">
+                    <Flex justify="between" wrap>
+                        <Text size="l">Gray</Text>
+                        <CopyColorScale color="gray" />
+                    </Flex>
+                </Card>
+                <Card style="overflow-x: auto;">
+                    <Flex justify="between" wrap>
+                        <Text size="l">Success</Text>
+                        <CopyColorScale color="success" />
+                    </Flex>
+                </Card>
+                <Card style="overflow-x: auto;">
+                    <Flex justify="between" wrap>
+                        <Text size="l">Warning</Text>
+                        <CopyColorScale color="warning" />
+                    </Flex>
+                </Card>
+                <Card style="overflow-x: auto;">
+                    <Flex justify="between" wrap>
+                        <Text size="l">Danger</Text>
+                        <CopyColorScale color="danger" />
+                    </Flex>
+                </Card>
+                <Card style="overflow-x: auto;">
+                    <Flex justify="between" wrap>
+                        <Text size="l">Info</Text>
+                        <CopyColorScale color="info" />
+                    </Flex>
+                </Card>
+                <Card style="overflow-x: auto;">
+                    <Flex justify="between" wrap>
+                        <Text size="l">Accent</Text>
+                        <CopyColorScale color="accent" />
+                    </Flex>
+                </Card>
             </Flex>
         </section>
     </Flex>

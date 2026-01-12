@@ -50,6 +50,7 @@
             <NavGroupItem href="/tokens#space">Space</NavGroupItem>
             <NavGroupItem href="/tokens#radius">Border Radius</NavGroupItem>
             <NavGroupItem href="/tokens#color">Color</NavGroupItem>
+            <NavGroupItem href="/tokens#color-scales">Color Scales</NavGroupItem>
         </NavGroup>
         <NavGroup title="Components">
             <NavGroupItem href="/components">All Components</NavGroupItem>
