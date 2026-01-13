@@ -19,7 +19,7 @@
         { value: 'basic', label: 'Example: Basic' },
         { value: 'sizes', label: 'Example: Size' },
         { value: 'align', label: 'Example: Align' },
-        { value: 'debug', label: 'Example: debug' },
+        { value: 'debug', label: 'Example: Debug' },
     ];
 
     /** @type { string } */

@@ -1227,7 +1227,9 @@
     background-color: var(--v-color-surface);
     border: 1px solid var(--v-color-border);
     border-radius: var(--v-radius);
-    width: 12rem;
+    min-width: 12rem;
+    width: fit-content;
+    max-width: 100%;
 }
 
 .v-select-wrapper.is-expanded {

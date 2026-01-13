@@ -130,7 +130,6 @@
             bind:options={options}
             bind:value={selectedExample}
             placeholder="Select an example..."
-            style={selectedExample === "customStyle" ? "width: 13rem;" : ""}
         />
         {#if selectedExample === "basic"}
             <CodeExample code={example1}>

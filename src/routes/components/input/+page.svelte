@@ -72,7 +72,6 @@
             bind:options={options}
             bind:value={selectedExample}
             placeholder="Select an example..."
-            style={selectedExample === "customStyle" || selectedExample === "prefixAndSuffix" ? "width: 13rem;" : ""}
         />
         {#if selectedExample === "types"}
             <CodeExample code={example1}>
