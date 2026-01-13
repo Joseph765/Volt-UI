@@ -33,10 +33,37 @@
         </Flex>
 
         <Flex direction="column">
+            <Text size="2xl" weight="bold">Set up alias</Text>
+            <Text size="l" variant="weak">Make sure you svelte.config.js file includes an alias:</Text>
+            <CodeExample codeOnly code={`import adapter from '@sveltejs/adapter-auto';
+
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+	kit: {
+		adapter: adapter(),
+		alias: {
+			'$volt': './node_modules/volt-ui-svelte/dist',
+		}
+	}
+};
+
+export default config;
+`} />
+        </Flex>
+
+        <Flex direction="column">
             <Text size="2xl" weight="bold">Importing styles</Text>
             <Text size="l" variant="weak">Add this to your main Svelte file:</Text>
             <CodeExample codeOnly code={`<script>
-  import "volt-ui/dist/index.css";
+  import "$volt/css/index.css";
+<\/script>`} />
+        </Flex>
+
+        <Flex direction="column">
+            <Text size="2xl" weight="bold">Importing components</Text>
+            <Text size="l" variant="weak">Use this in any svelte file to import components:</Text>
+            <CodeExample codeOnly code={`<script>
+  import { Text } from "$volt";
 <\/script>`} />
         </Flex>
 
