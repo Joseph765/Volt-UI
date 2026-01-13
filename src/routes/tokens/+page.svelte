@@ -310,11 +310,11 @@
                         <Text measure="s">To convey success.</Text>
                         <CopyCode code="var(--v-color-success)" />
                     </div>
-                    <!-- <div class="token">
+                    <div class="token">
                         <div class="token-example" style="background-color: var(--v-color-neutral);"></div>
                         <Text measure="s">Solid neutral status color used on components like badge.</Text>
                         <CopyCode code="var(--v-color-neutral)" />
-                    </div> -->
+                    </div>
                 </div>
             </Flex>
         </section>
