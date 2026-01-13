@@ -231,10 +231,10 @@
                     </div>
                     <div class="token">
                         <div class="token-example">
-                            <div style="border-block-start: 4px solid var(--v-color-neutral); border-inline-end: 4px solid var(--v-color-neutral); width: 2rem; height: 2rem; border-radius: 0 var(--v-radius-sharp) 0 0;"></div>
+                            <div style="border-block-start: 4px solid var(--v-color-neutral); border-inline-end: 4px solid var(--v-color-neutral); width: 2rem; height: 2rem; border-radius: 0 var(--v-radius) 0 0;"></div>
                         </div>
                         <Text measure="s">Default border radius.</Text>
-                        <CopyCode code="var(--v-radius-sharp)" />
+                        <CopyCode code="var(--v-radius)" />
                     </div>
                     <div class="token">
                         <div class="token-example">
@@ -379,7 +379,7 @@
         flex-direction: column;
         gap: var(--v-space-m);
         border: 1px solid var(--v-color-border);
-        border-radius: var(--v-radius-sharp);
+        border-radius: var(--v-radius);
         padding: var(--v-space-s);
         background-color: var(--v-color-surface);
     }
@@ -390,7 +390,7 @@
         align-items: center;
         width: 100%;
         height: 4rem;
-        border-radius: var(--v-radius-sharp);
+        border-radius: var(--v-radius);
         border: 1px solid var(--v-color-border);
         overflow: hidden;
     }
@@ -414,7 +414,7 @@
         .token-example {
             width: 4rem;
             height: 4rem;
-            border-radius: var(--v-radius-sharp);
+            border-radius: var(--v-radius);
         }
     }
 </style>

@@ -30,7 +30,7 @@
 
 .hljs {
   overflow: hidden;
-  border-radius: 0 0 var(--v-radius-sharp) var(--v-radius-sharp);
+  border-radius: 0 0 var(--v-radius) var(--v-radius);
 }
 
 .v-code-example-wrapper {
@@ -38,7 +38,7 @@
   flex-direction: column;
   gap: 0;
   /* border: 1px solid var(--v-color-border); */
-  border-radius: var(--v-radius-sharp);
+  border-radius: var(--v-radius);
   width: 100%;
 }
 

@@ -105,6 +105,6 @@
     .logo-ui {
         background-color: var(--v-accent-5);
         padding: 2px 8px;
-        border-radius: var(--v-radius-sharp);
+        border-radius: var(--v-radius);
     }
 </style>

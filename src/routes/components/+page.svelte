@@ -63,7 +63,7 @@
         background-color: var(--v-color-background);
         pointer-events: none;
         user-select: none;
-        border-radius: var(--v-radius-sharp) var(--v-radius-sharp) 0 0;
+        border-radius: var(--v-radius) var(--v-radius) 0 0;
     }
 
     .components {
@@ -75,7 +75,7 @@
 
     .component-card {
         border: 1px solid var(--v-color-border);
-        border-radius: var(--v-radius-sharp);
+        border-radius: var(--v-radius);
         text-decoration: none;
         color: var(--v-color-text);
         height: 407px;      

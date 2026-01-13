@@ -110,7 +110,7 @@
     .copy-color {
         min-width: 4rem;
         height: 4rem;
-        border-radius: var(--v-radius-sharp);
+        border-radius: var(--v-radius);
         border: 1px solid var(--v-color-border);
         cursor: pointer;
     }

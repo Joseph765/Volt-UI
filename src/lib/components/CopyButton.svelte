@@ -34,7 +34,7 @@
         border: 1px solid var(--v-color-accent);
         color: var(--v-accent-11);
         padding: var(--v-space-s);
-        border-radius: var(--v-radius-sharp);
+        border-radius: var(--v-radius);
         height: 32px;
         cursor: pointer;
     }

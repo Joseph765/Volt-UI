@@ -42,7 +42,7 @@
     { 
         "name": "Fieldset",
         "description": "A grouping component that organizes related form elements with a shared label.",
-        "example": "<fieldset class='v-fieldset' style='border: 1px solid var(--v-color-border); width: calc(100% - var(--v-space-xl)); border-radius: var(--v-radius-sharp); height: calc(100% - var(--v-space-xl));'><legend class='v-fieldset-legend'><div class='v-fieldset-label'>Fieldset</div></fieldset>"
+        "example": "<fieldset class='v-fieldset' style='border: 1px solid var(--v-color-border); width: calc(100% - var(--v-space-xl)); border-radius: var(--v-radius); height: calc(100% - var(--v-space-xl));'><legend class='v-fieldset-legend'><div class='v-fieldset-label'>Fieldset</div></fieldset>"
     },
     { 
         "name": "Icon",
