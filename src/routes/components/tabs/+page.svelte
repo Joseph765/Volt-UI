@@ -1,7 +1,6 @@
 <script>
     import {
         Code,
-        CodeExample,
         Flex,
         Select,
         Tab,
@@ -14,6 +13,7 @@
         Tabs,
         Text
     } from "$lib";
+    import CodeExample from "../CodeExample.svelte";
 
     let options = [
         { value: 'basic', label: 'Example: Basic' }

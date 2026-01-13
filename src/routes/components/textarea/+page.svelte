@@ -1,7 +1,6 @@
 <script>
     import { 
         Code,
-        CodeExample,
         Flex,
         Select,
         Table,
@@ -13,6 +12,7 @@
         Text,
         Textarea
     } from "$lib";
+    import CodeExample from "../CodeExample.svelte";
 
     let options = [
         { value: 'basic', label: 'Example: Basic' },

@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import hljs from 'highlight.js';
-    import CopyButton from './CopyButton.svelte';
+    import CopyButton from '$lib/components/CopyButton.svelte';
 
     /** @type { string } */
     export let code;

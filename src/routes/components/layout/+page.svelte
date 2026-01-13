@@ -1,7 +1,6 @@
 <script>
     import { page } from '$app/state'; 
     import {
-        CodeExample,
         Container,
         Flex,
         Layout, 
@@ -16,6 +15,7 @@
         Select,
         Text
     } from "$lib";
+    import CodeExample from "../CodeExample.svelte";
 
     let options = [
         { value: 'basic', label: 'Example: Basic' }

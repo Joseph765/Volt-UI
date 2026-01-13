@@ -4,7 +4,6 @@ import Button from "./components/Button.svelte";
 import Card from "./components/Card.svelte";
 import Checkbox from "./components/Checkbox.svelte";
 import Code from "./components/Code.svelte";
-import CodeExample from "./components/CodeExample.svelte";
 import Container from "./components/Container.svelte";
 import CopyCode from "./components/CopyCode.svelte";
 import Divider from "./components/Divider.svelte";
@@ -45,7 +44,6 @@ export {
     Card,
     Checkbox,
     Code,
-    CodeExample,
     Container,
     CopyCode,
     Divider,

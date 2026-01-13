@@ -1,13 +1,13 @@
 <script>
     import {
         Code,
-        CodeExample,
         Container,
         CopyCode,
         Flex,
         Link,
         Text
     } from "$lib";
+    import CodeExample from "../components/CodeExample.svelte";
 </script>
 
 <Container size="l">

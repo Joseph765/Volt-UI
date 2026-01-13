@@ -2,9 +2,7 @@
     import { 
         Card,
         Code,
-        CodeExample,
-        Flex, 
-        Link,
+        Flex,
         Select,
         Table,
         TableBody,
@@ -14,6 +12,7 @@
         TableRow,
         Text
     } from "$lib";
+    import CodeExample from "../CodeExample.svelte";
 
     let options = [
         { value: 'basic', label: 'Example: Basic' },

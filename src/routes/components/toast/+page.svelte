@@ -2,7 +2,6 @@
     import { 
         Button, 
         Code,
-        CodeExample,
         Flex, 
         Select,
         Table,
@@ -15,6 +14,7 @@
         Toast,
         ToastGroup
     } from "$lib";
+    import CodeExample from "../CodeExample.svelte";
 
     let options = $state([
         { value: 'basic', label: 'Example: Basic' },

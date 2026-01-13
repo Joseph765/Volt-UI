@@ -1,12 +1,12 @@
 <script>
     import { 
-        CodeExample,
         Flex, 
         NavGroup,
         NavGroupItem,
         Select,
         Text
     } from "$lib";
+    import CodeExample from "../CodeExample.svelte";
 
     let options = [
         { value: 'basic', label: 'Example: Basic' }
