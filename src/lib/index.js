@@ -15,7 +15,6 @@ import Input from "./components/Input.svelte";
 import Layout from "./components/Layout/Layout.svelte";
 import LayoutContent from "./components/Layout/LayoutContent.svelte";
 import LayoutHeader from "./components/Layout/LayoutHeader.svelte";
-import LayoutLogo from "./components/Layout/LayoutLogo.svelte";
 import LayoutMenuButton from "./components/Layout/LayoutMenuButton.svelte";
 import LayoutNav from "./components/Layout/LayoutNav.svelte";
 import Link from "./components/Link.svelte";
@@ -57,7 +56,6 @@ export {
     Layout,
     LayoutContent,
     LayoutHeader,
-    LayoutLogo,
     LayoutMenuButton,
     LayoutNav,
     Link,

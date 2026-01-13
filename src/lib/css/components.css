@@ -884,6 +884,13 @@
     padding: var(--v-space-m);
 }
 
+.v-layout-mobile-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - var(--v-space-2xl));
+}
+
 .v-layout-menu-button {
     border: none;
     background: transparent;
@@ -938,6 +945,10 @@
 
     .v-layout-logo {
         display: flex;
+    }
+
+    .v-layout-mobile-logo {
+        display: none;
     }
 
     .v-layout-nav {

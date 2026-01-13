@@ -8,7 +8,6 @@
         Layout, 
         LayoutContent, 
         LayoutHeader, 
-        LayoutLogo, 
         LayoutMenuButton,
         LayoutNav, 
         NavGroup,
@@ -34,12 +33,13 @@
 <Layout>
     <LayoutHeader>
         <LayoutMenuButton on:click={() => open = !open}></LayoutMenuButton>
-    </LayoutHeader>
-    <LayoutLogo>
-        <a href="/" class="logo">
-            VOLT <span class="logo-ui">UI</span>
+        <a href="/" class="logo" slot="mobile-logo">
+            <span class="logo-ui">V</span>
         </a>
-    </LayoutLogo>
+    </LayoutHeader>
+    <a href="/" class="logo" slot="logo">
+        VOLT <span class="logo-ui">UI</span>
+    </a>
     <LayoutNav {open}>
         <NavItem href="/getting-started">Getting Started</NavItem>
         <NavGroup title="Design Tokens">

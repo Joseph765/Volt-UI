@@ -7,7 +7,6 @@
         Layout, 
         LayoutContent, 
         LayoutHeader, 
-        LayoutLogo,
         LayoutMenuButton,
         LayoutNav,
         Link,
@@ -47,12 +46,13 @@
 <Layout>
     <LayoutHeader>
         <LayoutMenuButton on:click={() => open = !open}></LayoutMenuButton>
-    </LayoutHeader>
-    <LayoutLogo>
-        <Link href="/" style="text-decoration: none; color: var(--v-color-text);">
+        <Link href="/" style="text-decoration: none; color: var(--v-color-text);" slot="mobile-logo">
             <Text size="3xl" weight="bold" as="h1">Logo</Text>
         </Link>
-    </LayoutLogo>
+    </LayoutHeader>
+    <Link href="/" style="text-decoration: none; color: var(--v-color-text);" slot="logo">
+        <Text size="3xl" weight="bold" as="h1">Logo</Text>
+    </Link>
     <LayoutNav {open}>
         <NavGroup title="Nav Group">
             <NavGroupItem href="#">Nav Item 1</NavGroupItem>
@@ -86,12 +86,13 @@
                 <Layout>
                     <LayoutHeader>
                         <LayoutMenuButton on:click={() => open = !open}></LayoutMenuButton>
-                    </LayoutHeader>
-                    <LayoutLogo>
-                        <Link href="/" style="text-decoration: none; color: var(--v-color-text);">
+                        <Link href="/" style="text-decoration: none; color: var(--v-color-text);" slot="mobile-logo">
                             <Text size="3xl" weight="bold" as="h1">Logo</Text>
                         </Link>
-                    </LayoutLogo>
+                    </LayoutHeader>
+                    <Link href="/" style="text-decoration: none; color: var(--v-color-text);" slot="logo">
+                        <Text size="3xl" weight="bold" as="h1">Logo</Text>
+                    </Link>
                     <LayoutNav {open}>
                         <NavGroup title="Nav Group">
                             <NavGroupItem href="#">Nav Item 1</NavGroupItem>
