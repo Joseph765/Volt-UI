@@ -29,7 +29,7 @@
         <Flex direction="column">
             <Text size="2xl" weight="bold">Installation</Text>
             <Text size="l" variant="weak">Install with npm:</Text>
-            <CopyCode code="npm install volt-ui" style="background-color: var(--v-color-surface);" />
+            <CopyCode code="npm install volt-ui-svelte" style="background-color: var(--v-color-surface);" />
         </Flex>
 
         <Flex direction="column">
