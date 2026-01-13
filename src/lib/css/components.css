@@ -72,7 +72,7 @@
 }
 
 .v-badge.is-danger {
-    background-color: var(--v-color-surface-danger);
+    background-color: var(--v-danger-4);
     border-color: var(--v-color-border-danger);
     color: var(--v-danger-12);
 }
@@ -84,7 +84,7 @@
 }
 
 .v-badge.is-warning {
-    background-color: var(--v-color-surface-warning);
+    background-color: var(--v-warning-4);
     border-color: var(--v-color-border-warning);
     color: var(--v-warning-12);
 }
@@ -96,7 +96,7 @@
 }
 
 .v-badge.is-success {
-    background-color: var(--v-color-surface-success);
+    background-color: var(--v-success-4);
     border-color: var(--v-color-border-success);
     color: var(--v-success-12);
 }
@@ -108,7 +108,7 @@
 }
 
 .v-badge.is-info {
-    background-color: var(--v-color-surface-info);
+    background-color: var(--v-info-4);
     border-color: var(--v-color-border-info);
     color: var(--v-info-12);
 }
@@ -125,7 +125,7 @@
     align-items: center;
     gap: var(--v-space-m);
     padding: var(--v-space-m);
-    background-color: var(--v-color-surface-info);
+    background-color: var(--v-info-4);
     border-inline-start: 6px solid var(--v-info-11);
     color: var(--v-color-text);
     border-radius: var(--v-radius);
@@ -161,17 +161,17 @@
 }
 
 .v-banner.is-warning {
-    background-color: var(--v-color-surface-warning);
+    background-color: var(--v-warning-4);
     border-inline-start: 6px solid var(--v-warning-11);
 }
 
 .v-banner.is-danger {
-    background-color: var(--v-color-surface-danger);
+    background-color: var(--v-danger-4);
     border-inline-start: 6px solid var(--v-danger-11);
 }
 
 .v-banner.is-success {
-    background-color: var(--v-color-surface-success);
+    background-color: var(--v-success-4);
     border-inline-start: 6px solid var(--v-success-11);
 }
 
@@ -1697,7 +1697,7 @@
 }
 
 .v-toast.is-danger {
-    background-color: var(--v-color-surface-danger);
+    background-color: var(---v-danger-4);
     border-color: var(--v-color-border-danger)
 }
 

@@ -1,5 +1,6 @@
 <script>
     import {
+        Banner,
         Code,
         CodeExample,
         Flex,
@@ -13,6 +14,7 @@
         TableRow,
         Text
     } from "$lib";
+	import Link from "$lib/components/Link.svelte";
 
     let options = [
         { value: 'basic', label: 'Example: Basic' },
@@ -49,6 +51,7 @@
         <Text size="3xl" weight="black" as="h2">Icon</Text>
         <Text size="xl" variant="weak">A scalable vector component for displaying symbolic icons with customizable size, color, and accessibility features.</Text>
     </Flex>
+    <Banner>This component uses lucide icons. Check them out <Link href="https://lucide.dev/icons/">here</Link>.</Banner>
     <Flex direction="column">
         <Select
             name="examples"

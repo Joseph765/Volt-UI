@@ -1,4 +1,9 @@
 <script>
+    // Lucide icons – ISC License
+    // Portions Copyright (c) Cole Bemis 2013-2023 (Feather)
+    // All other Copyright (c) Lucide Contributors
+    // See https://lucide.dev/license for full license
+    
     /** @type { 'plus' | 'minus' | 'chevron-down' | 'chevron-up' | 'x' | 'search' | 'phone' | 'user' | 'arrow-up' | 'arrow-down' | 'circle-question-mark' | 'info' | 'triangle-alert' | 'circle-check' } */
     export let name;
 
@@ -7,6 +12,7 @@
 
     /** @type { 'neutral' | 'warning' | 'danger' | 'success' } */
     export let status = 'neutral';
+
 </script>
 
 {#if name}
