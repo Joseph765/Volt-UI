@@ -740,7 +740,6 @@
     box-shadow: 0 0 1px 2px var(--v-color-highlight);
 }
 
-
 .v-input:disabled {
     background-color: var(--v-gray-1);
     border-color: var(--v-gray-3);
@@ -756,7 +755,7 @@
 }
 
 .v-input.is-danger:focus {
-    box-shadow: 0 0 1px 2px var(--v-color-danger);
+    box-shadow: 0 0 1px 2px var(--v-color-danger); 
 }
 
 .v-input.is-align-end {
@@ -1262,6 +1261,12 @@
     box-shadow: 0 0 1px 2px var(--v-color-highlight);
 }
 
+.v-select-wrapper.is-danger:focus-within {
+    outline: none;
+    border-color: var(--v-color-danger);
+    box-shadow: 0 0 1px 2px var(--v-color-danger);
+}
+
 .v-select-wrapper:has(.v-select:disabled) {
     background-color: var(--v-gray-1);
     border-color: var(--v-gray-3);
@@ -1648,7 +1653,9 @@
 }
 
 .v-textarea.is-danger:focus {
-    box-shadow: 0 0 0 1px var(--v-color-highlight);
+    outline: none;
+    border-color: var(--v-color-danger);
+    box-shadow: 0 0 1px 2px var(--v-color-danger);
 }
 
 .v-textarea.is-align-end {
