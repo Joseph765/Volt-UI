@@ -1,7 +1,7 @@
 <script>
     import "$lib/css/index.css";
 
-    import { beforeNavigate } from "$app/navigation";
+    import { afterNavigate } from "$app/navigation";
 
     import { 
         Container, 
@@ -20,7 +20,7 @@
     /** @type { boolean } */
     let open = false;
 
-    beforeNavigate(() => {
+    afterNavigate(() => {
         // Closes navigation when navigating to a new page
         open = false;
     });
