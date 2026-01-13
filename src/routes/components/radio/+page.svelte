@@ -19,7 +19,7 @@
         { value: 'basic', label: 'Example: Basic' },
         { value: 'disabled', label: 'Example: Disabled' },
         { value: 'required', label: 'Example: Required' },
-        { value: 'helpText', label: 'Example: Help Text' },
+        { value: 'hint', label: 'Example: Hint' },
         { value: 'error', label: 'Example: Error' }
     ];
 
@@ -45,7 +45,7 @@
 </Fieldset>`;
     let example4 = `<Fieldset label="Radios">
     <Flex direction="column" gap="s">
-        <Radio id="radio7" name="testRadio" label="Checked" checked value="7" help="Help text is an accessible way to provide additional information that might help the user" />
+        <Radio id="radio7" name="testRadio" label="Checked" checked value="7" hint="Hint: this is a hint" />
         <Radio id="radio8" name="testRadio" label="Unchecked" value="8" /> 
     </Flex>
 </Fieldset>`;
@@ -96,11 +96,11 @@
                     </Flex>
                 </Fieldset>
             </CodeExample>
-        {:else if selectedExample === "helpText"}
+        {:else if selectedExample === "hint"}
             <CodeExample code={example4}>
                 <Fieldset label="Radios">
                     <Flex direction="column" gap="s">
-                        <Radio id="radio7" name="testRadio" label="Checked" checked value="7" help="Help text is an accessible way to provide additional information that might help the user" />
+                        <Radio id="radio7" name="testRadio" label="Checked" checked value="7" hint="Hint: this is a hint" />
                         <Radio id="radio8" name="testRadio" label="Unchecked" value="8" /> 
                     </Flex>
                 </Fieldset>
@@ -151,8 +151,8 @@
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>help</Code></TableCell>
-                <TableCell>Adds helper text below the radio button.</TableCell>
+                <TableCell><Code>hint</Code></TableCell>
+                <TableCell>Adds a hint below the radio button.</TableCell>
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
             <TableRow>

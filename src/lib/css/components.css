@@ -353,7 +353,8 @@
     line-height: var(--v-line-height-m);
 }
 
-.v-checkbox-wrapper.is-danger {
+.v-checkbox-wrapper.is-danger,
+.v-checkbox-wrapper.has-hint {
     align-items: flex-start;
 }
 
@@ -457,7 +458,7 @@
 }
 
 .v-code-example {
-    max-height: 33dvh;
+    max-height: 33vh;
     max-width: calc(100% - (var(--v-space-m) * 2) - 2px);
     overflow-y: auto;
     padding: var(--v-space-m);
@@ -711,21 +712,6 @@
     align-items: self-end;
 }
 
-/* Help Text */
-.v-help-text {
-    font-family: var(--v-font);
-    font-size: var(--v-font-size-s);
-    line-height: var(--v-line-height-s);
-    letter-spacing: var(--v-letter-spacing-s);
-    color: var(--v-color-text-weak);
-    margin: 0;
-    padding: 0;
-}
-
-.v-help-text.is-danger {
-    color: var(--v-color-danger);
-}
-
 /* Input */
 .v-input-wrapper {
     position: relative;
@@ -888,7 +874,7 @@
     grid-template-areas: 
         "header header"
         "content content";
-    height: 100dvh;
+    height: 100vh;
 }
 
 .v-layout-content {
@@ -1181,7 +1167,7 @@
     line-height: var(--v-line-height-m);
 }
 
-.v-radio-wrapper.has-help-text .v-radio-label,
+.v-radio-wrapper.has-hint .v-radio-label,
 .v-radio-wrapper.is-danger .v-radio-label {
     display: flex;
     flex-direction: column;
@@ -1566,6 +1552,18 @@
     color: var(--v-color-text-weakest);
 }
 
+.v-text.is-warning {
+    color: var(--v-color-warning);
+}
+
+.v-text.is-danger {
+    color: var(--v-color-danger);
+}
+
+.v-text.is-success {
+    color: var(--v-color-success);
+}
+
 .v-text.has-weight-regular {
     font-weight: var(--v-font-weight-regular);
 }
@@ -1750,7 +1748,7 @@
 }
 
 .v-toggle-wrapper.is-danger,
-.v-toggle-wrapper.has-help-text {
+.v-toggle-wrapper.has-hint {
     align-items: flex-start;
 }
 

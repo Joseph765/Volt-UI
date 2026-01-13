@@ -21,7 +21,7 @@
         { value: 'disabled', label: 'Example: Disabled' },
         { value: 'error', label: 'Example: Error' },
         { value: 'required', label: 'Example: Required' },
-        { value: 'helpText', label: 'Example: Help Text' },
+        { value: 'hint', label: 'Example: Hint' },
         { value: 'customStyle', label: 'Example: Custom Style' },
     ];
 
@@ -96,15 +96,15 @@
     required
 />`;
     let example7 = `<Select
-    name="HelpText"
-    label="Help Text"
+    name="Hint"
+    label="Hint"
     options={[
         { value: "us", label: "United States" },
         { value: "ca", label: "Canada" },
         { value: "mx", label: "Mexico" },
     ]}
     placeholder="Choose a country..."
-    help="this is some helper text"
+    hint="Hint: this is a hint"
 />`;
     let example8 = `<Select
     name="CustomWidth"
@@ -218,18 +218,18 @@
                     required
                 />
             </CodeExample>
-        {:else if selectedExample === "helpText"}
+        {:else if selectedExample === "hint"}
             <CodeExample code={example7}>
                 <Select
-                    name="HelpText"
-                    label="Help Text"
+                    name="Hint"
+                    label="Hint"
                     options={[
                         { value: "us", label: "United States" },
                         { value: "ca", label: "Canada" },
                         { value: "mx", label: "Mexico" },
                     ]}
                     placeholder="Choose a country..."
-                    help="this is some helper text"
+                    hint="Hint: this is a hint"
                 />
             </CodeExample>
         {:else if selectedExample === "customStyle"}
@@ -298,8 +298,8 @@
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>help</Code></TableCell>
-                <TableCell>Adds helper text below the select.</TableCell>
+                <TableCell><Code>hint</Code></TableCell>
+                <TableCell>Adds a hint below the select.</TableCell>
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
         </TableBody>

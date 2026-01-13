@@ -22,7 +22,7 @@
         { value: 'error', label: 'Example: Error' },
         { value: 'prefixAndSuffix', label: 'Example: Prefix & Suffix' },
         { value: 'expanded', label: 'Example: Expanded' },
-        { value: 'helpText', label: 'Example: Help Text' },
+        { value: 'hint', label: 'Example: Hint' },
         { value: 'iconPrefix', label: 'Example: Icon Prefix' },
         { value: 'customStyle', label: 'Example: Custom Style' }
     ];
@@ -44,7 +44,7 @@
     </Input>
 </Flex>`;
     let example5 = `<Input type="text" name="expanded" expanded label="Expanded" placeholder="Expanded" />`;
-    let example6 = `<Input type="text" name="helpText" label="Help Text" help="This is helper Text" />`;
+    let example6 = `<Input type="text" name="hint" label="Hint" hint="Hint: this is a hint" />`;
     let example7 = `<Flex direction="column">
     <Input label="Icon Prefix" name="iconPrefix">
         <svelte:fragment slot="prefix">
@@ -108,9 +108,9 @@
             <CodeExample code={example5}>
                 <Input type="text" name="expanded" expanded label="Expanded" placeholder="Expanded" />
             </CodeExample>
-        {:else if selectedExample === "helpText"}
+        {:else if selectedExample === "hint"}
             <CodeExample code={example6}>
-                <Input type="text" name="helpText" label="Help Text" help="This is helper Text" />
+                <Input type="text" name="hint" label="Hint" hint="Hint: this is a hint" />
             </CodeExample>
         {:else if selectedExample === "iconPrefix"}
             <CodeExample code={example7}>
@@ -178,8 +178,8 @@
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>help</Code></TableCell>
-                <TableCell>Adds helper text below the input.</TableCell>
+                <TableCell><Code>hint</Code></TableCell>
+                <TableCell>Adds a hint below the input.</TableCell>
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
             <TableRow>

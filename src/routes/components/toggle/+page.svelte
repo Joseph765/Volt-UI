@@ -18,7 +18,7 @@
         { value: 'basic', label: 'Example: Basic' },
         { value: 'disabled', label: 'Example: Disabled' },
         { value: 'error', label: 'Example: Error' },
-        { value: 'helpText', label: 'Example: Help Text' }
+        { value: 'hint', label: 'Example: Hint' }
     ];
 
     let selectedExample = 'basic';
@@ -35,7 +35,7 @@
     <Toggle label="Checked" name="checkedError" checked error="There is an error" />
     <Toggle label="Unchecked" name="uncheckedError" error="There is an error" />
 </Flex>`;
-    let example4 = `<Toggle label="Label" name="helpText" help="Hint is an accessible way to provide additional information that might help the user" />`;
+    let example4 = `<Toggle label="Label" name="helpText" hint="Hint: this is a hint" />`;
 </script>
 
 <Flex direction="column" gap="xl">
@@ -71,9 +71,9 @@
                     <Toggle label="Unchecked" name="uncheckedError" error="There is an error" />
                 </Flex>
             </CodeExample>
-        {:else if selectedExample === "helpText"}
+        {:else if selectedExample === "hint"}
             <CodeExample code={example4}>
-                <Toggle label="Label" name="helpText" help="Hint is an accessible way to provide additional information that might help the user" />
+                <Toggle label="Label" name="helpText" hint="Hint: this is a hint" />
             </CodeExample>
         {/if}
     </Flex>
@@ -112,8 +112,8 @@
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
              <TableRow>
-                <TableCell><Code>help</Code></TableCell>
-                <TableCell>Adds helper text below the toggle.</TableCell>
+                <TableCell><Code>hint</Code></TableCell>
+                <TableCell>Adds a hint below the toggle.</TableCell>
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
         </TableBody>

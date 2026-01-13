@@ -18,7 +18,7 @@
     export let error = '';
 
     /** @type { string } */
-    export let help = '';
+    export let hint = '';
 
     /** @type { 'start' | 'end' } */
     export let align = 'start';
@@ -53,10 +53,10 @@
     </div>
 
     {#if error}
-        <span class="v-help-text is-danger">{error}</span>
+        <span class="v-text is-size-s is-danger">{error}</span>
     {/if}
 
-    {#if help}
-      <span class="v-help-text">{help}</span>
+    {#if hint}
+      <span class="v-text is-size-s is-weak">{hint}</span>
     {/if}
 </div>

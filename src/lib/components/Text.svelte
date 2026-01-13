@@ -2,7 +2,7 @@
     /** @type { 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl' | '3xl' | '4xl' } */
     export let size = "m";
 
-    /** @type { 'default' | 'weak' | 'weaker' | 'weakest' } */
+    /** @type { 'default' | 'weak' | 'weaker' | 'weakest' | 'warning' | 'danger' | 'success' } */
     export let variant = "default";
 
     /** @type { 'regular' | 'bold' | 'black' } */
@@ -25,7 +25,6 @@
 
     /** @type { string } */
     export let style = "";
-
 </script>
 
 <svelte:element this={as} {id} class="v-text is-size-{size} is-{variant} has-weight-{weight} has-measure-{measure} is-align-{align} {mono ? "is-mono" : undefined}" {style}>

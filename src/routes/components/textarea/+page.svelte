@@ -20,7 +20,7 @@
         { value: 'required', label: 'Example: Required' },
         { value: 'error', label: 'Example: Error' },
         { value: 'expanded', label: 'Example: Expanded' },
-        { value: 'helpText', label: 'Example: Help Text' },
+        { value: 'hint', label: 'Example: Hint' },
         { value: 'customStyle', label: 'Example: Custom Style' }
     ];
 
@@ -31,7 +31,7 @@
     let example3 = `<Textarea label="Message" placeholder="Enter a message" name="required" required />`;
     let example4 = `<Textarea label="Message" placeholder="Enter a message" name="error" error="Incorrect format" />`;
     let example5 = `<Textarea label="Message" placeholder="Expanded Style" value="Expanded style" name="expanded" expanded />`;
-    let example6 = `<Textarea label="Message" placeholder="With helper text" name="helpText" help="This is helper Text" />`;
+    let example6 = `<Textarea label="Message" placeholder="With helper text" name="helpText" hint="Hint: this is a hint" />`;
     let example7 = `<Textarea label="Message" placeholder="With custom styling" name="customStyle" style="width: 22rem;" />`;
 </script>
 
@@ -68,9 +68,9 @@
             <CodeExample code={example5}>
                 <Textarea label="Message" placeholder="Expanded Style" value="Expanded style" name="expanded" expanded />
             </CodeExample>
-        {:else if selectedExample === "helpText"}
+        {:else if selectedExample === "hint"}
             <CodeExample code={example6}>
-                <Textarea label="Message" placeholder="With helper text" name="helpText" help="This is helper Text" />
+                <Textarea label="Message" placeholder="With helper text" name="helpText" hint="Hint: this is a hint" />
             </CodeExample>
         {:else if selectedExample === "customStyle"}
             <CodeExample code={example7}>
@@ -123,8 +123,8 @@
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
              <TableRow>
-                <TableCell><Code>help</Code></TableCell>
-                <TableCell>Adds helper text below the textarea.</TableCell>
+                <TableCell><Code>hint</Code></TableCell>
+                <TableCell>Adds a hint below the textarea.</TableCell>
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
             <TableRow>

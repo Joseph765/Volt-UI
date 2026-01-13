@@ -19,6 +19,7 @@
         { value: 'disabled', label: 'Example: Disabled' },
         { value: 'indeterminate', label: 'Example: Indeterminate' },
         { value: 'error', label: 'Example: Error' },
+        { value: 'hint', label: 'Example: Hint' },
         { value: 'customStyle', label: 'Example: Custom Style' }
     ];
 
@@ -28,7 +29,8 @@
     let example2 = `<Checkbox checked disabled label="This is disabled" />`;
     let example3 = `<Checkbox label="Indeterminate" indeterminate />`;
     let example4 = `<Checkbox label="Has error" error="This field has error" />`;
-    let example5 = `<Checkbox style="width: 300px;" label="Custom style example" />`;
+    let example5 = `<Checkbox label="Has hint" hint="Hint: this is a hint" />`;
+    let example6 = `<Checkbox style="width: 300px;" label="Custom style example" />`;
 </script>
 
 <Flex direction="column" gap="xl">
@@ -60,8 +62,12 @@
             <CodeExample code={example4}>
                 <Checkbox label="Has error" error="This field has error" />
             </CodeExample>
-        {:else if selectedExample === "customStyle"}
+        {:else if selectedExample === "hint"}
             <CodeExample code={example5}>
+                <Checkbox label="Has hint" hint="Hint: this is a hint" />
+            </CodeExample>
+        {:else if selectedExample === "customStyle"}
+            <CodeExample code={example6}>
                 <Checkbox style="width: 300px;" label="Custom style example" />
             </CodeExample>
         {/if}
@@ -103,6 +109,11 @@
             <TableRow>
                 <TableCell><Code>error</Code></TableCell>
                 <TableCell>Adds an error message below the checkbox.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>hint</Code></TableCell>
+                <TableCell>Adds a hint below the checkbox.</TableCell>
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
         </TableBody>

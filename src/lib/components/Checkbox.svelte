@@ -17,12 +17,15 @@
     /** @type { string } */
     export let error = '';
 
+    /** @type { string } */
+    export let hint = '';
+
     /** @type { string | undefined } */
     export let style = undefined;
 </script>
 
 <label
-    class="v-checkbox-wrapper {error ? "is-danger" : undefined}"
+    class="v-checkbox-wrapper {error ? "is-danger" : undefined} {hint ? "has-hint" : undefined}"
     {style}
 >
     <input
@@ -54,7 +57,10 @@
                 {label}
             {/if}
             {#if error}
-                <span class="v-help-text is-danger">{error}</span>
+                <span class="v-text is-danger is-size-s">{error}</span>
+            {/if}
+            {#if hint}
+                <span class="v-text is-weak is-size-s">{hint}</span>
             {/if}
         </span>
     {/if}

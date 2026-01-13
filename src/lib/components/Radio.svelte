@@ -18,21 +18,21 @@
     export let disabled = false;
 
     /** @type { string } */
-    export let help = "";
+    export let hint = "";
 
     /** @type { string } */
     export let error = "";
 </script>
 
-<div class="v-radio-wrapper {disabled ? "is-disabled" : undefined} {error ? "is-danger" : undefined} {help ? "has-help-text" : undefined}">
+<div class="v-radio-wrapper {disabled ? "is-disabled" : undefined} {error ? "is-danger" : undefined} {hint ? "has-hint" : undefined}">
     <input class="v-radio" type="radio" {id} {name} {value} {checked} {disabled} tabindex="0">
     <label class="v-radio-label" for={id}>
         {label}
         {#if error}
-            <div class="v-help-text is-danger">{error}</div>
+            <div class="v-text is-danger is-size-s">{error}</div>
         {/if}
-        {#if help}
-            <div class="v-help-text">{help}</div>
+        {#if hint}
+            <div class="v-text is-weak is-size-s">{hint}</div>
         {/if}
     </label>
 </div>
