@@ -24,7 +24,7 @@
     export let error = "";
 </script>
 
-<div class="v-radio-wrapper {disabled ? "is-disabled" : ""} {error ? "is-danger" : undefined} {help ? "has-help-text" : undefined}">
+<div class="v-radio-wrapper {disabled ? "is-disabled" : undefined} {error ? "is-danger" : undefined} {help ? "has-help-text" : undefined}">
     <input class="v-radio" type="radio" {id} {name} {value} {checked} {disabled} tabindex="0">
     <label class="v-radio-label" for={id}>
         {label}

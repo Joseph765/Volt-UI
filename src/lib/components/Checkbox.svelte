@@ -22,7 +22,7 @@
 </script>
 
 <label
-    class="v-checkbox-wrapper {error ? "is-danger" : ""}"
+    class="v-checkbox-wrapper {error ? "is-danger" : undefined}"
     {style}
 >
     <input

@@ -1,6 +1,6 @@
 <script>
     /** @type { string } */
-    export let label = "";
+    export let label = '';
 
     /** @type { string } */
     export let value = '';

@@ -61,7 +61,7 @@
         </label>
     {/if}
 
-    <div class="v-select-wrapper {expanded ? "is-expanded" : "expanded"} {error ? "is-danger" : undefined}" {style}>
+    <div class="v-select-wrapper {expanded ? "is-expanded" : undefined} {error ? "is-danger" : undefined}" {style}>
         {#if $$slots.prefix}
             <span class="v-select-prefix" bind:clientWidth={prefixWidth}>
                 <slot name="prefix" />
@@ -76,7 +76,7 @@
             {autocomplete}
             {...$$restProps}
             class="v-select"
-            class:has-placeholder={value === ''}
+            class:has-placeholder={value === ""}
             style:padding-inline-start={prefixWidth ? `${prefixWidth}px` : undefined}
         >
             {#if placeholder}

@@ -27,7 +27,7 @@
             <slot />
         </div>
     {/if}
-    <pre class="v-code-block {expanded ? "is-expanded" : ""}">
+    <pre class="v-code-block {expanded ? "is-expanded" : undefined}">
         <CopyButton copyText={code} style={code.split(/\r\n|\r|\n/).length > 2 ? "position: absolute; top: var(--v-space-m); right: var(--v-space-m);" : "position: absolute; top: var(--v-space-s); right: var(--v-space-s);"} />
         <code bind:this={codeElement} class="language-xml"></code>
         {#if code.split(/\r\n|\r|\n/).length > 20 && !expanded}
