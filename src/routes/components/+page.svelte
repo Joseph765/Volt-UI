@@ -67,8 +67,8 @@
     }
 
     .components {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, 378px);
+        display: flex;
+        flex-wrap: wrap;
         gap: var(--v-space-l);
         width: 100%;
     }
@@ -80,6 +80,8 @@
         color: var(--v-color-text);
         height: 407px;      
         background-color: var(--v-color-surface);
+        /* width: calc(25% - 20px); */
+        width: 100%;
     }
 
     @media (pointer: fine) {
@@ -89,9 +91,21 @@
         }
     }
     
-    @media (max-width: 82rem) {
-        .components {
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    @media (min-width: 40rem) {
+        .component-card {
+            width: calc(50% - 14px);
+        }
+    }
+
+    @media (min-width: 60rem) {
+        .component-card {
+            width: calc(33% - 15px);
+        }
+    }
+
+    @media (min-width: 96rem) {
+        .component-card {
+            width: calc(25% - 20px);
         }
     }
 </style>
