@@ -1,11 +1,16 @@
 <script>
     import {
-        Banner,
+        Code,
         CodeExample,
         Flex,
-        Link,
         Select,
         Tab,
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow,
         Tabs,
         Text
     } from "$lib";
@@ -78,4 +83,35 @@
             </CodeExample>
         {/if}
     </Flex>
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead>Property</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead>Type</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow>
+                <TableCell><Code>tabs</Code></TableCell>
+                <TableCell>Determines the list of tabs with specific labels and IDs.</TableCell>
+                <TableCell><Code>{`{ id: string, label: string }[]`}</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>onClick</Code></TableCell>
+                <TableCell>Provides a callback function to set the selected tab when a tab is clicked.</TableCell>
+                <TableCell><Code>{`(id: string) => string`}</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>selected</Code></TableCell>
+                <TableCell>Provides the current selected tab.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>id</Code></TableCell>
+                <TableCell>Provides the id to the Tab component that matches with the id in the list of tabs.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+        </TableBody>
+    </Table>
 </Flex>

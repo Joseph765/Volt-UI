@@ -13,7 +13,7 @@
     /** @type { (id: string) => string } */
     export let onClick;
 
-    /** @type { string | number } */
+    /** @type { string } */
     export let selected;
 
     $: activeTabIndex = tabs.findIndex(tab => tab.id === selected);

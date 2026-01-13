@@ -5,6 +5,12 @@
         Flex,
         Icon,
         Select,
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow,
         Text
     } from "$lib";
 
@@ -79,4 +85,25 @@
             </CodeExample>
         {/if}
     </Flex>
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead>Property</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead>Type</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow>
+                <TableCell><Code>name</Code></TableCell>
+                <TableCell>The type of icon.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>size</Code></TableCell>
+                <TableCell>The size of the icon.</TableCell>
+                <TableCell><Code>s</Code> | <Code>m</Code> | <Code>l</Code></TableCell>
+            </TableRow>
+        </TableBody>
+    </Table>
 </Flex>

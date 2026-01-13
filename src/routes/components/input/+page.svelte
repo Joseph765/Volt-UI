@@ -1,11 +1,17 @@
 <script>
-    import { 
-        Button, 
+    import {
+        Code,
         CodeExample,
         Flex,
         Icon,
         Input,
         Select,
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow,
         Text
     } from "$lib";
 
@@ -127,4 +133,60 @@
             </CodeExample>
         {/if}
     </Flex>
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead>Property</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead>Type</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow>
+                <TableCell><Code>label</Code></TableCell>
+                <TableCell>Adds a label above the input element.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>placeholder</Code></TableCell>
+                <TableCell>Provides a subtle hint within the input. Useful to communicate the proper formatting required.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>name</Code></TableCell>
+                <TableCell>Provides the name attribute to the input html element.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>disabled</Code></TableCell>
+                <TableCell>Makes the input inaccessible.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>required</Code></TableCell>
+                <TableCell>Makes the input a required form element and styles the label with a red asterisk.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>expanded</Code></TableCell>
+                <TableCell>Allows the input to strech to full width.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>error</Code></TableCell>
+                <TableCell>Adds an error message below the input.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>help</Code></TableCell>
+                <TableCell>Adds helper text below the input.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>align</Code></TableCell>
+                <TableCell>Adds the text within the input.</TableCell>
+                <TableCell><Code>start</Code> | <Code>end</Code></TableCell>
+            </TableRow>
+        </TableBody>
+    </Table>
 </Flex>

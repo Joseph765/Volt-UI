@@ -1,10 +1,17 @@
 <script>
     import { 
+        Code,
         CodeExample,
         Fieldset,
         Flex,
         Radio,
         Select,
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow,
         Text
     } from "$lib";
 
@@ -109,4 +116,50 @@
             </CodeExample>
         {/if}
     </Flex>
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead>Property</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead>Type</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow>
+                <TableCell><Code>variant</Code></TableCell>
+                <TableCell>The style of the badge indicating status.</TableCell>
+                <TableCell><Code>neutral</Code> | <Code>danger</Code> | <Code>warning</Code> | <Code>success</Code> | <Code>info</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>label</Code></TableCell>
+                <TableCell>Adds a label beside the radio button.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>name</Code></TableCell>
+                <TableCell>Sets the name HTML attribute to the input element.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>checked</Code></TableCell>
+                <TableCell>Changes the state of the radio to checked.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>disabled</Code></TableCell>
+                <TableCell>Makes the radio button inaccessible.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>help</Code></TableCell>
+                <TableCell>Adds helper text below the radio button.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>error</Code></TableCell>
+                <TableCell>Adds an error message below the radio button.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+        </TableBody>
+    </Table>
 </Flex>

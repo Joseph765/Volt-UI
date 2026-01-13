@@ -1,9 +1,16 @@
 <script>
     import { 
+        Code,
         CodeExample,
         Flex, 
         Icon,
         Select,
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow,
         Text
     } from "$lib";
 
@@ -241,4 +248,60 @@
             </CodeExample>
         {/if}
     </Flex>
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead>Property</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead>Type</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow>
+                <TableCell><Code>label</Code></TableCell>
+                <TableCell>Adds a label above the select element.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>placeholder</Code></TableCell>
+                <TableCell>Provides a subtle hint within the select.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>options</Code></TableCell>
+                <TableCell>Specifies the list of options availble in the select.</TableCell>
+                <TableCell><Code>{`{ value: string, label: string }[]`}</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>name</Code></TableCell>
+                <TableCell>Sets the name HTML attribute to the select element.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>expanded</Code></TableCell>
+                <TableCell>Allows the select element to stretch to full width.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>required</Code></TableCell>
+                <TableCell>Makes the input a required form element and styles the label with a red asterisk.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>disabled</Code></TableCell>
+                <TableCell>Makes the select inaccessible.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>error</Code></TableCell>
+                <TableCell>Adds an error message below the select.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>help</Code></TableCell>
+                <TableCell>Adds helper text below the select.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+        </TableBody>
+    </Table>
 </Flex>

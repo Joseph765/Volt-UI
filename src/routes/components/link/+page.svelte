@@ -1,9 +1,16 @@
 <script>
     import { 
+        Code,
         CodeExample,
         Flex, 
         Link,
         Select,
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow,
         Text
     } from "$lib";
 
@@ -56,4 +63,20 @@
             </CodeExample>
         {/if}
     </Flex>
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead>Property</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead>Type</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow>
+                <TableCell><Code>size</Code></TableCell>
+                <TableCell>Sets the size of the link.</TableCell>
+                <TableCell><Code>xs</Code> | <Code>s</Code> | <Code>m</Code> | <Code>l</Code> | <Code>xl</Code> | <Code>2xl</Code> | <Code>3xl</Code></TableCell>
+            </TableRow>
+        </TableBody>
+    </Table>
 </Flex>

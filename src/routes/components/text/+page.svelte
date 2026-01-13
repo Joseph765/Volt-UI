@@ -1,8 +1,15 @@
 <script>
     import {
+        Code,
         CodeExample,
         Flex,
         Select,
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow,
         Text
     } from "$lib";
 
@@ -28,6 +35,7 @@
     let example3 = `<Flex direction="column">
     <Text size="l" weight="regular">This is regular weight</Text>
     <Text size="l" weight="bold">This is bold weight</Text>
+    <Text size="l" weight="black">This is black weight</Text>
 </Flex>`;
     let example4 = `<Flex direction="column">
     <Text size="l" variant="default">This is the default variant</Text>
@@ -70,6 +78,7 @@
                 <Flex direction="column">
                     <Text size="l" weight="regular">This is regular weight</Text>
                     <Text size="l" weight="bold">This is bold weight</Text>
+                    <Text size="l" weight="black">This is black weight</Text>
                 </Flex>
             </CodeExample>
         {:else if selectedExample === "variants"}
@@ -83,4 +92,50 @@
             </CodeExample>
         {/if}
     </Flex>
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead>Property</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead>Type</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow>
+                <TableCell><Code>size</Code></TableCell>
+                <TableCell>Determines the size of the text.</TableCell>
+                <TableCell><Code>xs</Code> | <Code>s</Code> | <Code>m</Code> | <Code>l</Code> | <Code>xl</Code> | <Code>2xl</Code> | <Code>3xl</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>weight</Code></TableCell>
+                <TableCell>Determines the boldness of the text.</TableCell>
+                <TableCell><Code>regular</Code> | <Code>Bold</Code> | <Code>black</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>variant</Code></TableCell>
+                <TableCell>Changes the color of the text to be more or less prominate.</TableCell>
+                <TableCell><Code>default</Code> | <Code>weak</Code> | <Code>weaker</Code> | <Code>weakest</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>as</Code></TableCell>
+                <TableCell>Changes the html element rendered.</TableCell>
+                <TableCell><Code>p</Code> | <Code>span</Code> | <Code>h1</Code> | <Code>h2</Code> | <Code>h3</Code> | <Code>h4</Code> | <Code>h5</Code> | <Code>h6</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>measure</Code></TableCell>
+                <TableCell>Sets the maximum width of the paragram text.</TableCell>
+                <TableCell><Code>none</Code> | <Code>s</Code> | <Code>m</Code> | <Code>l</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>mono</Code></TableCell>
+                <TableCell>Displays the mono font. Used specifically for code snippets and examples.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>align</Code></TableCell>
+                <TableCell>The direction the text is aligned.</TableCell>
+                <TableCell><Code>start</Code> | <Code>center</Code> | <Code>end</Code></TableCell>
+            </TableRow>
+        </TableBody>
+    </Table>
 </Flex>
