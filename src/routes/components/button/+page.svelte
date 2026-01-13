@@ -20,7 +20,7 @@
         { value: 'disabled', label: 'Example: Disabled' },
         { value: 'size', label: 'Example: Size' },
         { value: 'expanded', label: 'Example: Expanded' },
-        { value: 'icons', label: 'Example: Icons' },
+        { value: 'icons', label: 'Example: With Icon' },
         { value: 'link', label: 'Example: Link' }
     ];
 

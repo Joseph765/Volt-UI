@@ -1,6 +1,4 @@
 <script>
-    import { onMount } from "svelte";
-
     /**
      * @typedef { object } Tab
      * @property { string } id - Id of Tab

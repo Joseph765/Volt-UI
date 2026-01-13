@@ -1,10 +1,15 @@
 <script>
     import { 
-        Button, 
+        Code,
         CodeExample,
         Flex,
-        Icon,
         Select,
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow,
         Text,
         Textarea
     } from "$lib";
@@ -73,4 +78,60 @@
             </CodeExample>
         {/if}
     </Flex>
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead>Property</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead>Type</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow>
+                <TableCell><Code>label</Code></TableCell>
+                <TableCell>Adds a label above the textarea element.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>placeholder</Code></TableCell>
+                <TableCell>Provides a subtle hint within the textarea. Useful to communicate the proper formatting required.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>name</Code></TableCell>
+                <TableCell>Provides the name attribute to the input html element.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>disabled</Code></TableCell>
+                <TableCell>Makes the textarea inaccessible.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>required</Code></TableCell>
+                <TableCell>Makes the textarea a required field and styles the label with a red asterisk.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>expanded</Code></TableCell>
+                <TableCell>Allows the textarea to strech to full width.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>error</Code></TableCell>
+                <TableCell>Adds an error message below the textarea.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+             <TableRow>
+                <TableCell><Code>help</Code></TableCell>
+                <TableCell>Adds helper text below the textarea.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>align</Code></TableCell>
+                <TableCell>Aligns the text within the textarea element.</TableCell>
+                <TableCell><Code>start</Code> | <Code>end</Code></TableCell>
+            </TableRow>
+        </TableBody>
+    </Table>
 </Flex>

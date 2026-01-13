@@ -1,9 +1,16 @@
 <script>
     import { 
         Button, 
+        Code,
         CodeExample,
         Flex, 
         Select,
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow,
         Text,
         Toast,
         ToastGroup
@@ -72,7 +79,7 @@
      * @property { string } id - Id of Toast
      * @property { string } message - Message displayed on Toast
      * @property { NodeJS.Timeout } timeoutId - Id to clear timeout set on Toast
-     * @property { 'neutral' | 'danger' } status - Status of Toast
+     * @property { 'default' | 'danger' } status - Status of Toast
     */
 
     /** @type { Toast[] } */
@@ -80,7 +87,7 @@
     /** @type { number } */
     let nextId = $state(1);
 
-    /** @param { string } message @param { 'neutral' | 'danger' } status - Message displayed on Toast */
+    /** @param { string } message @param { 'default' | 'danger' } status - Message displayed on Toast */
     function addToast(message, status) {
         // Auto-dismiss after 5 seconds
         const timeoutId = setTimeout(() => {
@@ -115,7 +122,7 @@
 
 <ToastGroup>
     {#each toasts as toast (toast.id)}
-        <Toast id={toast.id} onDismiss={() => removeToast(toast.id)} status={toast.status}>{toast.message}</Toast>
+        <Toast id={toast.id} onDismiss={() => removeToast(toast.id)} variant={toast.status}>{toast.message}</Toast>
     {/each}
 </ToastGroup>`;
 
@@ -124,7 +131,7 @@
      * @property { string } id - Id of Toast
      * @property { string } message - Message displayed on Toast
      * @property { NodeJS.Timeout } timeoutId - Id to clear timeout set on Toast
-     * @property { 'neutral' | 'danger' } status - Status of Toast
+     * @property { 'default' | 'danger' } status - Status of Toast
     */
 
     /** @type { Toast[] } */
@@ -132,7 +139,7 @@
     /** @type { number } */
     let nextId = $state(1);
 
-    /** @param { string } message @param { 'neutral' | 'danger' } status - Message displayed on Toast */
+    /** @param { string } message @param { 'default' | 'danger' } status - Message displayed on Toast */
     function addToast(message, status) {
         // Auto-dismiss after 5 seconds
         const timeoutId = setTimeout(() => {
@@ -177,7 +184,7 @@
         />
         {#if selectedExample === "basic"}
             <CodeExample code={example1}>
-                <Button onclick={() => addToast("Copied to clipboard", "neutral")}>Add Toast</Button>
+                <Button onclick={() => addToast("Copied to clipboard", "default")}>Add Toast</Button>
             </CodeExample>
         {:else if selectedExample === "danger"}
             <CodeExample code={example2}>
@@ -185,10 +192,36 @@
             </CodeExample>
         {/if}
     </Flex>
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead>Property</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead>Type</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow>
+                <TableCell><Code>onDismiss</Code></TableCell>
+                <TableCell>Executes a function when the dismiss button is clicked.</TableCell>
+                <TableCell><Code>{`() => void`}</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>id</Code></TableCell>
+                <TableCell>ID passed to the Toast component. Necessary for dismissable functionality.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>variant</Code></TableCell>
+                <TableCell>The style of the toast.</TableCell>
+                <TableCell><Code>default</Code> | <Code>danger</Code></TableCell>
+            </TableRow>
+        </TableBody>
+    </Table>
 </Flex>
 
 <ToastGroup>
     {#each toasts as toast (toast.id)}
-        <Toast id={toast.id} onDismiss={() => removeToast(toast.id)} status={toast.status}>{toast.message}</Toast>
+        <Toast id={toast.id} onDismiss={() => removeToast(toast.id)} variant={toast.status}>{toast.message}</Toast>
     {/each}
 </ToastGroup>

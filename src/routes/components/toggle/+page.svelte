@@ -1,8 +1,15 @@
 <script>
     import { 
+        Code,
         CodeExample,
         Flex, 
         Select,
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow,
         Text,
         Toggle
     } from "$lib";
@@ -70,4 +77,45 @@
             </CodeExample>
         {/if}
     </Flex>
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead>Property</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead>Type</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow>
+                <TableCell><Code>checked</Code></TableCell>
+                <TableCell>Changes the status of the toggle to on.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>label</Code></TableCell>
+                <TableCell>Adds a label beside the toggle button.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>name</Code></TableCell>
+                <TableCell>Provides the name attribute to the element attribute.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>disabled</Code></TableCell>
+                <TableCell>Makes the toggle inaccessible.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>error</Code></TableCell>
+                <TableCell>Adds an error message below the toggle.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+             <TableRow>
+                <TableCell><Code>help</Code></TableCell>
+                <TableCell>Adds helper text below the toggle.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+        </TableBody>
+    </Table>
 </Flex>

@@ -15,9 +15,13 @@
 
     let options = [
         { value: 'basic', label: 'Example: Basic' },
-        { value: 'sizes', label: 'Example: Sizes' },
+        { value: 'sizes', label: 'Example: Size' },
         { value: 'weight', label: 'Example: Weight' },
         { value: 'variants', label: 'Example: Variants' },
+        { value: 'as', label: 'Example: As' },
+        { value: 'measure', label: 'Example: Measure' },
+        { value: 'mono', label: 'Example: Mono' },
+        { value: 'align', label: 'Example: Align' },
     ];
 
     let selectedExample = 'basic';
@@ -42,6 +46,21 @@
     <Text size="l" variant="weak">This is the weak variant</Text>
     <Text size="l" variant="weaker">This is the weaker variant</Text>
     <Text size="l" variant="weakest">This is the weakest variant</Text>
+</Flex>`;
+    let example5 = `<Flex direction="column">
+    <Text as="span" size="l" variant="default">This is a span tag</Text>
+    <Text as="h2" size="l">This is an h2 tag</Text>
+</Flex>`;
+    let example6 = `<Flex direction="column">
+    <Text measure="l">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+    <Text measure="m">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+    <Text measure="s">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+    <Text measure="none">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+</Flex>`;
+    let example7 = `<Flex direction="column">
+    <Text size="l" align="start">Start</Text>
+    <Text size="l" align="center">Center</Text>
+    <Text size="l" align="end">End</Text>
 </Flex>`;
 </script>
 
@@ -88,6 +107,34 @@
                     <Text size="l" variant="weak">This is the weak variant</Text>
                     <Text size="l" variant="weaker">This is the weaker variant</Text>
                     <Text size="l" variant="weakest">This is the weakest variant</Text>
+                </Flex>
+            </CodeExample>
+        {:else if selectedExample === "as"}
+            <CodeExample code={example5}>
+                <Flex direction="column">
+                    <Text as="span" size="l" variant="default">This is a span tag</Text>
+                    <Text as="h2" size="l">This is an h2 tag</Text>
+                </Flex>
+            </CodeExample>
+        {:else if selectedExample === "measure"}
+            <CodeExample code={example6}>
+                <Flex direction="column">
+                    <Text measure="l">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+                    <Text measure="m">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+                    <Text measure="s">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+                    <Text measure="none">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
+                </Flex>
+            </CodeExample>
+        {:else if selectedExample === "mono"}
+            <CodeExample code={example7}>
+                <Text mono>Mono Text</Text>
+            </CodeExample>
+        {:else if selectedExample === "align"}
+            <CodeExample code={example7}>
+                <Flex direction="column">
+                    <Text size="l" align="start">Start</Text>
+                    <Text size="l" align="center">Center</Text>
+                    <Text size="l" align="end">End</Text>
                 </Flex>
             </CodeExample>
         {/if}

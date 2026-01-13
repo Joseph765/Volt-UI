@@ -17,7 +17,7 @@
 
     let options = [
         { value: 'basic', label: 'Example: Basic' },
-        { value: 'sizes', label: 'Example: Sizes' },
+        { value: 'sizes', label: 'Example: Size' },
         { value: 'align', label: 'Example: Align' },
         { value: 'debug', label: 'Example: debug' },
     ];

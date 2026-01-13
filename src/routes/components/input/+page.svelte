@@ -164,7 +164,7 @@
             </TableRow>
             <TableRow>
                 <TableCell><Code>required</Code></TableCell>
-                <TableCell>Makes the input a required form element and styles the label with a red asterisk.</TableCell>
+                <TableCell>Makes the input a required field and styles the label with a red asterisk.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>
@@ -184,7 +184,7 @@
             </TableRow>
             <TableRow>
                 <TableCell><Code>align</Code></TableCell>
-                <TableCell>Adds the text within the input.</TableCell>
+                <TableCell>Aligns the text within the input.</TableCell>
                 <TableCell><Code>start</Code> | <Code>end</Code></TableCell>
             </TableRow>
         </TableBody>
