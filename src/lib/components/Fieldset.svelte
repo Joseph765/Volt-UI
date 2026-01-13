@@ -6,7 +6,7 @@
     export let required = false;
 </script>
 
-<fieldset class="v-fieldset" aria-required={required}>
+<fieldset class="v-fieldset">
     <legend class="v-fieldset-legend">
         <div class="v-fieldset-label">{label}</div>
         {#if required}

@@ -12,7 +12,6 @@
 
     /** @type { 'neutral' | 'warning' | 'danger' | 'success' } */
     export let status = 'neutral';
-
 </script>
 
 {#if name}

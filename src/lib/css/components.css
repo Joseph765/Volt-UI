@@ -1041,7 +1041,7 @@
     padding: var(--v-space-m);
 }
 
-.v-nav-item.is-active {
+.v-nav-item[aria-current="true"] {
     background-color: var(--v-color-surface-raised);
     border-inline-start: 4px solid var(--v-color-text);
 }
@@ -1096,7 +1096,7 @@
     padding: var(--v-space-m) var(--v-space-l);
 }
 
-.v-nav-group-item.is-active {
+.v-nav-group-item[aria-current="true"] {
     background-color: var(--v-gray-3);
     color: var(--v-color-text);
     border-inline-start: 4px solid var(--v-gray-11);

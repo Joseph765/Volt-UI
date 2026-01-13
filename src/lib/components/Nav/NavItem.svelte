@@ -1,12 +1,11 @@
-<script>
-    import { page } from '$app/state'; 
-    
-    /** @type {{ href: string; children?: import('svelte').Snippet;}} */
-    let { href, children } = $props();
-    
-    let currentPath = $derived(page.url.pathname);
+<script>    
+    /** @type { string } */
+    export let href;
+
+    /** @type { boolean } */
+    export let active = false;
 </script>
 
-<a {href} class="v-nav-item {currentPath === href ? "is-active" : undefined}">
-    {@render children?.()}
+<a {href} class="v-nav-item" aria-current={active} on:click>
+    <slot />
 </a>

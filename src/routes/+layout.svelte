@@ -1,10 +1,9 @@
 <script>
     import "$lib/css/index.css";
-
-    import { afterNavigate } from "$app/navigation";
+    import { page } from '$app/state'; 
+    import components from "./components/components.json";
 
     import { 
-        Container, 
         Layout, 
         LayoutContent, 
         LayoutHeader, 
@@ -12,17 +11,11 @@
         LayoutNav, 
         NavGroup,
         NavGroupItem,
-        NavItem,
-        Text
+        NavItem
     } from "$lib";
 
     /** @type { boolean } */
     let open = false;
-
-    afterNavigate(() => {
-        // Closes navigation when navigating to a new page
-        open = false;
-    });
 </script>
 
 <svelte:head>
@@ -41,48 +34,26 @@
         VOLT <span class="logo-ui">UI</span>
     </a>
     <LayoutNav {open}>
-        <NavItem href="/getting-started">Getting Started</NavItem>
+        <NavItem href="/getting-started" active={page.url.pathname === "/getting-started"} on:click={() => open = false}>Getting Started</NavItem>
         <NavGroup title="Design Tokens">
-            <NavGroupItem href="/tokens#top">All tokens</NavGroupItem>
-            <NavGroupItem href="/tokens#font">Font</NavGroupItem>
-            <NavGroupItem href="/tokens#font-size">Font Size</NavGroupItem>
-            <NavGroupItem href="/tokens#line-height">Line Height</NavGroupItem>
-            <NavGroupItem href="/tokens#space">Space</NavGroupItem>
-            <NavGroupItem href="/tokens#radius">Border Radius</NavGroupItem>
-            <NavGroupItem href="/tokens#color">Color</NavGroupItem>
-            <NavGroupItem href="/tokens#color-scales">Color Scales</NavGroupItem>
+            <NavGroupItem href="/tokens#top" active={page.url.pathname + page.url.hash === "/tokens#top"} on:click={() => open = false}>All tokens</NavGroupItem>
+            <NavGroupItem href="/tokens#font" active={page.url.pathname + page.url.hash === "/tokens#font"} on:click={() => open = false}>Font</NavGroupItem>
+            <NavGroupItem href="/tokens#font-size" active={page.url.pathname + page.url.hash === "/tokens#font-size"} on:click={() => open = false}>Font Size</NavGroupItem>
+            <NavGroupItem href="/tokens#line-height" active={page.url.pathname + page.url.hash === "/tokens#line-height"} on:click={() => open = false}>Line Height</NavGroupItem>
+            <NavGroupItem href="/tokens#space" active={page.url.pathname + page.url.hash === "/tokens#space"} on:click={() => open = false}>Space</NavGroupItem>
+            <NavGroupItem href="/tokens#radius" active={page.url.pathname + page.url.hash === "/tokens#radius"} on:click={() => open = false}>Border Radius</NavGroupItem>
+            <NavGroupItem href="/tokens#color" active={page.url.pathname + page.url.hash === "/tokens#color"} on:click={() => open = false}>Color</NavGroupItem>
+            <NavGroupItem href="/tokens#color-scales" active={page.url.pathname + page.url.hash === "/tokens#color-scales"} on:click={() => open = false}>Color Scales</NavGroupItem>
         </NavGroup>
         <NavGroup title="Components">
-            <NavGroupItem href="/components">All Components</NavGroupItem>
-            <NavGroupItem href="/components/badge">Badge</NavGroupItem>
-            <NavGroupItem href="/components/banner">Banner</NavGroupItem>
-            <NavGroupItem href="/components/button">Button</NavGroupItem>
-            <NavGroupItem href="/components/card">Card</NavGroupItem>
-            <NavGroupItem href="/components/checkbox">Checkbox</NavGroupItem>
-            <NavGroupItem href="/components/code">Code</NavGroupItem>
-            <NavGroupItem href="/components/container">Container</NavGroupItem>
-            <NavGroupItem href="/components/divider">Divider</NavGroupItem>
-            <NavGroupItem href="/components/fieldset">Fieldset</NavGroupItem>
-            <NavGroupItem href="/components/flex">Flex</NavGroupItem>
-            <NavGroupItem href="/components/icon">Icon</NavGroupItem>
-            <NavGroupItem href="/components/input">Input</NavGroupItem>
-            <NavGroupItem href="/components/layout">Layout</NavGroupItem>
-            <NavGroupItem href="/components/link">Link</NavGroupItem>
-            <NavGroupItem href="/components/navigation">Navigation</NavGroupItem>
-            <NavGroupItem href="/components/radio">Radio</NavGroupItem>
-            <NavGroupItem href="/components/select">Select</NavGroupItem>
-            <NavGroupItem href="/components/table">Table</NavGroupItem>
-            <NavGroupItem href="/components/tabs">Tabs</NavGroupItem>
-            <NavGroupItem href="/components/text">Text</NavGroupItem>
-            <NavGroupItem href="/components/textarea">Textarea</NavGroupItem>
-            <NavGroupItem href="/components/toast">Toast</NavGroupItem>
-            <NavGroupItem href="/components/toggle">Toggle</NavGroupItem>
+            <NavGroupItem href="/components" active={page.url.pathname === "/components"} on:click={() => open = false}>All Components</NavGroupItem>
+            {#each components as component}
+                <NavGroupItem href="/components/{component.name.toLocaleLowerCase()}" active={page.url.pathname === '/components/' + component.name.toLocaleLowerCase()} on:click={() => open = false}>{component.name}</NavGroupItem>
+            {/each}
         </NavGroup>
     </LayoutNav>
     <LayoutContent>
-        <!-- <Container size="xl"> -->
-            <slot />
-        <!-- </Container> -->
+        <slot />
     </LayoutContent>
 </Layout>
 
@@ -95,11 +66,6 @@
         text-decoration: none;
         color: var(--v-color-text);
         text-transform: uppercase;
-    }
-
-    .logo-accent {
-        color: var(--v-accent-10);
-        padding-inline: -2px;
     }
 
     .logo-ui {

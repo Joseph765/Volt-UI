@@ -1,5 +1,5 @@
 <script>
-    import { afterNavigate } from "$app/navigation";
+    import { page } from '$app/state'; 
     import {
         CodeExample,
         Container,
@@ -12,6 +12,7 @@
         Link,
         NavGroup,
         NavGroupItem,
+        NavItem,
         Select,
         Text
     } from "$lib";
@@ -26,21 +27,11 @@
     /** @type { boolean } */
     let open = false;
 
-    afterNavigate(() => {
-        // Closes navigation when navigating to a new page
-        open = false;
-    });
-
     let example1 = `<script>
-    import { afterNavigate } from "$app/navigation";
+    import { page } from '$app/state'; 
 
     /** @type { boolean } */
     let open = false;
-
-    afterNavigate(() => {
-        // Closes navigation when navigating to a new page
-        open = false;
-    });
 <\/script>
 
 <Layout>
@@ -54,11 +45,10 @@
         <Text size="3xl" weight="bold" as="h1">Logo</Text>
     </Link>
     <LayoutNav {open}>
+        <NavItem href="/" active={page.url.pathname === "/"} on:click={() => open = false}>Home</NavItem>
         <NavGroup title="Nav Group">
-            <NavGroupItem href="#">Nav Item 1</NavGroupItem>
-            <NavGroupItem href="#">Nav Item 2</NavGroupItem>
-            <NavGroupItem href="#">Nav Item 3</NavGroupItem>
-            <NavGroupItem href="#">Nav Item 4</NavGroupItem>
+            <NavGroupItem href="/getting-started" active={page.url.pathname === "/getting-started"} on:click={() => open = false}>Getting Started</NavGroupItem>
+            <NavGroupItem href="/tokens" active={page.url.pathname === "/getting-started"} on:click={() => open = false}>Tokens</NavGroupItem>
         </NavGroup>
     </LayoutNav>
     <LayoutContent>
@@ -94,11 +84,10 @@
                         <Text size="3xl" weight="bold" as="h1">Logo</Text>
                     </Link>
                     <LayoutNav {open}>
+                        <NavItem href="/" active={page.url.pathname === "/"} on:click={() => open = false}>Home</NavItem>
                         <NavGroup title="Nav Group">
-                            <NavGroupItem href="#">Nav Item 1</NavGroupItem>
-                            <NavGroupItem href="#">Nav Item 2</NavGroupItem>
-                            <NavGroupItem href="#">Nav Item 3</NavGroupItem>
-                            <NavGroupItem href="#">Nav Item 4</NavGroupItem>
+                            <NavGroupItem href="/getting-started" active={page.url.pathname === "/getting-started"} on:click={() => open = false}>Getting Started</NavGroupItem>
+                            <NavGroupItem href="/tokens" active={page.url.pathname === "/getting-started"} on:click={() => open = false}>Tokens</NavGroupItem>
                         </NavGroup>
                     </LayoutNav>
                     <LayoutContent>
