@@ -23,7 +23,7 @@
     /** @type { 'start' | 'end' } */
     export let align = 'start';
 
-    /** @type { any } */
+    /** @type { 'on' | 'off' } */
     export let autocomplete = 'off';
 
     /** @type { string | undefined } */

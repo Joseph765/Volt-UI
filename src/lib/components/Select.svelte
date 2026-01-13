@@ -41,7 +41,7 @@
      */
     export let disabled = false;
 
-    /** @type { any } */
+    /** @type { 'on' | 'off' } */
     export let autocomplete = 'off';
 
     /** @type { string | undefined } */
