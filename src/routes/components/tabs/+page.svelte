@@ -22,11 +22,6 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { 
-        Tab,
-        Tabs
-    } from "$lib";
-
     /** @type { string } */
     let selectedTab = "one";
 
