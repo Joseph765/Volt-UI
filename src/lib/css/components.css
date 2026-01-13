@@ -458,7 +458,7 @@
 }
 
 .v-code-example {
-    max-height: 33vh;
+    max-height: 33dvh;
     max-width: calc(100% - (var(--v-space-m) * 2) - 2px);
     overflow-y: auto;
     padding: var(--v-space-m);
@@ -550,13 +550,6 @@
     padding: 0;
     padding-block-start: var(--v-space-s);
 }
-
-/* .v-fieldset:focus-within {
-    outline: none;  
-    border-color: var(--v-color-highlight);
-    box-shadow: 0 0 0 2px var(--v-color-highlight);
-    border-radius: var(--v-radius);
-} */
 
 .v-fieldset-legend {
     display: flex;
@@ -874,7 +867,7 @@
     grid-template-areas: 
         "header header"
         "content content";
-    height: 100vh;
+    height: 100dvh;
 }
 
 .v-layout-content {
