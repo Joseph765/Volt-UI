@@ -82,7 +82,7 @@
     { 
         "name": "Table",
         "description": "A structured component for displaying tabular data in rows and columns with consistent styling and layout.",
-        "example": "<table class='v-table' style='width: calc(100% - var(--v-space-xl));'><thead class='v-table-header'><tr class='v-table-row'><th class='v-table-head' scope='col' class='v-table-heading'>Property</th><th class='v-table-head' scope='col' class='v-table-heading'>Type</th></tr></thead><tbody class='v-table-body'><tr class='v-table-row'><td class='v-table-cell'>Direction</td><td class='v-table-cell'>row | column</td></tr></tbody></table>"
+        "example": "<table class='v-table' style='width: calc(100% - var(--v-space-xl));'><thead class='v-table-header'><tr class='v-table-row'><th class='v-table-head' scope='col' class='v-table-heading'>Property</th><th class='v-table-head' scope='col' class='v-table-heading'>Type</th></tr></thead><tbody class='v-table-body'><tr class='v-table-row'><td class='v-table-cell'><code class='v-code'>direction</code></td><td class='v-table-cell'>row | column</td></tr></tbody></table>"
     },
     { 
         "name": "Tabs",
