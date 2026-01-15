@@ -25,12 +25,36 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<Checkbox label="I agree to the terms" />`;
-    let example2 = `<Checkbox checked disabled label="This is disabled" />`;
-    let example3 = `<Checkbox label="Indeterminate" indeterminate />`;
-    let example4 = `<Checkbox label="Has error" error="This field has error" />`;
-    let example5 = `<Checkbox label="Has hint" hint="Hint: this is a hint" />`;
-    let example6 = `<Checkbox style="width: 300px;" label="Custom style example" />`;
+    let example1 = `<script>
+    import { Checkbox } from "$volt";
+<\/script>
+
+<Checkbox label="I agree to the terms" />`;
+    let example2 = `<script>
+    import { Checkbox } from "$volt";
+<\/script>
+
+<Checkbox checked disabled label="This is disabled" />`;
+    let example3 = `<script>
+    import { Checkbox } from "$volt";
+<\/script>
+
+<Checkbox label="Indeterminate" indeterminate />`;
+    let example4 = `<script>
+    import { Checkbox } from "$volt";
+<\/script>
+
+<Checkbox label="Has error" error="This field has error" />`;
+    let example5 = `<script>
+    import { Checkbox } from "$volt";
+<\/script>
+
+<Checkbox label="Has hint" hint="Hint: this is a hint" />`;
+    let example6 = `<script>
+    import { Checkbox } from "$volt";
+<\/script>
+
+<Checkbox style="width: 300px;" label="Custom style example" />`;
 </script>
 
 <Flex direction="column" gap="xl">

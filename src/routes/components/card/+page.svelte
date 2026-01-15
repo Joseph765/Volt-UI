@@ -25,22 +25,42 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<Card>Basic</Card>`;
-    let example2 = `<Flex direction="column">
+    let example1 = `<script>
+    import { Card } from "$volt";
+<\/script>
+
+<Card>Basic</Card>`;
+    let example2 = `<script>
+    import { Card, Flex } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Card space="none">No space</Card>
     <Card space="m">Medium space</Card>
     <Card space="l">Large space</Card>
 </Flex>`;
-    let example3 = `<Card>
+    let example3 = `<script>
+    import { Card, Text } from "$volt";
+<\/script>
+
+<Card>
     <Text as="h2" weight="bold" slot="header">Header content</Text>
     <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
 </Card>`;
-    let example4 = `<Card>
+    let example4 = `<script>
+    import { Button, Card, Text } from "$volt";
+<\/script>
+
+<Card>
     <Text as="h2" weight="bold" slot="header">Header content</Text>
     <Button slot="header-end">Action</Button>
     <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
 </Card>`;
-    let example5 = `<Flex direction="column">
+    let example5 = `<script>
+    import { Card, Flex } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Card variant="default">Default</Card>
     <Card variant="ghost">Ghost</Card>
 </Flex>`;

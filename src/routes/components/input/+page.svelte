@@ -29,13 +29,29 @@
 
     let selectedExample = 'types';
 
-    let example1 = `<Flex direction="column">
+    let example1 = `<script>
+    import { Flex, Input } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Input type="text" name="email" label="Email" placeholder="Example@example.com" />
     <Input type="password" name="password" label="Password" placeholder="Password" />
 </Flex>`;
-    let example2 = `<Input type="text" name="disabled" label="Disabled" placeholder="Disabled" disabled />`;
-    let example3 = `<Input type="text" name="required" label="Required" placeholder="Required" value="Value" required />`;
-    let example4 = `<Flex direction="column">
+    let example2 = `<script>
+    import { Input } from "$volt";
+<\/script>
+
+<Input type="text" name="disabled" label="Disabled" placeholder="Disabled" disabled />`;
+    let example3 = `<script>
+    import { Input } from "$volt";
+<\/script>
+
+<Input type="text" name="required" label="Required" placeholder="Required" value="Value" required />`;
+    let example4 = `<script>
+    import { Flex, Input } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Input label="Prefix" name="money">
         <svelte:fragment slot="prefix">$</svelte:fragment>
     </Input>
@@ -43,9 +59,21 @@
         <svelte:fragment slot="suffix">cm</svelte:fragment>
     </Input>
 </Flex>`;
-    let example5 = `<Input type="text" name="expanded" expanded label="Expanded" placeholder="Expanded" />`;
-    let example6 = `<Input type="text" name="hint" label="Hint" hint="Hint: this is a hint" />`;
-    let example7 = `<Flex direction="column">
+    let example5 = `<script>
+    import { Input } from "$volt";
+<\/script>
+
+<Input type="text" name="expanded" expanded label="Expanded" placeholder="Expanded" />`;
+    let example6 = `<script>
+    import { Input } from "$volt";
+<\/script>
+
+<Input type="text" name="hint" label="Hint" hint="Hint: this is a hint" />`;
+    let example7 = `<script>
+    import { Flex, Icon, Input } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Input label="Icon Prefix" name="iconPrefix">
         <svelte:fragment slot="prefix">
             <Icon name="search" />
@@ -57,8 +85,16 @@
         </svelte:fragment>
     </Input>
 </Flex>`;
-    let example8 = `<Input type="text" name="custom" label="Custom Width" style="width: 22rem;" />`;
-    let example9 = `<Input type="text" name="errorPresent" label="Error" error="Incorrect format" />`;
+    let example8 = `<script>
+    import { Input } from "$volt";
+<\/script>
+
+<Input type="text" name="custom" label="Custom Width" style="width: 22rem;" />`;
+    let example9 = `<script>
+    import { Input } from "$volt";
+<\/script>
+
+<Input type="text" name="errorPresent" label="Error" error="Incorrect format" />`;
 </script>
 
 <Flex direction="column" gap="xl">

@@ -25,31 +25,51 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<Fieldset label="Radios">
+    let example1 = `<script>
+    import { Fieldset, Flex, Radio } from "$volt";
+<\/script>
+
+<Fieldset label="Radios">
     <Flex direction="column" gap="s">
         <Radio id="radio" name="testRadio" label="Checked" checked value="1"/>
         <Radio id="radio2" name="testRadio" label="Unchecked" value="2" />
     </Flex>
 </Fieldset>`;
-    let example2 = `<Fieldset label="Radios">
+    let example2 = `<script>
+    import { Fieldset, Flex, Radio } from "$volt";
+<\/script>
+
+<Fieldset label="Radios">
     <Flex direction="column" gap="s">
         <Radio id="radio3" name="testRadio" label="Checked" checked value="3" disabled />
         <Radio id="radio4" name="testRadio" label="Unchecked" value="4" disabled />
     </Flex>
 </Fieldset>`;
-    let example3 = `<Fieldset label="Radios" required>
+    let example3 = `<script>
+    import { Fieldset, Flex, Radio } from "$volt";
+<\/script>
+
+<Fieldset label="Radios" required>
     <Flex direction="column" gap="s">
         <Radio id="radio5" name="testRadio" label="Checked" checked value="5" />
         <Radio id="radio6" name="testRadio" label="Unchecked" value="6" />
     </Flex>
 </Fieldset>`;
-    let example4 = `<Fieldset label="Radios">
+    let example4 = `<script>
+    import { Fieldset, Flex, Radio } from "$volt";
+<\/script>
+
+<Fieldset label="Radios">
     <Flex direction="column" gap="s">
         <Radio id="radio7" name="testRadio" label="Checked" checked value="7" hint="Hint: this is a hint" />
         <Radio id="radio8" name="testRadio" label="Unchecked" value="8" /> 
     </Flex>
 </Fieldset>`;
-    let example5 = `<Fieldset label="Radios">
+    let example5 = `<script>
+    import { Fieldset, Flex, Radio } from "$volt";
+<\/script>
+
+<Fieldset label="Radios">
     <Flex direction="column" gap="s">
         <Radio id="radio9" name="testRadio" label="Checked" checked value="9" error="There is an error" />
         <Radio id="radio10" name="testRadio" label="Unchecked" value="10" />

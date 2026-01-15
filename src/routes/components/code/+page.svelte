@@ -13,7 +13,11 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<Code>Hello World</Code>`;
+    let example1 = `<script>
+    import { Code } from "$volt";
+<\/script>
+
+<Code>Hello World</Code>`;
 </script>
 
 <Flex direction="column" gap="xl">

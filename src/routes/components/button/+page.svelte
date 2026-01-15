@@ -26,14 +26,26 @@
 
     let selectedExample = 'variants';
 
-    let example1 = `<Flex>
+    let example1 = `<script>
+    import { Button, Flex } from "$volt";
+<\/script>
+
+<Flex>
     <Button>Primary</Button>
     <Button variant="secondary">Secondary</Button>
     <Button variant="ghost">Ghost</Button>
     <Button variant="danger">Danger</Button>
 </Flex>`;
-    let example2 = `<Button disabled>Disabled</Button>`;
-    let example3 = `<Flex>
+    let example2 = `<script>
+    import { Button } from "$volt";
+<\/script>
+
+<Button disabled>Disabled</Button>`;
+    let example3 = `<script>
+    import { Button, Flex, Icon } from "$volt";
+<\/script>
+
+<Flex>
     <Button>
         <Icon name="plus" slot="start" />
         Add
@@ -54,12 +66,24 @@
         Delete
     </Button>
 </Flex>`;
-    let example4 = `<Flex>
+    let example4 = `<script>
+    import { Button, Flex } from "$volt";
+<\/script>
+
+<Flex>
     <Button size="m">Medium</Button>
     <Button size="l">Large</Button>
 </Flex>`;
-    let example5 = `<Button expanded>Expanded</Button>`;
-    let example6 = `<Button href="/component">View components</Button>`;
+    let example5 = `<script>
+    import { Button } from "$volt";
+<\/script>
+
+<Button expanded>Expanded</Button>`;
+    let example6 = `<script>
+    import { Button } from "$volt";
+<\/script>
+
+<Button href="/component">View components</Button>`;
 </script>
 
 <Flex direction="column" gap="xl">

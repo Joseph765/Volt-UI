@@ -25,12 +25,20 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<Flex>
+    let example1 = `<script>
+    import { Card, Flex } from "$volt";
+<\/script>
+
+<Flex>
     <Card>Item 1</Card>
     <Card>Item 2</Card>
     <Card>Item 3</Card>
 </Flex>`;
-    let example2 = `<Flex direction="column">
+    let example2 = `<script>
+    import { Card, Flex } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Flex gap="xs">
         <Card>Item 1</Card>
         <Card>Item 2</Card>
@@ -56,7 +64,11 @@
         <Card>Item 2</Card>
     </Flex>
 </Flex>`;
-    let example3 = `<Flex gap="l">
+    let example3 = `<script>
+    import { Card, Flex } from "$volt";
+<\/script>
+
+<Flex gap="l">
     <Flex direction="row">
         <Card>1</Card>
         <Card>2</Card>
@@ -68,7 +80,11 @@
         <Card>3</Card>
     </Flex>
 </Flex>`;
-    let example4 = `<Flex direction="column">
+    let example4 = `<script>
+    import { Card, Flex } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Flex wrap>
         <Card style="width: 500px;">1</Card>
         <Card style="width: 500px;">2</Card>
@@ -80,7 +96,11 @@
         <Card style="width: 500px;">3</Card>
     </Flex>
 </Flex>`;
-    let example5 = `<Flex direction="column">
+    let example5 = `<script>
+    import { Card, Flex } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Flex justify="center">
         <Card>1</Card>
         <Card>2</Card>
@@ -97,7 +117,11 @@
         <Card>3</Card>
     </Flex>
 </Flex>`;
-    let example6 = `<Flex direction="column">
+    let example6 = `<script>
+    import { Card, Flex } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Flex direction="column" align="start">
         <Card>1</Card>
         <Card>2</Card>

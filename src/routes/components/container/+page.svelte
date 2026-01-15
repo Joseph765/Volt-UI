@@ -26,11 +26,19 @@
     let selectedExample = 'basic';
 
     /** @type { string } */
-    let example1 = `<Container>
+    let example1 = `<script>
+    import { Container, Text } from "$volt";
+<\/script>
+
+<Container>
     <Text>Content</Text>
 </Container>`;
     /** @type { string } */
-    let example2 = `<Flex direction="column">
+    let example2 = `<script>
+    import { Card, Container, Flex } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Container size="s">
         <Card>Size s</Card>
     </Container>
@@ -48,7 +56,11 @@
     </Container>
 </Flex>`;
     /** @type { string } */
-    let example3 = `<Flex direction="column">
+    let example3 = `<script>
+    import { Card, Container, Flex } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Container size="s" align="start">
         <Card style="width: 20rem;">Align start</Card>
     </Container>
@@ -60,7 +72,11 @@
     </Container>
 </Flex>`;
     /** @type { string } */
-    let example4 = `<Container size="l" debug></Container>`;
+    let example4 = `<script>
+    import { Container } from "$volt";
+<\/script>
+
+<Container size="l" debug></Container>`;
 </script>
 
 <Flex direction="column" gap="xl">

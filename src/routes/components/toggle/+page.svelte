@@ -23,19 +23,35 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<Flex direction="column">
+    let example1 = `<script>
+    import { Flex, Toggle } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Toggle label="Checked" name="checkedToggle" checked />
     <Toggle label="Unchecked" name="unchecked" />
 </Flex>`;
-    let example2 = `<Flex direction="column">
+    let example2 = `<script>
+    import { Flex, Toggle } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Toggle label="Checked" name="checkedDisabled" checked disabled />
     <Toggle label="Unchecked" name="uncheckedDisabled" disabled />
 </Flex>`;
-    let example3 = `<Flex direction="column">
+    let example3 = `<script>
+    import { Flex, Toggle } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Toggle label="Checked" name="checkedError" checked error="There is an error" />
     <Toggle label="Unchecked" name="uncheckedError" error="There is an error" />
 </Flex>`;
-    let example4 = `<Toggle label="Label" name="helpText" hint="Hint: this is a hint" />`;
+    let example4 = `<script>
+    import { Toggle } from "$volt";
+<\/script>
+
+<Toggle label="Label" name="helpText" hint="Hint: this is a hint" />`;
 </script>
 
 <Flex direction="column" gap="xl">

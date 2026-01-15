@@ -26,7 +26,18 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<Table>
+    let example1 = `<script>
+    import { 
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow
+    } from "$lib";
+<\/script>
+
+<Table>
     <TableHeader>
         <TableRow>
             <TableHead>Col 1</TableHead>
@@ -52,7 +63,18 @@
         </TableRow>
     </TableBody>
 </Table>`;
-    let example2 = `<Table striped>
+    let example2 = `<script>
+    import { 
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow
+    } from "$lib";
+<\/script>
+
+<Table striped>
     <TableHeader>
         <TableRow>
             <TableHead>Col 1</TableHead>
@@ -88,7 +110,19 @@
         </TableRow>
     </TableBody>
 </Table>`;
-    let example3 = `<Card space="none" variant="ghost">
+    let example3 = `<script>
+    import { 
+        Card, 
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow
+    } from "$lib";
+<\/script>
+
+<Card space="none" variant="ghost">
     <Table>
         <TableHeader>
             <TableRow>
@@ -116,7 +150,19 @@
         </TableBody>
     </Table>
 </Card>`;
-    let example4 = `<Card space="none" variant="ghost">
+    let example4 = `<script>
+    import { 
+        Card, 
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow
+    } from "$lib";
+<\/script>
+
+<Card space="none" variant="ghost">
     <Table interactive>
         <TableHeader>
             <TableRow>
@@ -144,7 +190,19 @@
         </TableBody>
     </Table>
 </Card>`;
-    let example5 = `<Card space="none" variant="ghost">
+    let example5 = `<script>
+    import { 
+        Card, 
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow
+    } from "$lib";
+<\/script>
+
+<Card space="none" variant="ghost">
     <Table interactive>
         <TableHeader>
             <TableRow>
@@ -172,7 +230,19 @@
         </TableBody>
     </Table>
 </Card>`;
-    let example6 = `<Card space="none" variant="ghost">
+    let example6 = `<script>
+    import { 
+        Card, 
+        Table,
+        TableBody,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow
+    } from "$lib";
+<\/script>
+
+<Card space="none" variant="ghost">
     <Table>
         <TableHeader>
             <TableRow>
@@ -200,7 +270,20 @@
         </TableBody>
     </Table>
 </Card>`;
-    let example7 = `<Table>
+    let example7 = `<script>
+    import { 
+        Table,
+        TableBody,
+        TableCaption,
+        TableCell,
+        TableHead,
+        TableHeader,
+        TableRow,
+        Text
+    } from "$lib";
+<\/script>
+
+<Table>
     <TableCaption>
         <Text size="2xl">Caption</Text>
     </TableCaption>

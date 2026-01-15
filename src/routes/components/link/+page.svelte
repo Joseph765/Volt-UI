@@ -21,8 +21,16 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<Link href="#">Example link</Link>`;
-    let example2 = `<Flex direction="column">
+    let example1 = `<script>
+    import { Link } from "$volt";
+<\/script>
+
+<Link href="#">Example link</Link>`;
+    let example2 = `<script>
+    import { Flex, Link } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Link href="#" size="xs">Example xs link</Link>
     <Link href="#" size="s">Example s link</Link>
     <Link href="#" size="m">Example m link</Link>

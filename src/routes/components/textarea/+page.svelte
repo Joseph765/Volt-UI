@@ -26,13 +26,41 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<Textarea label="Message" placeholder="Enter a message" name="message" />`;
-    let example2 = `<Textarea label="Message" placeholder="Enter a message" name="disabled" disabled />`;
-    let example3 = `<Textarea label="Message" placeholder="Enter a message" name="required" required />`;
-    let example4 = `<Textarea label="Message" placeholder="Enter a message" name="error" error="Incorrect format" />`;
-    let example5 = `<Textarea label="Message" placeholder="Expanded Style" value="Expanded style" name="expanded" expanded />`;
-    let example6 = `<Textarea label="Message" placeholder="With helper text" name="helpText" hint="Hint: this is a hint" />`;
-    let example7 = `<Textarea label="Message" placeholder="With custom styling" name="customStyle" style="width: 22rem;" />`;
+    let example1 = `<script>
+    import { Textarea } from "$volt";
+<\/script>
+
+<Textarea label="Message" placeholder="Enter a message" name="message" />`;
+    let example2 = `<script>
+    import { Textarea } from "$volt";
+<\/script>
+
+<Textarea label="Message" placeholder="Enter a message" name="disabled" disabled />`;
+    let example3 = `<script>
+    import { Textarea } from "$volt";
+<\/script>
+
+<Textarea label="Message" placeholder="Enter a message" name="required" required />`;
+    let example4 = `<script>
+    import { Textarea } from "$volt";
+<\/script>
+
+<Textarea label="Message" placeholder="Enter a message" name="error" error="Incorrect format" />`;
+    let example5 = `<script>
+    import { Textarea } from "$volt";
+<\/script>
+
+<Textarea label="Message" placeholder="Expanded Style" value="Expanded style" name="expanded" expanded />`;
+    let example6 = `<script>
+    import { Textarea } from "$volt";
+<\/script>
+
+<Textarea label="Message" placeholder="With helper text" name="helpText" hint="Hint: this is a hint" />`;
+    let example7 = `<script>
+    import { Textarea } from "$volt";
+<\/script>
+
+<Textarea label="Message" placeholder="With custom styling" name="customStyle" style="width: 22rem;" />`;
 </script>
 
 <Flex direction="column" gap="xl">

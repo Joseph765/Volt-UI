@@ -22,9 +22,12 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
+    import { Tab, Tabs } from "$volt";
+
     /** @type { string } */
     let selectedTab = "one";
-
+    
+    /** @type {{ id: string, label: string }[]} */
     let tabs = [
         { id: "one", label: "Label 1" },
         { id: "two", label: "Label 2" },
@@ -45,6 +48,7 @@
     /** @type { string } */
     let selectedTab = "one";
 
+    /** @type {{ id: string, label: string }[]} */
     let tabs = [
         { id: "one", label: "Label 1" },
         { id: "two", label: "Label 2" },

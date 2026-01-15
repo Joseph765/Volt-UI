@@ -3,6 +3,7 @@
         Flex, 
         NavGroup,
         NavGroupItem,
+        NavItem,
         Select,
         Text
     } from "$lib";
@@ -14,7 +15,12 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<NavGroup title="Example">
+    let example1 = `<script>
+    import { NavGroup, NavGroupItem, NavItem } from "$volt";
+<\/script>
+
+<NavItem href="#">Home</NavItem>
+<NavGroup title="Example">
     <NavGroupItem href="#">Page 1</NavGroupItem>
     <NavGroupItem href="#">Page 2</NavGroupItem>
     <NavGroupItem href="#">Page 3</NavGroupItem>
@@ -35,6 +41,7 @@
         />
         {#if selectedExample === "basic"}
             <CodeExample code={example1}>
+                <NavItem href="#">Home</NavItem>
                 <NavGroup title="Example">
                     <NavGroupItem href="#">Page 1</NavGroupItem>
                     <NavGroupItem href="#">Page 2</NavGroupItem>

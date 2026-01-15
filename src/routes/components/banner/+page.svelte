@@ -21,7 +21,11 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<Flex direction="column">
+    let example1 = `<script>
+    import { Banner, Flex, Link } from "$volt";
+<\/script>        
+
+<Flex direction="column">
     <Banner variant="info">We've updated your plan, make sure you know how these changes affect it. <Link href="#">Learn more.</Link></Banner>
     <Banner variant="danger">We're experiencing an incident. Please see our <Link href="#">status page</Link> for more details.</Banner>
     <Banner variant="warning">Payment details missing. To stay on your current plan, <Link href="#">add payment details.</Link></Banner>

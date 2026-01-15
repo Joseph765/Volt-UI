@@ -22,13 +22,21 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<Fieldset label="Radios">
+    let example1 = `<script>
+    import { Fieldset, Flex, Radio } from "$volt";
+<\/script>
+
+<Fieldset label="Radios">
     <Flex direction="column" gap="s">
         <Radio id="radio" name="testRadio" label="Checked" checked value="1"/>
         <Radio id="radio2" name="testRadio" label="Unchecked" value="2" />
     </Flex>
 </Fieldset>`;
-    let example2 = `<Fieldset label="Radios" required>
+    let example2 = `<script>
+    import { Fieldset, Flex, Radio } from "$volt";
+<\/script>
+
+<Fieldset label="Radios" required>
     <Flex direction="column" gap="s">
         <Radio id="radio5" name="testRadio" label="Checked" checked value="5" />
         <Radio id="radio6" name="testRadio" label="Unchecked" value="6" />

@@ -27,7 +27,11 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<Select
+    let example1 = `<script>
+    import { Select } from "$volt";
+<\/script>
+
+<Select
     name="Country"
     label="Country"
     options={[
@@ -37,7 +41,11 @@
     ]}
     placeholder="Choose a country..."
 />`;
-    let example2 = `<Select
+    let example2 = `<script>
+    import { Icon, Select } from "$volt";
+<\/script>
+
+<Select
     name="Role"
     label="Role"
     options={[
@@ -49,7 +57,11 @@
         <Icon name="user" />
     </span>
 </Select>`;
-    let example3 = `<Select
+    let example3 = `<script>
+    import { Icon, Select } from "$volt";
+<\/script>
+
+<Select
     name="Expanded"
     label="Expanded"
     options={[
@@ -62,7 +74,11 @@
         <Icon name="user" />
     </span>
 </Select>`;
-    let example4 = `<Select
+    let example4 = `<script>
+    import { Select } from "$volt";
+<\/script>
+
+<Select
     name="Disabled"
     label="Disabled"
     options={[
@@ -73,7 +89,11 @@
     placeholder="Choose a country..."
     disabled
 />`;
-    let example5 = `<Select
+    let example5 = `<script>
+    import { Select } from "$volt";
+<\/script>
+
+<Select
     name="Error"
     label="Error"
     options={[
@@ -84,7 +104,11 @@
     placeholder="Choose a country..."
     error="There is an error"
 />`;
-    let example6 = `<Select
+    let example6 = `<script>
+    import { Select } from "$volt";
+<\/script>
+
+<Select
     name="Required"
     label="Label"
     options={[
@@ -95,7 +119,11 @@
     placeholder="Choose a country..."
     required
 />`;
-    let example7 = `<Select
+    let example7 = `<script>
+    import { Select } from "$volt";
+<\/script>
+
+<Select
     name="Hint"
     label="Hint"
     options={[
@@ -106,7 +134,11 @@
     placeholder="Choose a country..."
     hint="Hint: this is a hint"
 />`;
-    let example8 = `<Select
+    let example8 = `<script>
+    import { Select } from "$volt";
+<\/script>
+
+<Select
     name="CustomWidth"
     label="Custom Width"
     options={[

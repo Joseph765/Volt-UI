@@ -23,21 +23,33 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<Flex>
+    let example1 = `<script>
+    import { Badge, Flex } from "$volt";
+<\/script>        
+
+<Flex>
     <Badge>Neutral</Badge>
     <Badge variant="danger">Danger</Badge>
     <Badge variant="warning">Warning</Badge>
     <Badge variant="success">Success</Badge>
     <Badge variant="info">Info</Badge>
 </Flex>`;
-    let example2 = `<Flex>
+    let example2 = `<script>
+    import { Badge, Flex } from "$volt";
+<\/script>        
+
+<Flex>
     <Badge strong>Neutral</Badge>
     <Badge variant="danger" strong>Danger</Badge>
     <Badge variant="warning" strong>Warning</Badge>
     <Badge variant="success" strong>Success</Badge>
     <Badge variant="info" strong>Info</Badge>
 </Flex>`;
-    let example3 = `<Badge variant="success">
+    let example3 = `<script>
+    import { Badge, Flex, Icon } from "$volt";
+<\/script>        
+
+<Badge variant="success">
     <Icon name="chevron-up" slot="icon" size="s" />
     22%
 </Badge>`;

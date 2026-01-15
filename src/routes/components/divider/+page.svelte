@@ -13,7 +13,11 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<Divider />`;
+    let example1 = `<script>
+    import { Divider } from "$volt";
+<\/script>
+
+<Divider />`;
 </script>
 
 <Flex direction="column" gap="xl">

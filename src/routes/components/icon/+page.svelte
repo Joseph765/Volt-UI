@@ -23,7 +23,11 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<Flex>
+    let example1 = `<script>
+    import { Flex, Icon } from "$volt";
+<\/script>
+
+<Flex>
     <Icon size="l" name="info" />
     <Icon size="l" name="circle-question-mark" />
     <Icon size="l" name="triangle-alert" />
@@ -39,7 +43,11 @@
     <Icon size="l" name="minus" />
     <Icon size="l" name="x" />
 </Flex>`;
-    let example2 = `<Flex align="center">
+    let example2 = `<script>
+    import { Flex, Icon } from "$volt";
+<\/script>
+
+<Flex align="center">
     <Icon size="s" name="user" />
     <Icon size="m" name="user" />
     <Icon size="l" name="user" />

@@ -26,8 +26,16 @@
 
     let selectedExample = 'basic';
 
-    let example1 = `<Text>This is sample text</Text>`;
-    let example2 = `<Flex direction="column">
+    let example1 = `<script>
+    import { Text } from "$volt";
+<\/script>
+
+<Text>This is sample text</Text>`;
+    let example2 = `<script>
+    import { Flex, Text } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Text size="xs">This is xs sample text</Text>
     <Text size="s">This is s sample text</Text>
     <Text size="m">This is m sample text</Text>
@@ -36,32 +44,57 @@
     <Text size="2xl">This is 2xl sample text</Text>
     <Text size="3xl">This is 3xl sample text</Text>
 </Flex>`;
-    let example3 = `<Flex direction="column">
+    let example3 = `<script>
+    import { Flex, Text } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Text size="l" weight="regular">This is regular weight</Text>
     <Text size="l" weight="bold">This is bold weight</Text>
     <Text size="l" weight="black">This is black weight</Text>
 </Flex>`;
-    let example4 = `<Flex direction="column">
+    let example4 = `<script>
+    import { Flex, Text } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Text size="l" variant="default">This is the default variant</Text>
     <Text size="l" variant="weak">This is the weak variant</Text>
     <Text size="l" variant="weaker">This is the weaker variant</Text>
     <Text size="l" variant="weakest">This is the weakest variant</Text>
 </Flex>`;
-    let example5 = `<Flex direction="column">
+    let example5 = `<script>
+    import { Flex, Text } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Text as="span" size="l" variant="default">This is a span tag</Text>
     <Text as="h2" size="l">This is an h2 tag</Text>
 </Flex>`;
-    let example6 = `<Flex direction="column">
+    let example6 = `<script>
+    import { Flex, Text } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Text measure="l">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
     <Text measure="m">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
     <Text measure="s">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
     <Text measure="none">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
 </Flex>`;
-    let example7 = `<Flex direction="column">
+    let example7 = `<script>
+    import { Flex, Text } from "$volt";
+<\/script>
+
+<Flex direction="column">
     <Text size="l" align="start">Start</Text>
     <Text size="l" align="center">Center</Text>
     <Text size="l" align="end">End</Text>
 </Flex>`;
+    let example8 = `<script>
+    import { Text } from "$volt";
+<\/script>
+
+<Text mono>Mono Text</Text>`;
 </script>
 
 <Flex direction="column" gap="xl">
@@ -126,7 +159,7 @@
                 </Flex>
             </CodeExample>
         {:else if selectedExample === "mono"}
-            <CodeExample code={example7}>
+            <CodeExample code={example8}>
                 <Text mono>Mono Text</Text>
             </CodeExample>
         {:else if selectedExample === "align"}

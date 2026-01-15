@@ -53,9 +53,9 @@ export default config;
 
         <Flex direction="column">
             <Text size="2xl" weight="bold">Importing styles</Text>
-            <Text size="l" variant="weak">Add this to your main Svelte file:</Text>
+            <Text size="l" variant="weak">Add this to your main Svelte file to enable Volt styling:</Text>
             <CodeExample codeOnly code={`<script>
-  import "$volt/css/index.css";
+    import "$volt/css/index.css";
 <\/script>`} />
         </Flex>
 
@@ -63,7 +63,7 @@ export default config;
             <Text size="2xl" weight="bold">Importing components</Text>
             <Text size="l" variant="weak">Use this in any svelte file to import components:</Text>
             <CodeExample codeOnly code={`<script>
-  import { Text } from "$volt";
+    import { Text } from "$volt";
 <\/script>`} />
         </Flex>
 

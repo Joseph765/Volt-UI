@@ -29,6 +29,19 @@
 
     let example1 = `<script>
     import { page } from '$app/state'; 
+    import {
+        Container,
+        Layout, 
+        LayoutContent, 
+        LayoutHeader, 
+        LayoutMenuButton,
+        LayoutNav,
+        Link,
+        NavGroup,
+        NavGroupItem,
+        NavItem,
+        Text
+    } from "$lib";
 
     /** @type { boolean } */
     let open = false;
@@ -48,7 +61,7 @@
         <NavItem href="/" active={page.url.pathname === "/"} on:click={() => open = false}>Home</NavItem>
         <NavGroup title="Nav Group">
             <NavGroupItem href="/getting-started" active={page.url.pathname === "/getting-started"} on:click={() => open = false}>Getting Started</NavGroupItem>
-            <NavGroupItem href="/tokens" active={page.url.pathname === "/getting-started"} on:click={() => open = false}>Tokens</NavGroupItem>
+            <NavGroupItem href="/tokens" active={page.url.pathname === "/tokens"} on:click={() => open = false}>Tokens</NavGroupItem>
         </NavGroup>
     </LayoutNav>
     <LayoutContent>
@@ -87,7 +100,7 @@
                         <NavItem href="/" active={page.url.pathname === "/"} on:click={() => open = false}>Home</NavItem>
                         <NavGroup title="Nav Group">
                             <NavGroupItem href="/getting-started" active={page.url.pathname === "/getting-started"} on:click={() => open = false}>Getting Started</NavGroupItem>
-                            <NavGroupItem href="/tokens" active={page.url.pathname === "/getting-started"} on:click={() => open = false}>Tokens</NavGroupItem>
+                            <NavGroupItem href="/tokens" active={page.url.pathname === "/tokens"} on:click={() => open = false}>Tokens</NavGroupItem>
                         </NavGroup>
                     </LayoutNav>
                     <LayoutContent>

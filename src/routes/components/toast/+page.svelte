@@ -24,6 +24,8 @@
     let selectedExample = $state('basic');
 
     let example1 = `<script>
+    import { Button, Toast, ToastGroup } from "$lib";
+
     /**
      * @typedef { object } Toast
      * @property { string } id - Id of Toast
@@ -74,6 +76,8 @@
     {/each}
 </ToastGroup>`;
     let example2 = `<script>
+    import { Button, Toast, ToastGroup } from "$lib";
+
     /**
      * @typedef { object } Toast
      * @property { string } id - Id of Toast
