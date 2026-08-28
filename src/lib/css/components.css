@@ -265,6 +265,10 @@
         border-color: var(--v-color-text);
     }
 
+    .v-button:hover svg {
+        fill: var(--v-color-text);
+    }
+
     .v-button.is-secondary:hover {
         background-color: var(--v-accent-5);
         color: var(--v-color-text);

@@ -13,10 +13,13 @@
 
     /** @type { string } */
     export let href = "";
+
+    /** @type { string } */
+    export let target = "";
 </script>
 
 {#if href}
-    <a {href} class="v-button is-link is-size-{size} {expanded ? "is-expanded" : undefined}" tabindex="0" {...$$restProps} on:click>
+    <a {href} {target} class="v-button is-link is-{variant} is-size-{size} {expanded ? "is-expanded" : undefined}" tabindex="0" {...$$restProps} on:click>
         <slot name="start" />
         <slot />
         <slot name="end" />
