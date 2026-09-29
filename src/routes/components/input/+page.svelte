@@ -194,7 +194,7 @@
             </TableRow>
             <TableRow>
                 <TableCell><Code>disabled</Code></TableCell>
-                <TableCell>Makes the input inaccessible.</TableCell>
+                <TableCell>Prevents interaction.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>
@@ -204,7 +204,7 @@
             </TableRow>
             <TableRow>
                 <TableCell><Code>expanded</Code></TableCell>
-                <TableCell>Allows the input to strech to full width.</TableCell>
+                <TableCell>Allows the input to stretch to full width.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>

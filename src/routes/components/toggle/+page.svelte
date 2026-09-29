@@ -114,12 +114,12 @@
             </TableRow>
             <TableRow>
                 <TableCell><Code>name</Code></TableCell>
-                <TableCell>Provides the name attribute to the element attribute.</TableCell>
+                <TableCell>Sets the input's name attribute.</TableCell>
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
             <TableRow>
                 <TableCell><Code>disabled</Code></TableCell>
-                <TableCell>Makes the toggle inaccessible.</TableCell>
+                <TableCell>Prevents interaction.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>

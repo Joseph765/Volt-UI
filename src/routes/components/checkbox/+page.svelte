@@ -116,7 +116,7 @@
             </TableRow>
             <TableRow>
                 <TableCell><Code>disabled</Code></TableCell>
-                <TableCell>Makes the checkbox inaccessible.</TableCell>
+                <TableCell>Prevents interaction.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>
