@@ -131,7 +131,7 @@
             </TableRow>
             <TableRow>
                 <TableCell><Code>disabled</Code></TableCell>
-                <TableCell>Makes the textarea inaccessible.</TableCell>
+                <TableCell>Prevents interaction.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>
@@ -141,7 +141,7 @@
             </TableRow>
             <TableRow>
                 <TableCell><Code>expanded</Code></TableCell>
-                <TableCell>Allows the textarea to strech to full width.</TableCell>
+                <TableCell>Allows the textarea to stretch to full width.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>

@@ -297,7 +297,7 @@
                     <TableCell>This defines the default behavior for how flex items are laid out along the cross axis on the current line.</TableCell>
                     <TableCell>
                         <Flex wrap gap="xs">
-                            <Code>initial</Code> | <Code>strech</Code> | <Code>flex-start</Code> | <Code>flex-end</Code> | <Code>center</Code> | <Code>baseline</Code> | <Code>start</Code> |  <Code>end</Code> | <Code>self-start</Code> | <Code>self-end</Code>
+                            <Code>initial</Code> | <Code>stretch</Code> | <Code>flex-start</Code> | <Code>flex-end</Code> | <Code>center</Code> | <Code>baseline</Code> | <Code>start</Code> |  <Code>end</Code> | <Code>self-start</Code> | <Code>self-end</Code>
                         </Flex>
                     </TableCell>
                 </TableRow>

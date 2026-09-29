@@ -11,7 +11,7 @@
     /** @type { 'start' | 'end' | 'flex-start' | 'flex-end' | 'center' | 'between' | 'around' | 'evenly' } */
     export let justify = "start";
 
-    /** @type { 'initial' | 'strech' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'start' | 'end' | 'self-start' | 'self-end'} */
+    /** @type { 'initial' | 'stretch' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'start' | 'end' | 'self-start' | 'self-end'} */
     export let align = "initial";
 
     /** @type { string } */

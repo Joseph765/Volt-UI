@@ -163,12 +163,12 @@
         <TableBody>
             <TableRow>
                 <TableCell><Code>variant</Code></TableCell>
-                <TableCell>The style of the button based on level of importance. Danger is for desctructive actions.</TableCell>
+                <TableCell>The style of the button based on level of importance. Danger is for destructive actions.</TableCell>
                 <TableCell><Code>primary</Code> | <Code>secondary</Code> | <Code>ghost</Code> | <Code>danger</Code></TableCell>
             </TableRow>
             <TableRow>
                 <TableCell><Code>disabled</Code></TableCell>
-                <TableCell>Makes the button inaccessible.</TableCell>
+                <TableCell>Prevents interaction.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>
@@ -178,7 +178,7 @@
             </TableRow>
             <TableRow>
                 <TableCell><Code>expanded</Code></TableCell>
-                <TableCell>Allows the button to strech to full width.</TableCell>
+                <TableCell>Allows the button to stretch to full width.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>
