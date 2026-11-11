@@ -61,7 +61,7 @@
     font-weight: var(--v-font-weight-regular);
     letter-spacing: var(--v-letter-spacing-s);
     background-color: var(--v-color-surface-raised);
-    border-radius: var(--v-radius);
+    border-radius: var(--v-radius-round);
     padding: var(--v-space-xs) var(--v-space-s);
     border: 2px solid var(--v-gray-4);
     white-space: nowrap;
@@ -187,7 +187,7 @@
     line-height: var(--v-line-height-m);
     border: 1px solid var(--v-accent-9);
     border-radius: var(--v-radius-round);
-    background-color: var(--v-accent-5);
+    background-color: var(--v-accent-9);
     height: 32px;
     width: max-content;
     color: var(--v-color-text);
@@ -262,10 +262,6 @@
         background-color: var(--v-color-text);
         color: var(--v-color-text-contrast);
         border-color: var(--v-color-text);
-    }
-
-    .v-button:hover svg {
-        fill: var(--v-color-text);
     }
 
     .v-button.is-secondary:hover {
@@ -839,6 +835,10 @@
 }
 
 /* Icon */
+/* .v-icon {
+    fill: none !important;
+} */
+
 .v-icon.is-danger {
     color: var(--v-color-danger);
 }

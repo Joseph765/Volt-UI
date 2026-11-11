@@ -153,10 +153,10 @@
 	
 	/* Borders */
     --v-color-border: var(--v-gray-4);
-	--v-color-border-info: var(--v-info-7);
-	--v-color-border-warning: var(--v-warning-7);
-	--v-color-border-danger: var(--v-danger-7);
-	--v-color-border-success: var(--v-success-7);
+	--v-color-border-info: var(--v-info-5);
+	--v-color-border-warning: var(--v-warning-5);
+	--v-color-border-danger: var(--v-danger-5);
+	--v-color-border-success: var(--v-success-5);
 
 	/* Highlight */
 	--v-color-highlight:  var(--v-accent-9);
