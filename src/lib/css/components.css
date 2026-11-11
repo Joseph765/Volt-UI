@@ -61,7 +61,7 @@
     font-weight: var(--v-font-weight-regular);
     letter-spacing: var(--v-letter-spacing-s);
     background-color: var(--v-color-surface-raised);
-    border-radius: var(--v-radius-round);
+    border-radius: var(--v-radius-full);
     padding: var(--v-space-xs) var(--v-space-s);
     border: 2px solid var(--v-gray-4);
     white-space: nowrap;
@@ -186,7 +186,7 @@
     letter-spacing: var(--v-letter-spacing-m);
     line-height: var(--v-line-height-m);
     border: 1px solid var(--v-accent-9);
-    border-radius: var(--v-radius-round);
+    border-radius: var(--v-radius-full);
     background-color: var(--v-accent-9);
     height: 32px;
     width: max-content;
@@ -377,7 +377,7 @@
     height: 1.25rem;
     flex-shrink: 0;
     border: 1px solid var(--v-gray-7);
-    border-radius: var(--v-radius);
+    border-radius: var(--v-radius-sharp);
     background-color: var(--v-color-surface);
     display: flex;
     align-items: center;
@@ -835,10 +835,6 @@
 }
 
 /* Icon */
-/* .v-icon {
-    fill: none !important;
-} */
-
 .v-icon.is-danger {
     color: var(--v-color-danger);
 }
@@ -1789,7 +1785,7 @@
     height: 28px;
     margin: 0;
     background-color: var(--v-gray-5);
-    border-radius: var(--v-radius-round);
+    border-radius: var(--v-radius-full);
     cursor: pointer;
 }
 

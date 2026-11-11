@@ -47,8 +47,9 @@
     --v-space-2xl: 4.5rem; /* 72px */
 
     /* Border Radius */
+	--v-radius-sharp: 8px;
     --v-radius: 16px;
-	--v-radius-round: 9999px;
+	--v-radius-full: 9999px;
 
 	/* Breakpoints */
 	--v-breakpoint-s: 20rem; /* 320px */

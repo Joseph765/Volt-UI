@@ -238,10 +238,10 @@
                     </div>
                     <div class="token">
                         <div class="token-example">
-                            <div style="border-block-start: 4px solid var(--v-color-neutral); border-inline-end: 4px solid var(--v-color-neutral); width: 2rem; height: 2rem; border-radius: 0 var(--v-radius-round) 0 0;"></div>
+                            <div style="border-block-start: 4px solid var(--v-color-neutral); border-inline-end: 4px solid var(--v-color-neutral); width: 2rem; height: 2rem; border-radius: 0 var(--v-radius-full) 0 0;"></div>
                         </div>
                         <Text measure="s">Rounded border radius used in certain components.</Text>
-                        <CopyCode code="var(--v-radius-round)" />
+                        <CopyCode code="var(--v-radius-full)" />
                     </div>
                 </div>
             </Flex>
