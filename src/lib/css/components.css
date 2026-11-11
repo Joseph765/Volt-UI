@@ -55,14 +55,15 @@
     align-items: center;
     gap: var(--v-space-xs);
     width: min-content;
+    height: min-content;
     font-family: var(--v-font);
     font-size: var(--v-font-size-s);
     font-weight: var(--v-font-weight-regular);
     letter-spacing: var(--v-letter-spacing-s);
-    background-color: var(--v-color-surface);
+    background-color: var(--v-color-surface-raised);
     border-radius: var(--v-radius);
     padding: var(--v-space-xs) var(--v-space-s);
-    border: 2px solid var(--v-gray-7);
+    border: 2px solid var(--v-gray-4);
     white-space: nowrap;
 }
 
@@ -123,16 +124,17 @@
 .v-banner {
     display: flex;
     align-items: center;
-    gap: var(--v-space-m);
+    gap: var(--v-space-s);
     padding: var(--v-space-m);
     background-color: var(--v-info-4);
-    border-inline-start: 6px solid var(--v-info-11);
+    border: none;
     color: var(--v-color-text);
     border-radius: var(--v-radius);
     font-family: var(--v-font);
     font-size: var(--v-font-size-m);
     line-height: var(--v-line-height-m);
     letter-spacing: var(--v-letter-spacing-m);
+    gap: var(--v-space-s);
 }
 
 .v-banner-icon {
@@ -162,17 +164,14 @@
 
 .v-banner.is-warning {
     background-color: var(--v-warning-4);
-    border-inline-start: 6px solid var(--v-warning-11);
 }
 
 .v-banner.is-danger {
     background-color: var(--v-danger-4);
-    border-inline-start: 6px solid var(--v-danger-11);
 }
 
 .v-banner.is-success {
     background-color: var(--v-success-4);
-    border-inline-start: 6px solid var(--v-success-11);
 }
 
 /* Button */
@@ -187,7 +186,7 @@
     letter-spacing: var(--v-letter-spacing-m);
     line-height: var(--v-line-height-m);
     border: 1px solid var(--v-accent-9);
-    border-radius: var(--v-radius);
+    border-radius: var(--v-radius-round);
     background-color: var(--v-accent-5);
     height: 32px;
     width: max-content;
@@ -309,7 +308,7 @@
 /* Card */
 .v-card {
     background-color: var(--v-color-surface);
-    border: 1px solid var(--v-color-border);
+    border: none;
     border-radius: var(--v-radius);
 }
 
@@ -327,6 +326,7 @@
 
 .v-card-content {
     padding: var(--v-space-m);
+    height: calc(100% - var(--v-space-xl));
 }
 
 .v-card.has-space-none .v-card-content,
@@ -463,7 +463,7 @@
 
 .v-code-example {
     max-height: 33dvh;
-    max-width: calc(100% - (var(--v-space-m) * 2) - 2px);
+    max-width: calc(100% - 16px);
     overflow-y: auto;
     padding: var(--v-space-m);
     border-block-start: 1px solid var(--v-color-border);
@@ -477,6 +477,8 @@
 /* Container */
 .v-container {
     padding: var(--v-space-l);
+    padding-block: 0;
+    padding-block-start: 3rem;
 }
 
 .v-container.is-size-s {
@@ -505,6 +507,8 @@
 
 .v-container.is-align-center {
     margin: auto;
+    margin: 0;
+    margin-inline: auto;
 }
 
 .v-container.is-align-end {
