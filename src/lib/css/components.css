@@ -1705,14 +1705,14 @@
     background: var(--v-color-surface-raised);
     color: var(--v-color-text);
     border: 1px solid var(--v-gray-7);
-    padding: var(--v-space-m);
-    border-radius: var(--v-radius);
+    padding: var(--v-space-m) var(--v-space-m) var(--v-space-m) var(--v-space-l);
+    border-radius: var(--v-radius-full);
     width: 17rem;
-    height: 1.5rem;
+    height: 3rem;
 }
 
 .v-toast.is-danger {
-    background-color: var(---v-danger-4);
+    background-color: var(--v-danger-4);
     border-color: var(--v-color-border-danger)
 }
 
@@ -1729,7 +1729,8 @@
     background: transparent;
     cursor: pointer;
     height: 32px;
-    border-radius: var(--v-radius);
+    width: 32px;
+    border-radius: var(--v-radius-full);
     display: flex;
     justify-content: center;
     align-items: center;
