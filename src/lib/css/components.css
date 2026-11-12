@@ -175,6 +175,71 @@
 }
 
 /* Button */
+.v-button-wrapper {
+    position: relative;
+    width: max-content;
+    /* Non-auto height opts out of flex/grid stretch so the overlay matches the button, not the row */
+    height: fit-content;
+    cursor: pointer;
+}
+
+.v-button-wrapper.is-expanded {
+    width: 100%;
+}
+
+.v-button,
+.v-button-overlay {
+    padding-block: 0;
+}
+
+/* Decorative hover layer: a copy of the button that wipes in from the left */
+.v-button-overlay {
+    position: absolute;
+    inset: 0;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.2s ease;
+    /* Let clicks fall through to the real button underneath */
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--v-space-s);
+    font-family: var(--v-font);
+    font-size: var(--v-font-size-m);
+    font-weight: var(--v-font-weight-regular);
+    letter-spacing: var(--v-letter-spacing-m);
+    line-height: var(--v-line-height-m);
+    border: 1px solid var(--v-color-text);
+    border-radius: var(--v-radius-full);
+    background-color: var(--v-color-text);
+    color: var(--v-color-text-contrast);
+    padding-inline: var(--v-space-m);
+    text-decoration: none;
+}
+
+.v-button-wrapper:has(.v-button.is-secondary) .v-button-overlay {
+    background-color: var(--v-color-background);
+    color: var(--v-color-text);
+}
+
+.v-button-wrapper:has(.v-button.is-ghost) .v-button-overlay {
+    background-color: var(--v-color-background);
+    border-color: var(--v-accent-9);
+    color: var(--v-color-text);
+}
+
+.v-button-wrapper:has(.v-button.is-danger) .v-button-overlay {
+    background-color: var(--v-color-background);
+    border-color: var(--v-color-danger);
+    color: var(--v-color-danger);
+}
+
+.v-button-wrapper:has(.v-button.is-size-l) .v-button-overlay {
+    font-size: var(--v-font-size-l);
+    height: auto;
+    padding: var(--v-space-s) var(--v-space-l);
+}
+
 .v-button {
     display: flex;
     align-items: center;
@@ -240,64 +305,39 @@
     background-color: var(--v-gray-1);
     color: var(--v-gray-4);
     border-color: var(--v-gray-3);
-    cursor: not-allowed;
 }
 
 .v-button.is-ghost:disabled {
-    background-color: var(--color-background);
-    border: none;
+    background-color: var(--v-color-background);
+    border-color: transparent;
     color: var(--v-gray-4);
-    cursor: not-allowed;
 }
 
 .v-button.is-danger:disabled {
     background-color: var(--v-danger-2);
     border-color: var(--v-danger-2);
     color: var(--v-gray-4);
+}
+
+.v-button-wrapper:has(.v-button:disabled) {
     cursor: not-allowed;
 }
 
+/* Keyboard focus shows the same state as hover */
+.v-button-wrapper:has(.v-button:focus-visible) .v-button-overlay {
+    clip-path: inset(-1px);
+}
+
 @media (pointer: fine) {
-    .v-button:hover {
-        background-color: var(--v-color-text);
-        color: var(--v-color-text-contrast);
-        border-color: var(--v-color-text);
+    .v-button-wrapper:not(:has(.v-button:disabled)):hover .v-button-overlay {
+        /* -1px so subpixel-positioned buttons don't clip the border's antialiased edge */
+        clip-path: inset(-1px);
     }
+}
 
-    .v-button.is-secondary:hover {
-        background-color: var(--v-accent-5);
-        color: var(--v-color-text);
-        border-color: var(--v-color-accent);
-    }
-
-    .v-button.is-secondary:disabled:hover {
-        background-color: var(--v-gray-1);
-        color: var(--v-gray-4);
-        border-color: var(--v-gray-3);
-    }
-
-    .v-button.is-ghost:hover {
-        background-color: var(--v-color-background);
-        color: var(--v-accent-11);
-        border: 1px solid var(--v-accent-9);
-    }
-
-    .v-button.is-ghost:disabled:hover {
-        background-color: var(--color-background);
-        border: none;
-        color: var(--v-gray-4);
-    }
-
-    .v-button.is-danger:hover {
-        background-color: var(--v-color-background);
-        color: var(--v-color-danger);
-        border-color: var(--v-color-danger);
-    }
-
-    .v-button:disabled:hover {
-        background-color: var(--v-gray-4);
-        color: var(--v-color-text-weaker);
-        border-color: var(--v-gray-3);
+@media (prefers-reduced-motion: reduce) {
+    .v-button-overlay {
+        transition: none;
     }
 }
 
