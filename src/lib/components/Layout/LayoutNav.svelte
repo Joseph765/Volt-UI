@@ -1,8 +1,11 @@
 <script>
     /** @type { boolean } */
     export let open = false;
+
+    /** @type { string } */
+    export let label = "Main";
 </script>
 
-<div class="v-layout-nav {open ? "is-open" : undefined}">
+<nav class="v-layout-nav" class:is-open={open} aria-label={label}>
     <slot />
-</div>
+</nav>

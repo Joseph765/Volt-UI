@@ -3,6 +3,8 @@
     import { page } from '$app/state'; 
     import components from "./components/components.json";
 
+    import { Blocks, Paintbrush, Rocket } from "@jis3r/icons";
+
     import { 
         Layout, 
         LayoutContent, 
@@ -25,7 +27,7 @@
 
 <Layout>
     <LayoutHeader>
-        <LayoutMenuButton on:click={() => open = !open}></LayoutMenuButton>
+        <LayoutMenuButton {open} on:click={() => open = !open} />
         <a href="/" class="logo" slot="mobile-logo">
             <span class="logo-ui">V</span>
         </a>
@@ -34,8 +36,12 @@
         VOLT <span class="logo-ui">UI</span>
     </a>
     <LayoutNav {open}>
-        <NavItem href="/getting-started" active={page.url.pathname === "/getting-started"} on:click={() => open = false}>Getting Started</NavItem>
+        <NavItem href="/getting-started" active={page.url.pathname === "/getting-started"} on:click={() => open = false}>
+            <Rocket slot="icon" let:animate {animate} />
+            Getting Started
+        </NavItem>
         <NavGroup title="Design Tokens">
+            {#snippet icon(animate)}<Paintbrush {animate} />{/snippet}
             <NavGroupItem href="/tokens#top" active={page.url.pathname + page.url.hash === "/tokens#top"} on:click={() => open = false}>All tokens</NavGroupItem>
             <NavGroupItem href="/tokens#font" active={page.url.pathname + page.url.hash === "/tokens#font"} on:click={() => open = false}>Font</NavGroupItem>
             <NavGroupItem href="/tokens#font-size" active={page.url.pathname + page.url.hash === "/tokens#font-size"} on:click={() => open = false}>Font Size</NavGroupItem>
@@ -46,6 +52,7 @@
             <NavGroupItem href="/tokens#color-scales" active={page.url.pathname + page.url.hash === "/tokens#color-scales"} on:click={() => open = false}>Color Scales</NavGroupItem>
         </NavGroup>
         <NavGroup title="Components">
+            {#snippet icon(animate)}<Blocks {animate} />{/snippet}
             <NavGroupItem href="/components" active={page.url.pathname === "/components"} on:click={() => open = false}>All Components</NavGroupItem>
             {#each components as component}
                 <NavGroupItem href="/components/{component.name.toLocaleLowerCase()}" active={page.url.pathname === '/components/' + component.name.toLocaleLowerCase()} on:click={() => open = false}>{component.name}</NavGroupItem>
