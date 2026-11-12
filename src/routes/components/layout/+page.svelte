@@ -1,6 +1,7 @@
 <script>
     import { ChartPie, History, Layers, Settings } from "@jis3r/icons";
     import {
+        Banner,
         Code,
         Container,
         Flex,
@@ -102,10 +103,8 @@
             A structural component that defines the overall page structure with a sidebar navigation.
             On smaller screens the sidebar collapses into a header with a menu button that slides the navigation in from the left.
         </Text>
-        <Text variant="weak">
-            Animated icons shown here are from <Link href="https://www.movingicons.dev" target="_blank">movingicons.dev</Link> (<Code>@jis3r/icons</Code>). Install it to use them.
-        </Text>
     </Flex>
+    <Banner>Animated icons shown here are from <Link href="https://www.movingicons.dev" target="_blank">movingicons.dev</Link> (<Code>@jis3r/icons</Code>). Install it to use them.</Banner>
     <Flex direction="column">
         <Select
             name="examples"
