@@ -12,7 +12,7 @@
     { 
         "name": "Button",
         "description": "An interactive element that triggers actions or submits forms when clicked.",
-        "example": "<button class='v-button' style='background-color: var(--v-gray-5); border-color: var(--v-gray-9); color: var(--v-color-text);'>Button</button>"
+        "example": "<button class='v-button' style='background-color: var(--v-gray-5); border-color: var(--v-gray-5); color: var(--v-color-text);'>Button</button>"
     },
     { 
         "name": "Card",
@@ -22,7 +22,7 @@
     { 
         "name": "Checkbox",
         "description": "A control that allows users to select one or more options from a set.",
-        "example": "<label class='v-checkbox-wrapper'><input type='checkbox' checked class='v-checkbox-input example-version' /><span class='v-checkbox-box'><svg class='v-checkbox-check' xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6 9 17l-5-5'/></svg></span><span class='v-checkbox-label'>Checkbox</span></label>"
+        "example": "<label class='v-checkbox-wrapper'><input type='checkbox' checked class='v-checkbox-input example-version' /><span class='v-checkbox-box'><svg class='v-checkbox-check' xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6 9 17l-5-5'/></svg></span><span class='v-checkbox-label'>Checkbox</span></label>"
     },
     { 
         "name": "Code",
