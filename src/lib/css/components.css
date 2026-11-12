@@ -383,6 +383,8 @@
 /* Checkbox */
 .v-checkbox-wrapper {
     display: inline-flex;
+    /* Don't align on the content baseline: it moves when the check icon appears, shifting the line height */
+    vertical-align: middle;
     align-items: center;
     gap: 0.5rem;
     cursor: pointer;
