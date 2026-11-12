@@ -18,7 +18,6 @@
 
     .grayscale-wrapper:hover .is-grayscale .v-banner {
         background-color: var(--v-info-4) !important;
-        border-inline-start: 6px solid var(--v-info-11) !important;
     }
 
     .grayscale-wrapper:hover .is-grayscale .v-container {
