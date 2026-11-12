@@ -566,6 +566,17 @@
         user-select: none;
     }
 
+    /* The shared example sizes the banner for the unpadded components page; fill the padded preview here */
+    .showcase-preview :global(.v-banner) {
+        width: 100% !important;
+    }
+
+    /* Inputs default to a fixed 16rem, which overflows the narrower preview cards */
+    .showcase-preview :global(.v-label-wrapper),
+    .showcase-preview :global(.v-input) {
+        width: 100%;
+    }
+
     .showcase-label {
         display: flex;
         justify-content: space-between;
