@@ -4,9 +4,9 @@
 @import url('./components.css');
 @import url('./highlight.css');
 
-::selection {
-  background-color: var(--v-accent-7);
-  color: var(--v-color-text);
+
+* {
+  box-sizing: border-box;
 }
 
 html,
@@ -19,3 +19,98 @@ body {
   color: var(--v-color-text);
   width: 100%;
 }
+
+::selection {
+  background-color: var(--v-accent-7);
+  color: var(--v-color-text);
+}
+
+/* Styles From StakeFlow */
+
+/* Layout - Content */
+/* .content {
+  max-width: var(--v-container-width);
+  width: 100%;
+  padding: 2.1rem var(--v-space-2xl) var(--v-space-2xl) var(--v-space-2xl);
+  margin-inline: auto;
+}
+
+@media (max-width: 1872px) {
+    .content {
+        margin-inline-start: 16rem;
+    }
+}
+
+@media (max-width: 1205px) {
+    .content {
+        max-width: 100%;
+        margin: 0;
+        padding: 5rem var(--v-space-m);
+    }
+} */
+
+/* Nav */
+/* .v-nav-item[aria-current="true"] {
+    border-inline-start: 4px solid var(--v-accent-10);
+} */
+
+/* Table */
+/* .v-table-wrapper {
+    background-color: var(--v-color-background);
+}
+
+.v-table {
+    border-spacing: 0 var(--v-space-m); 
+    border-collapse: separate;
+    table-layout: fixed;
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .v-table {
+        table-layout: auto;
+    }
+}
+
+.v-table-caption {
+    padding-block: var(--v-space-m) 0;
+}
+
+.v-table-body {
+    padding-inline: var(--v-space-m);
+}
+
+.v-table-head {
+    font-size: var(--v-font-size-l);
+    background-color: var(--v-color-background);
+    border: none;
+    padding: var(--v-space-xs) var(--v-space-m);
+}
+
+.v-table-cell {
+    border: none;
+    background-color: var(--v-color-surface);
+    font-size: var(--v-font-size-l);
+}
+
+.v-table-head {
+    white-space: nowrap;
+}
+
+.v-table-cell:first-child {
+    border-radius: var(--v-radius) 0 0 var(--v-radius);
+}
+
+.v-table-cell:last-child {
+    border-radius: 0 var(--v-radius) var(--v-radius) 0;
+}
+
+@media (pointer: fine) {
+    .v-table.is-interactive .v-table-row:hover {
+        cursor: pointer;
+    }
+
+    .v-table.is-interactive .v-table-row:hover .v-table-cell {
+        background-color: var(--v-gray-3);
+    }
+} */

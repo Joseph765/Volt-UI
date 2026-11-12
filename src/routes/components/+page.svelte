@@ -22,7 +22,7 @@
     }
 </script>
 
-<Flex direction="column" gap="2xl">
+<Flex direction="column" gap="xl">
     <Flex direction="column">
         <Text size="3xl" weight="black" as="h2">Components</Text>
         <Text size="xl" variant="weak">

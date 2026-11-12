@@ -231,17 +231,24 @@
                     </div>
                     <div class="token">
                         <div class="token-example">
+                            <div style="border-block-start: 4px solid var(--v-color-neutral); border-inline-end: 4px solid var(--v-color-neutral); width: 2rem; height: 2rem; border-radius: 0 var(--v-radius-sharp) 0 0;"></div>
+                        </div>
+                        <Text measure="s">Sharp border radius (8px) for small elements like checkboxes.</Text>
+                        <CopyCode code="var(--v-radius-sharp)" />
+                    </div>
+                    <div class="token">
+                        <div class="token-example">
                             <div style="border-block-start: 4px solid var(--v-color-neutral); border-inline-end: 4px solid var(--v-color-neutral); width: 2rem; height: 2rem; border-radius: 0 var(--v-radius) 0 0;"></div>
                         </div>
-                        <Text measure="s">Default border radius.</Text>
+                        <Text measure="s">Regular border radius (16px), the default for most components.</Text>
                         <CopyCode code="var(--v-radius)" />
                     </div>
                     <div class="token">
                         <div class="token-example">
-                            <div style="border-block-start: 4px solid var(--v-color-neutral); border-inline-end: 4px solid var(--v-color-neutral); width: 2rem; height: 2rem; border-radius: 0 var(--v-radius-round) 0 0;"></div>
+                            <div style="border-block-start: 4px solid var(--v-color-neutral); border-inline-end: 4px solid var(--v-color-neutral); width: 2rem; height: 2rem; border-radius: 0 var(--v-radius-full) 0 0;"></div>
                         </div>
-                        <Text measure="s">Rounded border radius used in certain components.</Text>
-                        <CopyCode code="var(--v-radius-round)" />
+                        <Text measure="s">Fully rounded border radius for pill shapes like buttons.</Text>
+                        <CopyCode code="var(--v-radius-full)" />
                     </div>
                 </div>
             </Flex>

@@ -1,5 +1,5 @@
 <script>
-    /** @type { 'default' | 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger' } */
+    /** @type { 'default' | 'primary' | 'secondary' | 'ghost' | 'danger' } */
     export let variant = 'default';
 
     /** @type { boolean } */
@@ -13,21 +13,26 @@
 
     /** @type { string } */
     export let href = "";
-
-    /** @type { string } */
-    export let target = "";
 </script>
 
-{#if href}
-    <a {href} {target} class="v-button is-link is-{variant} is-size-{size} {expanded ? "is-expanded" : undefined}" tabindex="0" {...$$restProps} on:click>
+<div class="v-button-wrapper" class:is-expanded={expanded}>
+    <!-- Decorative copy of the label for the hover wipe; hidden from assistive tech -->
+    <div class="v-button-overlay" aria-hidden="true">
         <slot name="start" />
         <slot />
         <slot name="end" />
-    </a>
-{:else}
-    <button class="v-button is-{variant} is-size-{size} {expanded ? "is-expanded" : undefined}" disabled={disabled} tabindex="0" {...$$restProps} on:click>
-        <slot name="start" />
-        <slot />
-        <slot name="end" />
-    </button>
-{/if}
+    </div>
+    {#if href}
+        <a {href} class="v-button is-link is-{variant} is-size-{size}" class:is-expanded={expanded} {...$$restProps} on:click>
+            <slot name="start" />
+            <slot />
+            <slot name="end" />
+        </a>
+    {:else}
+        <button class="v-button is-{variant} is-size-{size}" class:is-expanded={expanded} {disabled} {...$$restProps} on:click>
+            <slot name="start" />
+            <slot />
+            <slot name="end" />
+        </button>
+    {/if}
+</div>

@@ -1,3 +1,3 @@
-<div class="v-layout-content">
+<main class="v-layout-content">
     <slot />
-</div>
+</main>
