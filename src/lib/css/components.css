@@ -1744,9 +1744,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--v-color-surface-raised);
+    background: var(--v-gray-9);
     color: var(--v-color-text);
-    border: 1px solid var(--v-gray-7);
+    border: 1px solid var(--v-gray-9);
     padding: var(--v-space-m) var(--v-space-m) var(--v-space-m) var(--v-space-l);
     border-radius: var(--v-radius-full);
     width: 17rem;
@@ -1754,8 +1754,8 @@
 }
 
 .v-toast.is-danger {
-    background-color: var(--v-danger-4);
-    border-color: var(--v-color-border-danger)
+    background-color: var(--v-danger-9);
+    border-color: var(--v-danger-9);
 }
 
 .v-toast-message {
@@ -1782,11 +1782,11 @@
 
 @media (pointer: fine) {
     .v-toast.is-danger .v-toast-dismiss:hover {
-        background-color: var(--v-danger-6);
+        background-color: var(--v-danger-10);
     }
     
     .v-toast-dismiss:hover {
-        background: var(--v-gray-6);
+        background: var(--v-gray-10);
     }
 }
 
