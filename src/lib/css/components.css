@@ -1114,7 +1114,6 @@
     display: flex;
     align-items: center;
     gap: var(--v-space-s);
-    margin-inline: var(--v-space-m);
     padding: var(--v-space-m);
     border: none;
     border-radius: var(--v-radius);
@@ -1171,7 +1170,6 @@
     display: flex;
     align-items: center;
     gap: var(--v-space-s);
-    margin-inline: var(--v-space-m);
     /* Indent so the label lines up with the group heading's text (after its 24px icon) */
     padding: var(--v-space-s) var(--v-space-m) var(--v-space-s) calc(var(--v-space-m) + 24px + var(--v-space-s));
     border-radius: var(--v-radius);

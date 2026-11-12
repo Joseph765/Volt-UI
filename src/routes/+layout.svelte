@@ -2,6 +2,7 @@
     import "$lib/css/index.css";
     import { page } from '$app/state'; 
     import components from "./components/components.json";
+    import VoltLogo from "$lib/components/VoltLogo.svelte";
 
     import { Blocks, Paintbrush, Rocket } from "@jis3r/icons";
 
@@ -29,11 +30,30 @@
     <LayoutHeader>
         <LayoutMenuButton {open} on:click={() => open = !open} />
         <a href="/" class="logo" slot="mobile-logo">
-            <span class="logo-ui">V</span>
+            <svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true">
+                <defs>
+                    <mask id="1-mask">
+                        <path
+                            class="charge-path"
+                            d="M32 6 A26 26 0 1 1 7.57 40.89"
+                            fill="none"
+                            stroke="#fff"
+                            stroke-width="10"
+                            pathLength="100"
+                        />
+                    </mask>
+                </defs>
+                <circle cx="32" cy="32" r="26" fill="none" stroke="#A190F0" stroke-opacity="0.25" stroke-width="6" stroke-dasharray="2.2 1.6" />
+                <circle cx="32" cy="32" r="26" fill="none" stroke="#DCD5FF" stroke-width="6" stroke-dasharray="2.2 1.6" mask="url(#1-mask)" />
+                <circle cx="32" cy="32" r="16" fill="#8E78EC" fill-opacity="0.3" stroke="#C9BFF5" stroke-width="1.5" />
+                <path d="M34.5 22 L26 34 H31.5 L30 42.5 L38.5 30.5 H33 Z" fill="#F4F1FF" />
+            </svg>
+            <!-- <span class="logo-ui">V</span> -->
         </a>
     </LayoutHeader>
     <a href="/" class="logo" slot="logo">
-        VOLT <span class="logo-ui">UI</span>
+        <VoltLogo />
+        <!-- VOLT <span class="logo-ui">UI</span> -->
     </a>
     <LayoutNav {open}>
         <NavItem href="/getting-started" active={page.url.pathname === "/getting-started"} on:click={() => open = false}>

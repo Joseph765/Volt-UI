@@ -265,6 +265,8 @@
     /* Hero */
     .hero {
         position: relative;
+        /* Keep the glow/content z-index layering local so it can't paint over the mobile nav */
+        isolation: isolate;
         display: grid;
         gap: var(--v-space-2xl);
         align-items: center;
