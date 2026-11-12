@@ -21,6 +21,12 @@
   color: var(--v-color-text);
 }
 
+/* While collapsed, the "Show More" bar covers the bottom of the block, so hide the horizontal scrollbar
+   that would show through it. Expanding removes the button, which restores scrolling. */
+.v-code-block:has(.v-code-block-expand-button) code {
+  overflow-x: hidden;
+}
+
 
 @media (pointer: fine) {
   .v-code-block-expand-button:hover {
