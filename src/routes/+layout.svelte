@@ -30,23 +30,14 @@
     <LayoutHeader>
         <LayoutMenuButton {open} on:click={() => open = !open} />
         <a href="/" class="logo" slot="mobile-logo">
-            <svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true">
-                <defs>
-                    <mask id="1-mask">
-                        <path
-                            class="charge-path"
-                            d="M32 6 A26 26 0 1 1 7.57 40.89"
-                            fill="none"
-                            stroke="#fff"
-                            stroke-width="10"
-                            pathLength="100"
-                        />
-                    </mask>
-                </defs>
-                <circle cx="32" cy="32" r="26" fill="none" stroke="#A190F0" stroke-opacity="0.25" stroke-width="6" stroke-dasharray="2.2 1.6" />
-                <circle cx="32" cy="32" r="26" fill="none" stroke="#DCD5FF" stroke-width="6" stroke-dasharray="2.2 1.6" mask="url(#1-mask)" />
-                <circle cx="32" cy="32" r="16" fill="#8E78EC" fill-opacity="0.3" stroke="#C9BFF5" stroke-width="1.5" />
-                <path d="M34.5 22 L26 34 H31.5 L30 42.5 L38.5 30.5 H33 Z" fill="#F4F1FF" />
+            <svg class="bolt" viewBox="0 0 40 64">
+                <path
+                    d="M26 3 L4 36 H18 L14 61 L36 27 H22 Z"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linejoin="round"
+                />
             </svg>
             <!-- <span class="logo-ui">V</span> -->
         </a>
@@ -100,4 +91,13 @@
         padding: 2px 8px;
         border-radius: var(--v-radius);
     }
+
+    .bolt {
+        --volt-size: 24px;
+        --bolt: var(--v-accent-10);
+		width: calc(var(--volt-size) * 0.74);
+		height: calc(var(--volt-size) * 1.17);
+		color: var(--bolt);
+		flex-shrink: 0;
+	}
 </style>
