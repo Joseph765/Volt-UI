@@ -1,3 +1,3 @@
-<div class="v-toast-group">
+<div class="m-toast-group">
     <slot />
 </div>

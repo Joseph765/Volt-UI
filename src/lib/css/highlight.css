@@ -1,24 +1,24 @@
-.v-code-block {
+.m-code-block {
     position: relative;
     display: flex;
     max-height: 20.25rem;
 }
 
-.v-code-block.is-expanded {
+.m-code-block.is-expanded {
   max-height: 100%;
 }
 
 /* Collapsed: the code fades into the block's background, with a "Show more" pill on top */
-.v-code-block-fade {
+.m-code-block-fade {
   position: absolute;
   inset: auto 0 0 0;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   height: 6rem;
-  padding-block-end: var(--v-space-m);
-  border-radius: 0 0 var(--v-radius) var(--v-radius);
-  background: linear-gradient(to bottom, transparent, var(--v-color-surface) 75%);
+  padding-block-end: var(--m-space-m);
+  border-radius: 0 0 var(--m-radius) var(--m-radius);
+  background: linear-gradient(to bottom, transparent, var(--m-color-surface) 75%);
   /* It lives inside the <pre>; don't render the template's indentation inside the button */
   white-space: normal;
   /* Only the button takes clicks, so text above the pill can still be selected */
@@ -26,95 +26,95 @@
 }
 
 /* Expanded: a matching "Show less" pill under the block */
-.v-code-block-collapse {
+.m-code-block-collapse {
   display: flex;
   justify-content: center;
-  padding-block-start: var(--v-space-s);
+  padding-block-start: var(--m-space-s);
 }
 
-.v-code-block-expand-button {
+.m-code-block-expand-button {
   display: inline-flex;
   align-items: center;
-  gap: var(--v-space-xs);
+  gap: var(--m-space-xs);
   height: 32px;
-  padding-inline: var(--v-space-m) var(--v-space-s);
-  border: 1px solid var(--v-color-border);
-  border-radius: var(--v-radius-full);
-  background-color: var(--v-color-surface-raised);
-  color: var(--v-color-text);
-  font-family: var(--v-font);
-  font-size: var(--v-font-size-s);
+  padding-inline: var(--m-space-m) var(--m-space-s);
+  border: 1px solid var(--m-color-border);
+  border-radius: var(--m-radius-full);
+  background-color: var(--m-color-surface-raised);
+  color: var(--m-color-text);
+  font-family: var(--m-font);
+  font-size: var(--m-font-size-s);
   cursor: pointer;
   pointer-events: auto;
   transition: border-color 0.15s ease, color 0.15s ease;
 }
 
-.v-code-block-expand-button svg {
-  color: var(--v-color-text-weaker);
+.m-code-block-expand-button svg {
+  color: var(--m-color-text-weaker);
   transition: color 0.15s ease, transform 0.15s ease;
 }
 
-.v-code-block-expand-button:focus-visible {
-  outline: 2px solid var(--v-color-info);
+.m-code-block-expand-button:focus-visible {
+  outline: 2px solid var(--m-color-info);
   outline-offset: 2px;
 }
 
 /* While collapsed, the fade covers the bottom of the block, so hide the horizontal scrollbar
    that would show through it. Expanding removes the fade, which restores scrolling. */
-.v-code-block:has(.v-code-block-fade) code {
+.m-code-block:has(.m-code-block-fade) code {
   overflow-x: hidden;
 }
 
 @media (pointer: fine) {
-  .v-code-block-expand-button:hover {
-    border-color: var(--v-accent-7);
-    color: var(--v-color-text-accent);
+  .m-code-block-expand-button:hover {
+    border-color: var(--m-accent-7);
+    color: var(--m-color-text-accent);
   }
 
-  .v-code-block-expand-button:hover svg {
-    color: var(--v-color-text-accent);
+  .m-code-block-expand-button:hover svg {
+    color: var(--m-color-text-accent);
   }
 
-  .v-code-block-fade .v-code-block-expand-button:hover svg {
+  .m-code-block-fade .m-code-block-expand-button:hover svg {
     transform: translateY(2px);
   }
 
-  .v-code-block-collapse .v-code-block-expand-button:hover svg {
+  .m-code-block-collapse .m-code-block-expand-button:hover svg {
     transform: translateY(-2px);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .v-code-block-expand-button,
-  .v-code-block-expand-button svg {
+  .m-code-block-expand-button,
+  .m-code-block-expand-button svg {
     transition: none;
   }
 }
 
 .hljs {
   overflow: hidden;
-  border-radius: 0 0 var(--v-radius) var(--v-radius);
+  border-radius: 0 0 var(--m-radius) var(--m-radius);
 }
 
-.v-code-example-wrapper {
+.m-code-example-wrapper {
   display: flex;
   flex-direction: column;
   gap: 0;
-  /* border: 1px solid var(--v-color-border); */
-  border-radius: var(--v-radius);
+  /* border: 1px solid var(--m-color-border); */
+  border-radius: var(--m-radius);
   width: 100%;
 }
 
-.v-code-block,
-.v-code-block pre {
+.m-code-block,
+.m-code-block pre {
     margin: 0;
 }
 
-.v-code-block pre {
+.m-code-block pre {
     width: 100%;
 }
 
-.v-code-block code {
+.m-code-block code {
     display: flex;
     width: 100%;
 }
@@ -122,7 +122,7 @@
 pre code.hljs {
   display: block;
   overflow-x: auto;
-  padding: var(--v-space-m);
+  padding: var(--m-space-m);
   margin: 0;
 }
 
@@ -131,14 +131,14 @@ code.hljs {
 }
 
 .hljs {
-  color: var(--v-color-text);
-  background: var(--v-color-surface);
+  color: var(--m-color-text);
+  background: var(--m-color-surface);
 }
 
 .hljs::selection,
 .hljs ::selection {
-  background-color: var(--v-color-highlight);
-  color: var(--v-color-text);
+  background-color: var(--m-color-highlight);
+  color: var(--m-color-text);
 }
 
 
@@ -150,19 +150,19 @@ code.hljs {
 
 /* base03 - #969896 -  Comments, Invisibles, Line Highlighting */
 .hljs-comment {
-  color: var(--v-color-text-weaker);
+  color: var(--m-color-text-weaker);
 }
 
 /* base04 - #e8e8e8 -  Dark Foreground (Used for status bars) */
 .hljs-tag {
-  color: var(--v-color-text);
+  color: var(--m-color-text);
 }
 
 /* base05 - #333333 -  Default Foreground, Caret, Delimiters, Operators */
 .hljs-subst,
 .hljs-punctuation,
 .hljs-operator {
-  color: var(--v-color-text);
+  color: var(--m-color-text);
 }
 
 .hljs-operator {
@@ -175,11 +175,11 @@ code.hljs {
 .hljs-selector-tag,
 .hljs-name,
 .hljs-deletion {
-  color: var(--v-accent-11);
+  color: var(--m-accent-11);
 }
 
 .hljs-template-variable {
-  color: var(--v-info-11);
+  color: var(--m-info-11);
 }
 
 /* base09 - Integers, Boolean, Constants, XML Attributes, Markup Link Url */
@@ -189,7 +189,7 @@ code.hljs {
 .hljs-attr,
 .hljs-variable.constant_,
 .hljs-literal {
-  color: var(--v-info-11);
+  color: var(--m-info-11);
 }
 
 /* base0A - Classes, Markup Bold, Search Text Background */
@@ -197,7 +197,7 @@ code.hljs {
 .hljs-class .hljs-title,
 .hljs-title.class_
 {
-  color: var(--v-success-10);
+  color: var(--m-success-10);
 }
 
 .hljs-strong {
@@ -210,7 +210,7 @@ code.hljs {
 .hljs-addition,
 .hljs-title.class_.inherited__,
 .hljs-string {
-  color: var(--v-danger-10);
+  color: var(--m-danger-10);
 }
 
 /* base0C - Support, Regular Expressions, Escape Characters, Markup Quotes */
@@ -219,7 +219,7 @@ code.hljs {
 .hljs-quote,
 .hljs-keyword.hljs-atrule,
 .hljs-regexp {
-  color: var(--v-info-10);
+  color: var(--m-info-10);
 }
 
 /* base0D - Functions, Methods, Attribute IDs, Headings */
@@ -228,7 +228,7 @@ code.hljs {
 .ruby .hljs-property,
 .hljs-title.function_,
 .hljs-section {
-  color: var(--v-success-10);
+  color: var(--m-success-10);
 }
 
 /* base0E - Keywords, Storage, Selector, Markup Italic, Diff Changed */
@@ -239,11 +239,11 @@ code.hljs {
 /* .hljs-selector-pseudo, */
 .hljs-template-tag,
 .diff .hljs-meta {
-  color: var(--v-success-11);
+  color: var(--m-success-11);
 }
 
 .hljs-keyword {
-  color: var(--v-danger-10);
+  color: var(--m-danger-10);
 }
 
 .hljs-emphasis {

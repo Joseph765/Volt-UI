@@ -2,116 +2,116 @@
     { 
         "name": "Badge",
         "description": "A small, inline label that displays status, counts, or categorical information",
-        "example": "<div class='v-badge is-info' style='background-color: var(--v-color-surface-raised); color: var(--v-color-text); border-color: var(--v-gray-4);'>Badge</div>"
+        "example": "<div class='m-badge is-info' style='background-color: var(--m-color-surface-raised); color: var(--m-color-text); border-color: var(--m-gray-4);'>Badge</div>"
     },
     { 
         "name": "Banner",
         "description": "A prominent full-width strip that displays important messages, alerts, or announcements with optional actions.",
-        "example": "<div class='v-banner' style='width: calc(100% - var(--v-space-2xl)); border-color: var(--v-gray-9); background-color: var(--v-gray-3);'><div class='v-banner-icon'><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><path d='M12 16v-4'/><path d='M12 8h.01'/></svg></div>Banner</div>"
+        "example": "<div class='m-banner' style='width: calc(100% - var(--m-space-2xl)); border-color: var(--m-gray-9); background-color: var(--m-gray-3);'><div class='m-banner-icon'><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><path d='M12 16v-4'/><path d='M12 8h.01'/></svg></div>Banner</div>"
     },
     { 
         "name": "Button",
         "description": "An interactive element that triggers actions or submits forms when clicked.",
-        "example": "<button class='v-button' style='background-color: var(--v-gray-5); border-color: var(--v-gray-5); color: var(--v-color-text);'>Button</button>"
+        "example": "<button class='m-button' style='background-color: var(--m-gray-5); border-color: var(--m-gray-5); color: var(--m-color-text);'>Button</button>"
     },
     { 
         "name": "Card",
         "description": "A contained surface that groups related content and actions in a visually distinct block.",
-        "example": "<div class='v-card has-space-m'><div class='v-card-content'>Card</div></div>"
+        "example": "<div class='m-card has-space-m'><div class='m-card-content'>Card</div></div>"
     },
     { 
         "name": "Checkbox",
         "description": "A control that allows users to select one or more options from a set.",
-        "example": "<label class='v-checkbox-wrapper'><input type='checkbox' checked class='v-checkbox-input example-version' /><span class='v-checkbox-box'><svg class='v-checkbox-check' xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6 9 17l-5-5'/></svg></span><span class='v-checkbox-label'>Checkbox</span></label>"
+        "example": "<label class='m-checkbox-wrapper'><input type='checkbox' checked class='m-checkbox-input example-version' /><span class='m-checkbox-box'><svg class='m-checkbox-check' xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6 9 17l-5-5'/></svg></span><span class='m-checkbox-label'>Checkbox</span></label>"
     },
     { 
         "name": "Code",
         "description": "An inline text component that styles short code snippets with a monospaced font for clear readability.",
-        "example": "<code class='v-code'>Code</code>"
+        "example": "<code class='m-code'>Code</code>"
     },
     { 
         "name": "Container",
         "description": "A wrapper that constrains content width and applies consistent padding.",
-        "example": "<div class='v-container is-debug' style='outline-color: var(--v-gray-9);'>Container</div>"
+        "example": "<div class='m-container is-debug' style='outline-color: var(--m-gray-9);'>Container</div>"
     },
     { 
         "name": "Divider",
         "description": "A lightweight horizontal line that visually separates content.",
-        "example": "<div class='v-divider' style='width: calc(100% - var(--v-space-l))'></div>"
+        "example": "<div class='m-divider' style='width: calc(100% - var(--m-space-l))'></div>"
     },
     { 
         "name": "Fieldset",
         "description": "A grouping component that organizes related form elements with a shared label.",
-        "example": "<fieldset class='v-fieldset' style='border: 1px solid var(--v-color-border); width: calc(100% - var(--v-space-xl)); border-radius: var(--v-radius); height: calc(100% - var(--v-space-xl));'><legend class='v-fieldset-legend'><div class='v-fieldset-label'>Fieldset</div></fieldset>"
+        "example": "<fieldset class='m-fieldset' style='border: 1px solid var(--m-color-border); width: calc(100% - var(--m-space-xl)); border-radius: var(--m-radius); height: calc(100% - var(--m-space-xl));'><legend class='m-fieldset-legend'><div class='m-fieldset-label'>Fieldset</div></fieldset>"
     },
     { 
         "name": "Flex",
         "description": "A utility component that provides flexible layout control using CSS Flexbox properties.",
-        "example": "<div class='v-flex is-align-center is-justify-center'><div class='v-card' style='width: 15%; padding: var(--v-space-m); text-align: center;'>1</div><div class='v-card' style='width: 15%; padding: var(--v-space-m); text-align: center;'>2</div><div class='v-card' style='width: 15%; padding: var(--v-space-m); text-align: center;'>3</div></div>"
+        "example": "<div class='m-flex is-align-center is-justify-center'><div class='m-card' style='width: 15%; padding: var(--m-space-m); text-align: center;'>1</div><div class='m-card' style='width: 15%; padding: var(--m-space-m); text-align: center;'>2</div><div class='m-card' style='width: 15%; padding: var(--m-space-m); text-align: center;'>3</div></div>"
     },
     { 
         "name": "Icon",
         "description": "A scalable vector component for displaying symbolic icons with customizable size, color, and accessibility features.",
-        "example": "<svg class='v-icon is-size-l' xmlns='http://www.w3.org/2000/svg' width='24' height='24'viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2'/><circle cx='12' cy='7' r='4'/>"
+        "example": "<svg class='m-icon is-size-l' xmlns='http://www.w3.org/2000/svg' width='24' height='24'viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2'/><circle cx='12' cy='7' r='4'/>"
     },
     { 
         "name": "Input",
         "description": "A field that captures single-line text or data input from the user.",
-        "example": "<div class='v-label-wrapper'><label class='v-label'>Email</label><div class='v-input-wrapper'><input class='v-input' type='email' placeholder='example@email.com' /></div></div>" 
+        "example": "<div class='m-label-wrapper'><label class='m-label'>Email</label><div class='m-input-wrapper'><input class='m-input' type='email' placeholder='example@email.com' /></div></div>" 
     },
     { 
         "name": "Layout",
         "description": "A structural component that defines the overall page structure with a sidebar navigation that becomes a slide-in menu on smaller screens.",
-        "example": "<div style='display:flex; gap: var(--v-space-m); width: calc(100% - var(--v-space-2xl)); height: calc(100% - var(--v-space-xl));'><div style='display:flex; flex-direction:column; gap:6px; width:38%;'><div style='height:10px; width:55%; margin:4px 0 8px 8px; border-radius:3px; background: var(--v-color-text);'></div><div class='layout-example-active' style='display:flex; align-items:center; gap:6px; height:22px; padding-inline:8px; border-radius:8px;'><div style='width:10px; height:10px; border-radius:3px; border:2px solid var(--v-color-text);'></div><div style='height:5px; width:55%; border-radius:3px; background: var(--v-color-text);'></div></div><div style='display:flex; align-items:center; gap:6px; height:22px; padding-inline:8px; border-radius:8px; '><div style='width:10px; height:10px; border-radius:3px; border:2px solid var(--v-color-text);'></div><div style='height:5px; width:40%; border-radius:3px; background: var(--v-color-text);'></div></div><div style='display:flex; align-items:center; gap:6px; height:22px; padding-inline:8px; border-radius:8px; '><div style='width:10px; height:10px; border-radius:3px; border:2px solid var(--v-color-text);'></div><div style='height:5px; width:60%; border-radius:3px; background: var(--v-color-text);'></div></div><div style='display:flex; align-items:center; gap:6px; height:22px; padding-inline:8px; border-radius:8px; '><div style='width:10px; height:10px; border-radius:3px; border:2px solid var(--v-color-text);'></div><div style='height:5px; width:45%; border-radius:3px; background: var(--v-color-text);'></div></div></div><div style='flex:1; display:flex; flex-direction:column; gap:8px;'><div style='height:12px; width:45%; border-radius:3px; background: var(--v-color-text);'></div><div style='flex:1; border-radius: var(--v-radius-sharp); background: var(--v-color-surface-raised);'></div></div></div>"
+        "example": "<div style='display:flex; gap: var(--m-space-m); width: calc(100% - var(--m-space-2xl)); height: calc(100% - var(--m-space-xl));'><div style='display:flex; flex-direction:column; gap:6px; width:38%;'><div style='height:10px; width:55%; margin:4px 0 8px 8px; border-radius:3px; background: var(--m-color-text);'></div><div class='layout-example-active' style='display:flex; align-items:center; gap:6px; height:22px; padding-inline:8px; border-radius:8px;'><div style='width:10px; height:10px; border-radius:3px; border:2px solid var(--m-color-text);'></div><div style='height:5px; width:55%; border-radius:3px; background: var(--m-color-text);'></div></div><div style='display:flex; align-items:center; gap:6px; height:22px; padding-inline:8px; border-radius:8px; '><div style='width:10px; height:10px; border-radius:3px; border:2px solid var(--m-color-text);'></div><div style='height:5px; width:40%; border-radius:3px; background: var(--m-color-text);'></div></div><div style='display:flex; align-items:center; gap:6px; height:22px; padding-inline:8px; border-radius:8px; '><div style='width:10px; height:10px; border-radius:3px; border:2px solid var(--m-color-text);'></div><div style='height:5px; width:60%; border-radius:3px; background: var(--m-color-text);'></div></div><div style='display:flex; align-items:center; gap:6px; height:22px; padding-inline:8px; border-radius:8px; '><div style='width:10px; height:10px; border-radius:3px; border:2px solid var(--m-color-text);'></div><div style='height:5px; width:45%; border-radius:3px; background: var(--m-color-text);'></div></div></div><div style='flex:1; display:flex; flex-direction:column; gap:8px;'><div style='height:12px; width:45%; border-radius:3px; background: var(--m-color-text);'></div><div style='flex:1; border-radius: var(--m-radius-sharp); background: var(--m-color-surface-raised);'></div></div></div>"
     },
     { 
         "name": "Link",
         "description": "An interactive text element that navigates to another page or resource.",
-        "example": "<a href='#' class='v-link' style='color: var(--v-color-text);'>Link</a>"
+        "example": "<a href='#' class='m-link' style='color: var(--m-color-text);'>Link</a>"
     },
     { 
         "name": "Navigation",
         "description": "A component for creating lists of navigational items to be used within the layout's sidebar.",
-        "example": "<div class='v-nav-group is-expanded' style='width: 16rem;'><button class='v-nav-group-expander'><h4 class='v-nav-group-heading'>Components</h4><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-chevron-up-icon lucide-chevron-up'><path d='m18 15-6-6-6 6'/></svg></button><div class='v-nav-group-items'><a href='#' class='v-nav-group-item is-active'>Button</a></div></div>"
+        "example": "<div class='m-nav-group is-expanded' style='width: 16rem;'><button class='m-nav-group-expander'><h4 class='m-nav-group-heading'>Components</h4><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-chevron-up-icon lucide-chevron-up'><path d='m18 15-6-6-6 6'/></svg></button><div class='m-nav-group-items'><a href='#' class='m-nav-group-item is-active'>Button</a></div></div>"
     },
     { 
         "name": "Radio",
         "description": "A control that allows users to select exactly one option from a set.",
-        "example": "<div class='v-radio-wrapper example-version'><input type='radio' class='v-radio' checked /><label class='v-radio-label'>Radio</label></div>"
+        "example": "<div class='m-radio-wrapper example-version'><input type='radio' class='m-radio' checked /><label class='m-radio-label'>Radio</label></div>"
     },
     { 
         "name": "Select",
         "description": "A dropdown menu that lets users choose one option from a list of choices.",
-        "example": "<div class='v-label-wrapper'><label class='v-label'>Select</label><div class='v-select-wrapper'><select class='v-select has-placeholder'><option value='' selected>Select an option...</option></select><span class='v-select-arrow'><svg viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'><path fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /></svg></span></div></div>"
+        "example": "<div class='m-label-wrapper'><label class='m-label'>Select</label><div class='m-select-wrapper'><select class='m-select has-placeholder'><option value='' selected>Select an option...</option></select><span class='m-select-arrow'><svg viewBox='0 0 20 20' fill='currentColor' aria-hidden='true'><path fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /></svg></span></div></div>"
     },
     { 
         "name": "Table",
         "description": "A structured component for displaying tabular data in rows and columns with consistent styling and layout.",
-        "example": "<table class='v-table' style='width: calc(100% - var(--v-space-xl));'><thead class='v-table-header'><tr class='v-table-row'><th class='v-table-head' scope='col' class='v-table-heading'>Property</th><th class='v-table-head' scope='col' class='v-table-heading'>Type</th></tr></thead><tbody class='v-table-body'><tr class='v-table-row'><td class='v-table-cell'><code class='v-code'>direction</code></td><td class='v-table-cell'>row | column</td></tr></tbody></table>"
+        "example": "<table class='m-table' style='width: calc(100% - var(--m-space-xl));'><thead class='m-table-header'><tr class='m-table-row'><th class='m-table-head' scope='col' class='m-table-heading'>Property</th><th class='m-table-head' scope='col' class='m-table-heading'>Type</th></tr></thead><tbody class='m-table-body'><tr class='m-table-row'><td class='m-table-cell'><code class='m-code'>direction</code></td><td class='m-table-cell'>row | column</td></tr></tbody></table>"
     },
     { 
         "name": "Tabs",
         "description": "A navigation component that organizes content into separate panels, allowing users to switch between views with clickable tab labels.",
-        "example": "<div class='v-tabs'><button class='v-tab' aria-selected='true' style='color: var(--v-color-text); border-color: var(--v-color-text);'>Tab 1</button><button class='v-tab'>Tab 2</button></div>"
+        "example": "<div class='m-tabs'><button class='m-tab' aria-selected='true' style='color: var(--m-color-text); border-color: var(--m-color-text);'>Tab 1</button><button class='m-tab'>Tab 2</button></div>"
     },
     { 
         "name": "Text",
         "description": "A typographic component for styling and displaying text with consistent typography scales.",
-        "example": "<p class='v-text is-size-l'>Lorem ipsum</p>"
+        "example": "<p class='m-text is-size-l'>Lorem ipsum</p>"
     },
     { 
         "name": "Textarea",
         "description": "A multi-line text field that allows users to enter longer-form input or comments.",
-        "example": "<div class='v-label-wrapper'><label class='v-label-wrapper'>Textarea</label><div class='v-textarea-wrapper'><textarea class='v-textarea' placeholder='Enter message...'></textarea></div></div>"
+        "example": "<div class='m-label-wrapper'><label class='m-label-wrapper'>Textarea</label><div class='m-textarea-wrapper'><textarea class='m-textarea' placeholder='Enter message...'></textarea></div></div>"
     },
     { 
         "name": "Toast",
         "description": "A temporary, non-intrusive notification that appears in the bottom-right corner to provide feedback.",
-        "example": "<div class='v-toast'><span class='v-toast-message'>Copied to clipboard</span><button class='v-toast-dismiss' aria-label='close' onclick={onDismiss}><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-x-icon lucide-x'><path d='M18 6 6 18'/><path d='m6 6 12 12'/></svg></button></div>"
+        "example": "<div class='m-toast'><span class='m-toast-message'>Copied to clipboard</span><button class='m-toast-dismiss' aria-label='close' onclick={onDismiss}><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-x-icon lucide-x'><path d='M18 6 6 18'/><path d='m6 6 12 12'/></svg></button></div>"
     },
     { 
         "name": "Toggle",
         "description": "A switch control that allows users to turn an option on or off.",
-        "example": "<div class='v-toggle-wrapper'><input type='checkbox' class='v-toggle example-version' checked /></div>"
+        "example": "<div class='m-toggle-wrapper'><input type='checkbox' class='m-toggle example-version' checked /></div>"
     }
 ]

@@ -1,3 +1,3 @@
-<code class="v-code">
+<code class="m-code">
     <slot />
 </code>

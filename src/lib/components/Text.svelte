@@ -27,6 +27,6 @@
     export let style = "";
 </script>
 
-<svelte:element this={as} {id} class="v-text is-size-{size} is-{variant} has-weight-{weight} has-measure-{measure} is-align-{align} {mono ? "is-mono" : undefined}" {style}>
+<svelte:element this={as} {id} class="m-text is-size-{size} is-{variant} has-weight-{weight} has-measure-{measure} is-align-{align} {mono ? "is-mono" : undefined}" {style}>
     <slot />
 </svelte:element>

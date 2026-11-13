@@ -14,7 +14,7 @@
      * @param { number } step - Step in the scale (1-12)
      */
     function copy(scale, step) {
-        navigator.clipboard.writeText(`var(--v-${scale}-${step})`);
+        navigator.clipboard.writeText(`var(--m-${scale}-${step})`);
         copied = `${scale}-${step}`;
         clearTimeout(timer);
         timer = setTimeout(() => (copied = ""), 1000);
@@ -35,9 +35,9 @@
                 <button
                     class="swatch"
                     class:is-dark-icon={step >= 9}
-                    style="background-color: var(--v-{scale}-{step});"
-                    title="--v-{scale}-{step}"
-                    aria-label="Copy var(--v-{scale}-{step})"
+                    style="background-color: var(--m-{scale}-{step});"
+                    title="--m-{scale}-{step}"
+                    aria-label="Copy var(--m-{scale}-{step})"
                     onclick={() => copy(scale, step)}
                 >
                     {#if copied === `${scale}-${step}`}
@@ -56,10 +56,10 @@
     .palette {
         display: flex;
         flex-direction: column;
-        gap: var(--v-space-s);
-        padding: var(--v-space-l);
-        border-radius: var(--v-radius);
-        background-color: var(--v-color-surface);
+        gap: var(--m-space-s);
+        padding: var(--m-space-l);
+        border-radius: var(--m-radius);
+        background-color: var(--m-color-surface);
     }
 
     .row {
@@ -71,20 +71,20 @@
 
     .scale-name,
     .corner {
-        margin-inline-end: var(--v-space-m);
+        margin-inline-end: var(--m-space-m);
     }
 
     .scale-name {
-        font-family: var(--v-font-mono);
-        font-size: var(--v-font-size-s);
-        color: var(--v-color-text-weak);
+        font-family: var(--m-font-mono);
+        font-size: var(--m-font-size-s);
+        color: var(--m-color-text-weak);
         text-transform: capitalize;
     }
 
     .step {
-        font-family: var(--v-font-mono);
-        font-size: var(--v-font-size-s);
-        color: var(--v-color-text-weaker);
+        font-family: var(--m-font-mono);
+        font-size: var(--m-font-size-s);
+        color: var(--m-color-text-weaker);
         text-align: center;
     }
 
@@ -97,16 +97,16 @@
         border: none;
         border-radius: 6px;
         box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.04);
-        color: var(--v-color-text);
+        color: var(--m-color-text);
         cursor: pointer;
     }
 
     .swatch.is-dark-icon {
-        color: var(--v-color-text-contrast);
+        color: var(--m-color-text-contrast);
     }
 
     .swatch:focus-visible {
-        outline: 2px solid var(--v-color-info);
+        outline: 2px solid var(--m-color-info);
         outline-offset: 2px;
     }
 
@@ -128,12 +128,12 @@
     /* Narrow screens: scale name above its row; numbers still line up with the swatches */
     @media (max-width: 36rem) {
         .palette {
-            padding: var(--v-space-m);
+            padding: var(--m-space-m);
         }
 
         .row {
             grid-template-columns: repeat(12, minmax(0, 1fr));
-            row-gap: var(--v-space-xs);
+            row-gap: var(--m-space-xs);
         }
 
         .scale-name {

@@ -16,7 +16,7 @@
 
 <a
     {href}
-    class="v-nav-group-item"
+    class="m-nav-group-item"
     aria-current={active}
     on:click
     on:mouseenter={() => animate = true}

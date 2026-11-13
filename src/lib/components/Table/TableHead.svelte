@@ -3,6 +3,6 @@
     export let align = "start";
 </script>
 
-<th class="v-table-head is-align-{align}">
+<th class="m-table-head is-align-{align}">
     <slot />
 </th>

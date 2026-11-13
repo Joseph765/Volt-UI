@@ -18,6 +18,6 @@
     export let style = "";
 </script>
 
-<div class="v-flex has-direction-{direction} is-align-{align} has-gap-{gap} {wrap ? "has-flex-wrap" : "has-flex-nowrap"} has-justify-{justify}" {style}>
+<div class="m-flex has-direction-{direction} is-align-{align} has-gap-{gap} {wrap ? "has-flex-wrap" : "has-flex-nowrap"} has-justify-{justify}" {style}>
     <slot />
 </div>

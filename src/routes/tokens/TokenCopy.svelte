@@ -1,5 +1,5 @@
 <script>
-    /** @type {{ token: string }} e.g. "--v-space-m" */
+    /** @type {{ token: string }} e.g. "--m-space-m" */
     let { token } = $props();
 
     let copied = $state(false);
@@ -27,16 +27,16 @@
     .token-copy {
         display: inline-flex;
         align-items: center;
-        gap: var(--v-space-s);
+        gap: var(--m-space-s);
         max-width: 100%;
-        padding: var(--v-space-xs) var(--v-space-s);
-        border: 1px solid var(--v-color-border);
-        border-radius: var(--v-radius-sharp);
-        background-color: var(--v-color-background);
-        color: var(--v-color-text);
-        font-family: var(--v-font-mono);
-        font-size: var(--v-font-size-s);
-        line-height: var(--v-line-height-s);
+        padding: var(--m-space-xs) var(--m-space-s);
+        border: 1px solid var(--m-color-border);
+        border-radius: var(--m-radius-sharp);
+        background-color: var(--m-color-background);
+        color: var(--m-color-text);
+        font-family: var(--m-font-mono);
+        font-size: var(--m-font-size-s);
+        line-height: var(--m-line-height-s);
         cursor: pointer;
         transition: border-color 0.15s ease, color 0.15s ease;
     }
@@ -49,27 +49,27 @@
 
     .copy-icon {
         flex-shrink: 0;
-        color: var(--v-color-text-weaker);
+        color: var(--m-color-text-weaker);
         transition: color 0.15s ease;
     }
 
     .token-copy.is-copied {
-        border-color: var(--v-color-border-success);
-        color: var(--v-success-11);
+        border-color: var(--m-color-border-success);
+        color: var(--m-success-11);
     }
 
     .token-copy:focus-visible {
-        outline: 2px solid var(--v-color-info);
+        outline: 2px solid var(--m-color-info);
         outline-offset: 2px;
     }
 
     @media (pointer: fine) {
         .token-copy:hover {
-            border-color: var(--v-accent-7);
+            border-color: var(--m-accent-7);
         }
 
         .token-copy:hover .copy-icon {
-            color: var(--v-color-text-accent);
+            color: var(--m-color-text-accent);
         }
     }
 </style>

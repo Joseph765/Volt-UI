@@ -1,3 +1,3 @@
-<tbody class="v-table-body">
+<tbody class="m-table-body">
     <slot />
 </tbody>

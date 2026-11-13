@@ -39,19 +39,19 @@
     let suffixWidth = 0;
 </script>
 
-<div class="v-label-wrapper">
+<div class="m-label-wrapper">
     {#if label}
-        <label class="v-label" for={name}>
+        <label class="m-label" for={name}>
           {label}
           {#if required}
-            <span class="v-required">*</span>
+            <span class="m-required">*</span>
           {/if}
         </label>
     {/if}
 
-    <div class="v-input-wrapper {expanded ? "is-expanded" : undefined}">
+    <div class="m-input-wrapper {expanded ? "is-expanded" : undefined}">
         {#if $$slots.prefix}
-          <span class="v-input-prefix" bind:clientWidth={prefixWidth}>
+          <span class="m-input-prefix" bind:clientWidth={prefixWidth}>
             <slot name="prefix" />
           </span>
         {/if}
@@ -66,23 +66,23 @@
             on:change
             on:keydown
             {...$$restProps}
-            class="v-input {expanded ? "is-expanded" : undefined} {error ? "is-danger" : undefined} is-align-{align}"
+            class="m-input {expanded ? "is-expanded" : undefined} {error ? "is-danger" : undefined} is-align-{align}"
             style:padding-inline-start={prefixWidth ? `${prefixWidth}px` : undefined}
             style:padding-inline-end={(type === 'number' && suffixWidth) ? `${suffixWidth + 16}px` : suffixWidth ? `${suffixWidth + 16}px` : undefined}
         />
     
         {#if $$slots.suffix}
-          <span class="v-input-suffix" bind:clientHeight={suffixWidth}>
+          <span class="m-input-suffix" bind:clientHeight={suffixWidth}>
             <slot name="suffix" />
           </span>
         {/if}
     </div>
 
     {#if error}
-        <span class="v-text is-danger is-size-s">{error}</span>
+        <span class="m-text is-danger is-size-s">{error}</span>
     {/if}
 
     {#if hint}
-      <span class="v-text is-size-s is-weak">{hint}</span>
+      <span class="m-text is-size-s is-weak">{hint}</span>
     {/if}
 </div>

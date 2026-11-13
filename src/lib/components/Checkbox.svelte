@@ -25,7 +25,7 @@
 </script>
 
 <label
-    class="v-checkbox-wrapper {error ? "is-danger" : undefined} {hint ? "has-hint" : undefined}"
+    class="m-checkbox-wrapper {error ? "is-danger" : undefined} {hint ? "has-hint" : undefined}"
     {style}
 >
     <input
@@ -36,31 +36,31 @@
         bind:indeterminate
         {...$$restProps}
         tabindex="0"
-        class="v-checkbox-input"
+        class="m-checkbox-input"
     />
 
-    <span class="v-checkbox-box {error ? "is-danger" : undefined}">
+    <span class="m-checkbox-box {error ? "is-danger" : undefined}">
         {#if checked}
             <!-- Check mark -->
-            <svg class="v-checkbox-check" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <svg class="m-checkbox-check" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
         {/if}
 
         {#if indeterminate}
             <!-- Indeterminate dash -->
-            <svg class="v-checkbox-indeterminate" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+            <svg class="m-checkbox-indeterminate" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
         {/if}
     </span>
 
     {#if label}
-        <span class="v-checkbox-label">
+        <span class="m-checkbox-label">
             {#if label}
                 {label}
             {/if}
             {#if error}
-                <span class="v-text is-danger is-size-s">{error}</span>
+                <span class="m-text is-danger is-size-s">{error}</span>
             {/if}
             {#if hint}
-                <span class="v-text is-weak is-size-s">{hint}</span>
+                <span class="m-text is-weak is-size-s">{hint}</span>
             {/if}
         </span>
     {/if}

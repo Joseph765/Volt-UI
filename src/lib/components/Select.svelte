@@ -51,19 +51,19 @@
     let prefixWidth = 0;
 </script>
 
-<div class="v-label-wrapper">
+<div class="m-label-wrapper">
     {#if label}
-        <label class="v-label" for={name}>
+        <label class="m-label" for={name}>
           {label}
           {#if required}
-            <span class="v-required">*</span>
+            <span class="m-required">*</span>
           {/if}
         </label>
     {/if}
 
-    <div class="v-select-wrapper {expanded ? "is-expanded" : undefined} {error ? "is-danger" : undefined}" {style}>
+    <div class="m-select-wrapper {expanded ? "is-expanded" : undefined} {error ? "is-danger" : undefined}" {style}>
         {#if $$slots.prefix}
-            <span class="v-select-prefix" bind:clientWidth={prefixWidth}>
+            <span class="m-select-prefix" bind:clientWidth={prefixWidth}>
                 <slot name="prefix" />
             </span>
         {/if}
@@ -75,7 +75,7 @@
             {required}
             {autocomplete}
             {...$$restProps}
-            class="v-select"
+            class="m-select"
             class:has-placeholder={value === ""}
             style:padding-inline-start={prefixWidth ? `${prefixWidth}px` : undefined}
         >
@@ -93,13 +93,13 @@
         </select>
 
         {#if $$slots.suffix}
-            <span class="v-select-suffix">
+            <span class="m-select-suffix">
                 <slot name="suffix" />
             </span>
         {/if}
 
         <!-- Dropdown arrow -->
-        <span class="v-select-arrow">
+        <span class="m-select-arrow">
             <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path
                     fill-rule="evenodd"
@@ -111,10 +111,10 @@
     </div>
 
     {#if error}
-        <span class="v-text is-size-s is-danger">{error}</span>
+        <span class="m-text is-size-s is-danger">{error}</span>
     {/if}
 
     {#if hint}
-        <span class="v-text is-size-s is-weak">{hint}</span>
+        <span class="m-text is-size-s is-weak">{hint}</span>
     {/if}
 </div>

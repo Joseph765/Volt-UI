@@ -227,8 +227,8 @@
                             {#each steps as step}
                                 <span
                                     class="swatch"
-                                    style="background-color: var(--v-{scale}-{step});"
-                                    title="--v-{scale}-{step}"
+                                    style="background-color: var(--m-{scale}-{step});"
+                                    title="--m-{scale}-{step}"
                                 ></span>
                             {/each}
                         </div>
@@ -258,7 +258,7 @@
         display: flex;
         flex-direction: column;
         gap: 6rem;
-        padding-block-end: var(--v-space-2xl);
+        padding-block-end: var(--m-space-2xl);
     }
 
     /* Hero */
@@ -267,7 +267,7 @@
         /* Keep the glow/content z-index layering local so it can't paint over the mobile nav */
         isolation: isolate;
         display: grid;
-        gap: var(--v-space-2xl);
+        gap: var(--m-space-2xl);
         align-items: center;
     }
 
@@ -277,7 +277,7 @@
         width: 36rem;
         height: 28rem;
         max-width: 100%;
-        background: radial-gradient(closest-side, color-mix(in srgb, var(--v-accent-9) 28%, transparent), transparent);
+        background: radial-gradient(closest-side, color-mix(in srgb, var(--m-accent-9) 28%, transparent), transparent);
         filter: blur(20px);
         pointer-events: none;
         z-index: 0;
@@ -292,22 +292,22 @@
     .hero-copy {
         display: flex;
         flex-direction: column;
-        gap: var(--v-space-l);
+        gap: var(--m-space-l);
     }
 
     .hero-title {
         margin: 0;
-        font-family: var(--v-font);
-        font-size: var(--v-font-size-4xl);
-        font-weight: var(--v-font-weight-black);
+        font-family: var(--m-font);
+        font-size: var(--m-font-size-4xl);
+        font-weight: var(--m-font-weight-black);
         line-height: 1.05;
-        letter-spacing: var(--v-letter-spacing-4xl);
-        color: var(--v-color-text);
+        letter-spacing: var(--m-letter-spacing-4xl);
+        color: var(--m-color-text);
         text-wrap: balance;
     }
 
     .accent {
-        background: linear-gradient(90deg, var(--v-accent-11), var(--v-accent-9) 60%, var(--v-info-10));
+        background: linear-gradient(90deg, var(--m-accent-11), var(--m-accent-9) 60%, var(--m-info-10));
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -322,16 +322,16 @@
         max-width: 26rem;
     }
 
-    .hero-demo :global(.v-card) {
-        background-color: var(--v-color-surface);
-        box-shadow: 0 24px 60px -20px color-mix(in srgb, var(--v-accent-9) 45%, transparent);
+    .hero-demo :global(.m-card) {
+        background-color: var(--m-color-surface);
+        box-shadow: 0 24px 60px -20px color-mix(in srgb, var(--m-accent-9) 45%, transparent);
     }
 
     .demo-caption {
-        margin: var(--v-space-m) 0 0;
+        margin: var(--m-space-m) 0 0;
         text-align: center;
-        font-size: var(--v-font-size-s);
-        color: var(--v-color-text-weaker);
+        font-size: var(--m-font-size-s);
+        color: var(--m-color-text-weaker);
     }
 
     @media (min-width: 72rem) {
@@ -347,18 +347,18 @@
     .stats {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        border-radius: var(--v-radius);
-        background-color: var(--v-color-surface);
+        border-radius: var(--m-radius);
+        background-color: var(--m-color-surface);
         overflow: hidden;
     }
 
     .stat {
         display: flex;
         flex-direction: column;
-        gap: var(--v-space-xs);
-        padding: var(--v-space-l);
-        border-inline-end: 1px solid var(--v-color-border);
-        border-block-end: 1px solid var(--v-color-border);
+        gap: var(--m-space-xs);
+        padding: var(--m-space-l);
+        border-inline-end: 1px solid var(--m-color-border);
+        border-block-end: 1px solid var(--m-color-border);
     }
 
     .stat:nth-child(2n) {
@@ -370,15 +370,15 @@
     }
 
     .stat-value {
-        font-size: var(--v-font-size-3xl);
-        font-weight: var(--v-font-weight-black);
+        font-size: var(--m-font-size-3xl);
+        font-weight: var(--m-font-weight-black);
         line-height: 1;
-        color: var(--v-color-text);
+        color: var(--m-color-text);
     }
 
     .stat-label {
-        font-size: var(--v-font-size-m);
-        color: var(--v-color-text-weak);
+        font-size: var(--m-font-size-m);
+        color: var(--m-color-text-weak);
     }
 
     @media (min-width: 48rem) {
@@ -391,7 +391,7 @@
         }
 
         .stat:nth-child(2n) {
-            border-inline-end: 1px solid var(--v-color-border);
+            border-inline-end: 1px solid var(--m-color-border);
         }
 
         .stat:last-child {
@@ -403,13 +403,13 @@
     .section {
         display: flex;
         flex-direction: column;
-        gap: var(--v-space-xl);
+        gap: var(--m-space-xl);
     }
 
     .section-head {
         display: flex;
         flex-direction: column;
-        gap: var(--v-space-s);
+        gap: var(--m-space-s);
     }
 
     .section-head.is-row {
@@ -417,17 +417,17 @@
         flex-wrap: wrap;
         align-items: flex-end;
         justify-content: space-between;
-        gap: var(--v-space-m);
+        gap: var(--m-space-m);
     }
 
     .section-head.is-row > div {
         display: flex;
         flex-direction: column;
-        gap: var(--v-space-s);
+        gap: var(--m-space-s);
     }
 
     .inline-link {
-        color: var(--v-color-text-accent);
+        color: var(--m-color-text-accent);
         text-decoration: none;
         white-space: nowrap;
     }
@@ -439,16 +439,16 @@
     /* Features */
     .features {
         display: grid;
-        gap: var(--v-space-l);
+        gap: var(--m-space-l);
     }
 
     .feature {
         display: flex;
         flex-direction: column;
-        gap: var(--v-space-s);
-        padding: var(--v-space-l);
-        border-radius: var(--v-radius);
-        background-color: var(--v-color-surface);
+        gap: var(--m-space-s);
+        padding: var(--m-space-l);
+        border-radius: var(--m-radius);
+        background-color: var(--m-color-surface);
     }
 
     .feature-icon {
@@ -457,11 +457,11 @@
         justify-content: center;
         width: 2.75rem;
         height: 2.75rem;
-        margin-block-end: var(--v-space-s);
-        border-radius: var(--v-radius-sharp);
-        background-color: var(--v-accent-3);
-        border: 1px solid var(--v-accent-5);
-        color: var(--v-accent-11);
+        margin-block-end: var(--m-space-s);
+        border-radius: var(--m-radius-sharp);
+        background-color: var(--m-accent-3);
+        border: 1px solid var(--m-accent-5);
+        color: var(--m-accent-11);
     }
 
     @media (min-width: 40rem) {
@@ -489,8 +489,8 @@
         position: relative;
         display: grid;
         grid-template-columns: 2.5rem minmax(0, 1fr);
-        gap: var(--v-space-m);
-        padding-block-end: var(--v-space-xl);
+        gap: var(--m-space-m);
+        padding-block-end: var(--m-space-xl);
     }
 
     .step:last-child {
@@ -502,10 +502,10 @@
         content: "";
         position: absolute;
         top: 2.75rem;
-        bottom: var(--v-space-s);
+        bottom: var(--m-space-s);
         left: calc(1.25rem - 1px);
         width: 2px;
-        background: linear-gradient(var(--v-accent-6), var(--v-color-border));
+        background: linear-gradient(var(--m-accent-6), var(--m-color-border));
     }
 
     .step-number {
@@ -514,17 +514,17 @@
         justify-content: center;
         width: 2.5rem;
         height: 2.5rem;
-        border-radius: var(--v-radius-full);
-        background-color: var(--v-accent-3);
-        border: 1px solid var(--v-accent-7);
-        color: var(--v-accent-11);
-        font-weight: var(--v-font-weight-bold);
+        border-radius: var(--m-radius-full);
+        background-color: var(--m-accent-3);
+        border: 1px solid var(--m-accent-7);
+        color: var(--m-accent-11);
+        font-weight: var(--m-font-weight-bold);
     }
 
     .step-body {
         display: flex;
         flex-direction: column;
-        gap: var(--v-space-s);
+        gap: var(--m-space-s);
         padding-block-start: 0.4rem;
         min-width: 0;
     }
@@ -532,16 +532,16 @@
     /* Component showcase */
     .showcase-grid {
         display: grid;
-        gap: var(--v-space-m);
+        gap: var(--m-space-m);
         grid-template-columns: minmax(0, 1fr);
     }
 
     .showcase-card {
         display: flex;
         flex-direction: column;
-        border-radius: var(--v-radius);
-        background-color: var(--v-color-surface-raised);
-        color: var(--v-color-text);
+        border-radius: var(--m-radius);
+        background-color: var(--m-color-surface-raised);
+        color: var(--m-color-text);
         text-decoration: none;
         overflow: hidden;
         transition: border-color 0.15s ease, box-shadow 0.15s ease;
@@ -552,21 +552,21 @@
         align-items: center;
         justify-content: center;
         height: 10rem;
-        padding: var(--v-space-m) var(--v-space-l);
+        padding: var(--m-space-m) var(--m-space-l);
         overflow: hidden;
-        background-color: var(--v-color-surface);
+        background-color: var(--m-color-surface);
         pointer-events: none;
         user-select: none;
     }
 
     /* The shared example sizes the banner for the unpadded components page; fill the padded preview here */
-    .showcase-preview :global(.v-banner) {
+    .showcase-preview :global(.m-banner) {
         width: 100% !important;
     }
 
     /* Inputs default to a fixed 16rem, which overflows the narrower preview cards */
-    .showcase-preview :global(.v-label-wrapper),
-    .showcase-preview :global(.v-input) {
+    .showcase-preview :global(.m-label-wrapper),
+    .showcase-preview :global(.m-input) {
         width: 100%;
     }
 
@@ -574,27 +574,27 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: var(--v-space-m);
+        padding: var(--m-space-m);
     }
 
     .arrow {
-        color: var(--v-color-text-weaker);
+        color: var(--m-color-text-weaker);
         transition: transform 0.15s ease, color 0.15s ease;
     }
 
     .showcase-card:focus-visible {
-        outline: 2px solid var(--v-color-accent);
+        outline: 2px solid var(--m-color-accent);
         outline-offset: 2px;
     }
 
     @media (pointer: fine) {
         .showcase-card:hover {
-            border-color: var(--v-color-accent);
-            box-shadow: 0 0 12px 2px color-mix(in srgb, var(--v-color-highlight) 60%, transparent);
+            border-color: var(--m-color-accent);
+            box-shadow: 0 0 12px 2px color-mix(in srgb, var(--m-color-highlight) 60%, transparent);
         }
 
         .showcase-card:hover .arrow {
-            color: var(--v-color-text-accent);
+            color: var(--m-color-text-accent);
             transform: translateX(4px);
         }
     }
@@ -615,23 +615,23 @@
     .palette {
         display: flex;
         flex-direction: column;
-        gap: var(--v-space-s);
-        padding: var(--v-space-l);
-        border-radius: var(--v-radius);
-        background-color: var(--v-color-surface);
+        gap: var(--m-space-s);
+        padding: var(--m-space-l);
+        border-radius: var(--m-radius);
+        background-color: var(--m-color-surface);
     }
 
     .scale {
         display: grid;
         grid-template-columns: 5rem minmax(0, 1fr);
         align-items: center;
-        gap: var(--v-space-m);
+        gap: var(--m-space-m);
     }
 
     .scale-name {
-        font-family: var(--v-font-mono);
-        font-size: var(--v-font-size-s);
-        color: var(--v-color-text-weak);
+        font-family: var(--m-font-mono);
+        font-size: var(--m-font-size-s);
+        color: var(--m-color-text-weak);
         text-transform: capitalize;
     }
 
@@ -650,7 +650,7 @@
     @media (max-width: 36rem) {
         .scale {
             grid-template-columns: minmax(0, 1fr);
-            gap: var(--v-space-xs);
+            gap: var(--m-space-xs);
         }
 
         .swatch {
@@ -664,15 +664,15 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: var(--v-space-m);
-        padding: var(--v-space-2xl) var(--v-space-l);
-        border-radius: var(--v-radius);
+        gap: var(--m-space-m);
+        padding: var(--m-space-2xl) var(--m-space-l);
+        border-radius: var(--m-radius);
         background:
-            radial-gradient(ellipse at top, color-mix(in srgb, var(--v-accent-9) 30%, transparent), transparent 70%),
-            var(--v-color-surface);
+            radial-gradient(ellipse at top, color-mix(in srgb, var(--m-accent-9) 30%, transparent), transparent 70%),
+            var(--m-color-surface);
     }
 
-    .cta :global(.v-flex) {
-        margin-block-start: var(--v-space-s);
+    .cta :global(.m-flex) {
+        margin-block-start: var(--m-space-s);
     }
 </style>

@@ -1,3 +1,3 @@
-<thead class="v-table-header">
+<thead class="m-table-header">
     <slot />
 </thead>

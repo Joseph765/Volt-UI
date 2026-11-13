@@ -203,23 +203,23 @@
 
 <style>
     .example-logo {
-        font-family: var(--v-font);
-        font-size: var(--v-font-size-3xl);
-        font-weight: var(--v-font-weight-black);
+        font-family: var(--m-font);
+        font-size: var(--m-font-size-3xl);
+        font-weight: var(--m-font-weight-black);
         line-height: 1;
-        color: var(--v-color-text);
+        color: var(--m-color-text);
         text-decoration: none;
     }
 
     .example-mobile-logo {
-        font-family: var(--v-font);
-        font-size: var(--v-font-size-2xl);
-        font-weight: var(--v-font-weight-black);
+        font-family: var(--m-font);
+        font-size: var(--m-font-size-2xl);
+        font-weight: var(--m-font-weight-black);
         line-height: 1;
-        color: var(--v-color-text);
+        color: var(--m-color-text);
         text-decoration: none;
-        background-color: var(--v-accent-4);
-        padding: var(--v-space-s) var(--v-space-m);
-        border-radius: var(--v-radius);
+        background-color: var(--m-accent-4);
+        padding: var(--m-space-s) var(--m-space-m);
+        border-radius: var(--m-radius);
     }
 </style>

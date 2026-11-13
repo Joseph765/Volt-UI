@@ -58,11 +58,11 @@
     }
 </script>
 
-<div class="v-tabs" role="tablist" tabindex="0" on:keydown={handleKeyDown}>
+<div class="m-tabs" role="tablist" tabindex="0" on:keydown={handleKeyDown}>
     {#each tabs as tab, i}
         <button 
             bind:this={tabButtons[i]}
-            class="v-tab" 
+            class="m-tab" 
             role="tab" 
             id="tab-{tab.id}"
             aria-selected={selected === tab.id ? true : false} 

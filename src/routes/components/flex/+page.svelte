@@ -262,7 +262,7 @@
         {/if}
     </Flex>
 
-    <div class="v-table-wrapper">
+    <div class="m-table-wrapper">
         <Table>
             <TableHeader>
                 <TableRow>

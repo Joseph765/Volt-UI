@@ -22,7 +22,7 @@
         dispatch("close");
         if (hadFocus) {
             /** @type { HTMLElement | null | undefined } */
-            const menuButton = nav.closest(".v-layout")?.querySelector(".v-layout-menu-button");
+            const menuButton = nav.closest(".m-layout")?.querySelector(".m-layout-menu-button");
             menuButton?.focus();
         }
     }
@@ -30,6 +30,6 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<nav class="v-layout-nav" class:is-open={open} aria-label={label} bind:this={nav}>
+<nav class="m-layout-nav" class:is-open={open} aria-label={label} bind:this={nav}>
     <slot />
 </nav>

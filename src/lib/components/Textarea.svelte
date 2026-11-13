@@ -30,17 +30,17 @@
     export let style = undefined;
 </script>
 
-<div class="v-label-wrapper">
+<div class="m-label-wrapper">
     {#if label}
-        <label class="v-label" for={name}>
+        <label class="m-label" for={name}>
           {label}
           {#if required}
-            <span class="v-required">*</span>
+            <span class="m-required">*</span>
           {/if}
         </label>
     {/if}
 
-    <div class="v-textarea-wrapper {expanded ? "is-expanded" : undefined}">
+    <div class="m-textarea-wrapper {expanded ? "is-expanded" : undefined}">
         <textarea
             {name}
             {required}
@@ -48,15 +48,15 @@
             {style}
             bind:value
             {...$$restProps}
-            class="v-textarea {expanded ? "is-expanded" : undefined} {error ? "is-danger" : undefined} is-align-{align}"
+            class="m-textarea {expanded ? "is-expanded" : undefined} {error ? "is-danger" : undefined} is-align-{align}"
         ></textarea>
     </div>
 
     {#if error}
-        <span class="v-text is-size-s is-danger">{error}</span>
+        <span class="m-text is-size-s is-danger">{error}</span>
     {/if}
 
     {#if hint}
-      <span class="v-text is-size-s is-weak">{hint}</span>
+      <span class="m-text is-size-s is-weak">{hint}</span>
     {/if}
 </div>

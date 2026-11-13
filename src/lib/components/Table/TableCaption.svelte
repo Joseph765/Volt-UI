@@ -1,3 +1,3 @@
-<caption class="v-table-caption">
+<caption class="m-table-caption">
     <slot />
 </caption>

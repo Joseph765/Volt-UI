@@ -5,8 +5,8 @@
     import TokenCopy from "./TokenCopy.svelte";
 
     const fonts = [
-        { token: "--v-font", name: "Outfit", mono: false, description: "Font family for the Moth design system." },
-        { token: "--v-font-mono", name: "Geist Mono", mono: true, description: "Only used for code snippets and code examples." }
+        { token: "--m-font", name: "Outfit", mono: false, description: "Font family for the Moth design system." },
+        { token: "--m-font-mono", name: "Geist Mono", mono: true, description: "Only used for code snippets and code examples." }
     ];
 
     const sizes = [
@@ -30,9 +30,9 @@
     ];
 
     const radii = [
-        { token: "--v-radius-sharp", name: "Sharp", description: "Small elements like checkboxes." },
-        { token: "--v-radius", name: "Default", description: "The default for most components." },
-        { token: "--v-radius-full", name: "Full", description: "Pill shapes like buttons." }
+        { token: "--m-radius-sharp", name: "Sharp", description: "Small elements like checkboxes." },
+        { token: "--m-radius", name: "Default", description: "The default for most components." },
+        { token: "--m-radius-full", name: "Full", description: "Pill shapes like buttons." }
     ];
 
     /** kind: "fill" shows the color as a block, "text" shows it as type on a surface */
@@ -40,30 +40,30 @@
         {
             title: "Surfaces & borders",
             colors: [
-                { token: "--v-color-background", name: "Background", kind: "fill", description: "Background color of the content area." },
-                { token: "--v-color-surface", name: "Surface", kind: "fill", description: "Surfaces on top of the background." },
-                { token: "--v-color-surface-raised", name: "Surface raised", kind: "fill", description: "Surfaces on top of surfaces." },
-                { token: "--v-color-border", name: "Border", kind: "fill", description: "Default border color." }
+                { token: "--m-color-background", name: "Background", kind: "fill", description: "Background color of the content area." },
+                { token: "--m-color-surface", name: "Surface", kind: "fill", description: "Surfaces on top of the background." },
+                { token: "--m-color-surface-raised", name: "Surface raised", kind: "fill", description: "Surfaces on top of surfaces." },
+                { token: "--m-color-border", name: "Border", kind: "fill", description: "Default border color." }
             ]
         },
         {
             title: "Text",
             colors: [
-                { token: "--v-color-text", name: "Text", kind: "text", description: "Default color for text." },
-                { token: "--v-color-text-weak", name: "Text weak", kind: "text", description: "Subdued color for body text." },
-                { token: "--v-color-text-weaker", name: "Text weaker", kind: "text", description: "More subdued color for body text." },
-                { token: "--v-color-text-weakest", name: "Text weakest", kind: "text", description: "Placeholders in form elements." }
+                { token: "--m-color-text", name: "Text", kind: "text", description: "Default color for text." },
+                { token: "--m-color-text-weak", name: "Text weak", kind: "text", description: "Subdued color for body text." },
+                { token: "--m-color-text-weaker", name: "Text weaker", kind: "text", description: "More subdued color for body text." },
+                { token: "--m-color-text-weakest", name: "Text weakest", kind: "text", description: "Placeholders in form elements." }
             ]
         },
         {
             title: "Accent & status",
             colors: [
-                { token: "--v-color-accent", name: "Accent", kind: "fill", description: "Brand color for primary actions and highlights." },
-                { token: "--v-color-info", name: "Info", kind: "fill", description: "Informational messages." },
-                { token: "--v-color-success", name: "Success", kind: "fill", description: "To convey success." },
-                { token: "--v-color-warning", name: "Warning", kind: "fill", description: "Use to warn the user." },
-                { token: "--v-color-danger", name: "Danger", kind: "fill", description: "Errors, or when something will be deleted." },
-                { token: "--v-color-neutral", name: "Neutral", kind: "fill", description: "Solid neutral status color, used on components like badge." }
+                { token: "--m-color-accent", name: "Accent", kind: "fill", description: "Brand color for primary actions and highlights." },
+                { token: "--m-color-info", name: "Info", kind: "fill", description: "Informational messages." },
+                { token: "--m-color-success", name: "Success", kind: "fill", description: "To convey success." },
+                { token: "--m-color-warning", name: "Warning", kind: "fill", description: "Use to warn the user." },
+                { token: "--m-color-danger", name: "Danger", kind: "fill", description: "Errors, or when something will be deleted." },
+                { token: "--m-color-neutral", name: "Neutral", kind: "fill", description: "Solid neutral status color, used on components like badge." }
             ]
         }
     ];
@@ -75,8 +75,8 @@
     onMount(() => {
         const styles = getComputedStyle(document.documentElement);
         const tokens = [
-            ...sizes.flatMap((s) => [`--v-font-size-${s.key}`, `--v-line-height-${s.key}`]),
-            ...spaces.map((s) => `--v-space-${s.key}`),
+            ...sizes.flatMap((s) => [`--m-font-size-${s.key}`, `--m-line-height-${s.key}`]),
+            ...spaces.map((s) => `--m-space-${s.key}`),
             ...radii.map((r) => r.token),
             ...colorGroups.flatMap((g) => g.colors.map((c) => c.token))
         ];
@@ -148,14 +148,14 @@
             </div>
             <div class="panel rows">
                 {#each sizes as size}
-                    {@const token = `--v-font-size-${size.key}`}
+                    {@const token = `--m-font-size-${size.key}`}
                     <div class="row">
                         <div class="row-token">
                             <TokenCopy {token} />
                             <span class="row-description">{size.description}</span>
                         </div>
                         <span class="row-value">{px(values[token])}</span>
-                        <p class="type-sample" style="font-size: var({token}); line-height: var(--v-line-height-{size.key});">
+                        <p class="type-sample" style="font-size: var({token}); line-height: var(--m-line-height-{size.key});">
                             Ship with confidence
                         </p>
                     </div>
@@ -171,14 +171,14 @@
             </div>
             <div class="panel rows">
                 {#each sizes as size}
-                    {@const token = `--v-line-height-${size.key}`}
+                    {@const token = `--m-line-height-${size.key}`}
                     <div class="row">
                         <div class="row-token">
                             <TokenCopy {token} />
                             <span class="row-description">Use with the {size.key} font size.</span>
                         </div>
                         <span class="row-value">{values[token]}</span>
-                        <p class="leading-sample" style="font-size: var(--v-font-size-{size.key}); line-height: var({token});">
+                        <p class="leading-sample" style="font-size: var(--m-font-size-{size.key}); line-height: var({token});">
                             Modular, consistent<br />and ready for production.
                         </p>
                     </div>
@@ -194,7 +194,7 @@
             </div>
             <div class="panel rows">
                 {#each spaces as space}
-                    {@const token = `--v-space-${space.key}`}
+                    {@const token = `--m-space-${space.key}`}
                     <div class="row">
                         <div class="row-token">
                             <TokenCopy {token} />
@@ -284,74 +284,74 @@
     .page {
         display: flex;
         flex-direction: column;
-        gap: var(--v-space-2xl);
-        padding-block-end: var(--v-space-2xl);
+        gap: var(--m-space-2xl);
+        padding-block-end: var(--m-space-2xl);
     }
 
     .intro,
     .section-head {
         display: flex;
         flex-direction: column;
-        gap: var(--v-space-s);
+        gap: var(--m-space-s);
     }
 
     .section {
         display: flex;
         flex-direction: column;
-        gap: var(--v-space-l);
+        gap: var(--m-space-l);
         /* Leave room above anchored sections when jumping from the nav */
-        scroll-margin-block-start: var(--v-space-l);
+        scroll-margin-block-start: var(--m-space-l);
     }
 
     .panel {
-        border-radius: var(--v-radius);
-        background-color: var(--v-color-surface);
+        border-radius: var(--m-radius);
+        background-color: var(--m-color-surface);
     }
 
     /* Font */
     .fonts {
         display: grid;
-        gap: var(--v-space-m);
+        gap: var(--m-space-m);
     }
 
     .font-card {
         display: flex;
-        gap: var(--v-space-l);
-        padding: var(--v-space-l);
+        gap: var(--m-space-l);
+        padding: var(--m-space-l);
     }
 
     .font-glyph {
         flex-shrink: 0;
-        font-family: var(--v-font);
+        font-family: var(--m-font);
         font-size: 4.5rem;
-        font-weight: var(--v-font-weight-black);
+        font-weight: var(--m-font-weight-black);
         line-height: 1;
-        color: var(--v-color-text-accent);
+        color: var(--m-color-text-accent);
     }
 
     .font-card.is-mono .font-glyph,
     .font-card.is-mono .font-sample {
-        font-family: var(--v-font-mono);
+        font-family: var(--m-font-mono);
     }
 
     .font-card.is-mono .font-glyph {
-        font-weight: var(--v-font-weight-bold);
+        font-weight: var(--m-font-weight-bold);
     }
 
     .font-meta {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: var(--v-space-s);
+        gap: var(--m-space-s);
         min-width: 0;
     }
 
     .font-sample {
         margin: 0;
-        font-family: var(--v-font);
-        font-size: var(--v-font-size-m);
-        line-height: var(--v-line-height-m);
-        color: var(--v-color-text-weaker);
+        font-family: var(--m-font);
+        font-size: var(--m-font-size-m);
+        line-height: var(--m-line-height-m);
+        color: var(--m-color-text-weaker);
         overflow-wrap: anywhere;
     }
 
@@ -365,15 +365,15 @@
     .rows {
         display: flex;
         flex-direction: column;
-        padding-inline: var(--v-space-l);
+        padding-inline: var(--m-space-l);
     }
 
     .row {
         display: grid;
         grid-template-columns: minmax(0, 1fr);
-        gap: var(--v-space-s);
-        padding-block: var(--v-space-m);
-        border-block-end: 1px solid var(--v-color-border);
+        gap: var(--m-space-s);
+        padding-block: var(--m-space-m);
+        border-block-end: 1px solid var(--m-color-border);
     }
 
     .row:last-child {
@@ -384,27 +384,27 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: var(--v-space-xs);
+        gap: var(--m-space-xs);
         min-width: 0;
     }
 
     .row-description {
-        font-size: var(--v-font-size-s);
-        line-height: var(--v-line-height-s);
-        color: var(--v-color-text-weaker);
+        font-size: var(--m-font-size-s);
+        line-height: var(--m-line-height-s);
+        color: var(--m-color-text-weaker);
     }
 
     .row-value {
-        font-family: var(--v-font-mono);
-        font-size: var(--v-font-size-s);
-        color: var(--v-color-text-weak);
+        font-family: var(--m-font-mono);
+        font-size: var(--m-font-size-s);
+        color: var(--m-color-text-weak);
         white-space: nowrap;
     }
 
     .type-sample {
         margin: 0;
         min-width: 0;
-        color: var(--v-color-text);
+        color: var(--m-color-text);
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -414,10 +414,10 @@
     .leading-sample {
         margin: 0;
         min-width: 0;
-        color: var(--v-color-text);
-        background-image: linear-gradient(to bottom, transparent calc(100% - 1px), var(--v-gray-6) calc(100% - 1px));
+        color: var(--m-color-text);
+        background-image: linear-gradient(to bottom, transparent calc(100% - 1px), var(--m-gray-6) calc(100% - 1px));
         background-size: 100% 1lh;
-        border-block-start: 1px solid var(--v-gray-6);
+        border-block-start: 1px solid var(--m-gray-6);
     }
 
     .space-track {
@@ -430,14 +430,14 @@
         display: block;
         height: 1rem;
         border-radius: 3px;
-        background-color: var(--v-color-accent);
+        background-color: var(--m-color-accent);
     }
 
     @media (min-width: 48rem) {
         .row {
             grid-template-columns: 14rem 5rem minmax(0, 1fr);
             align-items: center;
-            gap: var(--v-space-l);
+            gap: var(--m-space-l);
         }
     }
 
@@ -445,7 +445,7 @@
     .tiles {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-        gap: var(--v-space-m);
+        gap: var(--m-space-m);
     }
 
     /* Keep rows even: sets of 3 or 6 sit in three columns, sets of 4 in two or four */
@@ -482,68 +482,68 @@
         align-items: center;
         justify-content: center;
         height: 7rem;
-        border-block-end: 1px solid var(--v-color-border);
+        border-block-end: 1px solid var(--m-color-border);
     }
 
     .tile-preview.is-fill {
         /* Keep dark fills like the background color distinguishable from the page */
         box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
-        border-radius: var(--v-radius) var(--v-radius) 0 0;
+        border-radius: var(--m-radius) var(--m-radius) 0 0;
     }
 
     /* Text colors are shown as type on the card's own surface, where they're actually used */
     .tile-preview.is-text {
         flex-direction: column;
-        gap: var(--v-space-xs);
+        gap: var(--m-space-xs);
     }
 
     .text-glyph {
-        font-size: var(--v-font-size-3xl);
-        font-weight: var(--v-font-weight-black);
+        font-size: var(--m-font-size-3xl);
+        font-weight: var(--m-font-weight-black);
         line-height: 1;
     }
 
     .text-line {
-        font-size: var(--v-font-size-m);
+        font-size: var(--m-font-size-m);
     }
 
     .radius-shape {
         width: 5rem;
         height: 3.5rem;
-        border: 2px solid var(--v-color-accent);
-        background-color: var(--v-accent-3);
+        border: 2px solid var(--m-color-accent);
+        background-color: var(--m-accent-3);
     }
 
     .tile-body {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: var(--v-space-s);
+        gap: var(--m-space-s);
         flex: 1;
-        padding: var(--v-space-m);
+        padding: var(--m-space-m);
     }
 
     .tile-title {
         display: flex;
         justify-content: space-between;
         align-items: baseline;
-        gap: var(--v-space-s);
+        gap: var(--m-space-s);
         width: 100%;
     }
 
     .color-group {
         display: flex;
         flex-direction: column;
-        gap: var(--v-space-m);
+        gap: var(--m-space-m);
     }
 
     .group-title {
         margin: 0;
-        font-family: var(--v-font);
-        font-size: var(--v-font-size-s);
-        font-weight: var(--v-font-weight-bold);
-        letter-spacing: var(--v-letter-spacing-xs);
+        font-family: var(--m-font);
+        font-size: var(--m-font-size-s);
+        font-weight: var(--m-font-weight-bold);
+        letter-spacing: var(--m-letter-spacing-xs);
         text-transform: uppercase;
-        color: var(--v-color-text-weaker);
+        color: var(--m-color-text-weaker);
     }
 </style>

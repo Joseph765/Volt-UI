@@ -29,7 +29,7 @@
         <Flex direction="column">
             <Text size="2xl" weight="bold">Installation</Text>
             <Text size="l" variant="weak">Install with npm:</Text>
-            <CopyCode code="npm install moth-ui-svelte" style="background-color: var(--v-color-surface);" />
+            <CopyCode code="npm install moth-ui-svelte" style="background-color: var(--m-color-surface);" />
         </Flex>
 
         <Flex direction="column">
@@ -71,7 +71,7 @@ export default config;
             <Text size="2xl" weight="bold">Design Tokens</Text>
             <Text size="l" variant="weak" measure="l">
                 The foundation of Moth UI: reusable values for colors, spacing, typography, etc. 
-                Use them via CSS variables like <Code>var(--v-color-primary)</Code>. 
+                Use them via CSS variables like <Code>var(--m-color-primary)</Code>. 
                 See the full list in the <Link size="l" href="/tokens/">design tokens</Link> docs.
             </Text>
         </Flex>

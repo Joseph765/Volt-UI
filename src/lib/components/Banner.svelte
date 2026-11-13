@@ -6,8 +6,8 @@
     export let style = "";
 </script>
 
-<div class="v-banner is-{variant}" {style}>
-    <div class="v-banner-icon">
+<div class="m-banner is-{variant}" {style}>
+    <div class="m-banner-icon">
         {#if variant === "info"}
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
         {:else if variant === "warning"}
@@ -18,7 +18,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
         {/if}
     </div>
-    <div class="v-banner-content">
+    <div class="m-banner-content">
         <slot />
     </div>
 </div>

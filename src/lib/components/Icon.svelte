@@ -16,7 +16,7 @@
 
 {#if name}
     <svg 
-        class="v-icon is-{status} is-size-{size}" 
+        class="m-icon is-{status} is-size-{size}" 
         xmlns="http://www.w3.org/2000/svg" 
         width={size === "s" ? "12" : size === "m" ? "16" : size === "l" ? "24" : "16"} 
         height={size === "m" ? "16" : size === "l" ? "24" : "16"} 
