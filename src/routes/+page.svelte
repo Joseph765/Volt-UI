@@ -65,13 +65,12 @@
     <title>Volt UI · A dark-first design system for Svelte</title>
 </svelte:head>
 
-<Container size="xl">
+<Container size="2xl" align="center">
     <div class="page">
         <!-- Hero -->
         <section class="hero">
             <div class="hero-glow" aria-hidden="true"></div>
             <div class="hero-copy">
-                <Badge variant="info">Built for Svelte 5</Badge>
                 <h1 class="hero-title">
                     The design system that <span class="accent">ships with you.</span>
                 </h1>
@@ -325,9 +324,7 @@
 
     .hero-demo :global(.v-card) {
         background-color: var(--v-color-surface);
-        box-shadow:
-            0 0 0 1px var(--v-accent-4),
-            0 24px 60px -20px color-mix(in srgb, var(--v-accent-9) 45%, transparent);
+        box-shadow: 0 24px 60px -20px color-mix(in srgb, var(--v-accent-9) 45%, transparent);
     }
 
     .demo-caption {
@@ -346,12 +343,10 @@
             justify-self: end;
         }
     }
-
     /* Stats */
     .stats {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        border: 1px solid var(--v-color-border);
         border-radius: var(--v-radius);
         background-color: var(--v-color-surface);
         overflow: hidden;
@@ -452,7 +447,6 @@
         flex-direction: column;
         gap: var(--v-space-s);
         padding: var(--v-space-l);
-        border: 1px solid var(--v-color-border);
         border-radius: var(--v-radius);
         background-color: var(--v-color-surface);
     }
@@ -545,9 +539,8 @@
     .showcase-card {
         display: flex;
         flex-direction: column;
-        border: 1px solid var(--v-color-border);
         border-radius: var(--v-radius);
-        background-color: var(--v-color-surface);
+        background-color: var(--v-color-surface-raised);
         color: var(--v-color-text);
         text-decoration: none;
         overflow: hidden;
@@ -561,7 +554,7 @@
         height: 10rem;
         padding: var(--v-space-m) var(--v-space-l);
         overflow: hidden;
-        background-color: var(--v-color-background);
+        background-color: var(--v-color-surface);
         pointer-events: none;
         user-select: none;
     }
@@ -582,7 +575,6 @@
         justify-content: space-between;
         align-items: center;
         padding: var(--v-space-m);
-        border-block-start: 1px solid var(--v-color-border);
     }
 
     .arrow {
@@ -625,7 +617,6 @@
         flex-direction: column;
         gap: var(--v-space-s);
         padding: var(--v-space-l);
-        border: 1px solid var(--v-color-border);
         border-radius: var(--v-radius);
         background-color: var(--v-color-surface);
     }
@@ -675,7 +666,6 @@
         align-items: center;
         gap: var(--v-space-m);
         padding: var(--v-space-2xl) var(--v-space-l);
-        border: 1px solid var(--v-accent-5);
         border-radius: var(--v-radius);
         background:
             radial-gradient(ellipse at top, color-mix(in srgb, var(--v-accent-9) 30%, transparent), transparent 70%),

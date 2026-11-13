@@ -3,7 +3,12 @@
     background-color: var(--v-gray-9) !important;
     border-color: var(--v-gray-9) !important;
 }
- 
+
+/* Active nav row in the Layout example: gray until the card is hovered */
+.is-grayscale .layout-example-active {
+    background: linear-gradient(90deg, var(--v-gray-3) 0%, var(--v-gray-5) 50%, var(--v-gray-6) 100%);
+}
+
 @media (pointer: fine) {
     .grayscale-wrapper:hover .is-grayscale .v-checkbox-input.example-version ~ .v-checkbox-box {
         background-color: var(--v-color-accent) !important;
@@ -46,6 +51,10 @@
     .grayscale-wrapper:hover .is-grayscale .v-toggle:checked {
         background-color: var(--v-color-accent);
     }
+
+    .grayscale-wrapper:hover .is-grayscale .layout-example-active {
+        background: linear-gradient(90deg, var(--v-accent-2) 0%, var(--v-accent-5) 50%, var(--v-accent-6) 100%);
+    }
 }
 
 /* Badge */
@@ -59,10 +68,10 @@
     font-size: var(--v-font-size-s);
     font-weight: var(--v-font-weight-regular);
     letter-spacing: var(--v-letter-spacing-s);
-    background-color: var(--v-color-surface-raised);
+    background-color: var(--v-gray-4);
     border-radius: var(--v-radius-full);
     padding: var(--v-space-xs) var(--v-space-s);
-    border: 2px solid var(--v-gray-4);
+    border: 2px solid var(--v-gray-5);
     white-space: nowrap;
 }
 
@@ -499,14 +508,11 @@
 }
 
 .v-code-example {
+    background-color: var(--v-color-surface-raised);
     max-height: 33dvh;
     max-width: 100%;
     overflow-y: auto;
     padding: var(--v-space-m);
-    border-block-start: 1px solid var(--v-color-border);
-    border-inline-end: 1px solid var(--v-color-border);
-    border-block-end: 0;
-    border-inline-start: 1px solid var(--v-color-border);
     resize: horizontal;
     border-radius: var(--v-radius) var(--v-radius) 0 0;
 }
@@ -576,7 +582,7 @@
     line-height: var(--v-line-height-m);
     background: var(--v-color-surface-raised);
     padding: var(--v-space-s) var(--v-space-s) var(--v-space-s) var(--v-space-m);
-    border: 1px solid var(--v-color-border);
+    /* border: 1px solid var(--v-color-border); */
     border-radius: var(--v-radius);
 }
 
@@ -1001,17 +1007,41 @@
     background-color: var(--v-color-background);
 }
 
+/*
+ * Caps the content at the centered column's width (the widest Container size, so any Container fits);
+ * the scroll container itself spans to the window edge. Use a Container's size to set the content width.
+ */
+.v-layout-content-inner {
+    max-width: var(--v-breakpoint-2xl);
+}
+
 @media (min-width: 82rem) {
+    /*
+     * Centered layout: the content column (as wide as the largest Container) sits in the middle of
+     * the page, with the sidebar hugging its left edge. The gutters share the leftover space equally,
+     * but the left one never shrinks below the sidebar's 18rem, so on narrower screens the content
+     * shifts right instead of the sidebar getting squeezed.
+     * Content spans the right gutter too, so its scrollbar stays at the window edge.
+     */
     .v-layout {
-        grid-template-columns: 18rem minmax(0, 1fr);
+        grid-template-columns:
+            minmax(18rem, 1fr)
+            minmax(0, var(--v-breakpoint-2xl))
+            minmax(0, 1fr);
         grid-template-rows: auto minmax(0, 1fr);
         grid-template-areas:
-            "logo content"
-            "nav content";
+            "logo content content"
+            "nav content content";
     }
 
     .v-layout-header {
         display: none;
+    }
+
+    .v-layout-logo,
+    .v-layout-nav {
+        justify-self: end;
+        width: 18rem;
     }
 
     .v-layout-logo {
@@ -1023,7 +1053,6 @@
     .v-layout-nav {
         grid-area: nav;
         position: static;
-        width: auto;
         padding: 0 0 var(--v-space-xl) var(--v-space-xl);
         background-color: transparent;
         border: none;
@@ -1494,7 +1523,7 @@
     font-size: var(--v-font-size-m);
     letter-spacing: var(--v-letter-spacing-m);
     border-block-end: 1px solid var(--v-color-border);
-    background-color: var(--v-color-surface);
+    background-color: var(--v-color-surface-raised);
 }
 
 .v-table-cell {
@@ -1506,6 +1535,7 @@
     padding: var(--v-space-m);
     border-block-end: 1px solid var(--v-color-border);
     white-space: nowrap;
+    background-color: var(--v-color-surface);
 }
 
 .v-table.is-striped .v-table-row:nth-child(even) {

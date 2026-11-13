@@ -8,29 +8,86 @@
   max-height: 100%;
 }
 
-.v-code-block-expand-button {
+/* Collapsed: the code fades into the block's background, with a "Show more" pill on top */
+.v-code-block-fade {
   position: absolute;
-  cursor: pointer;
-  bottom: 0px;
-  width: 100%;
-  height: 32px;
-  border: none;
-  background: rgba(12, 12, 12, 0.9);
-  font-family: var(--v-font);
-  font-size: var(--v-font-size-s);
-  color: var(--v-color-text);
+  inset: auto 0 0 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 6rem;
+  padding-block-end: var(--v-space-m);
+  border-radius: 0 0 var(--v-radius) var(--v-radius);
+  background: linear-gradient(to bottom, transparent, var(--v-color-surface) 75%);
+  /* It lives inside the <pre>; don't render the template's indentation inside the button */
+  white-space: normal;
+  /* Only the button takes clicks, so text above the pill can still be selected */
+  pointer-events: none;
 }
 
-/* While collapsed, the "Show More" bar covers the bottom of the block, so hide the horizontal scrollbar
-   that would show through it. Expanding removes the button, which restores scrolling. */
-.v-code-block:has(.v-code-block-expand-button) code {
+/* Expanded: a matching "Show less" pill under the block */
+.v-code-block-collapse {
+  display: flex;
+  justify-content: center;
+  padding-block-start: var(--v-space-s);
+}
+
+.v-code-block-expand-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--v-space-xs);
+  height: 32px;
+  padding-inline: var(--v-space-m) var(--v-space-s);
+  border: 1px solid var(--v-color-border);
+  border-radius: var(--v-radius-full);
+  background-color: var(--v-color-surface-raised);
+  color: var(--v-color-text);
+  font-family: var(--v-font);
+  font-size: var(--v-font-size-s);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.v-code-block-expand-button svg {
+  color: var(--v-color-text-weaker);
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.v-code-block-expand-button:focus-visible {
+  outline: 2px solid var(--v-color-info);
+  outline-offset: 2px;
+}
+
+/* While collapsed, the fade covers the bottom of the block, so hide the horizontal scrollbar
+   that would show through it. Expanding removes the fade, which restores scrolling. */
+.v-code-block:has(.v-code-block-fade) code {
   overflow-x: hidden;
 }
 
-
 @media (pointer: fine) {
   .v-code-block-expand-button:hover {
-    background: rgba(16, 16, 16, 0.9);
+    border-color: var(--v-accent-7);
+    color: var(--v-color-text-accent);
+  }
+
+  .v-code-block-expand-button:hover svg {
+    color: var(--v-color-text-accent);
+  }
+
+  .v-code-block-fade .v-code-block-expand-button:hover svg {
+    transform: translateY(2px);
+  }
+
+  .v-code-block-collapse .v-code-block-expand-button:hover svg {
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v-code-block-expand-button,
+  .v-code-block-expand-button svg {
+    transition: none;
   }
 }
 
@@ -66,7 +123,6 @@ pre code.hljs {
   display: block;
   overflow-x: auto;
   padding: var(--v-space-m);
-  border: 1px solid var(--v-color-border);
   margin: 0;
 }
 

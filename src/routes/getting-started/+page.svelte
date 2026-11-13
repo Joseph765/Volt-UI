@@ -10,7 +10,7 @@
     import CodeExample from "../components/CodeExample.svelte";
 </script>
 
-<Container size="l">
+<Container size="l" align="center">
     <Flex direction="column" gap="2xl">
         <Flex direction="column">
             <Text size="3xl" weight="black" as="h2">Getting Started</Text>

@@ -2,6 +2,6 @@
     import Container from "$lib/components/Container.svelte";
 </script>
 
-<Container size="2xl">
+<Container size="2xl" align="center">
     <slot />
 </Container>
