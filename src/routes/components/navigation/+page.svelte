@@ -16,7 +16,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { NavGroup, NavGroupItem, NavItem } from "$volt";
+    import { NavGroup, NavGroupItem, NavItem } from "$moth";
 <\/script>
 
 <NavItem href="#">Home</NavItem>

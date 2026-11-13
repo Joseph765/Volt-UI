@@ -26,12 +26,12 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Card } from "$volt";
+    import { Card } from "$moth";
 <\/script>
 
 <Card>Basic</Card>`;
     let example2 = `<script>
-    import { Card, Flex } from "$volt";
+    import { Card, Flex } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -40,7 +40,7 @@
     <Card space="l">Large space</Card>
 </Flex>`;
     let example3 = `<script>
-    import { Card, Text } from "$volt";
+    import { Card, Text } from "$moth";
 <\/script>
 
 <Card>
@@ -48,7 +48,7 @@
     <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
 </Card>`;
     let example4 = `<script>
-    import { Button, Card, Text } from "$volt";
+    import { Button, Card, Text } from "$moth";
 <\/script>
 
 <Card>
@@ -57,7 +57,7 @@
     <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
 </Card>`;
     let example5 = `<script>
-    import { Card, Flex } from "$volt";
+    import { Card, Flex } from "$moth";
 <\/script>
 
 <Flex direction="column">

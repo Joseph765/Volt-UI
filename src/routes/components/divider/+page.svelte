@@ -14,7 +14,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Divider } from "$volt";
+    import { Divider } from "$moth";
 <\/script>
 
 <Divider />`;

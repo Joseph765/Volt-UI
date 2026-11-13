@@ -5,7 +5,7 @@
     import TokenCopy from "./TokenCopy.svelte";
 
     const fonts = [
-        { token: "--v-font", name: "Outfit", mono: false, description: "Font family for the Volt design system." },
+        { token: "--v-font", name: "Outfit", mono: false, description: "Font family for the Moth design system." },
         { token: "--v-font-mono", name: "Geist Mono", mono: true, description: "Only used for code snippets and code examples." }
     ];
 
@@ -326,7 +326,7 @@
         font-size: 4.5rem;
         font-weight: var(--v-font-weight-black);
         line-height: 1;
-        color: var(--v-color-text);
+        color: var(--v-color-text-accent);
     }
 
     .font-card.is-mono .font-glyph,

@@ -24,7 +24,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Flex, Toggle } from "$volt";
+    import { Flex, Toggle } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -32,7 +32,7 @@
     <Toggle label="Unchecked" name="unchecked" />
 </Flex>`;
     let example2 = `<script>
-    import { Flex, Toggle } from "$volt";
+    import { Flex, Toggle } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -40,7 +40,7 @@
     <Toggle label="Unchecked" name="uncheckedDisabled" disabled />
 </Flex>`;
     let example3 = `<script>
-    import { Flex, Toggle } from "$volt";
+    import { Flex, Toggle } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -48,7 +48,7 @@
     <Toggle label="Unchecked" name="uncheckedError" error="There is an error" />
 </Flex>`;
     let example4 = `<script>
-    import { Toggle } from "$volt";
+    import { Toggle } from "$moth";
 <\/script>
 
 <Toggle label="Label" name="helpText" hint="Hint: this is a hint" />`;

@@ -14,7 +14,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Code } from "$volt";
+    import { Code } from "$moth";
 <\/script>
 
 <Code>Hello World</Code>`;

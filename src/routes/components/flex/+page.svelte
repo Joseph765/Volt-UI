@@ -26,7 +26,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Card, Flex } from "$volt";
+    import { Card, Flex } from "$moth";
 <\/script>
 
 <Flex>
@@ -35,7 +35,7 @@
     <Card>Item 3</Card>
 </Flex>`;
     let example2 = `<script>
-    import { Card, Flex } from "$volt";
+    import { Card, Flex } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -65,7 +65,7 @@
     </Flex>
 </Flex>`;
     let example3 = `<script>
-    import { Card, Flex } from "$volt";
+    import { Card, Flex } from "$moth";
 <\/script>
 
 <Flex gap="l">
@@ -81,7 +81,7 @@
     </Flex>
 </Flex>`;
     let example4 = `<script>
-    import { Card, Flex } from "$volt";
+    import { Card, Flex } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -97,7 +97,7 @@
     </Flex>
 </Flex>`;
     let example5 = `<script>
-    import { Card, Flex } from "$volt";
+    import { Card, Flex } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -118,7 +118,7 @@
     </Flex>
 </Flex>`;
     let example6 = `<script>
-    import { Card, Flex } from "$volt";
+    import { Card, Flex } from "$moth";
 <\/script>
 
 <Flex direction="column">

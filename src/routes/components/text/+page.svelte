@@ -27,12 +27,12 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Text } from "$volt";
+    import { Text } from "$moth";
 <\/script>
 
 <Text>This is sample text</Text>`;
     let example2 = `<script>
-    import { Flex, Text } from "$volt";
+    import { Flex, Text } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -45,7 +45,7 @@
     <Text size="3xl">This is 3xl sample text</Text>
 </Flex>`;
     let example3 = `<script>
-    import { Flex, Text } from "$volt";
+    import { Flex, Text } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -54,7 +54,7 @@
     <Text size="l" weight="black">This is black weight</Text>
 </Flex>`;
     let example4 = `<script>
-    import { Flex, Text } from "$volt";
+    import { Flex, Text } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -64,7 +64,7 @@
     <Text size="l" variant="weakest">This is the weakest variant</Text>
 </Flex>`;
     let example5 = `<script>
-    import { Flex, Text } from "$volt";
+    import { Flex, Text } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -72,7 +72,7 @@
     <Text as="h2" size="l">This is an h2 tag</Text>
 </Flex>`;
     let example6 = `<script>
-    import { Flex, Text } from "$volt";
+    import { Flex, Text } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -82,7 +82,7 @@
     <Text measure="none">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
 </Flex>`;
     let example7 = `<script>
-    import { Flex, Text } from "$volt";
+    import { Flex, Text } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -91,7 +91,7 @@
     <Text size="l" align="end">End</Text>
 </Flex>`;
     let example8 = `<script>
-    import { Text } from "$volt";
+    import { Text } from "$moth";
 <\/script>
 
 <Text mono>Mono Text</Text>`;

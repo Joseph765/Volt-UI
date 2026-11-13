@@ -24,7 +24,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Flex, Icon } from "$volt";
+    import { Flex, Icon } from "$moth";
 <\/script>
 
 <Flex>
@@ -44,7 +44,7 @@
     <Icon size="l" name="x" />
 </Flex>`;
     let example2 = `<script>
-    import { Flex, Icon } from "$volt";
+    import { Flex, Icon } from "$moth";
 <\/script>
 
 <Flex align="center">

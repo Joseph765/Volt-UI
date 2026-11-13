@@ -30,7 +30,7 @@
     let selectedExample = 'types';
 
     let example1 = `<script>
-    import { Flex, Input } from "$volt";
+    import { Flex, Input } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -38,17 +38,17 @@
     <Input type="password" name="password" label="Password" placeholder="Password" />
 </Flex>`;
     let example2 = `<script>
-    import { Input } from "$volt";
+    import { Input } from "$moth";
 <\/script>
 
 <Input type="text" name="disabled" label="Disabled" placeholder="Disabled" disabled />`;
     let example3 = `<script>
-    import { Input } from "$volt";
+    import { Input } from "$moth";
 <\/script>
 
 <Input type="text" name="required" label="Required" placeholder="Required" value="Value" required />`;
     let example4 = `<script>
-    import { Flex, Input } from "$volt";
+    import { Flex, Input } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -60,17 +60,17 @@
     </Input>
 </Flex>`;
     let example5 = `<script>
-    import { Input } from "$volt";
+    import { Input } from "$moth";
 <\/script>
 
 <Input type="text" name="expanded" expanded label="Expanded" placeholder="Expanded" />`;
     let example6 = `<script>
-    import { Input } from "$volt";
+    import { Input } from "$moth";
 <\/script>
 
 <Input type="text" name="hint" label="Hint" hint="Hint: this is a hint" />`;
     let example7 = `<script>
-    import { Flex, Icon, Input } from "$volt";
+    import { Flex, Icon, Input } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -86,12 +86,12 @@
     </Input>
 </Flex>`;
     let example8 = `<script>
-    import { Input } from "$volt";
+    import { Input } from "$moth";
 <\/script>
 
 <Input type="text" name="custom" label="Custom Width" style="width: 22rem;" />`;
     let example9 = `<script>
-    import { Input } from "$volt";
+    import { Input } from "$moth";
 <\/script>
 
 <Input type="text" name="errorPresent" label="Error" error="Incorrect format" />`;

@@ -1,7 +1,7 @@
 {
-	"name": "volt-ui-svelte",
-	"version": "0.1.1",
-	"description": "Ship with confidence using Volt UI — modular, consistent, and ready for production.",
+	"name": "moth-ui-svelte",
+	"version": "0.0.1",
+	"description": "Ship with confidence using Moth UI — modular, consistent, and ready for production.",
 	"author": "Joseph Chauvin (https://github.com/Joseph765)",
 	"license": "MIT",
 	"homepage": "https://volt-ui.com",

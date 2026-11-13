@@ -2,7 +2,7 @@
     import "$lib/css/index.css";
     import { page } from '$app/state'; 
     import components from "./components/components.json";
-    import VoltLogo from "$lib/components/VoltLogo.svelte";
+    import MothLogo from "$lib/components/MothLogo.svelte";
 
     import { Blocks, Paintbrush, Rocket } from "@jis3r/icons";
 
@@ -22,31 +22,42 @@
 </script>
 
 <svelte:head>
-	<title>Volt UI</title>
+	<title>Moth UI</title>
 	<meta name="description" content="Design System For Crypto Apps" />
 </svelte:head>
 
 <Layout>
     <LayoutHeader>
         <LayoutMenuButton {open} on:click={() => open = !open} />
-        <a href="/" class="logo" slot="mobile-logo">
-            <svg class="bolt" viewBox="0 0 40 64">
+        <a href="/" class="logo" slot="mobile-logo" aria-label="Moth UI home">
+            <svg
+                class="mark"
+                width="32"
+                height="32"
+                viewBox="0 0 64 64"
+                aria-hidden="true"
+            >
+                <g stroke-linejoin="round" stroke-width="3">
+                    <path fill="#8E78EC" stroke="#8E78EC" d="M30 23 L7 11 Q5 10 6 13 L11 33 Q12 35 14 34 L30 31 Z" />
+                    <path fill="#8E78EC" stroke="#8E78EC" d="M34 23 L57 11 Q59 10 58 13 L53 33 Q52 35 50 34 L34 31 Z" />
+                    <path fill="#5A46A8" stroke="#5A46A8" d="M30 34 L16 38 Q13 39 15 42 L22 51 Q24 53 25 51 L30 42 Z" />
+                    <path fill="#5A46A8" stroke="#5A46A8" d="M34 34 L48 38 Q51 39 49 42 L42 51 Q40 53 39 51 L34 42 Z" />
+                </g>
+                <rect fill="#EEEEF0" x="29" y="19" width="6" height="30" rx="3" />
                 <path
-                    d="M26 3 L4 36 H18 L14 61 L36 27 H22 Z"
-                    fill="currentColor"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linejoin="round"
+                    d="M31 20 Q28 12 23 8 M33 20 Q36 12 41 8"
+                    fill="none"
+                    stroke="#C9BFF5"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
                 />
             </svg>
-            <!-- <span class="logo-ui">V</span> -->
         </a>
     </LayoutHeader>
-    <a href="/" class="logo" slot="logo">
-        <VoltLogo />
-        <!-- VOLT <span class="logo-ui">UI</span> -->
+    <a href="/" class="logo is-desktop" slot="logo">
+        <MothLogo size={36} />
     </a>
-    <LayoutNav {open}>
+    <LayoutNav {open} on:close={() => open = false}>
         <NavItem href="/getting-started" active={page.url.pathname === "/getting-started"} on:click={() => open = false}>
             <Rocket slot="icon" let:animate {animate} />
             Getting Started
@@ -76,28 +87,8 @@
 </Layout>
 
 <style>
-    .logo {
-        font-family: var(--v-font);
-        font-size: var(--v-font-size-2xl);
-        font-weight: var(--v-font-weight-black);
-        letter-spacing: -0.2px;
-        text-decoration: none;
-        color: var(--v-color-text);
-        text-transform: uppercase;
+    /* Center the 36px mark on the nav's 24px icon column, so it starts 6px further left */
+    .logo.is-desktop {
+        margin-inline-start: -6px;
     }
-
-    .logo-ui {
-        background-color: var(--v-accent-5);
-        padding: 2px 8px;
-        border-radius: var(--v-radius);
-    }
-
-    .bolt {
-        --volt-size: 24px;
-        --bolt: var(--v-accent-10);
-		width: calc(var(--volt-size) * 0.74);
-		height: calc(var(--volt-size) * 1.17);
-		color: var(--bolt);
-		flex-shrink: 0;
-	}
 </style>

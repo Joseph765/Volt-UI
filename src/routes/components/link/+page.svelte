@@ -22,12 +22,12 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Link } from "$volt";
+    import { Link } from "$moth";
 <\/script>
 
 <Link href="#">Example link</Link>`;
     let example2 = `<script>
-    import { Flex, Link } from "$volt";
+    import { Flex, Link } from "$moth";
 <\/script>
 
 <Flex direction="column">

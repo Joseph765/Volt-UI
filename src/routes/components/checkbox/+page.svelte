@@ -26,32 +26,32 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Checkbox } from "$volt";
+    import { Checkbox } from "$moth";
 <\/script>
 
 <Checkbox label="I agree to the terms" />`;
     let example2 = `<script>
-    import { Checkbox } from "$volt";
+    import { Checkbox } from "$moth";
 <\/script>
 
 <Checkbox checked disabled label="This is disabled" />`;
     let example3 = `<script>
-    import { Checkbox } from "$volt";
+    import { Checkbox } from "$moth";
 <\/script>
 
 <Checkbox label="Indeterminate" indeterminate />`;
     let example4 = `<script>
-    import { Checkbox } from "$volt";
+    import { Checkbox } from "$moth";
 <\/script>
 
 <Checkbox label="Has error" error="This field has error" />`;
     let example5 = `<script>
-    import { Checkbox } from "$volt";
+    import { Checkbox } from "$moth";
 <\/script>
 
 <Checkbox label="Has hint" hint="Hint: this is a hint" />`;
     let example6 = `<script>
-    import { Checkbox } from "$volt";
+    import { Checkbox } from "$moth";
 <\/script>
 
 <Checkbox style="width: 300px;" label="Custom style example" />`;

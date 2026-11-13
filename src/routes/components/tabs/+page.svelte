@@ -22,7 +22,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Tab, Tabs } from "$volt";
+    import { Tab, Tabs } from "$moth";
 
     /** @type { string } */
     let selectedTab = "one";

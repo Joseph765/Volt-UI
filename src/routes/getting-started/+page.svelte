@@ -15,7 +15,7 @@
         <Flex direction="column">
             <Text size="3xl" weight="black" as="h2">Getting Started</Text>
             <Text size="l" variant="weak">
-                Volt UI is a modern design system for building consistent, high-quality interfaces fast. 
+                Moth UI is a modern design system for building consistent, high-quality interfaces fast. 
                 It gives you reusable components, design tokens, and utilities so your UI stays cohesive 
                 without slowing you down.
             </Text>
@@ -29,7 +29,7 @@
         <Flex direction="column">
             <Text size="2xl" weight="bold">Installation</Text>
             <Text size="l" variant="weak">Install with npm:</Text>
-            <CopyCode code="npm install volt-ui-svelte" style="background-color: var(--v-color-surface);" />
+            <CopyCode code="npm install moth-ui-svelte" style="background-color: var(--v-color-surface);" />
         </Flex>
 
         <Flex direction="column">
@@ -42,7 +42,7 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			'$volt': './node_modules/volt-ui-svelte/dist',
+			'$moth': './node_modules/moth-ui-svelte/dist',
 		}
 	}
 };
@@ -53,9 +53,9 @@ export default config;
 
         <Flex direction="column">
             <Text size="2xl" weight="bold">Importing styles</Text>
-            <Text size="l" variant="weak">Add this to your main Svelte file to enable Volt styling:</Text>
+            <Text size="l" variant="weak">Add this to your main Svelte file to enable Moth styling:</Text>
             <CodeExample codeOnly code={`<script>
-    import "$volt/css/index.css";
+    import "$moth/css/index.css";
 <\/script>`} />
         </Flex>
 
@@ -63,14 +63,14 @@ export default config;
             <Text size="2xl" weight="bold">Importing components</Text>
             <Text size="l" variant="weak">Use this in any svelte file to import components:</Text>
             <CodeExample codeOnly code={`<script>
-    import { Text } from "$volt";
+    import { Text } from "$moth";
 <\/script>`} />
         </Flex>
 
         <Flex direction="column" gap="s">
             <Text size="2xl" weight="bold">Design Tokens</Text>
             <Text size="l" variant="weak" measure="l">
-                The foundation of Volt UI: reusable values for colors, spacing, typography, etc. 
+                The foundation of Moth UI: reusable values for colors, spacing, typography, etc. 
                 Use them via CSS variables like <Code>var(--v-color-primary)</Code>. 
                 See the full list in the <Link size="l" href="/tokens/">design tokens</Link> docs.
             </Text>

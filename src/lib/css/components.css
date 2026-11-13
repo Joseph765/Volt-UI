@@ -1005,6 +1005,12 @@
     min-width: 0;
     overflow-y: auto;
     background-color: var(--v-color-background);
+    transition: filter 0.2s ease-out;
+}
+
+/* While the slide-in nav is open, blur the page behind it so the menu stands out */
+.v-layout:has(.v-layout-nav.is-open) .v-layout-content {
+    filter: blur(4px);
 }
 
 /*
@@ -1060,6 +1066,11 @@
         visibility: visible;
         transition: none;
     }
+
+    /* The sidebar is always shown here, so `open` has no effect and the content stays sharp */
+    .v-layout:has(.v-layout-nav.is-open) .v-layout-content {
+        filter: none;
+    }
 }
 
 @media (pointer: fine) {
@@ -1070,7 +1081,8 @@
 
 @media (prefers-reduced-motion: reduce) {
     .v-layout-nav,
-    .v-layout-nav.is-open {
+    .v-layout-nav.is-open,
+    .v-layout-content {
         transition: none;
     }
 }

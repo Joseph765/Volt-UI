@@ -23,7 +23,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Fieldset, Flex, Radio } from "$volt";
+    import { Fieldset, Flex, Radio } from "$moth";
 <\/script>
 
 <Fieldset label="Radios">
@@ -33,7 +33,7 @@
     </Flex>
 </Fieldset>`;
     let example2 = `<script>
-    import { Fieldset, Flex, Radio } from "$volt";
+    import { Fieldset, Flex, Radio } from "$moth";
 <\/script>
 
 <Fieldset label="Radios" required>

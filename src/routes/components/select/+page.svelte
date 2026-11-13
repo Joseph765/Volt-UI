@@ -28,7 +28,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Select } from "$volt";
+    import { Select } from "$moth";
 <\/script>
 
 <Select
@@ -42,7 +42,7 @@
     placeholder="Choose a country..."
 />`;
     let example2 = `<script>
-    import { Icon, Select } from "$volt";
+    import { Icon, Select } from "$moth";
 <\/script>
 
 <Select
@@ -58,7 +58,7 @@
     </span>
 </Select>`;
     let example3 = `<script>
-    import { Icon, Select } from "$volt";
+    import { Icon, Select } from "$moth";
 <\/script>
 
 <Select
@@ -75,7 +75,7 @@
     </span>
 </Select>`;
     let example4 = `<script>
-    import { Select } from "$volt";
+    import { Select } from "$moth";
 <\/script>
 
 <Select
@@ -90,7 +90,7 @@
     disabled
 />`;
     let example5 = `<script>
-    import { Select } from "$volt";
+    import { Select } from "$moth";
 <\/script>
 
 <Select
@@ -105,7 +105,7 @@
     error="There is an error"
 />`;
     let example6 = `<script>
-    import { Select } from "$volt";
+    import { Select } from "$moth";
 <\/script>
 
 <Select
@@ -120,7 +120,7 @@
     required
 />`;
     let example7 = `<script>
-    import { Select } from "$volt";
+    import { Select } from "$moth";
 <\/script>
 
 <Select
@@ -135,7 +135,7 @@
     hint="Hint: this is a hint"
 />`;
     let example8 = `<script>
-    import { Select } from "$volt";
+    import { Select } from "$moth";
 <\/script>
 
 <Select

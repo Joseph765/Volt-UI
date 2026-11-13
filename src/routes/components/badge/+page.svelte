@@ -24,7 +24,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Badge, Flex } from "$volt";
+    import { Badge, Flex } from "$moth";
 <\/script>        
 
 <Flex>
@@ -35,7 +35,7 @@
     <Badge variant="info">Info</Badge>
 </Flex>`;
     let example2 = `<script>
-    import { Badge, Flex } from "$volt";
+    import { Badge, Flex } from "$moth";
 <\/script>        
 
 <Flex>
@@ -46,7 +46,7 @@
     <Badge variant="info" strong>Info</Badge>
 </Flex>`;
     let example3 = `<script>
-    import { Badge, Flex, Icon } from "$volt";
+    import { Badge, Flex, Icon } from "$moth";
 <\/script>        
 
 <Badge variant="success">

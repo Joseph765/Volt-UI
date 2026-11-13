@@ -15,7 +15,7 @@
         Toggle
     } from "$lib";
 
-    // --- Live demo state (the hero card is built entirely from Volt components) ---
+    // --- Live demo state (the hero card is built entirely from Moth components) ---
     let amount = "2.5";
     let validator = "lido";
     const validators = [
@@ -62,7 +62,7 @@
 </script>
 
 <svelte:head>
-    <title>Volt UI · A dark-first design system for Svelte</title>
+    <title>Moth UI · A dark-first design system for Svelte</title>
 </svelte:head>
 
 <Container size="2xl" align="center">
@@ -75,7 +75,7 @@
                     The design system that <span class="accent">ships with you.</span>
                 </h1>
                 <Text size="xl" variant="weak" measure="s">
-                    Volt UI gives you {components.length} production-ready components and a complete token
+                    Moth UI gives you {components.length} production-ready components and a complete token
                     system, so every screen looks consistent from day one.
                 </Text>
                 <Flex wrap>
@@ -83,7 +83,7 @@
                     <Button size="l" variant="secondary" href="/components">Browse components</Button>
                 </Flex>
                 <div class="install">
-                    <CopyCode code="npm install volt-ui-svelte" />
+                    <CopyCode code="npm install moth-ui-svelte" />
                 </div>
             </div>
 
@@ -114,12 +114,12 @@
                         <Button variant="primary" size="l" expanded disabled={invalid || !amount}>Stake now</Button>
                     </Flex>
                 </Card>
-                <p class="demo-caption">Every element above is a Volt component. Try it.</p>
+                <p class="demo-caption">Every element above is a Moth component. Try it.</p>
             </div>
         </section>
 
         <!-- Stats -->
-        <section class="stats" aria-label="Volt UI at a glance">
+        <section class="stats" aria-label="Moth UI at a glance">
             <div class="stat"><span class="stat-value">{components.length}</span><span class="stat-label">Components</span></div>
             <div class="stat"><span class="stat-value">{scales.length}×12</span><span class="stat-label">Color steps</span></div>
             <div class="stat"><span class="stat-value">0</span><span class="stat-label">Runtime dependencies</span></div>
@@ -129,7 +129,7 @@
         <!-- Features -->
         <section class="section">
             <div class="section-head">
-                <Text size="3xl" weight="black" as="h2">Why Volt</Text>
+                <Text size="3xl" weight="black" as="h2">Why Moth</Text>
                 <Text size="l" variant="weak" measure="m">A small, opinionated foundation that stays out of your way.</Text>
             </div>
             <div class="features">
@@ -158,7 +158,7 @@
                     <span class="step-number">1</span>
                     <div class="step-body">
                         <Text size="l" weight="bold" as="h3">Install the package</Text>
-                        <CodeExample codeOnly code={`npm install volt-ui-svelte`} />
+                        <CodeExample codeOnly code={`npm install moth-ui-svelte`} />
                     </div>
                 </li>
                 <li class="step">
@@ -166,7 +166,7 @@
                     <div class="step-body">
                         <Text size="l" weight="bold" as="h3">Import the styles once</Text>
                         <CodeExample codeOnly code={`<script>
-    import "$volt/css/index.css";
+    import "$moth/css/index.css";
 <\/script>`} />
                     </div>
                 </li>
@@ -175,7 +175,7 @@
                     <div class="step-body">
                         <Text size="l" weight="bold" as="h3">Use any component</Text>
                         <CodeExample codeOnly code={`<script>
-    import { Button } from "$volt";
+    import { Button } from "$moth";
 <\/script>
 
 <Button variant="primary">Ship it</Button>`} />
@@ -239,7 +239,7 @@
 
         <!-- Final CTA -->
         <section class="cta">
-            <Text size="3xl" weight="black" as="h2" align="center">Start building with Volt</Text>
+            <Text size="3xl" weight="black" as="h2" align="center">Start building with Moth</Text>
             <Text size="l" variant="weak" align="center" measure="s">
                 Free, open source, and ready for your next project.
             </Text>

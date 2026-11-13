@@ -22,7 +22,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Banner, Flex, Link } from "$volt";
+    import { Banner, Flex, Link } from "$moth";
 <\/script>        
 
 <Flex direction="column">

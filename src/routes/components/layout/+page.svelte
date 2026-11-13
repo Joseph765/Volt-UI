@@ -57,7 +57,7 @@
         NavGroup,
         NavGroupItem,
         NavItem
-    } from "$volt";
+    } from "$moth";
 
     /** @type { boolean } */
     let open = false;
@@ -69,7 +69,7 @@
         <a href="/" class="mobile-logo" slot="mobile-logo">L</a>
     </LayoutHeader>
     <a href="/" class="logo" slot="logo">Logo</a>
-    <LayoutNav {open}>
+    <LayoutNav {open} on:close={() => open = false}>
         <NavItem href="/" active={page.url.pathname === "/"} on:click={() => open = false}>
             <ChartPie slot="icon" let:animate {animate} />
             Dashboard
@@ -120,7 +120,7 @@
                         <a href="#top" class="example-mobile-logo" slot="mobile-logo">L</a>
                     </LayoutHeader>
                     <a href="#top" class="example-logo" slot="logo">Logo</a>
-                    <LayoutNav {open}>
+                    <LayoutNav {open} on:close={() => open = false}>
                         <NavItem href="#top" active={activeItem === "dashboard"} on:click={() => select("dashboard")}>
                             <ChartPie slot="icon" let:animate {animate} />
                             Dashboard
@@ -159,13 +159,18 @@
         <TableBody>
             <TableRow>
                 <TableCell><Code>LayoutNav open</Code></TableCell>
-                <TableCell>Slides the navigation in on screens narrower than 82rem. The sidebar is always shown on larger screens.</TableCell>
+                <TableCell>Slides the navigation in on screens narrower than 82rem and blurs the page content behind it. The sidebar is always shown on larger screens.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>
                 <TableCell><Code>LayoutNav label</Code></TableCell>
                 <TableCell>Accessible name for the navigation landmark. Defaults to "Main".</TableCell>
                 <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>LayoutNav on:close</Code></TableCell>
+                <TableCell>Fires when the user presses Esc while the navigation is open. Set <Code>open</Code> to false in response. Focus moves back to the menu button if it was inside the navigation.</TableCell>
+                <TableCell><Code>event</Code></TableCell>
             </TableRow>
             <TableRow>
                 <TableCell><Code>LayoutMenuButton open</Code></TableCell>

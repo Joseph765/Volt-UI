@@ -27,7 +27,7 @@
     let selectedExample = 'variants';
 
     let example1 = `<script>
-    import { Button, Flex } from "$volt";
+    import { Button, Flex } from "$moth";
 <\/script>
 
 <Flex>
@@ -37,12 +37,12 @@
     <Button variant="danger">Danger</Button>
 </Flex>`;
     let example2 = `<script>
-    import { Button } from "$volt";
+    import { Button } from "$moth";
 <\/script>
 
 <Button disabled>Disabled</Button>`;
     let example3 = `<script>
-    import { Button, Flex, Icon } from "$volt";
+    import { Button, Flex, Icon } from "$moth";
 <\/script>
 
 <Flex>
@@ -67,7 +67,7 @@
     </Button>
 </Flex>`;
     let example4 = `<script>
-    import { Button, Flex } from "$volt";
+    import { Button, Flex } from "$moth";
 <\/script>
 
 <Flex>
@@ -75,12 +75,12 @@
     <Button size="l">Large</Button>
 </Flex>`;
     let example5 = `<script>
-    import { Button } from "$volt";
+    import { Button } from "$moth";
 <\/script>
 
 <Button expanded>Expanded</Button>`;
     let example6 = `<script>
-    import { Button } from "$volt";
+    import { Button } from "$moth";
 <\/script>
 
 <Button href="/component">View components</Button>`;

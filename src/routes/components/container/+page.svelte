@@ -27,7 +27,7 @@
 
     /** @type { string } */
     let example1 = `<script>
-    import { Container, Text } from "$volt";
+    import { Container, Text } from "$moth";
 <\/script>
 
 <Container>
@@ -35,7 +35,7 @@
 </Container>`;
     /** @type { string } */
     let example2 = `<script>
-    import { Card, Container, Flex } from "$volt";
+    import { Card, Container, Flex } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -57,7 +57,7 @@
 </Flex>`;
     /** @type { string } */
     let example3 = `<script>
-    import { Card, Container, Flex } from "$volt";
+    import { Card, Container, Flex } from "$moth";
 <\/script>
 
 <Flex direction="column">
@@ -73,7 +73,7 @@
 </Flex>`;
     /** @type { string } */
     let example4 = `<script>
-    import { Container } from "$volt";
+    import { Container } from "$moth";
 <\/script>
 
 <Container size="l" debug></Container>`;
