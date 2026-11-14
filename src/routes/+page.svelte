@@ -1,5 +1,8 @@
 <script>
     import components from "./components/components.json";
+
+    const repoUrl = "https://github.com/Joseph765/Volt-UI";
+    const year = new Date().getFullYear();
     import CodeExample from "./components/CodeExample.svelte";
     import {
         Badge,
@@ -10,6 +13,7 @@
         Divider,
         Flex,
         Input,
+        Link,
         Select,
         Text,
         Toggle
@@ -245,11 +249,19 @@
             </Text>
             <Flex justify="center" wrap>
                 <Button size="l" variant="primary" href="/getting-started">Get started</Button>
-                <Button size="l" variant="secondary" href="https://github.com/Joseph765/Volt-UI" target="_blank" rel="noopener noreferrer">
+                <Button size="l" variant="secondary" href={repoUrl} target="_blank" rel="noopener noreferrer">
                     Star on GitHub
                 </Button>
             </Flex>
         </section>
+
+        <footer class="footer">
+            <Text size="s" variant="weaker">© {year > 2025 ? `2025–${year}` : 2025} Joseph Chauvin</Text>
+            <nav class="footer-links" aria-label="Footer">
+                <Link size="s" href="{repoUrl}/blob/main/LICENSE" target="_blank">MIT License</Link>
+                <Link size="s" href={repoUrl} target="_blank">GitHub</Link>
+            </nav>
+        </footer>
     </div>
 </Container>
 
@@ -674,5 +686,33 @@
 
     .cta :global(.m-flex) {
         margin-block-start: var(--m-space-s);
+    }
+
+    /* Footer */
+    .footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--m-space-s) var(--m-space-l);
+        padding-block: var(--m-space-l) var(--m-space-xl);
+        border-block-start: 1px solid var(--m-color-border);
+    }
+
+    .footer-links {
+        display: flex;
+        gap: var(--m-space-l);
+    }
+
+    /* Quiet links so the footer doesn't compete with the CTA above it */
+    .footer-links :global(.m-link) {
+        color: var(--m-color-text-weaker);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .footer-links :global(.m-link:hover),
+    .footer-links :global(.m-link:focus-visible) {
+        color: var(--m-color-text);
     }
 </style>
