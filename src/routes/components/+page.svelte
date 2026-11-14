@@ -122,6 +122,11 @@
         padding-inline: var(--m-space-s);
     }
 
+    /* The table's surface matches the preview background; recess it so its edges show */
+    .component-preview :global(.m-table-wrapper) {
+        background-color: var(--m-color-background);
+    }
+
     .component-info {
         display: flex;
         flex-direction: column;

@@ -367,10 +367,6 @@
     border-radius: var(--m-radius);
 }
 
-.m-card.is-ghost {
-    background-color: var(--m-color-background);
-}
-
 .m-card-header {
     display: flex;
     align-items: center;
@@ -1510,8 +1506,11 @@
 
 /* Table */
 .m-table-wrapper {
+    /* The table is a card: a borderless surface with rounded corners (overflow also clips the corners) */
     overflow-x: auto;
     width: 100%;
+    background-color: var(--m-color-surface);
+    border-radius: var(--m-radius);
 }
 
 .m-table {
@@ -1529,15 +1528,8 @@
     font-weight: var(--m-font-weight-bold);
     font-size: var(--m-font-size-2xl);
     letter-spacing: var(--m-letter-spacing-2xl);
-    padding-block-end: var(--m-space-m);
-}
-
-.m-table-header .m-table-row .m-table-head:first-child {
-    border-radius: var(--m-radius) 0 0 0;
-}
-
-.m-table-header .m-table-row .m-table-head:last-child {
-    border-radius: 0 var(--m-radius) 0 0;
+    /* Sits inside the table's card like a card header */
+    padding: var(--m-space-m);
 }
 
 .m-table-head {
@@ -1560,15 +1552,20 @@
     padding: var(--m-space-m);
     border-block-end: 1px solid var(--m-color-border);
     white-space: nowrap;
-    background-color: var(--m-color-surface);
 }
 
-.m-table.is-striped .m-table-row:nth-child(even) {
-    background-color: var(--m-color-surface);
-}
-
-.m-card .m-table .m-table-body .m-table-row:last-child .m-table-cell {
+/* The card's edge ends the table, so the last row doesn't need a divider */
+.m-table-body .m-table-row:last-child .m-table-cell {
     border-block-end-color: transparent;
+}
+
+/* Stripes and hover are a light wash on the row (cells are transparent), so they work on any background */
+.m-table.is-striped .m-table-body .m-table-row:nth-child(even) {
+    background-color: color-mix(in srgb, var(--m-color-text) 5%, transparent);
+}
+
+.m-table.is-interactive .m-table-body .m-table-row {
+    transition: background-color 0.2s ease;
 }
 
 .m-table-cell.is-align-start {
@@ -1604,8 +1601,15 @@
 }
 
 @media (pointer: fine) {
-    .m-table.is-interactive .m-table-row:hover {
-        background-color: var(--m-color-surface-raised);
+    /* Stronger than a stripe, so it still shows on striped rows */
+    .m-table.is-interactive .m-table-body .m-table-row:hover {
+        background-color: color-mix(in srgb, var(--m-color-text) 8%, transparent);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .m-table.is-interactive .m-table-body .m-table-row {
+        transition: none;
     }
 }
 

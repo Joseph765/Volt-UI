@@ -582,6 +582,17 @@
         width: 100%;
     }
 
+    /* Tighter cells so the table fits the narrow preview; recess it so its edges show on the matching surface */
+    .showcase-preview :global(.m-table-head),
+    .showcase-preview :global(.m-table-cell) {
+        padding-inline: var(--m-space-s);
+    }
+
+    .showcase-preview :global(.m-table-wrapper) {
+        width: 100% !important;
+        background-color: var(--m-color-background);
+    }
+
     .showcase-label {
         display: flex;
         justify-content: space-between;

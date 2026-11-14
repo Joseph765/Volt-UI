@@ -87,7 +87,7 @@
     { 
         "name": "Table",
         "description": "A structured component for displaying tabular data in rows and columns with consistent styling and layout.",
-        "example": "<table class='m-table' style='width: calc(100% - var(--m-space-xl));'><thead class='m-table-header'><tr class='m-table-row'><th class='m-table-head' scope='col' class='m-table-heading'>Property</th><th class='m-table-head' scope='col' class='m-table-heading'>Type</th></tr></thead><tbody class='m-table-body'><tr class='m-table-row'><td class='m-table-cell'><code class='m-code'>direction</code></td><td class='m-table-cell'>row | column</td></tr></tbody></table>"
+        "example": "<div class='m-table-wrapper' style='width: calc(100% - var(--m-space-xl));'><table class='m-table'><thead class='m-table-header'><tr class='m-table-row'><th class='m-table-head' scope='col' class='m-table-heading'>Property</th><th class='m-table-head' scope='col' class='m-table-heading'>Type</th></tr></thead><tbody class='m-table-body'><tr class='m-table-row'><td class='m-table-cell'><code class='m-code'>size</code></td><td class='m-table-cell'>s | m | l</td></tr></tbody></table></div>"
     },
     { 
         "name": "Tabs",
