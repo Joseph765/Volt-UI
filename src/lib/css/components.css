@@ -281,7 +281,7 @@
 }
 
 .m-button:focus-visible {
-    outline: 2px solid var(--m-color-info);
+    outline: 2px solid var(--m-color-focus-border);
     outline-offset: 2px;
 }
 
@@ -461,7 +461,7 @@
 }
 
 .m-checkbox-input:focus-visible ~ .m-checkbox-box {
-    outline: 2px solid var(--m-color-info);
+    outline: 2px solid var(--m-color-focus-border);
     outline-offset: 2px;
 }
 
@@ -799,10 +799,16 @@
     outline: none;
 }
 
-/* Same focus ring as every other control */
-.m-input:focus-visible {
-    outline: 2px solid var(--m-color-info);
-    outline-offset: 2px;
+/* Focus: lighter border plus a soft neutral halo (also while hovered) */
+.m-input:focus-visible,
+.m-input:focus-visible:hover {
+    outline: none;
+    border-color: var(--m-color-focus-border);
+    box-shadow: 0 0 0 3px var(--m-color-focus-ring);
+}
+
+.m-input.is-danger:focus-visible {
+    border-color: var(--m-color-danger);
 }
 
 /* Disabled: flat (no recessed fill), faint border and dimmed text, so it recedes */
@@ -978,7 +984,7 @@
 }
 
 .m-layout-menu-button:focus-visible {
-    outline: 2px solid var(--m-color-info);
+    outline: 2px solid var(--m-color-focus-border);
     outline-offset: 2px;
 }
 
@@ -1193,7 +1199,7 @@
 .m-nav-item:focus-visible,
 .m-nav-group-expander:focus-visible,
 .m-nav-group-item:focus-visible {
-    outline: 2px solid var(--m-color-info);
+    outline: 2px solid var(--m-color-focus-border);
     outline-offset: 2px;
 }
 
@@ -1375,7 +1381,7 @@
 }
 
 .m-radio-wrapper:has(:focus-visible) {
-    outline: 2px solid var(--m-color-info);
+    outline: 2px solid var(--m-color-focus-border);
     outline-offset: 2px;
 }
 
@@ -1429,8 +1435,13 @@
 }
 
 .m-select-wrapper:has(.m-select:focus-visible) {
-    outline: 2px solid var(--m-color-info);
-    outline-offset: 2px;
+    outline: none;
+    border-color: var(--m-color-focus-border);
+    box-shadow: 0 0 0 3px var(--m-color-focus-ring);
+}
+
+.m-select-wrapper.is-danger:has(.m-select:focus-visible) {
+    border-color: var(--m-color-danger);
 }
 
 /* Disabled: flat, faint border and dimmed text and arrow, matching Input */
@@ -1688,7 +1699,7 @@
 .m-tabs:focus-visible,
 .m-tab:focus-visible,
 .m-tab-panel:focus-visible {
-    outline: 2px solid var(--m-color-info);
+    outline: 2px solid var(--m-color-focus-border);
     outline-offset: 1px;
     border-radius: var(--m-radius);
     border-color: transparent;
@@ -1872,9 +1883,15 @@
     outline: none;
 }
 
-.m-textarea:focus-visible {
-    outline: 2px solid var(--m-color-info);
-    outline-offset: 2px;
+.m-textarea:focus-visible,
+.m-textarea:focus-visible:hover {
+    outline: none;
+    border-color: var(--m-color-focus-border);
+    box-shadow: 0 0 0 3px var(--m-color-focus-ring);
+}
+
+.m-textarea.is-danger:focus-visible {
+    border-color: var(--m-color-danger);
 }
 
 .m-textarea:disabled {
@@ -2061,6 +2078,6 @@
 }
 
 .m-toggle:focus-visible {
-    outline: 2px solid var(--m-color-info);
+    outline: 2px solid var(--m-color-focus-border);
     outline-offset: 2px;
 }

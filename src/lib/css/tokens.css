@@ -165,6 +165,10 @@
 	/* Highlight */
 	--m-color-highlight:  var(--m-accent-9);
 
+	/* Focus: one neutral color for every control, so it never competes with the accent */
+	--m-color-focus-border: var(--m-gray-10);
+	--m-color-focus-ring: color-mix(in srgb, var(--m-gray-12) 16%, transparent);
+
 	/* Text colors */
     --m-color-text: var(--m-gray-12);
 	--m-color-text-accent: var(--m-accent-11);

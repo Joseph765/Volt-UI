@@ -606,7 +606,7 @@
     }
 
     .showcase-card:focus-visible {
-        outline: 2px solid var(--m-color-accent);
+        outline: 2px solid var(--m-color-focus-border);
         outline-offset: 2px;
     }
 
