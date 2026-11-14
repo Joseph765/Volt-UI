@@ -92,7 +92,7 @@
     { 
         "name": "Tabs",
         "description": "A navigation component that organizes content into separate panels, allowing users to switch between views with clickable tab labels.",
-        "example": "<div class='m-tabs'><button class='m-tab' aria-selected='true' style='color: var(--m-color-text); border-color: var(--m-color-text);'>Tab 1</button><button class='m-tab'>Tab 2</button></div>"
+        "example": "<div class='m-tabs has-indicator'><span class='m-tab' aria-selected='true'>Tab 1<span class='m-tabs-indicator tabs-example-indicator'></span></span><span class='m-tab'>Tab 2</span></div>"
     },
     { 
         "name": "Text",

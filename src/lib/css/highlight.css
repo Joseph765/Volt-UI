@@ -8,7 +8,7 @@
   max-height: 100%;
 }
 
-/* Collapsed: the code fades into the block's background, with a "Show more" pill on top */
+/* Collapsed: the code fades into the block's background, with a secondary "Show more" button on top */
 .m-code-block-fade {
   position: absolute;
   inset: auto 0 0 0;
@@ -25,70 +25,22 @@
   pointer-events: none;
 }
 
-/* Expanded: a matching "Show less" pill under the block */
+/* Expanded: a matching "Show less" button under the block */
 .m-code-block-collapse {
   display: flex;
   justify-content: center;
   padding-block-start: var(--m-space-s);
 }
 
-.m-code-block-expand-button {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--m-space-xs);
-  height: 32px;
-  padding-inline: var(--m-space-m) var(--m-space-s);
-  border: 1px solid var(--m-color-border);
-  border-radius: var(--m-radius-full);
-  background-color: var(--m-color-surface-raised);
-  color: var(--m-color-text);
-  font-family: var(--m-font);
-  font-size: var(--m-font-size-s);
-  cursor: pointer;
+/* The fade ignores clicks so the code above stays selectable; the button itself takes them */
+.m-code-block-fade .m-button-wrapper {
   pointer-events: auto;
-  transition: border-color 0.15s ease, color 0.15s ease;
-}
-
-.m-code-block-expand-button svg {
-  color: var(--m-color-text-weaker);
-  transition: color 0.15s ease, transform 0.15s ease;
-}
-
-.m-code-block-expand-button:focus-visible {
-  outline: 2px solid var(--m-color-info);
-  outline-offset: 2px;
 }
 
 /* While collapsed, the fade covers the bottom of the block, so hide the horizontal scrollbar
    that would show through it. Expanding removes the fade, which restores scrolling. */
 .m-code-block:has(.m-code-block-fade) code {
   overflow-x: hidden;
-}
-
-@media (pointer: fine) {
-  .m-code-block-expand-button:hover {
-    border-color: var(--m-accent-7);
-    color: var(--m-color-text-accent);
-  }
-
-  .m-code-block-expand-button:hover svg {
-    color: var(--m-color-text-accent);
-  }
-
-  .m-code-block-fade .m-code-block-expand-button:hover svg {
-    transform: translateY(2px);
-  }
-
-  .m-code-block-collapse .m-code-block-expand-button:hover svg {
-    transform: translateY(-2px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .m-code-block-expand-button,
-  .m-code-block-expand-button svg {
-    transition: none;
-  }
 }
 
 .hljs {

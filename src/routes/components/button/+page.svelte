@@ -33,7 +33,7 @@
 <Flex>
     <Button>Primary</Button>
     <Button variant="secondary">Secondary</Button>
-    <Button variant="ghost">Ghost</Button>
+    <Button variant="tertiary">Tertiary</Button>
     <Button variant="danger">Danger</Button>
 </Flex>`;
     let example2 = `<script>
@@ -58,7 +58,7 @@
         <Icon name="minus" slot="start" />
         Remove
     </Button>
-    <Button variant="ghost">
+    <Button variant="tertiary">
         <Icon name="chevron-down" size="l" />
     </Button>
     <Button variant="danger">
@@ -103,7 +103,7 @@
                 <Flex>
                     <Button>Primary</Button>
                     <Button variant="secondary">Secondary</Button>
-                    <Button variant="ghost">Ghost</Button>
+                    <Button variant="tertiary">Tertiary</Button>
                     <Button variant="danger">Danger</Button>
                 </Flex>
             </CodeExample>
@@ -137,7 +137,7 @@
                         <Icon name="minus" slot="start" />
                         Remove
                     </Button>
-                    <Button variant="ghost">
+                    <Button variant="tertiary">
                         <Icon name="chevron-down" size="l" />
                     </Button>
                     <Button variant="danger">
@@ -164,7 +164,7 @@
             <TableRow>
                 <TableCell><Code>variant</Code></TableCell>
                 <TableCell>The style of the button based on level of importance. Danger is for destructive actions.</TableCell>
-                <TableCell><Code>primary</Code> | <Code>secondary</Code> | <Code>ghost</Code> | <Code>danger</Code></TableCell>
+                <TableCell><Code>primary</Code> | <Code>secondary</Code> | <Code>tertiary</Code> | <Code>danger</Code></TableCell>
             </TableRow>
             <TableRow>
                 <TableCell><Code>disabled</Code></TableCell>

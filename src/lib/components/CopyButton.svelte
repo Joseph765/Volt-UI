@@ -40,8 +40,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid var(--m-color-accent);
-        color: var(--m-accent-11);
+        border: 1px solid var(--m-gray-7);
+        color: var(--m-color-text);
         padding: var(--m-space-s);
         border-radius: var(--m-radius);
         height: 32px;

@@ -1,5 +1,5 @@
 <script>
-    /** @type { 'default' | 'primary' | 'secondary' | 'ghost' | 'danger' } */
+    /** @type { 'default' | 'primary' | 'secondary' | 'tertiary' | 'danger' } */
     export let variant = 'default';
 
     /** @type { boolean } */

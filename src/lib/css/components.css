@@ -4,6 +4,18 @@
     border-color: var(--m-gray-9) !important;
 }
 
+/* Tabs example: the sliding bar drawn statically under the selected tab, gray until the card is hovered */
+.m-tabs-indicator.tabs-example-indicator {
+    --m-tabs-indicator-x: 0px;
+    --m-tabs-indicator-width: 100%;
+    /* Sit on the tab list's bottom line, below the tab's own 2px border */
+    bottom: -2px;
+}
+
+.is-grayscale .tabs-example-indicator {
+    background: linear-gradient(90deg, var(--m-gray-9), var(--m-gray-11));
+}
+
 /* Active nav row in the Layout example: gray until the card is hovered */
 .is-grayscale .layout-example-active {
     background: linear-gradient(90deg, var(--m-gray-3) 0%, var(--m-gray-5) 50%, var(--m-gray-6) 100%);
@@ -43,9 +55,8 @@
         background-color: var(--m-color-accent) !important;
     }
 
-    .grayscale-wrapper:hover .is-grayscale .m-tab[aria-selected="true"] {
-        border-block-end: 2px solid var(--m-color-accent) !important;
-        color: var(--m-color-text-accent) !important;
+    .grayscale-wrapper:hover .is-grayscale .tabs-example-indicator {
+        background: linear-gradient(90deg, var(--m-accent-9), var(--m-accent-11));
     }
 
     .grayscale-wrapper:hover .is-grayscale .m-toggle:checked {
@@ -230,9 +241,9 @@
     color: var(--m-color-text);
 }
 
-.m-button-wrapper:has(.m-button.is-ghost) .m-button-overlay {
-    background-color: var(--m-color-background);
-    border-color: var(--m-accent-9);
+.m-button-wrapper:has(.m-button.is-tertiary) .m-button-overlay {
+    background-color: var(--m-gray-4);
+    border-color: var(--m-gray-4);
     color: var(--m-color-text);
 }
 
@@ -286,14 +297,14 @@
 
 .m-button.is-secondary {
     background-color: var(--m-color-background);
-    color: var(--m-accent-11);
-    border-color: var(--m-accent-9);
+    color: var(--m-color-text);
+    border-color: var(--m-gray-7);
 }
 
-.m-button.is-ghost {
-    background-color: var(--m-color-background);
+.m-button.is-tertiary {
+    background-color: transparent;
     border-color: transparent;
-    color: var(--m-accent-11);
+    color: var(--m-color-text-weak);
 }
 
 .m-button.is-danger {
@@ -315,7 +326,7 @@
     border-color: var(--m-gray-3);
 }
 
-.m-button.is-ghost:disabled {
+.m-button.is-tertiary:disabled {
     background-color: var(--m-color-background);
     border-color: transparent;
     color: var(--m-gray-4);
@@ -941,6 +952,8 @@
 
 .m-layout-mobile-logo {
     position: absolute;
+    /* Span the header's full height so the logo is centered vertically, whatever its size */
+    inset-block: 0;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -1598,6 +1611,7 @@
 
 /* Tabs */
 .m-tabs {
+    position: relative;
     display: flex;
     align-items: center;
     gap: var(--m-space-xl);
@@ -1605,6 +1619,8 @@
 }
 
 .m-tab {
+    position: relative;
+    padding: var(--m-space-xs) 0 var(--m-space-s);
     font-family: var(--m-font);
     font-weight: var(--m-font-weight-regular);
     letter-spacing: var(--m-letter-spacing-l);
@@ -1614,12 +1630,50 @@
     border-block-end: 2px solid transparent;
     cursor: pointer;
     color: var(--m-color-text-weaker);
-    padding-block-end: var(--m-space-s);
+    transition: color 0.2s ease;
 }
 
 .m-tab[aria-selected="true"] {
-    border-block-end: 2px solid var(--m-color-accent);
-    color: var(--m-color-text-accent);
+    color: var(--m-color-text);
+}
+
+/* Before the indicator is measured (and in static previews), mark the selected tab with an underline */
+.m-tabs:not(.has-indicator) .m-tab[aria-selected="true"] {
+    border-block-end-color: var(--m-color-accent);
+}
+
+/* Bar that slides to the selected tab */
+.m-tabs-indicator {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: var(--m-tabs-indicator-width);
+    height: 2px;
+    border-radius: var(--m-radius-full);
+    background: linear-gradient(90deg, var(--m-accent-9), var(--m-accent-11));
+    transform: translateX(var(--m-tabs-indicator-x));
+    pointer-events: none;
+}
+
+.m-tabs-indicator.is-animated {
+    /* Same timing as the button hover */
+    transition: transform 0.2s ease, width 0.2s ease;
+}
+
+.m-tab-panel {
+    padding-block-start: var(--m-space-m);
+}
+
+/* Panel content eases in each time its tab is selected */
+.m-tab-panel:not([hidden]) {
+    animation: m-tab-panel-in 0.2s ease;
+}
+
+@keyframes m-tab-panel-in {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
 }
 
 .m-tabs:focus-visible,
@@ -1629,6 +1683,23 @@
     outline-offset: 1px;
     border-radius: var(--m-radius);
     border-color: transparent;
+}
+
+@media (pointer: fine) {
+    .m-tab:hover {
+        color: var(--m-color-text);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .m-tab,
+    .m-tabs-indicator.is-animated {
+        transition: none;
+    }
+
+    .m-tab-panel:not([hidden]) {
+        animation: none;
+    }
 }
 
 /* Text */

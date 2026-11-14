@@ -14,10 +14,54 @@
     /** @type { string } */
     export let selected;
 
+    import { onMount, tick } from 'svelte';
+
     $: activeTabIndex = tabs.findIndex(tab => tab.id === selected);
 
     /** @type {HTMLButtonElement[]} */
     let tabButtons = [];
+
+    /** @type { HTMLDivElement } */
+    let tablist;
+
+    /** Position and width of the sliding indicator under the selected tab */
+    let indicator = { x: 0, width: 0 };
+
+    /** True once the indicator has been placed; until then the selected tab shows a plain underline */
+    let measured = false;
+
+    /** Turned on after the first placement so the indicator doesn't slide in from the left on load */
+    let animate = false;
+
+    /** @type { ResizeObserver | undefined } */
+    let resizeObserver;
+
+    function measure() {
+        const button = tabButtons[activeTabIndex];
+        if (!button) return;
+        indicator = { x: button.offsetLeft, width: button.offsetWidth };
+        measured = true;
+    }
+
+    // Follow the selection, and re-observe the buttons when the list of tabs changes
+    $: if (resizeObserver) {
+        activeTabIndex;
+        tabs;
+        tick().then(() => {
+            resizeObserver?.disconnect();
+            [tablist, ...tabButtons].forEach(el => el && resizeObserver?.observe(el));
+            measure();
+        });
+    }
+
+    onMount(() => {
+        // Labels change width when fonts load or the layout reflows
+        resizeObserver = new ResizeObserver(measure);
+        measure();
+        requestAnimationFrame(() => requestAnimationFrame(() => animate = true));
+
+        return () => resizeObserver?.disconnect();
+    });
 
     /**
      * Handles the keydown event.
@@ -58,7 +102,14 @@
     }
 </script>
 
-<div class="m-tabs" role="tablist" tabindex="0" on:keydown={handleKeyDown}>
+<div
+    class="m-tabs"
+    class:has-indicator={measured}
+    role="tablist"
+    tabindex="0"
+    on:keydown={handleKeyDown}
+    bind:this={tablist}
+>
     {#each tabs as tab, i}
         <button 
             bind:this={tabButtons[i]}
@@ -73,6 +124,15 @@
             {tab.label}
         </button>
     {/each}
+    {#if measured}
+        <span
+            class="m-tabs-indicator"
+            class:is-animated={animate}
+            style:--m-tabs-indicator-x="{indicator.x}px"
+            style:--m-tabs-indicator-width="{indicator.width}px"
+            aria-hidden="true"
+        ></span>
+    {/if}
 </div>
 
 <slot />

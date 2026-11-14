@@ -191,7 +191,7 @@
                     <Text size="3xl" weight="black" as="h2">Components</Text>
                     <Text size="l" variant="weak" measure="m">From form controls to full page layouts.</Text>
                 </div>
-                <Button variant="ghost" href="/components">View all {components.length} →</Button>
+                <Button variant="tertiary" href="/components">View all {components.length} →</Button>
             </div>
             <div class="showcase-grid">
                 {#each showcase as component}
@@ -217,7 +217,7 @@
                         Six 12-step scales, each step with a job: backgrounds, borders, solids and text.
                     </Text>
                 </div>
-                <Button variant="ghost" href="/tokens#color-scales">Explore tokens →</Button>
+                <Button variant="tertiary" href="/tokens#color-scales">Explore tokens →</Button>
             </div>
             <div class="palette">
                 {#each scales as scale}

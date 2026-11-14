@@ -1,6 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import hljs from 'highlight.js';
+    import Button from '$lib/components/Button.svelte';
     import CopyButton from '$lib/components/CopyButton.svelte';
 
     /** @type { string } */
@@ -43,19 +44,19 @@
         <code bind:this={codeElement} class="language-xml"></code>
         {#if collapsible && !expanded}
             <div class="m-code-block-fade">
-                <button on:click={() => expanded = true} class="m-code-block-expand-button" aria-expanded="false">
+                <Button variant="secondary" on:click={() => expanded = true} aria-expanded="false">
                     Show more
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-                </button>
+                    <svg slot="end" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </Button>
             </div>
         {/if}
     </pre>
     {#if collapsible && expanded}
         <div class="m-code-block-collapse">
-            <button on:click={collapse} class="m-code-block-expand-button" aria-expanded="true">
+            <Button variant="secondary" on:click={collapse} aria-expanded="true">
                 Show less
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
-            </button>
+                <svg slot="end" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+            </Button>
         </div>
     {/if}
 </div>

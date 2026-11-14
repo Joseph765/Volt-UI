@@ -22,16 +22,16 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Tab, Tabs } from "$moth";
+    import { Tab, Tabs, Text } from "$moth";
 
     /** @type { string } */
-    let selectedTab = "one";
+    let selectedTab = "overview";
     
     /** @type {{ id: string, label: string }[]} */
     let tabs = [
-        { id: "one", label: "Label 1" },
-        { id: "two", label: "Label 2" },
-        { id: "three", label: "Label 3" },
+        { id: "overview", label: "Overview" },
+        { id: "activity", label: "Activity" },
+        { id: "settings", label: "Settings" },
     ];
 <\/script>
 
@@ -40,19 +40,25 @@
     selected={selectedTab}
     onClick={(/** @type { string } */ id) => selectedTab = id}
 >
-    <Tab id="one" selected={selectedTab}>Content 1</Tab>
-    <Tab id="two" selected={selectedTab}>Content 2</Tab>
-    <Tab id="three" selected={selectedTab}>Content 3</Tab>
+    <Tab id="overview" selected={selectedTab}>
+        <Text variant="weak">Your portfolio is up 4.2% this week.</Text>
+    </Tab>
+    <Tab id="activity" selected={selectedTab}>
+        <Text variant="weak">3 transactions in the last 24 hours.</Text>
+    </Tab>
+    <Tab id="settings" selected={selectedTab}>
+        <Text variant="weak">Manage notifications and security.</Text>
+    </Tab>
 </Tabs>`;
 
     /** @type { string } */
-    let selectedTab = "one";
+    let selectedTab = "overview";
 
     /** @type {{ id: string, label: string }[]} */
     let tabs = [
-        { id: "one", label: "Label 1" },
-        { id: "two", label: "Label 2" },
-        { id: "three", label: "Label 3" },
+        { id: "overview", label: "Overview" },
+        { id: "activity", label: "Activity" },
+        { id: "settings", label: "Settings" },
     ];
 </script>
 
@@ -75,9 +81,15 @@
                     selected={selectedTab}
                     onClick={(/** @type { string } */ id) => selectedTab = id}
                 >
-                    <Tab id="one" selected={selectedTab}>Content 1</Tab>
-                    <Tab id="two" selected={selectedTab}>Content 2</Tab>
-                    <Tab id="three" selected={selectedTab}>Content 3</Tab>
+                    <Tab id="overview" selected={selectedTab}>
+                        <Text variant="weak">Your portfolio is up 4.2% this week.</Text>
+                    </Tab>
+                    <Tab id="activity" selected={selectedTab}>
+                        <Text variant="weak">3 transactions in the last 24 hours.</Text>
+                    </Tab>
+                    <Tab id="settings" selected={selectedTab}>
+                        <Text variant="weak">Manage notifications and security.</Text>
+                    </Tab>
                 </Tabs>
             </CodeExample>
         {/if}

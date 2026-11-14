@@ -87,6 +87,12 @@
 </Layout>
 
 <style>
+    /* Flex, so the inline SVG doesn't sit on a text baseline with space underneath */
+    .logo {
+        display: flex;
+        text-decoration: none;
+    }
+
     /* Center the 36px mark on the nav's 24px icon column, so it starts 6px further left */
     .logo.is-desktop {
         margin-inline-start: -6px;
