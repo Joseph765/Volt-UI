@@ -13,7 +13,7 @@
 }
 
 .is-grayscale .tabs-example-indicator {
-    background: linear-gradient(90deg, var(--m-gray-9), var(--m-gray-11));
+    background: var(--m-gray-11);
 }
 
 /* Active nav row in the Layout example: gray until the card is hovered */
@@ -56,7 +56,7 @@
     }
 
     .grayscale-wrapper:hover .is-grayscale .tabs-example-indicator {
-        background: linear-gradient(90deg, var(--m-accent-9), var(--m-accent-11));
+        background: var(--m-color-accent);
     }
 
     .grayscale-wrapper:hover .is-grayscale .m-toggle:checked {
@@ -1654,7 +1654,7 @@
     width: var(--m-tabs-indicator-width);
     height: 2px;
     border-radius: var(--m-radius-full);
-    background: linear-gradient(90deg, var(--m-accent-9), var(--m-accent-11));
+    background: var(--m-color-accent);
     transform: translateX(var(--m-tabs-indicator-x));
     pointer-events: none;
 }
