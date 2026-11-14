@@ -44,7 +44,7 @@
         color: var(--m-color-text);
         padding: var(--m-space-s);
         border-radius: var(--m-radius);
-        height: 32px;
+        height: var(--m-control-height);
         cursor: pointer;
     }
 

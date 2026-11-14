@@ -272,7 +272,7 @@
     border: 1px solid var(--m-accent-9);
     border-radius: var(--m-radius-full);
     background-color: var(--m-accent-9);
-    height: 32px;
+    height: var(--m-control-height);
     width: max-content;
     color: var(--m-color-text);
     cursor: pointer;
@@ -604,6 +604,7 @@
 /* Fieldset */
 .m-fieldset {
     position: relative;
+    margin: 0;
     border: none;
     padding: 0;
     padding-block-start: var(--m-space-s);
@@ -611,6 +612,7 @@
 
 .m-fieldset-legend {
     display: flex;
+    padding: 0;
     gap: var(--m-space-xs);
 }
 
@@ -785,6 +787,7 @@
     background-color: var(--m-color-surface);
     color: var(--m-color-text);
     width: 16rem;
+    height: var(--m-control-height);
     box-sizing: border-box;
 }
 
@@ -794,13 +797,19 @@
 
 .m-input:focus {
     outline: none;
-    border-color: var(--m-color-highlight);
-    box-shadow: 0 0 1px 2px var(--m-color-highlight);
 }
 
+/* Same focus ring as every other control */
+.m-input:focus-visible {
+    outline: 2px solid var(--m-color-info);
+    outline-offset: 2px;
+}
+
+/* Disabled: flat (no recessed fill), faint border and dimmed text, so it recedes */
 .m-input:disabled {
-    background-color: var(--m-gray-1);
+    background-color: transparent;
     border-color: var(--m-gray-3);
+    color: var(--m-color-text-weaker);
     cursor: not-allowed;
 }
 
@@ -810,10 +819,6 @@
 
 .m-input.is-danger {
     border-color: var(--m-color-danger);
-}
-
-.m-input.is-danger:focus {
-    box-shadow: 0 0 1px 2px var(--m-color-danger); 
 }
 
 .m-input.is-align-end {
@@ -856,10 +861,6 @@
         border-color: var(--m-gray-3);
     }
 
-    .m-input:focus:hover {
-        border-color: var(--m-color-highlight);
-    }
-
     .m-input.is-danger:hover {
         border-color: var(--m-color-danger);
     }
@@ -870,6 +871,11 @@
     display: flex;
     flex-direction: column;
     gap: var(--m-space-s);
+}
+
+/* Hint and error text belong to the field above, so pull them in closer than the label-to-field gap */
+.m-label-wrapper > .m-text {
+    margin-block-start: calc(var(--m-space-xs) - var(--m-space-s));
 }
 
 .m-label {
@@ -1392,6 +1398,8 @@
     min-width: 12rem;
     width: fit-content;
     max-width: 100%;
+    height: var(--m-control-height);
+    box-sizing: border-box;
 }
 
 .m-select-wrapper.is-expanded {
@@ -1406,7 +1414,8 @@
     appearance: none;
     -webkit-appearance: none;
     width: 100%;
-    padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+    height: 100%;
+    padding: 0 2.5rem 0 0.75rem;
     border: none;
     background: transparent;
     color: var(--m-color-text);
@@ -1419,25 +1428,21 @@
     border: none;
 }
 
-.m-select-wrapper:focus-within {
-    outline: none;
-    border-color: var(--m-color-highlight);
-    box-shadow: 0 0 1px 2px var(--m-color-highlight);
+.m-select-wrapper:has(.m-select:focus-visible) {
+    outline: 2px solid var(--m-color-info);
+    outline-offset: 2px;
 }
 
-.m-select-wrapper.is-danger:focus-within {
-    outline: none;
-    border-color: var(--m-color-danger);
-    box-shadow: 0 0 1px 2px var(--m-color-danger);
-}
-
+/* Disabled: flat, faint border and dimmed text and arrow, matching Input */
 .m-select-wrapper:has(.m-select:disabled) {
-    background-color: var(--m-gray-1);
+    background-color: transparent;
     border-color: var(--m-gray-3);
     cursor: not-allowed;
 }
 
-.m-select:disabled {
+.m-select:disabled,
+.m-select-wrapper:has(.m-select:disabled) .m-select-arrow {
+    color: var(--m-color-text-weaker);
     cursor: not-allowed;
 }
 
@@ -1865,13 +1870,17 @@
 
 .m-textarea:focus {
     outline: none;
-    border-color: var(--m-color-highlight);
-    box-shadow: 0 0 1px 2px var(--m-color-highlight);
+}
+
+.m-textarea:focus-visible {
+    outline: 2px solid var(--m-color-info);
+    outline-offset: 2px;
 }
 
 .m-textarea:disabled {
-    background-color: var(--m-gray-1);
+    background-color: transparent;
     border-color: var(--m-gray-3);
+    color: var(--m-color-text-weaker);
     cursor: not-allowed;
 }
 
@@ -1881,12 +1890,6 @@
 
 .m-textarea.is-danger {
     border-color: var(--m-color-danger);
-}
-
-.m-textarea.is-danger:focus {
-    outline: none;
-    border-color: var(--m-color-danger);
-    box-shadow: 0 0 1px 2px var(--m-color-danger);
 }
 
 .m-textarea.is-align-end {
@@ -1900,10 +1903,6 @@
 
     .m-textarea:disabled:hover {
         border-color: var(--m-gray-3);
-    }
-
-    .m-textarea:focus:hover {
-        border-color: var(--m-color-highlight);
     }
 
     .m-textarea.is-danger:hover {

@@ -46,6 +46,9 @@
     --m-space-xl: 2.25rem; /* 36px */
     --m-space-2xl: 4.5rem; /* 72px */
 
+    /* Control height: buttons, inputs and selects share it so they line up side by side */
+    --m-control-height: 2.25rem; /* 36px */
+
     /* Border Radius */
 	--m-radius-sharp: 8px;
     --m-radius: 16px;

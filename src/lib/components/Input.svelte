@@ -68,11 +68,11 @@
             {...$$restProps}
             class="m-input {expanded ? "is-expanded" : undefined} {error ? "is-danger" : undefined} is-align-{align}"
             style:padding-inline-start={prefixWidth ? `${prefixWidth}px` : undefined}
-            style:padding-inline-end={(type === 'number' && suffixWidth) ? `${suffixWidth + 16}px` : suffixWidth ? `${suffixWidth + 16}px` : undefined}
+            style:padding-inline-end={suffixWidth ? `${suffixWidth}px` : undefined}
         />
     
         {#if $$slots.suffix}
-          <span class="m-input-suffix" bind:clientHeight={suffixWidth}>
+          <span class="m-input-suffix" bind:clientWidth={suffixWidth}>
             <slot name="suffix" />
           </span>
         {/if}
