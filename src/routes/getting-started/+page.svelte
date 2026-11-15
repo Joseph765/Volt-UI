@@ -43,7 +43,7 @@
         <Flex direction="column">
             <Text size="2xl" weight="bold" as="h2">Installation</Text>
             <Text size="l" variant="weak">Install with npm:</Text>
-            <CopyCode code="npm install moth-ui-svelte" style="background-color: var(--m-color-surface);" />
+            <CopyCode code="npm install moth-ui-svelte" />
         </Flex>
 
         <Flex direction="column">

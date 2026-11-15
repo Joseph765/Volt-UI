@@ -5,6 +5,7 @@
     const year = new Date().getFullYear();
     import CodeExample from "./components/CodeExample.svelte";
     import Seo from "./Seo.svelte";
+    import { glow } from "./glow.js";
     import {
         Badge,
         Button,
@@ -200,8 +201,8 @@
             </div>
             <div class="showcase-grid">
                 {#each showcase as component}
-                    <a href="/components/{component.name.toLocaleLowerCase()}" class="showcase-card grayscale-wrapper">
-                        <div class="showcase-preview is-grayscale" inert>
+                    <a href="/components/{component.name.toLocaleLowerCase()}" class="showcase-card glow-card" use:glow>
+                        <div class="showcase-preview glow-stage is-grayscale" inert>
                             {@html component.example}
                         </div>
                         <div class="showcase-label">
@@ -501,7 +502,6 @@
         color: var(--m-color-text);
         text-decoration: none;
         overflow: hidden;
-        transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
     .showcase-preview {
@@ -547,7 +547,7 @@
 
     .arrow {
         color: var(--m-color-text-weaker);
-        transition: transform 0.15s ease, color 0.15s ease;
+        transition: color 0.15s ease;
     }
 
     .showcase-card:focus-visible {
@@ -556,14 +556,8 @@
     }
 
     @media (pointer: fine) {
-        .showcase-card:hover {
-            border-color: var(--m-color-accent);
-            box-shadow: 0 0 12px 2px color-mix(in srgb, var(--m-color-highlight) 60%, transparent);
-        }
-
         .showcase-card:hover .arrow {
-            color: var(--m-color-text-accent);
-            transform: translateX(4px);
+            color: var(--m-color-text);
         }
     }
 

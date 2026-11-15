@@ -92,7 +92,7 @@
             colors: [
                 { token: "--m-color-focus-border", name: "Focus border", kind: "fill", description: "Focus outline on every control, and the border of a focused field." },
                 { token: "--m-color-focus-ring", name: "Focus ring", kind: "ring", description: "Soft halo around a focused field." },
-                { token: "--m-color-highlight", name: "Highlight", kind: "fill", description: "Selected text inside code blocks." }
+                { token: "--m-color-highlight", name: "Highlight", kind: "fill", description: "Background of selected text, everywhere." }
             ]
         }
     ];

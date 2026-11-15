@@ -21,7 +21,7 @@ body {
 }
 
 ::selection {
-  background-color: var(--m-accent-7);
+  background-color: var(--m-color-highlight);
   color: var(--m-color-text);
 }
 

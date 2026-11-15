@@ -39,8 +39,7 @@
     }
 
     /* Tighter than a regular button so full token names fit in the narrow color tiles */
-    .token-copy :global(.m-button),
-    .token-copy :global(.m-button-overlay) {
+    .token-copy :global(.m-button) {
         gap: var(--m-space-xs);
         padding-inline: var(--m-space-s);
     }

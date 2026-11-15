@@ -4,7 +4,7 @@
     border-color: var(--m-gray-9) !important;
 }
 
-/* Tabs example: the sliding bar drawn statically under the selected tab, gray until the card is hovered */
+/* Tabs example: the sliding bar drawn statically under the selected tab, in gray */
 .m-tabs-indicator.tabs-example-indicator {
     --m-tabs-indicator-x: 0px;
     --m-tabs-indicator-width: 100%;
@@ -16,56 +16,14 @@
     background: var(--m-gray-11);
 }
 
-/* Active nav row in the Layout example: gray until the card is hovered */
-.is-grayscale .layout-example-active {
+/* Active nav row in the Layout and Navigation examples, in gray */
+.is-grayscale .layout-example-active,
+.is-grayscale .nav-example-active {
     background: linear-gradient(90deg, var(--m-gray-3) 0%, var(--m-gray-5) 50%, var(--m-gray-6) 100%);
 }
 
-@media (pointer: fine) {
-    .grayscale-wrapper:hover .is-grayscale .m-checkbox-input.example-version ~ .m-checkbox-box {
-        background-color: var(--m-color-accent) !important;
-        border-color: var(--m-color-accent) !important;
-    }
-
-    .grayscale-wrapper:hover .is-grayscale .m-badge {
-        background-color: var(--m-info-4) !important;
-        border-color: var(--m-color-border-info) !important;
-        color: var(--m-info-12) !important;
-    }
-
-    .grayscale-wrapper:hover .is-grayscale .m-banner {
-        background-color: var(--m-info-4) !important;
-    }
-
-    .grayscale-wrapper:hover .is-grayscale .m-container {
-        outline-color: var(--m-color-danger) !important; 
-    }
-
-    .grayscale-wrapper:hover .is-grayscale .m-button {
-        background-color: var(--m-accent-9) !important;
-        border-color: var(--m-color-accent) !important;
-    }
-
-    .grayscale-wrapper:hover .is-grayscale .m-link {
-        color: var(--m-color-text-accent) !important;
-    }
-
-    .grayscale-wrapper:hover .is-grayscale .m-radio:checked + .m-radio-label::before {
-        border-color: var(--m-color-accent) !important;
-        background-color: var(--m-color-accent) !important;
-    }
-
-    .grayscale-wrapper:hover .is-grayscale .tabs-example-indicator {
-        background: var(--m-color-accent);
-    }
-
-    .grayscale-wrapper:hover .is-grayscale .m-toggle:checked {
-        background-color: var(--m-color-accent);
-    }
-
-    .grayscale-wrapper:hover .is-grayscale .layout-example-active {
-        background: linear-gradient(90deg, var(--m-accent-2) 0%, var(--m-accent-5) 50%, var(--m-accent-6) 100%);
-    }
+.nav-example-active {
+    color: var(--m-color-text);
 }
 
 /* Badge */
@@ -197,66 +155,13 @@
 .m-button-wrapper {
     position: relative;
     width: max-content;
-    /* Non-auto height opts out of flex/grid stretch so the overlay matches the button, not the row */
+    /* Non-auto height opts out of flex/grid stretch so the wrapper matches the button, not the row */
     height: fit-content;
     cursor: pointer;
 }
 
 .m-button-wrapper.is-expanded {
     width: 100%;
-}
-
-.m-button,
-.m-button-overlay {
-    padding-block: 0;
-}
-
-/* Decorative hover layer: a copy of the button that wipes in from the left */
-.m-button-overlay {
-    position: absolute;
-    inset: 0;
-    clip-path: inset(0 100% 0 0);
-    transition: clip-path 0.2s ease;
-    /* Let clicks fall through to the real button underneath */
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--m-space-s);
-    font-family: var(--m-font);
-    font-size: var(--m-font-size-m);
-    font-weight: var(--m-font-weight-regular);
-    letter-spacing: var(--m-letter-spacing-m);
-    line-height: var(--m-line-height-m);
-    border: 1px solid var(--m-color-text);
-    border-radius: var(--m-radius-full);
-    background-color: var(--m-color-text);
-    color: var(--m-color-text-contrast);
-    padding-inline: var(--m-space-m);
-    text-decoration: none;
-}
-
-.m-button-wrapper:has(.m-button.is-secondary) .m-button-overlay {
-    background-color: var(--m-color-background);
-    color: var(--m-color-text);
-}
-
-.m-button-wrapper:has(.m-button.is-tertiary) .m-button-overlay {
-    background-color: var(--m-gray-4);
-    border-color: var(--m-gray-4);
-    color: var(--m-color-text);
-}
-
-.m-button-wrapper:has(.m-button.is-danger) .m-button-overlay {
-    background-color: var(--m-color-background);
-    border-color: var(--m-color-danger);
-    color: var(--m-color-danger);
-}
-
-.m-button-wrapper:has(.m-button.is-size-l) .m-button-overlay {
-    font-size: var(--m-font-size-l);
-    height: auto;
-    padding: var(--m-space-s) var(--m-space-l);
 }
 
 .m-button {
@@ -276,8 +181,32 @@
     width: max-content;
     color: var(--m-color-text);
     cursor: pointer;
+    padding-block: 0;
     padding-inline: var(--m-space-m);
     text-decoration: none;
+    /*
+     * Moth-inspired hover: the button switches on like a lamp. Filled buttons fill with light (bright at the
+     * center) and their label turns dark; every variant can cast a soft halo. Variants set the values below.
+     */
+    --m-button-lit-background: radial-gradient(ellipse at center, var(--m-gray-12) 0%, var(--m-accent-12) 45%, var(--m-accent-11) 100%);
+    --m-button-lit-color: var(--m-color-text-contrast);
+    --m-button-halo: 0 0 24px -2px color-mix(in srgb, var(--m-accent-9) 75%, transparent);
+    position: relative;
+    isolation: isolate;
+    transition: box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* The light: fades in over the button's background, below its label */
+.m-button::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    border-radius: inherit;
+    background: var(--m-button-lit-background);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
 }
 
 .m-button:focus-visible {
@@ -299,18 +228,28 @@
     background-color: var(--m-color-background);
     color: var(--m-color-text);
     border-color: var(--m-gray-7);
+    /* Outlined: no fill; the outline turns white and glows */
+    --m-button-lit-background: none;
+    --m-button-lit-color: var(--m-color-text);
+    --m-button-halo: 0 0 20px -4px color-mix(in srgb, var(--m-accent-9) 60%, transparent);
 }
 
 .m-button.is-tertiary {
     background-color: transparent;
     border-color: transparent;
     color: var(--m-color-text-weak);
+    /* Quiet: a gray pill and a brighter label, no glow */
+    --m-button-lit-background: var(--m-gray-4);
+    --m-button-lit-color: var(--m-color-text);
+    --m-button-halo: none;
 }
 
 .m-button.is-danger {
     background-color: var(--m-color-danger);
     border-color: var(--m-color-danger);
     color: var(--m-color-text);
+    --m-button-lit-background: radial-gradient(ellipse at center, var(--m-gray-12) 0%, var(--m-danger-12) 45%, var(--m-danger-11) 100%);
+    --m-button-halo: 0 0 24px -2px color-mix(in srgb, var(--m-danger-9) 70%, transparent);
 }
 
 .m-button:disabled {
@@ -342,20 +281,38 @@
     cursor: not-allowed;
 }
 
-/* Keyboard focus shows the same state as hover */
-.m-button-wrapper:has(.m-button:focus-visible) .m-button-overlay {
-    clip-path: inset(-1px);
+/* Lit state: on hover and on keyboard focus */
+.m-button:focus-visible::before {
+    opacity: 1;
+}
+
+.m-button:focus-visible {
+    color: var(--m-button-lit-color);
+    box-shadow: var(--m-button-halo);
+}
+
+.m-button.is-secondary:focus-visible {
+    border-color: var(--m-color-text);
 }
 
 @media (pointer: fine) {
-    .m-button-wrapper:not(:has(.m-button:disabled)):hover .m-button-overlay {
-        /* -1px so subpixel-positioned buttons don't clip the border's antialiased edge */
-        clip-path: inset(-1px);
+    .m-button:not(:disabled):hover::before {
+        opacity: 1;
+    }
+
+    .m-button:not(:disabled):hover {
+        color: var(--m-button-lit-color);
+        box-shadow: var(--m-button-halo);
+    }
+
+    .m-button.is-secondary:not(:disabled):hover {
+        border-color: var(--m-color-text);
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .m-button-overlay {
+    .m-button,
+    .m-button::before {
         transition: none;
     }
 }
@@ -587,7 +544,8 @@
     font-family: var(--m-font-mono);
     font-size: var(--m-font-size-m);
     line-height: var(--m-line-height-m);
-    background: var(--m-color-surface-raised);
+    /* Same background as multi-line code blocks */
+    background: var(--m-color-surface);
     padding: var(--m-space-s) var(--m-space-s) var(--m-space-s) var(--m-space-m);
     /* border: 1px solid var(--m-color-border); */
     border-radius: var(--m-radius);
@@ -931,24 +889,32 @@
 /* Layout */
 /*
  * Mobile first: a top header with a menu button, and a nav drawer that slides in from the left.
- * At 82rem (--m-breakpoint-xl) and up, the nav becomes a static sidebar with the logo above it.
+ * At 82rem (--m-breakpoint-xl) and up, the nav becomes a sidebar with the logo above it.
+ *
+ * The page scrolls the browser window (not an inner element), so routers like SvelteKit reset and restore
+ * the scroll position on navigation as usual. The header and sidebar stay put with position: sticky/fixed.
  */
 .m-layout {
     position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: 4rem minmax(0, 1fr);
+    grid-template-rows: 4rem auto;
     grid-template-areas:
         "header"
         "content";
-    height: 100dvh;
-    overflow: hidden;
+    min-height: 100dvh;
     background-color: var(--m-color-background);
+}
+
+/* Anchor links (#section) land below the sticky header instead of under it */
+:root:has(.m-layout) {
+    scroll-padding-top: 4rem;
 }
 
 .m-layout-header {
     grid-area: header;
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 2;
     display: flex;
     align-items: center;
@@ -994,7 +960,7 @@
 }
 
 .m-layout-nav {
-    position: absolute;
+    position: fixed;
     top: 4rem;
     bottom: 0;
     left: 0;
@@ -1024,7 +990,6 @@
 .m-layout-content {
     grid-area: content;
     min-width: 0;
-    overflow-y: auto;
     background-color: var(--m-color-background);
     transition: filter 0.2s ease-out;
 }
@@ -1035,8 +1000,8 @@
 }
 
 /*
- * Caps the content at the centered column's width (the widest Container size, so any Container fits);
- * the scroll container itself spans to the window edge. Use a Container's size to set the content width.
+ * Caps the content at the centered column's width (the widest Container size, so any Container fits).
+ * Use a Container's size to set the content width.
  */
 .m-layout-content-inner {
     max-width: var(--m-breakpoint-2xl);
@@ -1048,17 +1013,22 @@
      * the page, with the sidebar hugging its left edge. The gutters share the leftover space equally,
      * but the left one never shrinks below the sidebar's 18rem, so on narrower screens the content
      * shifts right instead of the sidebar getting squeezed.
-     * Content spans the right gutter too, so its scrollbar stays at the window edge.
+     *
+     * Logo and nav share one full-height "sidebar" column and stick to the top of the window while the
+     * page scrolls: the logo at the top, the nav right below it (Layout measures the logo's height).
      */
     .m-layout {
+        --m-layout-logo-offset: var(--m-layout-logo-height, 6.25rem);
         grid-template-columns:
             minmax(18rem, 1fr)
             minmax(0, var(--m-breakpoint-2xl))
             minmax(0, 1fr);
-        grid-template-rows: auto minmax(0, 1fr);
-        grid-template-areas:
-            "logo content content"
-            "nav content content";
+        grid-template-rows: auto;
+        grid-template-areas: "sidebar content content";
+    }
+
+    :root:has(.m-layout) {
+        scroll-padding-top: 0;
     }
 
     .m-layout-header {
@@ -1067,19 +1037,28 @@
 
     .m-layout-logo,
     .m-layout-nav {
+        grid-area: sidebar;
+        align-self: start;
         justify-self: end;
         width: 18rem;
+        position: sticky;
     }
 
     .m-layout-logo {
+        top: 0;
         display: flex;
         align-items: center;
         padding: var(--m-space-xl) var(--m-space-m) var(--m-space-l) calc(var(--m-space-xl) + var(--m-space-m));
     }
 
     .m-layout-nav {
-        grid-area: nav;
-        position: static;
+        top: var(--m-layout-logo-offset);
+        /* Undo the mobile drawer's fixed insets */
+        bottom: auto;
+        left: auto;
+        margin-block-start: var(--m-layout-logo-offset);
+        /* A long nav scrolls on its own instead of running off the bottom of the window */
+        max-height: calc(100dvh - var(--m-layout-logo-offset));
         padding: 0 0 var(--m-space-xl) var(--m-space-xl);
         background-color: transparent;
         border: none;

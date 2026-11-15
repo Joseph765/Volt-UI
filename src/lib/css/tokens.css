@@ -163,7 +163,7 @@
 	--m-color-border-success: var(--m-success-5);
 
 	/* Highlight */
-	--m-color-highlight:  var(--m-accent-9);
+	--m-color-highlight: var(--m-accent-7); /* Selected text, everywhere */
 
 	/* Focus: one neutral color for every control, so it never competes with the accent */
 	--m-color-focus-border: var(--m-gray-10);

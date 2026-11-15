@@ -1,0 +1,102 @@
+/*
+ * "Drawn to the light": hover effect for the docs site's component cards.
+ * The hovered card lights up: a light follows the cursor across the preview stage (behind the component, which
+ * stays grayscale), its whole edge catches the light, brightest nearest the cursor, and a soft halo spills out
+ * around it. Position comes from the `glow` action.
+ */
+
+.glow-card {
+    /* Keyboard focus and touch fall back to a light centered over the preview */
+    --glow-x: 50%;
+    --glow-y: 5rem;
+    --glow-opacity: 0;
+    position: relative;
+    isolation: isolate;
+    transition: box-shadow 0.3s ease;
+}
+
+.glow-card:focus-visible {
+    --glow-opacity: 1;
+}
+
+/* The light on the stage: painted above the stage's background, below the component */
+.glow-stage {
+    position: relative;
+    isolation: isolate;
+}
+
+.glow-stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(
+        circle 14rem at var(--glow-x) var(--glow-y),
+        color-mix(in srgb, var(--m-accent-9) 45%, transparent),
+        transparent 75%
+    );
+}
+
+/* A fainter wash over the rest of the card (the text area), so the light follows the cursor everywhere */
+.glow-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(
+        circle 14rem at var(--glow-x) var(--glow-y),
+        color-mix(in srgb, var(--m-accent-9) 26%, transparent),
+        transparent 75%
+    );
+}
+
+/* Rim light: the whole 1px edge lights up, brightest near the cursor */
+.glow-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    padding: 1px;
+    border-radius: inherit;
+    background:
+        radial-gradient(
+            circle 10rem at var(--glow-x) var(--glow-y),
+            var(--m-accent-11),
+            transparent 80%
+        ),
+        linear-gradient(var(--m-gray-7), var(--m-gray-7));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+
+.glow-stage::before,
+.glow-card::before,
+.glow-card::after {
+    opacity: var(--glow-opacity);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    /* Keep the light on its own layer at all times, so hovering doesn't re-rasterize (and jiggle) the card's text */
+    will-change: opacity;
+}
+
+/* Halo: light spilling out around the hovered card */
+.glow-card:focus-visible,
+.glow-card:hover {
+    box-shadow: 0 16px 48px -16px color-mix(in srgb, var(--m-accent-9) 60%, transparent);
+}
+
+@media (pointer: fine) {
+    .glow-card:hover {
+        --glow-opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .glow-card,
+    .glow-stage::before,
+    .glow-card::before,
+    .glow-card::after {
+        transition: none;
+    }
+}

@@ -1,5 +1,6 @@
 <script>
     import components from "./components.json";
+    import { glow } from "../glow.js";
     import {
         Flex,
         Icon,
@@ -37,8 +38,8 @@
         </Input>
         <section class="components">
             {#each componentResults as component}
-                <a href="/components/{component.name.toLocaleLowerCase()}" class="component-card grayscale-wrapper">
-                    <div class="component-preview is-grayscale" inert>
+                <a href="/components/{component.name.toLocaleLowerCase()}" class="component-card glow-card" use:glow>
+                    <div class="component-preview glow-stage is-grayscale" inert>
                         {@html component.example}
                     </div>
                     <div class="component-info">
@@ -71,7 +72,6 @@
         color: var(--m-color-text);
         text-decoration: none;
         overflow: hidden;
-        transition: box-shadow 0.15s ease;
     }
 
     .component-preview {
@@ -143,7 +143,7 @@
 
     .arrow {
         color: var(--m-color-text-weaker);
-        transition: transform 0.15s ease, color 0.15s ease;
+        transition: color 0.15s ease;
     }
 
     .component-card:focus-visible {
@@ -152,13 +152,8 @@
     }
 
     @media (pointer: fine) {
-        .component-card:hover {
-            box-shadow: 0 0 12px 2px color-mix(in srgb, var(--m-color-highlight) 60%, transparent);
-        }
-
         .component-card:hover .arrow {
-            color: var(--m-color-text-accent);
-            transform: translateX(4px);
+            color: var(--m-color-text);
         }
     }
 </style>

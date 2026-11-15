@@ -1,6 +1,7 @@
 <script>
     import "$lib/css/index.css";
-    import { page } from '$app/state'; 
+    import "./glow.css";
+    import { page } from '$app/state';
     import components from "./components/components.json";
     import MothLogo from "$lib/components/MothLogo.svelte";
 
@@ -62,7 +63,7 @@
             <Compass slot="icon" let:animate {animate} />
             Guidelines
         </NavItem>
-        <NavGroup title="Design Tokens">
+        <NavGroup title="Design Tokens" open={page.url.pathname === "/tokens"}>
             {#snippet icon(animate)}<Paintbrush {animate} />{/snippet}
             <NavGroupItem href="/tokens#top" active={page.url.pathname + page.url.hash === "/tokens#top"} on:click={() => open = false}>All tokens</NavGroupItem>
             <NavGroupItem href="/tokens#font" active={page.url.pathname + page.url.hash === "/tokens#font"} on:click={() => open = false}>Font</NavGroupItem>

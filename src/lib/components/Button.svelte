@@ -16,12 +16,6 @@
 </script>
 
 <div class="m-button-wrapper" class:is-expanded={expanded}>
-    <!-- Decorative copy of the label for the hover wipe; hidden from assistive tech -->
-    <div class="m-button-overlay" aria-hidden="true">
-        <slot name="start" />
-        <slot />
-        <slot name="end" />
-    </div>
     {#if href}
         <a {href} class="m-button is-link is-{variant} is-size-{size}" class:is-expanded={expanded} {...$$restProps} on:click>
             <slot name="start" />
