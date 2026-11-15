@@ -4,7 +4,7 @@
     import components from "./components/components.json";
     import MothLogo from "$lib/components/MothLogo.svelte";
 
-    import { Blocks, Paintbrush, Rocket } from "@jis3r/icons";
+    import { Blocks, Compass, Paintbrush, Rocket } from "@jis3r/icons";
 
     import { 
         Layout, 
@@ -21,10 +21,6 @@
     let open = false;
 </script>
 
-<svelte:head>
-	<title>Moth UI</title>
-	<meta name="description" content="Design System For Crypto Apps" />
-</svelte:head>
 
 <Layout>
     <LayoutHeader>
@@ -62,14 +58,22 @@
             <Rocket slot="icon" let:animate {animate} />
             Getting Started
         </NavItem>
+        <NavItem href="/guidelines" active={page.url.pathname === "/guidelines"} on:click={() => open = false}>
+            <Compass slot="icon" let:animate {animate} />
+            Guidelines
+        </NavItem>
         <NavGroup title="Design Tokens">
             {#snippet icon(animate)}<Paintbrush {animate} />{/snippet}
             <NavGroupItem href="/tokens#top" active={page.url.pathname + page.url.hash === "/tokens#top"} on:click={() => open = false}>All tokens</NavGroupItem>
             <NavGroupItem href="/tokens#font" active={page.url.pathname + page.url.hash === "/tokens#font"} on:click={() => open = false}>Font</NavGroupItem>
+            <NavGroupItem href="/tokens#font-weight" active={page.url.pathname + page.url.hash === "/tokens#font-weight"} on:click={() => open = false}>Font Weight</NavGroupItem>
             <NavGroupItem href="/tokens#font-size" active={page.url.pathname + page.url.hash === "/tokens#font-size"} on:click={() => open = false}>Font Size</NavGroupItem>
             <NavGroupItem href="/tokens#line-height" active={page.url.pathname + page.url.hash === "/tokens#line-height"} on:click={() => open = false}>Line Height</NavGroupItem>
+            <NavGroupItem href="/tokens#letter-spacing" active={page.url.pathname + page.url.hash === "/tokens#letter-spacing"} on:click={() => open = false}>Letter Spacing</NavGroupItem>
             <NavGroupItem href="/tokens#space" active={page.url.pathname + page.url.hash === "/tokens#space"} on:click={() => open = false}>Space</NavGroupItem>
+            <NavGroupItem href="/tokens#sizing" active={page.url.pathname + page.url.hash === "/tokens#sizing"} on:click={() => open = false}>Sizing</NavGroupItem>
             <NavGroupItem href="/tokens#radius" active={page.url.pathname + page.url.hash === "/tokens#radius"} on:click={() => open = false}>Border Radius</NavGroupItem>
+            <NavGroupItem href="/tokens#breakpoints" active={page.url.pathname + page.url.hash === "/tokens#breakpoints"} on:click={() => open = false}>Breakpoints</NavGroupItem>
             <NavGroupItem href="/tokens#color" active={page.url.pathname + page.url.hash === "/tokens#color"} on:click={() => open = false}>Color</NavGroupItem>
             <NavGroupItem href="/tokens#color-scales" active={page.url.pathname + page.url.hash === "/tokens#color-scales"} on:click={() => open = false}>Color Scales</NavGroupItem>
         </NavGroup>

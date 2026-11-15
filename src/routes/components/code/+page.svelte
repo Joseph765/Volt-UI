@@ -14,7 +14,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Code } from "$moth";
+    import { Code } from "moth-ui-svelte";
 <\/script>
 
 <Code>Hello World</Code>`;
@@ -22,7 +22,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Code</Text>
+        <Text size="3xl" weight="black" as="h1">Code</Text>
         <Text size="xl" variant="weak">An inline text component that styles short code snippets with a monospaced font for clear readability.</Text>
     </Flex>
     <Flex direction="column">

@@ -27,7 +27,7 @@
     let selectedExample = 'variants';
 
     let example1 = `<script>
-    import { Button, Flex } from "$moth";
+    import { Button, Flex } from "moth-ui-svelte";
 <\/script>
 
 <Flex>
@@ -37,12 +37,12 @@
     <Button variant="danger">Danger</Button>
 </Flex>`;
     let example2 = `<script>
-    import { Button } from "$moth";
+    import { Button } from "moth-ui-svelte";
 <\/script>
 
 <Button disabled>Disabled</Button>`;
     let example3 = `<script>
-    import { Button, Flex, Icon } from "$moth";
+    import { Button, Flex, Icon } from "moth-ui-svelte";
 <\/script>
 
 <Flex>
@@ -67,7 +67,7 @@
     </Button>
 </Flex>`;
     let example4 = `<script>
-    import { Button, Flex } from "$moth";
+    import { Button, Flex } from "moth-ui-svelte";
 <\/script>
 
 <Flex>
@@ -75,12 +75,12 @@
     <Button size="l">Large</Button>
 </Flex>`;
     let example5 = `<script>
-    import { Button } from "$moth";
+    import { Button } from "moth-ui-svelte";
 <\/script>
 
 <Button expanded>Expanded</Button>`;
     let example6 = `<script>
-    import { Button } from "$moth";
+    import { Button } from "moth-ui-svelte";
 <\/script>
 
 <Button href="/component">View components</Button>`;
@@ -88,7 +88,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Button</Text>
+        <Text size="3xl" weight="black" as="h1">Button</Text>
         <Text size="xl" variant="weak">An interactive element that triggers actions or submits forms when clicked.</Text>
     </Flex>
     <Flex direction="column">
@@ -185,6 +185,21 @@
                 <TableCell><Code>href</Code></TableCell>
                 <TableCell>Allows the button to behave like a link.</TableCell>
                 <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>slot="start"</Code></TableCell>
+                <TableCell>Content placed before the label, usually an icon.</TableCell>
+                <TableCell><Code>slot</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>slot="end"</Code></TableCell>
+                <TableCell>Content placed after the label, usually an icon.</TableCell>
+                <TableCell><Code>slot</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>on:click</Code></TableCell>
+                <TableCell>Fires when the button (or link) is clicked.</TableCell>
+                <TableCell><Code>event</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

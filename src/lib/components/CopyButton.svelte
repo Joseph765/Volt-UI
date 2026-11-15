@@ -42,9 +42,11 @@
         justify-content: center;
         border: 1px solid var(--m-gray-7);
         color: var(--m-color-text);
-        padding: var(--m-space-s);
-        border-radius: var(--m-radius);
+        padding: 0;
+        /* Square at the shared control height, fully rounded: a circle at any size */
+        width: var(--m-control-height);
         height: var(--m-control-height);
+        border-radius: var(--m-radius-full);
         cursor: pointer;
     }
 

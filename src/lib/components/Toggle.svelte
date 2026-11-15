@@ -19,7 +19,8 @@
 </script>
 
 <div class="m-toggle-wrapper {error ? "is-danger" : undefined} {disabled ? "is-disabled" : undefined} {hint ? "has-hint" : undefined}">
-    <input class="m-toggle" type="checkbox" {checked} {name} {disabled} tabindex="0">
+    <!-- bind so `bind:checked` works for consumers; id matches the label's `for` so clicking the label toggles -->
+    <input class="m-toggle" type="checkbox" id={name} bind:checked {name} {disabled} tabindex="0" on:change>
     <div class="m-flex has-direction-column has-gap-xs">
         <label class="m-toggle-label" for={name}>{label}</label>
         {#if error}

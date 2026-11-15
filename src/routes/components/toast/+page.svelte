@@ -24,7 +24,7 @@
     let selectedExample = $state('basic');
 
     let example1 = `<script>
-    import { Button, Toast, ToastGroup } from "$lib";
+    import { Button, Toast, ToastGroup } from "moth-ui-svelte";
 
     /**
      * @typedef { object } Toast
@@ -40,7 +40,7 @@
 
     /** @param { string } message - Message displayed on Toast */
     function addToast(message) {
-        // Auto-dismiss after 5 seconds
+        // Auto-dismiss after 2 seconds
         const timeoutId = setTimeout(() => {
             removeToast(newToast.id);
         }, 2000);
@@ -76,7 +76,7 @@
     {/each}
 </ToastGroup>`;
     let example2 = `<script>
-    import { Button, Toast, ToastGroup } from "$lib";
+    import { Button, Toast, ToastGroup } from "moth-ui-svelte";
 
     /**
      * @typedef { object } Toast
@@ -93,7 +93,7 @@
 
     /** @param { string } message @param { 'default' | 'danger' } status - Message displayed on Toast */
     function addToast(message, status) {
-        // Auto-dismiss after 5 seconds
+        // Auto-dismiss after 2 seconds
         const timeoutId = setTimeout(() => {
             removeToast(newToast.id);
         }, 2000);
@@ -145,7 +145,7 @@
 
     /** @param { string } message @param { 'default' | 'danger' } status - Message displayed on Toast */
     function addToast(message, status) {
-        // Auto-dismiss after 5 seconds
+        // Auto-dismiss after 2 seconds
         const timeoutId = setTimeout(() => {
             removeToast(newToast.id);
         }, 2000);
@@ -176,7 +176,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Toast</Text>
+        <Text size="3xl" weight="black" as="h1">Toast</Text>
         <Text size="xl" variant="weak">A temporary, non-intrusive notification that appears in the bottom-right corner to provide feedback.</Text>
     </Flex>
     <Flex direction="column">
@@ -219,6 +219,21 @@
                 <TableCell><Code>variant</Code></TableCell>
                 <TableCell>The style of the toast.</TableCell>
                 <TableCell><Code>default</Code> | <Code>danger</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>dismissable</Code></TableCell>
+                <TableCell>Shows a close button. Defaults to <Code>true</Code>.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>onDismiss</Code></TableCell>
+                <TableCell>Called when the close button is clicked. Remove the toast from your list here.</TableCell>
+                <TableCell><Code>() =&gt; void</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>ToastGroup</Code></TableCell>
+                <TableCell>Wrap all toasts in one group. It stacks them in the corner and is a polite live region, so screen readers announce each new toast without interrupting.</TableCell>
+                <TableCell><Code>component</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

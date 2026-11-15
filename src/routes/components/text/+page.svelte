@@ -27,12 +27,12 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Text } from "$moth";
+    import { Text } from "moth-ui-svelte";
 <\/script>
 
 <Text>This is sample text</Text>`;
     let example2 = `<script>
-    import { Flex, Text } from "$moth";
+    import { Flex, Text } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
@@ -45,7 +45,7 @@
     <Text size="3xl">This is 3xl sample text</Text>
 </Flex>`;
     let example3 = `<script>
-    import { Flex, Text } from "$moth";
+    import { Flex, Text } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
@@ -54,7 +54,7 @@
     <Text size="l" weight="black">This is black weight</Text>
 </Flex>`;
     let example4 = `<script>
-    import { Flex, Text } from "$moth";
+    import { Flex, Text } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
@@ -64,7 +64,7 @@
     <Text size="l" variant="weakest">This is the weakest variant</Text>
 </Flex>`;
     let example5 = `<script>
-    import { Flex, Text } from "$moth";
+    import { Flex, Text } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
@@ -72,7 +72,7 @@
     <Text as="h2" size="l">This is an h2 tag</Text>
 </Flex>`;
     let example6 = `<script>
-    import { Flex, Text } from "$moth";
+    import { Flex, Text } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
@@ -82,7 +82,7 @@
     <Text measure="none">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Text>
 </Flex>`;
     let example7 = `<script>
-    import { Flex, Text } from "$moth";
+    import { Flex, Text } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
@@ -91,7 +91,7 @@
     <Text size="l" align="end">End</Text>
 </Flex>`;
     let example8 = `<script>
-    import { Text } from "$moth";
+    import { Text } from "moth-ui-svelte";
 <\/script>
 
 <Text mono>Mono Text</Text>`;
@@ -99,7 +99,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Text</Text>
+        <Text size="3xl" weight="black" as="h1">Text</Text>
         <Text size="xl" variant="weak">A typographic component for styling and displaying text with consistent typography scales.</Text>
     </Flex>
     <Flex direction="column">
@@ -215,6 +215,11 @@
                 <TableCell><Code>align</Code></TableCell>
                 <TableCell>The direction the text is aligned.</TableCell>
                 <TableCell><Code>start</Code> | <Code>center</Code> | <Code>end</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>id</Code></TableCell>
+                <TableCell>Id for the text element, for example to use as a link anchor.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

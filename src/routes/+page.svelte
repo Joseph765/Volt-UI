@@ -4,6 +4,7 @@
     const repoUrl = "https://github.com/Joseph765/Volt-UI";
     const year = new Date().getFullYear();
     import CodeExample from "./components/CodeExample.svelte";
+    import Seo from "./Seo.svelte";
     import {
         Badge,
         Button,
@@ -20,19 +21,23 @@
     } from "$lib";
 
     // --- Live demo state (the hero card is built entirely from Moth components) ---
-    let amount = "2.5";
-    let validator = "lido";
-    const validators = [
-        { value: "lido", label: "Lido · 3.4% APR" },
-        { value: "rocket", label: "Rocket Pool · 3.1% APR" },
-        { value: "coinbase", label: "Coinbase · 2.9% APR" }
+    let seats = "5";
+    let billing = "yearly";
+    let prioritySupport = false;
+    const billingOptions = [
+        { value: "yearly", label: "Yearly · $10 per seat / month" },
+        { value: "monthly", label: "Monthly · $12 per seat / month" }
     ];
     /** @type { Record<string, number> } */
-    const apr = { lido: 0.034, rocket: 0.031, coinbase: 0.029 };
+    const seatPrice = { yearly: 10, monthly: 12 };
+    const supportPrice = 4;
 
-    $: parsed = parseFloat(amount);
-    $: invalid = amount !== "" && (isNaN(parsed) || parsed <= 0);
-    $: yearly = !invalid && parsed > 0 ? parsed * (apr[validator] ?? 0) : 0;
+    $: seatCount = Number(seats);
+    $: invalid = seats !== "" && (!Number.isInteger(seatCount) || seatCount < 1);
+    $: monthly = !invalid && seatCount > 0 ? seatCount * ((seatPrice[billing] ?? 0) + (prioritySupport ? supportPrice : 0)) : 0;
+
+    /** @param { number } n */
+    const usd = (n) => n.toLocaleString("en-US", { style: "currency", currency: "USD" });
 
     // --- Content ---
     const featured = ["Button", "Input", "Toggle", "Badge", "Banner", "Tabs", "Table", "Layout"];
@@ -43,31 +48,33 @@
 
     const features = [
         {
-            title: "Token-driven",
-            body: "Every color, space, radius and type size is a CSS variable. Restyle the whole system by changing a handful of tokens.",
-            icon: `<path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>`
-        },
-        {
-            title: "Svelte-native",
-            body: "Written for Svelte 5 from the ground up. No wrappers, no virtual DOM, just components that compile away.",
+            title: "Built for Svelte",
+            body: "Not a port of a React library. Every component is written for Svelte 5, compiles away, and feels like plain Svelte.",
             icon: `<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>`
         },
         {
+            title: "Polished by default",
+            body: "Spacing, type, color and every interaction state are already designed. Drop components in and the page looks finished.",
+            icon: `<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>`
+        },
+        {
             title: "Dark by design",
-            body: "Twelve-step color scales tuned for dark interfaces, so contrast and hierarchy hold up on every surface.",
+            body: "Designed dark-first rather than inverted from a light theme, so every surface, border and text color is tuned for low-light interfaces.",
             icon: `<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>`
         },
         {
             title: "Zero dependencies",
-            body: "Svelte is the only peer dependency. Install it, import one stylesheet, and start building.",
+            body: "Svelte is the only peer dependency. Nothing else to install, update or audit.",
             icon: `<path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>`
         }
     ];
 </script>
 
-<svelte:head>
-    <title>Moth UI · A dark-first design system for Svelte</title>
-</svelte:head>
+<Seo
+    title="Moth UI · The Svelte design system"
+    description="Moth UI is a complete, dark-first design system for Svelte 5. {components.length} polished components that look finished the moment you install them. No theming, no config."
+    path="/"
+/>
 
 <Container size="2xl" align="center">
     <div class="page">
@@ -76,11 +83,11 @@
             <div class="hero-glow" aria-hidden="true"></div>
             <div class="hero-copy">
                 <h1 class="hero-title">
-                    The design system that <span class="accent">ships with you.</span>
+                    The design system <span class="accent">Svelte was missing.</span>
                 </h1>
                 <Text size="xl" variant="weak" measure="s">
-                    Moth UI gives you {components.length} production-ready components and a complete token
-                    system, so every screen looks consistent from day one.
+                    Moth UI is a complete set of {components.length} components for Svelte 5, designed together so
+                    your app looks polished the moment you install it. No theming, no config.
                 </Text>
                 <Flex wrap>
                     <Button size="l" variant="primary" href="/getting-started">Get started</Button>
@@ -94,47 +101,41 @@
             <div class="hero-demo">
                 <Card space="l">
                     <Flex slot="header" justify="between" align="center" style="width: 100%;">
-                        <Text size="xl" weight="bold" as="h2">Stake ETH</Text>
-                        <Badge variant="success">Live</Badge>
+                        <Text size="xl" weight="bold" as="h2">Team plan</Text>
+                        {#if billing === "yearly"}
+                            <Badge variant="success">Save 17%</Badge>
+                        {/if}
                     </Flex>
                     <Flex direction="column" gap="l">
                         <Input
-                            name="demo-amount"
-                            label="Amount"
-                            bind:value={amount}
+                            name="demo-seats"
+                            label="Seats"
+                            bind:value={seats}
                             expanded
-                            inputmode="decimal"
-                            error={invalid ? "Enter an amount greater than 0" : ""}
+                            inputmode="numeric"
+                            error={invalid ? "Enter a whole number of seats" : ""}
                         >
-                            <span slot="suffix">ETH</span>
+                            <span slot="suffix">seats</span>
                         </Input>
-                        <Select name="demo-validator" label="Validator" options={validators} bind:value={validator} expanded />
-                        <Toggle name="demo-compound" label="Auto-compound rewards" checked />
+                        <Select name="demo-billing" label="Billing" options={billingOptions} bind:value={billing} expanded />
+                        <Toggle name="demo-support" label="Priority support (+$4 per seat)" bind:checked={prioritySupport} />
                         <Divider />
                         <Flex justify="between" align="center">
-                            <Text variant="weak">Estimated yearly reward</Text>
-                            <Text weight="bold" mono>{yearly.toFixed(4)} ETH</Text>
+                            <Text variant="weak">Total per month</Text>
+                            <Text weight="bold" mono>{usd(monthly)}</Text>
                         </Flex>
-                        <Button variant="primary" size="l" expanded disabled={invalid || !amount}>Stake now</Button>
+                        <Button variant="primary" size="l" expanded disabled={invalid || !seats}>Upgrade plan</Button>
                     </Flex>
                 </Card>
                 <p class="demo-caption">Every element above is a Moth component. Try it.</p>
             </div>
         </section>
 
-        <!-- Stats -->
-        <section class="stats" aria-label="Moth UI at a glance">
-            <div class="stat"><span class="stat-value">{components.length}</span><span class="stat-label">Components</span></div>
-            <div class="stat"><span class="stat-value">{scales.length}×12</span><span class="stat-label">Color steps</span></div>
-            <div class="stat"><span class="stat-value">0</span><span class="stat-label">Runtime dependencies</span></div>
-            <div class="stat"><span class="stat-value">MIT</span><span class="stat-label">Licensed</span></div>
-        </section>
-
         <!-- Features -->
         <section class="section">
             <div class="section-head">
                 <Text size="3xl" weight="black" as="h2">Why Moth</Text>
-                <Text size="l" variant="weak" measure="m">A small, opinionated foundation that stays out of your way.</Text>
+                <Text size="l" variant="weak" measure="m">Every design decision is already made. You just build.</Text>
             </div>
             <div class="features">
                 {#each features as feature}
@@ -170,7 +171,7 @@
                     <div class="step-body">
                         <Text size="l" weight="bold" as="h3">Import the styles once</Text>
                         <CodeExample codeOnly code={`<script>
-    import "$moth/css/index.css";
+    import "moth-ui-svelte/css/index.css";
 <\/script>`} />
                     </div>
                 </li>
@@ -179,7 +180,7 @@
                     <div class="step-body">
                         <Text size="l" weight="bold" as="h3">Use any component</Text>
                         <CodeExample codeOnly code={`<script>
-    import { Button } from "$moth";
+    import { Button } from "moth-ui-svelte";
 <\/script>
 
 <Button variant="primary">Ship it</Button>`} />
@@ -355,62 +356,6 @@
             justify-self: end;
         }
     }
-    /* Stats */
-    .stats {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        border-radius: var(--m-radius);
-        background-color: var(--m-color-surface);
-        overflow: hidden;
-    }
-
-    .stat {
-        display: flex;
-        flex-direction: column;
-        gap: var(--m-space-xs);
-        padding: var(--m-space-l);
-        border-inline-end: 1px solid var(--m-color-border);
-        border-block-end: 1px solid var(--m-color-border);
-    }
-
-    .stat:nth-child(2n) {
-        border-inline-end: none;
-    }
-
-    .stat:nth-last-child(-n + 2) {
-        border-block-end: none;
-    }
-
-    .stat-value {
-        font-size: var(--m-font-size-3xl);
-        font-weight: var(--m-font-weight-black);
-        line-height: 1;
-        color: var(--m-color-text);
-    }
-
-    .stat-label {
-        font-size: var(--m-font-size-m);
-        color: var(--m-color-text-weak);
-    }
-
-    @media (min-width: 48rem) {
-        .stats {
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
-
-        .stat {
-            border-block-end: none;
-        }
-
-        .stat:nth-child(2n) {
-            border-inline-end: 1px solid var(--m-color-border);
-        }
-
-        .stat:last-child {
-            border-inline-end: none;
-        }
-    }
-
     /* Sections */
     .section {
         display: flex;
@@ -439,7 +384,7 @@
     }
 
     .inline-link {
-        color: var(--m-color-text-accent);
+        color: var(--m-color-text);
         text-decoration: none;
         white-space: nowrap;
     }
@@ -471,9 +416,9 @@
         height: 2.75rem;
         margin-block-end: var(--m-space-s);
         border-radius: var(--m-radius-sharp);
-        background-color: var(--m-accent-3);
-        border: 1px solid var(--m-accent-5);
-        color: var(--m-accent-11);
+        background-color: var(--m-color-surface-raised);
+        border: 1px solid var(--m-color-border);
+        color: var(--m-color-text);
     }
 
     @media (min-width: 40rem) {
@@ -517,7 +462,7 @@
         bottom: var(--m-space-s);
         left: calc(1.25rem - 1px);
         width: 2px;
-        background: linear-gradient(var(--m-accent-6), var(--m-color-border));
+        background-color: var(--m-color-border);
     }
 
     .step-number {
@@ -527,9 +472,9 @@
         width: 2.5rem;
         height: 2.5rem;
         border-radius: var(--m-radius-full);
-        background-color: var(--m-accent-3);
-        border: 1px solid var(--m-accent-7);
-        color: var(--m-accent-11);
+        background-color: var(--m-color-surface-raised);
+        border: 1px solid var(--m-color-border);
+        color: var(--m-color-text);
         font-weight: var(--m-font-weight-bold);
     }
 

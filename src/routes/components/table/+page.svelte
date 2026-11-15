@@ -1,6 +1,7 @@
 <script>
-    import { 
-        Flex, 
+    import {
+        Code,
+        Flex,
         Select,
         Table,
         TableBody,
@@ -32,7 +33,7 @@
         TableHead,
         TableHeader,
         TableRow
-    } from "$moth";
+    } from "moth-ui-svelte";
 <\/script>
 
 <Table>
@@ -69,7 +70,7 @@
         TableHead,
         TableHeader,
         TableRow
-    } from "$moth";
+    } from "moth-ui-svelte";
 <\/script>
 
 <Table striped>
@@ -116,7 +117,7 @@
         TableHead,
         TableHeader,
         TableRow
-    } from "$moth";
+    } from "moth-ui-svelte";
 <\/script>
 
 <Table interactive>
@@ -153,7 +154,7 @@
         TableHead,
         TableHeader,
         TableRow
-    } from "$moth";
+    } from "moth-ui-svelte";
 <\/script>
 
 <Table interactive>
@@ -190,7 +191,7 @@
         TableHead,
         TableHeader,
         TableRow
-    } from "$moth";
+    } from "moth-ui-svelte";
 <\/script>
 
 <Table>
@@ -229,7 +230,7 @@
         TableHeader,
         TableRow,
         Text
-    } from "$moth";
+    } from "moth-ui-svelte";
 <\/script>
 
 <Table>
@@ -265,7 +266,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Table</Text>
+        <Text size="3xl" weight="black" as="h1">Table</Text>
         <Text size="xl" variant="weak">A structured component for displaying tabular data in rows and columns with consistent styling and layout.</Text>
     </Flex>
     <Flex direction="column">
@@ -464,4 +465,50 @@
             </CodeExample>
         {/if}
     </Flex>
+    <Table>
+        <TableHeader>
+            <TableRow>
+                <TableHead>Property</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead>Type</TableHead>
+            </TableRow>
+        </TableHeader>
+        <TableBody>
+            <TableRow>
+                <TableCell><Code>Table striped</Code></TableCell>
+                <TableCell>Tints every other body row to make long tables easier to scan.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>Table interactive</Code></TableCell>
+                <TableCell>Highlights body rows on hover, for rows that can be selected or opened.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>TableHead align</Code></TableCell>
+                <TableCell>Horizontal alignment of the header cell. Defaults to <Code>start</Code>.</TableCell>
+                <TableCell><Code>start</Code> | <Code>center</Code> | <Code>end</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>TableCell align</Code></TableCell>
+                <TableCell>Horizontal alignment of the cell. Use <Code>end</Code> for numbers.</TableCell>
+                <TableCell><Code>start</Code> | <Code>center</Code> | <Code>end</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>TableCell truncate</Code></TableCell>
+                <TableCell>Cuts long content to one line with an ellipsis.</TableCell>
+                <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>TableCaption</Code></TableCell>
+                <TableCell>Title for the table, shown inside its card at the top.</TableCell>
+                <TableCell><Code>component</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>TableHeader / TableBody / TableRow</Code></TableCell>
+                <TableCell>Structural parts that render <Code>thead</Code>, <Code>tbody</Code> and <Code>tr</Code>.</TableCell>
+                <TableCell><Code>component</Code></TableCell>
+            </TableRow>
+        </TableBody>
+    </Table>
 </Flex>

@@ -24,7 +24,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Components</Text>
+        <Text size="3xl" weight="black" as="h1">Components</Text>
         <Text size="xl" variant="weak">
             Reusable, accessible components for building consistent interfaces quickly.
         </Text>

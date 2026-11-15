@@ -22,12 +22,12 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Link } from "$moth";
+    import { Link } from "moth-ui-svelte";
 <\/script>
 
 <Link href="#">Example link</Link>`;
     let example2 = `<script>
-    import { Flex, Link } from "$moth";
+    import { Flex, Link } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
@@ -43,7 +43,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Link</Text>
+        <Text size="3xl" weight="black" as="h1">Link</Text>
         <Text size="xl" variant="weak">An interactive text element that navigates to another page or resource.</Text>
     </Flex>
     <Flex direction="column">
@@ -84,6 +84,16 @@
                 <TableCell><Code>size</Code></TableCell>
                 <TableCell>Sets the size of the link.</TableCell>
                 <TableCell><Code>xs</Code> | <Code>s</Code> | <Code>m</Code> | <Code>l</Code> | <Code>xl</Code> | <Code>2xl</Code> | <Code>3xl</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>href</Code></TableCell>
+                <TableCell>Where the link goes.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>target</Code></TableCell>
+                <TableCell>Where to open the link. <Code>_blank</Code> opens a new tab and adds <Code>rel="noopener noreferrer"</Code> automatically.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

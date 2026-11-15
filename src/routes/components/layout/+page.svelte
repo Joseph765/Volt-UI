@@ -57,7 +57,7 @@
         NavGroup,
         NavGroupItem,
         NavItem
-    } from "$moth";
+    } from "moth-ui-svelte";
 
     /** @type { boolean } */
     let open = false;
@@ -98,7 +98,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Layout</Text>
+        <Text size="3xl" weight="black" as="h1">Layout</Text>
         <Text size="xl" variant="weak">
             A structural component that defines the overall page structure with a sidebar navigation.
             On smaller screens the sidebar collapses into a header with a menu button that slides the navigation in from the left.
@@ -176,6 +176,11 @@
                 <TableCell><Code>LayoutMenuButton open</Code></TableCell>
                 <TableCell>Reflects whether the navigation is open so screen readers announce it (<Code>aria-expanded</Code>).</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>LayoutMenuButton on:click</Code></TableCell>
+                <TableCell>Fires when the menu button is pressed. Toggle <Code>open</Code> in response.</TableCell>
+                <TableCell><Code>event</Code></TableCell>
             </TableRow>
             <TableRow>
                 <TableCell><Code>Layout slot="logo"</Code></TableCell>

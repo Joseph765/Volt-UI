@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /form-preview
+
+Sitemap: https://moth-ui.com/sitemap.xml

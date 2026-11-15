@@ -27,37 +27,37 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Textarea } from "$moth";
+    import { Textarea } from "moth-ui-svelte";
 <\/script>
 
 <Textarea label="Message" placeholder="Enter a message" name="message" />`;
     let example2 = `<script>
-    import { Textarea } from "$moth";
+    import { Textarea } from "moth-ui-svelte";
 <\/script>
 
 <Textarea label="Message" placeholder="Enter a message" name="disabled" disabled />`;
     let example3 = `<script>
-    import { Textarea } from "$moth";
+    import { Textarea } from "moth-ui-svelte";
 <\/script>
 
 <Textarea label="Message" placeholder="Enter a message" name="required" required />`;
     let example4 = `<script>
-    import { Textarea } from "$moth";
+    import { Textarea } from "moth-ui-svelte";
 <\/script>
 
 <Textarea label="Message" placeholder="Enter a message" name="error" error="Incorrect format" />`;
     let example5 = `<script>
-    import { Textarea } from "$moth";
+    import { Textarea } from "moth-ui-svelte";
 <\/script>
 
 <Textarea label="Message" placeholder="Expanded Style" value="Expanded style" name="expanded" expanded />`;
     let example6 = `<script>
-    import { Textarea } from "$moth";
+    import { Textarea } from "moth-ui-svelte";
 <\/script>
 
 <Textarea label="Message" placeholder="With helper text" name="helpText" hint="Hint: this is a hint" />`;
     let example7 = `<script>
-    import { Textarea } from "$moth";
+    import { Textarea } from "moth-ui-svelte";
 <\/script>
 
 <Textarea label="Message" placeholder="With custom styling" name="customStyle" style="width: 22rem;" />`;
@@ -65,7 +65,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Textarea</Text>
+        <Text size="3xl" weight="black" as="h1">Textarea</Text>
         <Text size="xl" variant="weak">A multi-line text field that allows users to enter longer-form input or comments.</Text>
     </Flex>
     <Flex direction="column">
@@ -158,6 +158,16 @@
                 <TableCell><Code>align</Code></TableCell>
                 <TableCell>Aligns the text within the textarea element.</TableCell>
                 <TableCell><Code>start</Code> | <Code>end</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>value</Code></TableCell>
+                <TableCell>Current text. Use <Code>bind:value</Code> to read and update it.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>autocomplete</Code></TableCell>
+                <TableCell>Whether the browser may autofill the field.</TableCell>
+                <TableCell><Code>on</Code> | <Code>off</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

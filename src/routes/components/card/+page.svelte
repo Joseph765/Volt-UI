@@ -25,12 +25,12 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Card } from "$moth";
+    import { Card } from "moth-ui-svelte";
 <\/script>
 
 <Card>Basic</Card>`;
     let example2 = `<script>
-    import { Card, Flex } from "$moth";
+    import { Card, Flex } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
@@ -39,7 +39,7 @@
     <Card space="l">Large space</Card>
 </Flex>`;
     let example3 = `<script>
-    import { Card, Text } from "$moth";
+    import { Card, Text } from "moth-ui-svelte";
 <\/script>
 
 <Card>
@@ -47,7 +47,7 @@
     <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
 </Card>`;
     let example4 = `<script>
-    import { Button, Card, Text } from "$moth";
+    import { Button, Card, Text } from "moth-ui-svelte";
 <\/script>
 
 <Card>
@@ -59,7 +59,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Card</Text>
+        <Text size="3xl" weight="black" as="h1">Card</Text>
         <Text size="xl" variant="weak">A contained surface that groups related content and actions in a visually distinct block.</Text>
     </Flex>
     <Flex direction="column">
@@ -111,6 +111,16 @@
                 <TableCell><Code>space</Code></TableCell>
                 <TableCell>The amount of padding applied to the card.</TableCell>
                 <TableCell><Code>none</Code> | <Code>m</Code> | <Code>l</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>slot="header"</Code></TableCell>
+                <TableCell>Content for the card header, shown above a divider.</TableCell>
+                <TableCell><Code>slot</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>slot="header-end"</Code></TableCell>
+                <TableCell>Content aligned to the end of the header, such as an action button.</TableCell>
+                <TableCell><Code>slot</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

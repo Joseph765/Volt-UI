@@ -16,6 +16,7 @@
         Textarea,
         Toggle
     } from "$lib";
+    import Seo from "../Seo.svelte";
 
     const countries = [
         { value: "us", label: "United States" },
@@ -57,9 +58,7 @@
     let timezone = "pst";
 </script>
 
-<svelte:head>
-    <title>Form preview · Moth UI</title>
-</svelte:head>
+<Seo title="Form preview · Moth UI" description="Internal page for reviewing form design." path="/form-preview" noindex />
 
 <Container size="xl" align="center">
     <Flex direction="column" gap="xl">
