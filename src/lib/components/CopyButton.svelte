@@ -47,24 +47,33 @@
 
     /* Same as Button's secondary variant: on hover the outline turns white and glows */
     .m-copy-button {
-        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+        /* Own layer at all times, so the icon doesn't snap when the hover grow finishes */
+        will-change: transform;
     }
 
     .m-copy-button:focus-visible {
         border-color: var(--m-color-text);
         box-shadow: 0 0 20px -4px color-mix(in srgb, var(--m-accent-9) 60%, transparent);
+        transform: scale(1.06);
     }
 
     @media (pointer: fine) {
         .m-copy-button:hover {
             border-color: var(--m-color-text);
             box-shadow: 0 0 20px -4px color-mix(in srgb, var(--m-accent-9) 60%, transparent);
+            transform: scale(1.06);
         }
     }
 
     @media (prefers-reduced-motion: reduce) {
         .m-copy-button {
             transition: none;
+        }
+
+        .m-copy-button:focus-visible,
+        .m-copy-button:hover {
+            transform: none;
         }
     }
 </style>

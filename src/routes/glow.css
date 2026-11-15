@@ -12,7 +12,9 @@
     --glow-opacity: 0;
     position: relative;
     isolation: isolate;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    /* Own layer at all times, so text doesn't snap by a subpixel when the hover grow finishes */
+    will-change: transform;
 }
 
 .glow-card:focus-visible {
@@ -80,19 +82,30 @@
     will-change: opacity;
 }
 
-/* Halo: light spilling out around the hovered card */
-.glow-card:focus-visible,
-.glow-card:hover {
+/* Halo: light spilling out around the hovered card, which also grows slightly and rises above its neighbors.
+   transform doesn't affect layout, so the cards around it don't move. */
+.glow-card:focus-visible {
+    z-index: 1;
     box-shadow: 0 16px 48px -16px color-mix(in srgb, var(--m-accent-9) 60%, transparent);
+    transform: scale(1.03);
 }
 
+/* Mouse and trackpad only: on touch screens :hover sticks after a tap */
 @media (pointer: fine) {
     .glow-card:hover {
         --glow-opacity: 1;
+        z-index: 1;
+        box-shadow: 0 16px 48px -16px color-mix(in srgb, var(--m-accent-9) 60%, transparent);
+        transform: scale(1.03);
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .glow-card:focus-visible,
+    .glow-card:hover {
+        transform: none;
+    }
+
     .glow-card,
     .glow-stage::before,
     .glow-card::before,

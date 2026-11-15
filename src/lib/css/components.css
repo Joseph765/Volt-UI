@@ -193,7 +193,10 @@
     --m-button-halo: 0 0 24px -2px color-mix(in srgb, var(--m-accent-9) 75%, transparent);
     position: relative;
     isolation: isolate;
-    transition: box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    transition: box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    /* Keep the button on its own layer at all times; otherwise the browser re-draws the label when the
+       hover grow finishes and the text can snap down by a subpixel */
+    will-change: transform;
 }
 
 /* The light: fades in over the button's background, below its label */
@@ -289,6 +292,12 @@
 .m-button:focus-visible {
     color: var(--m-button-lit-color);
     box-shadow: var(--m-button-halo);
+    /* Grows slightly when lit. transform doesn't affect layout, so neighboring fields and buttons don't move */
+    transform: scale(1.03);
+}
+
+.m-button.is-expanded:focus-visible {
+    transform: scale(1.01);
 }
 
 .m-button.is-secondary:focus-visible {
@@ -303,6 +312,12 @@
     .m-button:not(:disabled):hover {
         color: var(--m-button-lit-color);
         box-shadow: var(--m-button-halo);
+        transform: scale(1.03);
+    }
+
+    /* Full-width buttons grow by the same few pixels as others, so they don't poke past the fields above them */
+    .m-button.is-expanded:not(:disabled):hover {
+        transform: scale(1.01);
     }
 
     .m-button.is-secondary:not(:disabled):hover {
@@ -314,6 +329,11 @@
     .m-button,
     .m-button::before {
         transition: none;
+    }
+
+    .m-button:focus-visible,
+    .m-button:hover {
+        transform: none;
     }
 }
 
