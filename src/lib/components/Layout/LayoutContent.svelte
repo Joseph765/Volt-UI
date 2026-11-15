@@ -1,3 +1,5 @@
-<div class="v-layout-content">
-    <slot />
-</div>
+<main class="m-layout-content">
+    <div class="m-layout-content-inner">
+        <slot />
+    </div>
+</main>

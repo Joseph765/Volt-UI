@@ -27,7 +27,7 @@
 
     /** @type { string } */
     let example1 = `<script>
-    import { Container, Text } from "$volt";
+    import { Container, Text } from "moth-ui-svelte";
 <\/script>
 
 <Container>
@@ -35,7 +35,7 @@
 </Container>`;
     /** @type { string } */
     let example2 = `<script>
-    import { Card, Container, Flex } from "$volt";
+    import { Card, Container, Flex } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
@@ -57,7 +57,7 @@
 </Flex>`;
     /** @type { string } */
     let example3 = `<script>
-    import { Card, Container, Flex } from "$volt";
+    import { Card, Container, Flex } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
@@ -73,7 +73,7 @@
 </Flex>`;
     /** @type { string } */
     let example4 = `<script>
-    import { Container } from "$volt";
+    import { Container } from "moth-ui-svelte";
 <\/script>
 
 <Container size="l" debug></Container>`;
@@ -81,7 +81,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Container</Text>
+        <Text size="3xl" weight="black" as="h1">Container</Text>
         <Text size="xl" variant="weak">A wrapper that constrains content width and applies consistent padding.</Text>
     </Flex>
     <Flex direction="column">
@@ -165,6 +165,11 @@
                 <TableCell><Code>debug</Code></TableCell>
                 <TableCell>Adds a red outline to the container.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>id</Code></TableCell>
+                <TableCell>Id for the container element, for example to use as a link anchor.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

@@ -1,12 +1,13 @@
 <script>
     import components from "./components.json";
+    import { glow } from "../glow.js";
     import {
         Flex,
         Icon,
         Input,
         Text
     } from "$lib";
-    
+
     let componentResults = components;
     let searchTerm = "";
 
@@ -22,9 +23,9 @@
     }
 </script>
 
-<Flex direction="column" gap="2xl">
+<Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Components</Text>
+        <Text size="3xl" weight="black" as="h1">Components</Text>
         <Text size="xl" variant="weak">
             Reusable, accessible components for building consistent interfaces quickly.
         </Text>
@@ -37,15 +38,16 @@
         </Input>
         <section class="components">
             {#each componentResults as component}
-                <a href="/components/{component.name.toLocaleLowerCase()}" class="component-card grayscale-wrapper">
-                    <div class="showcase is-grayscale" inert>
+                <a href="/components/{component.name.toLocaleLowerCase()}" class="component-card glow-card" use:glow>
+                    <div class="component-preview glow-stage is-grayscale" inert>
                         {@html component.example}
                     </div>
-                    <div style="padding: var(--v-space-m); border-block-start: 1px solid var(--v-color-border);">
-                        <Flex direction="column">
-                            <Text as="h4" weight="bold" size="2xl">{component.name}</Text>
-                            <Text measure="none" variant="weak">{component.description}</Text>
-                        </Flex>
+                    <div class="component-info">
+                        <div class="component-name">
+                            <Text as="h3" weight="bold" size="l">{component.name}</Text>
+                            <span class="arrow" aria-hidden="true">→</span>
+                        </div>
+                        <Text measure="none" variant="weak">{component.description}</Text>
                     </div>
                 </a>
             {/each}
@@ -54,58 +56,104 @@
 </Flex>
 
 <style>
-    .showcase {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 197px;
-        padding: 0; 
-        background-color: var(--v-color-background);
-        pointer-events: none;
-        user-select: none;
-        border-radius: var(--v-radius) var(--v-radius) 0 0;
-    }
-
+    /* Same card treatment as the components section on the landing page */
     .components {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--v-space-l);
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+        gap: var(--m-space-m);
         width: 100%;
     }
 
     .component-card {
-        border: 1px solid var(--v-color-border);
-        border-radius: var(--v-radius);
+        display: flex;
+        flex-direction: column;
+        border-radius: var(--m-radius);
+        background-color: var(--m-color-surface-raised);
+        color: var(--m-color-text);
         text-decoration: none;
-        color: var(--v-color-text);
-        height: 407px;      
-        background-color: var(--v-color-surface);
-        /* width: calc(25% - 20px); */
+        overflow: hidden;
+    }
+
+    .component-preview {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 10rem;
+        padding: var(--m-space-m) var(--m-space-l);
+        overflow: hidden;
+        background-color: var(--m-color-surface);
+        pointer-events: none;
+        user-select: none;
+    }
+
+    /* The shared examples are sized for an unpadded preview; fill the padded area instead */
+    .component-preview :global(.m-banner) {
+        width: 100% !important;
+    }
+
+    /* Form fields default to a fixed width, which overflows the narrower cards */
+    .component-preview :global(.m-label-wrapper),
+    .component-preview :global(.m-input-wrapper),
+    .component-preview :global(.m-input),
+    .component-preview :global(.m-textarea-wrapper),
+    .component-preview :global(.m-textarea),
+    .component-preview :global(.m-select-wrapper),
+    .component-preview :global(.m-select) {
         width: 100%;
     }
 
+    /* The preview background is the card's own surface color; raise the example so its shape shows */
+    .component-preview :global(.m-card) {
+        background-color: var(--m-color-surface-raised);
+    }
+
+    /* The real container padding (up to 72px) is far taller than the preview */
+    .component-preview :global(.m-container) {
+        padding: var(--m-space-l) var(--m-space-xl);
+    }
+
+    /* Tighter cells so the two-column table fits the narrowest cards */
+    .component-preview :global(.m-table) {
+        width: 100% !important;
+    }
+
+    .component-preview :global(.m-table-head),
+    .component-preview :global(.m-table-cell) {
+        padding-inline: var(--m-space-s);
+    }
+
+    /* The table's surface matches the preview background; recess it so its edges show */
+    .component-preview :global(.m-table-wrapper) {
+        background-color: var(--m-color-background);
+    }
+
+    .component-info {
+        display: flex;
+        flex-direction: column;
+        gap: var(--m-space-xs);
+        flex: 1;
+        padding: var(--m-space-m);
+    }
+
+    .component-name {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .arrow {
+        color: var(--m-color-text-weaker);
+        transition: color 0.15s ease;
+    }
+
+    .component-card:focus-visible {
+        outline: 2px solid var(--m-color-focus-border);
+        outline-offset: 2px;
+    }
+
     @media (pointer: fine) {
-        .component-card:hover {
-            border-color: var(--v-color-accent);
-            box-shadow: 0 0 12px 2px var(--v-color-highlight);
-        }
-    }
-    
-    @media (min-width: 40rem) {
-        .component-card {
-            width: calc(50% - 14px);
-        }
-    }
-
-    @media (min-width: 60rem) {
-        .component-card {
-            width: calc(33% - 15px);
-        }
-    }
-
-    @media (min-width: 96rem) {
-        .component-card {
-            width: calc(25% - 20px);
+        .component-card:hover .arrow {
+            color: var(--m-color-text);
         }
     }
 </style>

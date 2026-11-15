@@ -24,7 +24,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Badge, Flex } from "$volt";
+    import { Badge, Flex } from "moth-ui-svelte";
 <\/script>        
 
 <Flex>
@@ -35,7 +35,7 @@
     <Badge variant="info">Info</Badge>
 </Flex>`;
     let example2 = `<script>
-    import { Badge, Flex } from "$volt";
+    import { Badge, Flex } from "moth-ui-svelte";
 <\/script>        
 
 <Flex>
@@ -46,7 +46,7 @@
     <Badge variant="info" strong>Info</Badge>
 </Flex>`;
     let example3 = `<script>
-    import { Badge, Flex, Icon } from "$volt";
+    import { Badge, Flex, Icon } from "moth-ui-svelte";
 <\/script>        
 
 <Badge variant="success">
@@ -57,7 +57,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Badge</Text>
+        <Text size="3xl" weight="black" as="h1">Badge</Text>
         <Text size="xl" variant="weak">A small, inline label that displays status, counts, or categorical information</Text>
     </Flex>
     <Flex direction="column">
@@ -114,6 +114,11 @@
                 <TableCell><Code>strong</Code></TableCell>
                 <TableCell>More prominate secondary style for badges.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>slot="icon"</Code></TableCell>
+                <TableCell>An icon shown before the label.</TableCell>
+                <TableCell><Code>slot</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

@@ -1,3 +1,3 @@
-<tr class="v-table-row">
+<tr class="m-table-row">
     <slot />
 </tr>

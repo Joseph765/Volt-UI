@@ -1,1 +1,1 @@
-<div class="v-divider"></div>
+<div class="m-divider"></div>

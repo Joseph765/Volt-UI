@@ -16,37 +16,64 @@
     }
 </script>
 
-<button class="v-copy-button" on:click={copyTextFunc} aria-label="copy" {style} tabindex="0">
+<button class="m-copy-button" on:click={copyTextFunc} aria-label="copy" {style} tabindex="0">
     {#if showCheckmark}
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
     {:else}
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
     {/if}
 </button>
 
 <style>
-    .v-copy-button {
-        background: var(--v-color-background);
-        border: 0;
+    .m-copy-button {
+        background: var(--m-color-background);
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid var(--v-color-accent);
-        color: var(--v-accent-11);
-        padding: var(--v-space-s);
-        border-radius: var(--v-radius);
-        height: 32px;
+        border: 1px solid var(--m-gray-7);
+        color: var(--m-color-text);
+        padding: 0;
+        /* Square at the shared control height, fully rounded: a circle at any size */
+        width: var(--m-control-height);
+        height: var(--m-control-height);
+        border-radius: var(--m-radius-full);
         cursor: pointer;
     }
 
-    .v-copy-button:focus-visible {
-        outline: 2px solid var(--v-color-info);
+    .m-copy-button:focus-visible {
+        outline: 2px solid var(--m-color-focus-border);
         outline-offset: 2px;
     }
-    
+
+    /* Same as Button's secondary variant: on hover the outline turns white and glows */
+    .m-copy-button {
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+        /* Own layer at all times, so the icon doesn't snap when the hover grow finishes */
+        will-change: transform;
+    }
+
+    .m-copy-button:focus-visible {
+        border-color: var(--m-color-text);
+        box-shadow: 0 0 20px -4px color-mix(in srgb, var(--m-accent-9) 60%, transparent);
+        transform: scale(1.06);
+    }
+
     @media (pointer: fine) {
-        .v-copy-button:hover {
-            background-color: var(--v-accent-2);
+        .m-copy-button:hover {
+            border-color: var(--m-color-text);
+            box-shadow: 0 0 20px -4px color-mix(in srgb, var(--m-accent-9) 60%, transparent);
+            transform: scale(1.06);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .m-copy-button {
+            transition: none;
+        }
+
+        .m-copy-button:focus-visible,
+        .m-copy-button:hover {
+            transform: none;
         }
     }
 </style>

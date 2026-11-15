@@ -23,7 +23,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Fieldset, Flex, Radio } from "$volt";
+    import { Fieldset, Flex, Radio } from "moth-ui-svelte";
 <\/script>
 
 <Fieldset label="Radios">
@@ -33,7 +33,7 @@
     </Flex>
 </Fieldset>`;
     let example2 = `<script>
-    import { Fieldset, Flex, Radio } from "$volt";
+    import { Fieldset, Flex, Radio } from "moth-ui-svelte";
 <\/script>
 
 <Fieldset label="Radios" required>
@@ -46,7 +46,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Fieldset</Text>
+        <Text size="3xl" weight="black" as="h1">Fieldset</Text>
         <Text size="xl" variant="weak">A grouping component that organizes related form elements with a shared label.</Text>
     </Flex>
     <Flex direction="column">
@@ -89,6 +89,11 @@
                 <TableCell><Code>required</Code></TableCell>
                 <TableCell>Adds a red asterisk to the label for required fields.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>label</Code></TableCell>
+                <TableCell>Legend text that names the group of fields. Required.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

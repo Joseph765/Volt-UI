@@ -26,7 +26,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Fieldset, Flex, Radio } from "$volt";
+    import { Fieldset, Flex, Radio } from "moth-ui-svelte";
 <\/script>
 
 <Fieldset label="Radios">
@@ -36,7 +36,7 @@
     </Flex>
 </Fieldset>`;
     let example2 = `<script>
-    import { Fieldset, Flex, Radio } from "$volt";
+    import { Fieldset, Flex, Radio } from "moth-ui-svelte";
 <\/script>
 
 <Fieldset label="Radios">
@@ -46,7 +46,7 @@
     </Flex>
 </Fieldset>`;
     let example3 = `<script>
-    import { Fieldset, Flex, Radio } from "$volt";
+    import { Fieldset, Flex, Radio } from "moth-ui-svelte";
 <\/script>
 
 <Fieldset label="Radios" required>
@@ -56,7 +56,7 @@
     </Flex>
 </Fieldset>`;
     let example4 = `<script>
-    import { Fieldset, Flex, Radio } from "$volt";
+    import { Fieldset, Flex, Radio } from "moth-ui-svelte";
 <\/script>
 
 <Fieldset label="Radios">
@@ -66,7 +66,7 @@
     </Flex>
 </Fieldset>`;
     let example5 = `<script>
-    import { Fieldset, Flex, Radio } from "$volt";
+    import { Fieldset, Flex, Radio } from "moth-ui-svelte";
 <\/script>
 
 <Fieldset label="Radios">
@@ -79,7 +79,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Radio</Text>
+        <Text size="3xl" weight="black" as="h1">Radio</Text>
         <Text size="xl" variant="weak">A control that allows users to select exactly one option from a set.</Text>
     </Flex>
     <Flex direction="column">
@@ -178,6 +178,16 @@
             <TableRow>
                 <TableCell><Code>error</Code></TableCell>
                 <TableCell>Adds an error message below the radio button.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>id</Code></TableCell>
+                <TableCell>Unique id that connects the radio to its label. Required.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>value</Code></TableCell>
+                <TableCell>The value submitted with the form when this radio is selected.</TableCell>
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
         </TableBody>

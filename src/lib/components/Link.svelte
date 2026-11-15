@@ -17,7 +17,7 @@
     {target}
     {style}
     rel={target === "_blank" ? "noopener noreferrer" : undefined}
-    class="v-link is-size-{size}"
+    class="m-link is-size-{size}"
 >
     <slot />
 </a>

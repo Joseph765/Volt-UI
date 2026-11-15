@@ -1,6 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import hljs from 'highlight.js';
+    import Button from '$lib/components/Button.svelte';
     import CopyButton from '$lib/components/CopyButton.svelte';
 
     /** @type { string } */
@@ -15,23 +16,47 @@
     /** @type { boolean } */
     let expanded = false;
 
+    /** @type { HTMLElement } */
+    let codeBlock;
+
+    $: collapsible = code.split(/\r\n|\r|\n/).length > 20;
+
+    function collapse() {
+        expanded = false;
+        // The block shrinks a lot; bring it back into view so the reader doesn't lose their place
+        codeBlock.scrollIntoView({ block: "nearest" });
+    }
+
     onMount(() => {
         codeElement.textContent = code;
         hljs.highlightElement(codeElement);
     });
 </script>
 
-<div class="v-code-example-wrapper {codeOnly ? "is-code-only" : undefined}">
+<div class="m-code-example-wrapper {codeOnly ? "is-code-only" : undefined}">
     {#if !codeOnly}
-        <div class="v-code-example">
+        <div class="m-code-example">
             <slot />
         </div>
     {/if}
-    <pre class="v-code-block {expanded ? "is-expanded" : undefined}">
-        <CopyButton copyText={code} style={code.split(/\r\n|\r|\n/).length > 2 ? "position: absolute; top: var(--v-space-m); right: var(--v-space-m);" : "position: absolute; top: var(--v-space-s); right: var(--v-space-s);"} />
+    <pre class="m-code-block {expanded ? "is-expanded" : undefined}" bind:this={codeBlock}>
+        <CopyButton copyText={code} style="position: absolute; top: var(--m-space-s); right: var(--m-space-s);" />
         <code bind:this={codeElement} class="language-xml"></code>
-        {#if code.split(/\r\n|\r|\n/).length > 20 && !expanded}
-            <button on:click={() => expanded = !expanded} class="v-code-block-expand-button">{expanded ? "Show Less" : "Show More"}</button>
+        {#if collapsible && !expanded}
+            <div class="m-code-block-fade">
+                <Button variant="secondary" on:click={() => expanded = true} aria-expanded="false">
+                    Show more
+                    <svg slot="end" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </Button>
+            </div>
         {/if}
     </pre>
+    {#if collapsible && expanded}
+        <div class="m-code-block-collapse">
+            <Button variant="secondary" on:click={collapse} aria-expanded="true">
+                Show less
+                <svg slot="end" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+            </Button>
+        </div>
+    {/if}
 </div>

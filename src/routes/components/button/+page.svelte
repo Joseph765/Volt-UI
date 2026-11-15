@@ -27,22 +27,22 @@
     let selectedExample = 'variants';
 
     let example1 = `<script>
-    import { Button, Flex } from "$volt";
+    import { Button, Flex } from "moth-ui-svelte";
 <\/script>
 
 <Flex>
     <Button>Primary</Button>
     <Button variant="secondary">Secondary</Button>
-    <Button variant="ghost">Ghost</Button>
+    <Button variant="tertiary">Tertiary</Button>
     <Button variant="danger">Danger</Button>
 </Flex>`;
     let example2 = `<script>
-    import { Button } from "$volt";
+    import { Button } from "moth-ui-svelte";
 <\/script>
 
 <Button disabled>Disabled</Button>`;
     let example3 = `<script>
-    import { Button, Flex, Icon } from "$volt";
+    import { Button, Flex, Icon } from "moth-ui-svelte";
 <\/script>
 
 <Flex>
@@ -58,7 +58,7 @@
         <Icon name="minus" slot="start" />
         Remove
     </Button>
-    <Button variant="ghost">
+    <Button variant="tertiary">
         <Icon name="chevron-down" size="l" />
     </Button>
     <Button variant="danger">
@@ -67,7 +67,7 @@
     </Button>
 </Flex>`;
     let example4 = `<script>
-    import { Button, Flex } from "$volt";
+    import { Button, Flex } from "moth-ui-svelte";
 <\/script>
 
 <Flex>
@@ -75,12 +75,12 @@
     <Button size="l">Large</Button>
 </Flex>`;
     let example5 = `<script>
-    import { Button } from "$volt";
+    import { Button } from "moth-ui-svelte";
 <\/script>
 
 <Button expanded>Expanded</Button>`;
     let example6 = `<script>
-    import { Button } from "$volt";
+    import { Button } from "moth-ui-svelte";
 <\/script>
 
 <Button href="/component">View components</Button>`;
@@ -88,7 +88,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Button</Text>
+        <Text size="3xl" weight="black" as="h1">Button</Text>
         <Text size="xl" variant="weak">An interactive element that triggers actions or submits forms when clicked.</Text>
     </Flex>
     <Flex direction="column">
@@ -103,7 +103,7 @@
                 <Flex>
                     <Button>Primary</Button>
                     <Button variant="secondary">Secondary</Button>
-                    <Button variant="ghost">Ghost</Button>
+                    <Button variant="tertiary">Tertiary</Button>
                     <Button variant="danger">Danger</Button>
                 </Flex>
             </CodeExample>
@@ -137,7 +137,7 @@
                         <Icon name="minus" slot="start" />
                         Remove
                     </Button>
-                    <Button variant="ghost">
+                    <Button variant="tertiary">
                         <Icon name="chevron-down" size="l" />
                     </Button>
                     <Button variant="danger">
@@ -164,7 +164,7 @@
             <TableRow>
                 <TableCell><Code>variant</Code></TableCell>
                 <TableCell>The style of the button based on level of importance. Danger is for destructive actions.</TableCell>
-                <TableCell><Code>primary</Code> | <Code>secondary</Code> | <Code>ghost</Code> | <Code>danger</Code></TableCell>
+                <TableCell><Code>primary</Code> | <Code>secondary</Code> | <Code>tertiary</Code> | <Code>danger</Code></TableCell>
             </TableRow>
             <TableRow>
                 <TableCell><Code>disabled</Code></TableCell>
@@ -185,6 +185,21 @@
                 <TableCell><Code>href</Code></TableCell>
                 <TableCell>Allows the button to behave like a link.</TableCell>
                 <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>slot="start"</Code></TableCell>
+                <TableCell>Content placed before the label, usually an icon.</TableCell>
+                <TableCell><Code>slot</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>slot="end"</Code></TableCell>
+                <TableCell>Content placed after the label, usually an icon.</TableCell>
+                <TableCell><Code>slot</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>on:click</Code></TableCell>
+                <TableCell>Fires when the button (or link) is clicked.</TableCell>
+                <TableCell><Code>event</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

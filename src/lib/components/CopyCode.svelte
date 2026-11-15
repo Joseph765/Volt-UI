@@ -8,7 +8,7 @@
     export let style = "";
 </script>
 
-<div class="v-copy-code" {style}>
+<div class="m-copy-code" {style}>
     {code}
     <CopyButton copyText={code} />
 </div>

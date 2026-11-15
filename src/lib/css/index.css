@@ -4,9 +4,9 @@
 @import url('./components.css');
 @import url('./highlight.css');
 
-::selection {
-  background-color: var(--v-accent-7);
-  color: var(--v-color-text);
+
+* {
+  box-sizing: border-box;
 }
 
 html,
@@ -14,8 +14,103 @@ body {
   color-scheme: dark;
   margin: 0;
   padding: 0;
-  font-family: var(--v-font);
-  background-color: var(--v-color-background);
-  color: var(--v-color-text);
+  font-family: var(--m-font);
+  background-color: var(--m-color-background);
+  color: var(--m-color-text);
   width: 100%;
 }
+
+::selection {
+  background-color: var(--m-color-highlight);
+  color: var(--m-color-text);
+}
+
+/* Styles From StakeFlow */
+
+/* Layout - Content */
+/* .content {
+  max-width: var(--m-container-width);
+  width: 100%;
+  padding: 2.1rem var(--m-space-2xl) var(--m-space-2xl) var(--m-space-2xl);
+  margin-inline: auto;
+}
+
+@media (max-width: 1872px) {
+    .content {
+        margin-inline-start: 16rem;
+    }
+}
+
+@media (max-width: 1205px) {
+    .content {
+        max-width: 100%;
+        margin: 0;
+        padding: 5rem var(--m-space-m);
+    }
+} */
+
+/* Nav */
+/* .m-nav-item[aria-current="true"] {
+    border-inline-start: 4px solid var(--m-accent-10);
+} */
+
+/* Table */
+/* .m-table-wrapper {
+    background-color: var(--m-color-background);
+}
+
+.m-table {
+    border-spacing: 0 var(--m-space-m); 
+    border-collapse: separate;
+    table-layout: fixed;
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .m-table {
+        table-layout: auto;
+    }
+}
+
+.m-table-caption {
+    padding-block: var(--m-space-m) 0;
+}
+
+.m-table-body {
+    padding-inline: var(--m-space-m);
+}
+
+.m-table-head {
+    font-size: var(--m-font-size-l);
+    background-color: var(--m-color-background);
+    border: none;
+    padding: var(--m-space-xs) var(--m-space-m);
+}
+
+.m-table-cell {
+    border: none;
+    background-color: var(--m-color-surface);
+    font-size: var(--m-font-size-l);
+}
+
+.m-table-head {
+    white-space: nowrap;
+}
+
+.m-table-cell:first-child {
+    border-radius: var(--m-radius) 0 0 var(--m-radius);
+}
+
+.m-table-cell:last-child {
+    border-radius: 0 var(--m-radius) var(--m-radius) 0;
+}
+
+@media (pointer: fine) {
+    .m-table.is-interactive .m-table-row:hover {
+        cursor: pointer;
+    }
+
+    .m-table.is-interactive .m-table-row:hover .m-table-cell {
+        background-color: var(--m-gray-3);
+    }
+} */

@@ -1,6 +1,6 @@
-<div class="v-layout-header">
+<header class="m-layout-header">
     <slot />
-    <div class="v-layout-mobile-logo">
+    <div class="m-layout-mobile-logo">
         <slot name="mobile-logo" />
     </div>
-</div>
+</header>

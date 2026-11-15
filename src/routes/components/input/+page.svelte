@@ -30,7 +30,7 @@
     let selectedExample = 'types';
 
     let example1 = `<script>
-    import { Flex, Input } from "$volt";
+    import { Flex, Input } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
@@ -38,17 +38,17 @@
     <Input type="password" name="password" label="Password" placeholder="Password" />
 </Flex>`;
     let example2 = `<script>
-    import { Input } from "$volt";
+    import { Input } from "moth-ui-svelte";
 <\/script>
 
 <Input type="text" name="disabled" label="Disabled" placeholder="Disabled" disabled />`;
     let example3 = `<script>
-    import { Input } from "$volt";
+    import { Input } from "moth-ui-svelte";
 <\/script>
 
 <Input type="text" name="required" label="Required" placeholder="Required" value="Value" required />`;
     let example4 = `<script>
-    import { Flex, Input } from "$volt";
+    import { Flex, Input } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
@@ -60,17 +60,17 @@
     </Input>
 </Flex>`;
     let example5 = `<script>
-    import { Input } from "$volt";
+    import { Input } from "moth-ui-svelte";
 <\/script>
 
 <Input type="text" name="expanded" expanded label="Expanded" placeholder="Expanded" />`;
     let example6 = `<script>
-    import { Input } from "$volt";
+    import { Input } from "moth-ui-svelte";
 <\/script>
 
 <Input type="text" name="hint" label="Hint" hint="Hint: this is a hint" />`;
     let example7 = `<script>
-    import { Flex, Icon, Input } from "$volt";
+    import { Flex, Icon, Input } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
@@ -86,12 +86,12 @@
     </Input>
 </Flex>`;
     let example8 = `<script>
-    import { Input } from "$volt";
+    import { Input } from "moth-ui-svelte";
 <\/script>
 
 <Input type="text" name="custom" label="Custom Width" style="width: 22rem;" />`;
     let example9 = `<script>
-    import { Input } from "$volt";
+    import { Input } from "moth-ui-svelte";
 <\/script>
 
 <Input type="text" name="errorPresent" label="Error" error="Incorrect format" />`;
@@ -99,7 +99,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Input</Text>
+        <Text size="3xl" weight="black" as="h1">Input</Text>
         <Text size="xl" variant="weak">A field that captures single-line text or data input from the user.</Text>
     </Flex>
     <Flex direction="column">
@@ -221,6 +221,41 @@
                 <TableCell><Code>align</Code></TableCell>
                 <TableCell>Aligns the text within the input.</TableCell>
                 <TableCell><Code>start</Code> | <Code>end</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>value</Code></TableCell>
+                <TableCell>Current text. Use <Code>bind:value</Code> to read and update it.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>type</Code></TableCell>
+                <TableCell>The input type, such as <Code>text</Code>, <Code>email</Code>, <Code>password</Code> or <Code>number</Code>. Defaults to <Code>text</Code>.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>autocomplete</Code></TableCell>
+                <TableCell>Whether the browser may autofill the field.</TableCell>
+                <TableCell><Code>on</Code> | <Code>off</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>slot="prefix"</Code></TableCell>
+                <TableCell>Content shown inside the field before the text, such as an icon or a unit.</TableCell>
+                <TableCell><Code>slot</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>slot="suffix"</Code></TableCell>
+                <TableCell>Content shown inside the field after the text, such as a unit.</TableCell>
+                <TableCell><Code>slot</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>on:change</Code></TableCell>
+                <TableCell>Fires when the value is committed (on blur or Enter).</TableCell>
+                <TableCell><Code>event</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>on:keydown</Code></TableCell>
+                <TableCell>Fires for each key press while the field is focused.</TableCell>
+                <TableCell><Code>event</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

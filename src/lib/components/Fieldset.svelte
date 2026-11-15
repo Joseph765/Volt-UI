@@ -6,11 +6,11 @@
     export let required = false;
 </script>
 
-<fieldset class="v-fieldset">
-    <legend class="v-fieldset-legend">
-        <div class="v-fieldset-label">{label}</div>
+<fieldset class="m-fieldset">
+    <legend class="m-fieldset-legend">
+        <div class="m-fieldset-label">{label}</div>
         {#if required}
-            <span class="v-required">*</span>
+            <span class="m-required">*</span>
         {/if}
     </legend>
     <slot />

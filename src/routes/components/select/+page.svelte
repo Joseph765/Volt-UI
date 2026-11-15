@@ -28,7 +28,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Select } from "$volt";
+    import { Select } from "moth-ui-svelte";
 <\/script>
 
 <Select
@@ -42,7 +42,7 @@
     placeholder="Choose a country..."
 />`;
     let example2 = `<script>
-    import { Icon, Select } from "$volt";
+    import { Icon, Select } from "moth-ui-svelte";
 <\/script>
 
 <Select
@@ -58,7 +58,7 @@
     </span>
 </Select>`;
     let example3 = `<script>
-    import { Icon, Select } from "$volt";
+    import { Icon, Select } from "moth-ui-svelte";
 <\/script>
 
 <Select
@@ -75,7 +75,7 @@
     </span>
 </Select>`;
     let example4 = `<script>
-    import { Select } from "$volt";
+    import { Select } from "moth-ui-svelte";
 <\/script>
 
 <Select
@@ -90,7 +90,7 @@
     disabled
 />`;
     let example5 = `<script>
-    import { Select } from "$volt";
+    import { Select } from "moth-ui-svelte";
 <\/script>
 
 <Select
@@ -105,7 +105,7 @@
     error="There is an error"
 />`;
     let example6 = `<script>
-    import { Select } from "$volt";
+    import { Select } from "moth-ui-svelte";
 <\/script>
 
 <Select
@@ -120,7 +120,7 @@
     required
 />`;
     let example7 = `<script>
-    import { Select } from "$volt";
+    import { Select } from "moth-ui-svelte";
 <\/script>
 
 <Select
@@ -135,7 +135,7 @@
     hint="Hint: this is a hint"
 />`;
     let example8 = `<script>
-    import { Select } from "$volt";
+    import { Select } from "moth-ui-svelte";
 <\/script>
 
 <Select
@@ -153,7 +153,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Select</Text>
+        <Text size="3xl" weight="black" as="h1">Select</Text>
         <Text size="xl" variant="weak">A dropdown menu that lets users choose one option from a list of choices.</Text>
     </Flex>
     <Flex direction="column">
@@ -331,6 +331,26 @@
             <TableRow>
                 <TableCell><Code>hint</Code></TableCell>
                 <TableCell>Adds a hint below the select.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>autocomplete</Code></TableCell>
+                <TableCell>Whether the browser may autofill the field.</TableCell>
+                <TableCell><Code>on</Code> | <Code>off</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>slot="prefix"</Code></TableCell>
+                <TableCell>Content shown inside the field before the selected option, such as an icon.</TableCell>
+                <TableCell><Code>slot</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>slot="suffix"</Code></TableCell>
+                <TableCell>Content shown inside the field after the selected option.</TableCell>
+                <TableCell><Code>slot</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>value</Code></TableCell>
+                <TableCell>The selected option's value. Use <Code>bind:value</Code> to read and update it.</TableCell>
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
         </TableBody>

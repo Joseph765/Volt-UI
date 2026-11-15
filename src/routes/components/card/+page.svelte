@@ -17,7 +17,6 @@
 
     let options = [
         { value: 'basic', label: 'Example: Basic' },
-        { value: 'variant', label: 'Example: Variant' },
         { value: 'space', label: 'Example: Space' },
         { value: 'header', label: 'Example: Header' },
         { value: 'headerWithAction', label: 'Example: Header With Action' }
@@ -26,12 +25,12 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Card } from "$volt";
+    import { Card } from "moth-ui-svelte";
 <\/script>
 
 <Card>Basic</Card>`;
     let example2 = `<script>
-    import { Card, Flex } from "$volt";
+    import { Card, Flex } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
@@ -40,7 +39,7 @@
     <Card space="l">Large space</Card>
 </Flex>`;
     let example3 = `<script>
-    import { Card, Text } from "$volt";
+    import { Card, Text } from "moth-ui-svelte";
 <\/script>
 
 <Card>
@@ -48,7 +47,7 @@
     <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
 </Card>`;
     let example4 = `<script>
-    import { Button, Card, Text } from "$volt";
+    import { Button, Card, Text } from "moth-ui-svelte";
 <\/script>
 
 <Card>
@@ -56,19 +55,11 @@
     <Button slot="header-end">Action</Button>
     <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
 </Card>`;
-    let example5 = `<script>
-    import { Card, Flex } from "$volt";
-<\/script>
-
-<Flex direction="column">
-    <Card variant="default">Default</Card>
-    <Card variant="ghost">Ghost</Card>
-</Flex>`;
 </script>
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Card</Text>
+        <Text size="3xl" weight="black" as="h1">Card</Text>
         <Text size="xl" variant="weak">A contained surface that groups related content and actions in a visually distinct block.</Text>
     </Flex>
     <Flex direction="column">
@@ -81,13 +72,6 @@
         {#if selectedExample === "basic"}
             <CodeExample code={example1}>
                 <Card>Basic</Card>
-            </CodeExample>
-        {:else if selectedExample === "variant"}
-            <CodeExample code={example5}>
-                <Flex direction="column">
-                    <Card variant="default">Default</Card>
-                    <Card variant="ghost">Ghost</Card>
-                </Flex>
             </CodeExample>
         {:else if selectedExample === "space"}
             <CodeExample code={example2}>
@@ -124,14 +108,19 @@
         </TableHeader>
         <TableBody>
             <TableRow>
-                <TableCell><Code>variant</Code></TableCell>
-                <TableCell>Changes style of the card. In the ghost style, the background is darkened.</TableCell>
-                <TableCell><Code>default</Code> | <Code>ghost</Code></TableCell>
-            </TableRow>
-            <TableRow>
                 <TableCell><Code>space</Code></TableCell>
                 <TableCell>The amount of padding applied to the card.</TableCell>
                 <TableCell><Code>none</Code> | <Code>m</Code> | <Code>l</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>slot="header"</Code></TableCell>
+                <TableCell>Content for the card header, shown above a divider.</TableCell>
+                <TableCell><Code>slot</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>slot="header-end"</Code></TableCell>
+                <TableCell>Content aligned to the end of the header, such as an action button.</TableCell>
+                <TableCell><Code>slot</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

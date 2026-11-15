@@ -24,7 +24,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Flex, Toggle } from "$volt";
+    import { Flex, Toggle } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
@@ -32,7 +32,7 @@
     <Toggle label="Unchecked" name="unchecked" />
 </Flex>`;
     let example2 = `<script>
-    import { Flex, Toggle } from "$volt";
+    import { Flex, Toggle } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
@@ -40,7 +40,7 @@
     <Toggle label="Unchecked" name="uncheckedDisabled" disabled />
 </Flex>`;
     let example3 = `<script>
-    import { Flex, Toggle } from "$volt";
+    import { Flex, Toggle } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
@@ -48,7 +48,7 @@
     <Toggle label="Unchecked" name="uncheckedError" error="There is an error" />
 </Flex>`;
     let example4 = `<script>
-    import { Toggle } from "$volt";
+    import { Toggle } from "moth-ui-svelte";
 <\/script>
 
 <Toggle label="Label" name="helpText" hint="Hint: this is a hint" />`;
@@ -56,7 +56,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Toggle</Text>
+        <Text size="3xl" weight="black" as="h1">Toggle</Text>
         <Text size="xl" variant="weak">A switch control that allows users to turn an option on or off.</Text>
     </Flex>
     <Flex direction="column">
@@ -104,7 +104,7 @@
         <TableBody>
             <TableRow>
                 <TableCell><Code>checked</Code></TableCell>
-                <TableCell>Changes the status of the toggle to on.</TableCell>
+                <TableCell>Whether the toggle is on. Use <Code>bind:checked</Code> to read and update it.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>
@@ -131,6 +131,11 @@
                 <TableCell><Code>hint</Code></TableCell>
                 <TableCell>Adds a hint below the toggle.</TableCell>
                 <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>on:change</Code></TableCell>
+                <TableCell>Fires when the toggle is switched.</TableCell>
+                <TableCell><Code>event</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

@@ -6,7 +6,7 @@
     export let strong = false;
 </script>
 
-<div class="v-badge is-{variant} {strong ? "is-strong" : undefined}">
+<div class="m-badge is-{variant} {strong ? "is-strong" : undefined}">
     <slot name="icon" />
     <slot />
 </div>

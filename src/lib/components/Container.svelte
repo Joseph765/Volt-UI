@@ -15,6 +15,6 @@
     export let id = "";
 </script>
 
-<div {id} class="v-container {debug ? "is-debug" : undefined} is-size-{size} is-align-{align} has-space-{space}">
+<div {id} class="m-container {debug ? "is-debug" : undefined} is-size-{size} is-align-{align} has-space-{space}">
     <slot />
 </div>

@@ -22,7 +22,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Banner, Flex, Link } from "$volt";
+    import { Banner, Flex, Link } from "moth-ui-svelte";
 <\/script>        
 
 <Flex direction="column">
@@ -35,7 +35,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Banner</Text>
+        <Text size="3xl" weight="black" as="h1">Banner</Text>
         <Text size="xl" variant="weak">A prominent full-width strip that displays important messages, alerts, or announcements with optional actions.</Text>
     </Flex>
     <Flex direction="column">

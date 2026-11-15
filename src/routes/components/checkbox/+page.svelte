@@ -26,32 +26,32 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Checkbox } from "$volt";
+    import { Checkbox } from "moth-ui-svelte";
 <\/script>
 
 <Checkbox label="I agree to the terms" />`;
     let example2 = `<script>
-    import { Checkbox } from "$volt";
+    import { Checkbox } from "moth-ui-svelte";
 <\/script>
 
 <Checkbox checked disabled label="This is disabled" />`;
     let example3 = `<script>
-    import { Checkbox } from "$volt";
+    import { Checkbox } from "moth-ui-svelte";
 <\/script>
 
 <Checkbox label="Indeterminate" indeterminate />`;
     let example4 = `<script>
-    import { Checkbox } from "$volt";
+    import { Checkbox } from "moth-ui-svelte";
 <\/script>
 
 <Checkbox label="Has error" error="This field has error" />`;
     let example5 = `<script>
-    import { Checkbox } from "$volt";
+    import { Checkbox } from "moth-ui-svelte";
 <\/script>
 
 <Checkbox label="Has hint" hint="Hint: this is a hint" />`;
     let example6 = `<script>
-    import { Checkbox } from "$volt";
+    import { Checkbox } from "moth-ui-svelte";
 <\/script>
 
 <Checkbox style="width: 300px;" label="Custom style example" />`;
@@ -59,7 +59,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Checkbox</Text>
+        <Text size="3xl" weight="black" as="h1">Checkbox</Text>
         <Text size="xl" variant="weak">A control that allows users to select one or more options from a set.</Text>
     </Flex>
     <Flex direction="column">
@@ -111,7 +111,7 @@
             </TableRow>
             <TableRow>
                 <TableCell><Code>checked</Code></TableCell>
-                <TableCell>Changes the state of the checkbox to checked.</TableCell>
+                <TableCell>Whether the checkbox is checked. Use <Code>bind:checked</Code> to read and update it.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>

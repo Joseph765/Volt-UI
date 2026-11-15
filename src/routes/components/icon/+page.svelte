@@ -24,7 +24,7 @@
     let selectedExample = 'basic';
 
     let example1 = `<script>
-    import { Flex, Icon } from "$volt";
+    import { Flex, Icon } from "moth-ui-svelte";
 <\/script>
 
 <Flex>
@@ -44,7 +44,7 @@
     <Icon size="l" name="x" />
 </Flex>`;
     let example2 = `<script>
-    import { Flex, Icon } from "$volt";
+    import { Flex, Icon } from "moth-ui-svelte";
 <\/script>
 
 <Flex align="center">
@@ -56,7 +56,7 @@
 
 <Flex direction="column" gap="xl">
     <Flex direction="column">
-        <Text size="3xl" weight="black" as="h2">Icon</Text>
+        <Text size="3xl" weight="black" as="h1">Icon</Text>
         <Text size="xl" variant="weak">A scalable vector component for displaying symbolic icons with customizable size, color, and accessibility features.</Text>
     </Flex>
     <Banner>This component uses lucide icons. Check them out <Link href="https://lucide.dev/icons/" target="_blank">here</Link>.</Banner>
@@ -114,6 +114,11 @@
                 <TableCell><Code>size</Code></TableCell>
                 <TableCell>The size of the icon.</TableCell>
                 <TableCell><Code>s</Code> | <Code>m</Code> | <Code>l</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>status</Code></TableCell>
+                <TableCell>Colors the icon to match a status. Defaults to <Code>neutral</Code>.</TableCell>
+                <TableCell><Code>neutral</Code> | <Code>success</Code> | <Code>warning</Code> | <Code>danger</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>
