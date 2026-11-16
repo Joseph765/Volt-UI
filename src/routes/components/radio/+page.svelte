@@ -20,8 +20,11 @@
         { value: 'disabled', label: 'Example: Disabled' },
         { value: 'required', label: 'Example: Required' },
         { value: 'hint', label: 'Example: Hint' },
-        { value: 'error', label: 'Example: Error' }
+        { value: 'error', label: 'Example: Error' },
+        { value: 'group', label: 'Example: Bound group' }
     ];
+
+    let plan = 'pro';
 
     let selectedExample = 'basic';
 
@@ -75,6 +78,20 @@
         <Radio id="radio10" name="testRadio" label="Unchecked" value="10" />
     </Flex>
 </Fieldset>`;
+    let example6 = `<script>
+    import { Fieldset, Flex, Radio, Text } from "moth-ui-svelte";
+
+    let plan = $state("pro");
+<\/script>
+
+<Fieldset label="Plan">
+    <Flex direction="column" gap="s">
+        <Radio id="plan-starter" name="plan" label="Starter" value="starter" bind:group={plan} />
+        <Radio id="plan-pro" name="plan" label="Pro" value="pro" bind:group={plan} />
+        <Radio id="plan-team" name="plan" label="Team" value="team" bind:group={plan} />
+    </Flex>
+</Fieldset>
+<Text variant="weak">Selected: {plan}</Text>`;
 </script>
 
 <Flex direction="column" gap="xl">
@@ -134,6 +151,19 @@
                     </Flex>
                 </Fieldset>
             </CodeExample>
+        {:else if selectedExample === "group"}
+            <CodeExample code={example6}>
+                <Flex direction="column" gap="m">
+                    <Fieldset label="Plan">
+                        <Flex direction="column" gap="s">
+                            <Radio id="plan-starter" name="plan" label="Starter" value="starter" bind:group={plan} />
+                            <Radio id="plan-pro" name="plan" label="Pro" value="pro" bind:group={plan} />
+                            <Radio id="plan-team" name="plan" label="Team" value="team" bind:group={plan} />
+                        </Flex>
+                    </Fieldset>
+                    <Text variant="weak">Selected: {plan}</Text>
+                </Flex>
+            </CodeExample>
         {/if}
     </Flex>
     <Table>
@@ -146,23 +176,18 @@
         </TableHead>
         <TableBody>
             <TableRow>
-                <TableCell><Code>variant</Code></TableCell>
-                <TableCell>The style of the badge indicating status.</TableCell>
-                <TableCell><Code>neutral</Code> | <Code>danger</Code> | <Code>warning</Code> | <Code>success</Code> | <Code>info</Code></TableCell>
-            </TableRow>
-            <TableRow>
                 <TableCell><Code>label</Code></TableCell>
                 <TableCell>Adds a label beside the radio button.</TableCell>
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
             <TableRow>
                 <TableCell><Code>name</Code></TableCell>
-                <TableCell>Sets the name HTML attribute to the input element.</TableCell>
-                <TableCell><Code>boolean</Code></TableCell>
+                <TableCell>Groups radios together: give every radio in a set the same name.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
             </TableRow>
             <TableRow>
                 <TableCell><Code>checked</Code></TableCell>
-                <TableCell>Changes the state of the radio to checked.</TableCell>
+                <TableCell>Checks the radio initially. Ignored when <Code>bind:group</Code> is used.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>
@@ -189,6 +214,16 @@
                 <TableCell><Code>value</Code></TableCell>
                 <TableCell>The value submitted with the form when this radio is selected.</TableCell>
                 <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>bind:group</Code></TableCell>
+                <TableCell>Binds a variable to the whole set: put it on every radio in the set, and it holds the checked radio's <Code>value</Code>.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>on:change</Code></TableCell>
+                <TableCell>Fires when the user selects this radio.</TableCell>
+                <TableCell><Code>event</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

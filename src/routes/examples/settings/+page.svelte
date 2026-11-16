@@ -56,6 +56,8 @@
         { id: "pro", name: "Pro", price: "$29", hint: "Unlimited projects, email support." },
         { id: "team", name: "Team", price: "$12 / seat", hint: "Shared workspaces, roles and SSO." }
     ];
+    let selectedPlan = $state("pro");
+    let currentPlan = $derived(plans.find((p) => p.id === selectedPlan) ?? plans[1]);
     const invoices = [
         { id: "INV-0042", date: "Nov 1, 2026", amount: "$29.00", status: "Paid" },
         { id: "INV-0041", date: "Oct 1, 2026", amount: "$29.00", status: "Paid" },
@@ -172,14 +174,14 @@
                             <Fieldset label="Choose a plan">
                                 <Flex direction="column" gap="s">
                                     {#each plans as plan}
-                                        <Radio id="plan-{plan.id}" name="plan" value={plan.id} label="{plan.name} · {plan.price}" hint={plan.hint} checked={plan.id === "pro"} />
+                                        <Radio id="plan-{plan.id}" name="plan" value={plan.id} label="{plan.name} · {plan.price}" hint={plan.hint} bind:group={selectedPlan} />
                                     {/each}
                                 </Flex>
                             </Fieldset>
                             <Divider />
                             <Flex justify="between" align="center" gap="m" wrap>
-                                <Text size="s" variant="weak">Next payment of <strong>$29.00</strong> on Dec 1, 2026 to Visa ending in 4242.</Text>
-                                <Button variant="primary" on:click={() => toast("Plan updated")}>Update plan</Button>
+                                <Text size="s" variant="weak">{#if currentPlan.id === "starter"}Starter is free: no upcoming payments.{:else}Next payment of <strong>{currentPlan.price}</strong> on Dec 1, 2026 to Visa ending in 4242.{/if}</Text>
+                                <Button variant="primary" on:click={() => toast(`Switched to ${currentPlan.name}`)}>Update plan</Button>
                             </Flex>
                         </Flex>
                     </Card>
