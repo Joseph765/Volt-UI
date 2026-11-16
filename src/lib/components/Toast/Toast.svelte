@@ -1,3 +1,4 @@
+<!-- Icons: Lucide (ISC License), see THIRD_PARTY_NOTICES.md -->
 <script>
     import { fly } from "svelte/transition";
 

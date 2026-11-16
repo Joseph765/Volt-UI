@@ -1,4 +1,5 @@
 <script>
+    import { Search } from "@lucide/svelte";
     // Scratch page for reviewing form design. Not linked from the nav; visit /form-preview.
     import {
         Button,
@@ -8,7 +9,6 @@
         Divider,
         Fieldset,
         Flex,
-        Icon,
         Input,
         Radio,
         Select,
@@ -130,7 +130,7 @@
                 <Flex direction="column" gap="m">
                     <Select label="Network" name="network" options={networks} bind:value={network} expanded />
                     <Input label="Recipient" name="recipient" placeholder="0x…" expanded>
-                        <svelte:fragment slot="prefix"><Icon name="search" /></svelte:fragment>
+                        <svelte:fragment slot="prefix"><Search size={16} /></svelte:fragment>
                     </Input>
                     <Input label="Amount" name="amount" value="0.25" align="end" hint="Balance: 1.4021 ETH" expanded>
                         <svelte:fragment slot="suffix">ETH</svelte:fragment>
@@ -190,7 +190,7 @@
             <div class="toolbar">
                 <div class="toolbar-search">
                     <Input type="search" name="pageSearch" placeholder="Search components" expanded>
-                        <svelte:fragment slot="prefix"><Icon name="search" /></svelte:fragment>
+                        <svelte:fragment slot="prefix"><Search size={16} /></svelte:fragment>
                     </Input>
                 </div>
                 <Select name="category" options={categories} bind:value={category} />

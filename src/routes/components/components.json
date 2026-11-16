@@ -55,11 +55,6 @@
         "example": "<div class='m-flex is-align-center is-justify-center'><div class='m-card' style='width: 15%; padding: var(--m-space-m); text-align: center;'>1</div><div class='m-card' style='width: 15%; padding: var(--m-space-m); text-align: center;'>2</div><div class='m-card' style='width: 15%; padding: var(--m-space-m); text-align: center;'>3</div></div>"
     },
     {
-        "name": "Icon",
-        "description": "A scalable vector component for displaying symbolic icons with customizable size, color, and accessibility features.",
-        "example": "<svg class='m-icon is-size-l' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2'/><circle cx='12' cy='7' r='4'/></svg>"
-    },
-    {
         "name": "Input",
         "description": "A field that captures single-line text or data input from the user.",
         "example": "<div class='m-label-wrapper'><label class='m-label'>Email</label><div class='m-input-wrapper'><input class='m-input' type='email' placeholder='example@email.com' /></div></div>"

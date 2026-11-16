@@ -1,3 +1,4 @@
+<!-- Icons: Lucide (ISC License), see THIRD_PARTY_NOTICES.md -->
 <script>
     /** @type { boolean } */
     export let open = false;

@@ -90,6 +90,24 @@
 <\/script>`} />
         </Flex>
 
+        <Flex direction="column">
+            <Text size="2xl" weight="bold" as="h2">Icons</Text>
+            <Text size="l" variant="weak" measure="l">
+                Moth doesn't include an icon set. Use Lucide, the family Moth's own components are drawn from.
+                See the <Link size="l" href="/guidelines#icons">icon guidelines</Link> for sizes and colors.
+            </Text>
+            <CopyCode code="npm install @lucide/svelte" />
+            <CodeExample codeOnly code={`<script>
+    import { Button } from "moth-ui-svelte";
+    import { Plus } from "@lucide/svelte";
+<\/script>
+
+<Button>
+    <Plus slot="start" size={16} />
+    New project
+</Button>`} />
+        </Flex>
+
         <Flex direction="column" gap="s">
             <Text size="2xl" weight="bold" as="h2">Design Tokens</Text>
             <Text size="l" variant="weak" measure="l">

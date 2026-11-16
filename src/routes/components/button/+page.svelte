@@ -1,9 +1,9 @@
 <script>
+    import { ChevronDown, Minus, Plus, X } from "@lucide/svelte";
     import { 
         Button, 
         Code,
         Flex, 
-        Icon,
         Select,
         Table,
         TableBody,
@@ -42,27 +42,28 @@
 
 <Button disabled>Disabled</Button>`;
     let example3 = `<script>
-    import { Button, Flex, Icon } from "moth-ui-svelte";
+    import { Button, Flex } from "moth-ui-svelte";
+    import { ChevronDown, Minus, Plus, X } from "@lucide/svelte";
 <\/script>
 
 <Flex>
     <Button>
-        <Icon name="plus" slot="start" />
+        <Plus slot="start" size={16} />
         Add
     </Button>
     <Button>
-        <Icon name="plus" slot="end" />
+        <Plus slot="end" size={16} />
         Add
     </Button>
     <Button variant="secondary">
-        <Icon name="minus" slot="start" />
+        <Minus slot="start" size={16} />
         Remove
     </Button>
-    <Button variant="tertiary">
-        <Icon name="chevron-down" size="l" />
+    <Button variant="tertiary" aria-label="Show more">
+        <ChevronDown size={24} />
     </Button>
     <Button variant="danger">
-        <Icon name="x" slot="start" />
+        <X slot="start" size={16} />
         Delete
     </Button>
 </Flex>`;
@@ -126,22 +127,22 @@
             <CodeExample code={example3}>
                 <Flex>
                     <Button>
-                        <Icon name="plus" slot="start" />
+                        <Plus slot="start" size={16} />
                         Add
                     </Button>
                     <Button>
-                        <Icon name="plus" slot="end" />
+                        <Plus slot="end" size={16} />
                         Add
                     </Button>
                     <Button variant="secondary">
-                        <Icon name="minus" slot="start" />
+                        <Minus slot="start" size={16} />
                         Remove
                     </Button>
-                    <Button variant="tertiary">
-                        <Icon name="chevron-down" size="l" />
+                    <Button variant="tertiary" aria-label="Show more">
+                        <ChevronDown size={24} />
                     </Button>
                     <Button variant="danger">
-                        <Icon name="x" slot="start" />
+                        <X slot="start" size={16} />
                         Delete
                     </Button>
                 </Flex>

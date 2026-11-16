@@ -166,11 +166,6 @@
                 <TableCell>Adds a red outline to the container.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
-            <TableRow>
-                <TableCell><Code>id</Code></TableCell>
-                <TableCell>Id for the container element, for example to use as a link anchor.</TableCell>
-                <TableCell><Code>string</Code></TableCell>
-            </TableRow>
         </TableBody>
     </Table>
 </Flex>

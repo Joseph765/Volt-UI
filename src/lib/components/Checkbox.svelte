@@ -1,3 +1,4 @@
+<!-- Icons: Lucide (ISC License), see THIRD_PARTY_NOTICES.md -->
 <script>
     /** @type { string | undefined } */
     export let name = undefined;

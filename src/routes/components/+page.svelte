@@ -1,8 +1,8 @@
 <script>
+    import { Search } from "@lucide/svelte";
     import components from "./components.json";
     import {
         Flex,
-        Icon,
         Input,
         Text
     } from "$lib";
@@ -32,7 +32,7 @@
     <Flex direction="column" gap="l">
         <Input type="search" name="componentSearch" placeholder="Search" expanded bind:value={searchTerm}>
             <svelte:fragment slot="prefix">
-                <Icon name="search" />
+                <Search size={16} />
             </svelte:fragment>
         </Input>
         <section class="components">

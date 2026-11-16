@@ -1,8 +1,8 @@
 <script>
+    import { Phone, Search } from "@lucide/svelte";
     import {
         Code,
         Flex,
-        Icon,
         Input,
         Select,
         Table,
@@ -70,18 +70,19 @@
 
 <Input type="text" name="hint" label="Hint" hint="Hint: this is a hint" />`;
     let example7 = `<script>
-    import { Flex, Icon, Input } from "moth-ui-svelte";
+    import { Flex, Input } from "moth-ui-svelte";
+    import { Phone, Search } from "@lucide/svelte";
 <\/script>
 
 <Flex direction="column">
     <Input label="Icon Prefix" name="iconPrefix">
         <svelte:fragment slot="prefix">
-            <Icon name="search" />
+            <Search size={16} />
         </svelte:fragment>
     </Input>
     <Input label="Icon Prefix 2" name="iconPrefix2">
         <svelte:fragment slot="prefix">
-            <Icon name="phone" />
+            <Phone size={16} />
         </svelte:fragment>
     </Input>
 </Flex>`;
@@ -152,12 +153,12 @@
                 <Flex direction="column">
                     <Input label="Icon Prefix" name="iconPrefix">
                         <svelte:fragment slot="prefix">
-                            <Icon name="search" />
+                            <Search size={16} />
                         </svelte:fragment>
                     </Input>
                     <Input label="Icon Prefix 2" name="iconPrefix2">
                         <svelte:fragment slot="prefix">
-                            <Icon name="phone" />
+                            <Phone size={16} />
                         </svelte:fragment>
                     </Input>
                 </Flex>

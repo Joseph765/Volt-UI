@@ -1,8 +1,8 @@
 <script>
+    import { User } from "@lucide/svelte";
     import { 
         Code,
         Flex, 
-        Icon,
         Select,
         Table,
         TableBody,
@@ -42,7 +42,8 @@
     placeholder="Choose a country..."
 />`;
     let example2 = `<script>
-    import { Icon, Select } from "moth-ui-svelte";
+    import { Select } from "moth-ui-svelte";
+    import { User } from "@lucide/svelte";
 <\/script>
 
 <Select
@@ -54,11 +55,12 @@
     ]}
 >
     <span slot="prefix">
-        <Icon name="user" />
+        <User size={16} />
     </span>
 </Select>`;
     let example3 = `<script>
-    import { Icon, Select } from "moth-ui-svelte";
+    import { Select } from "moth-ui-svelte";
+    import { User } from "@lucide/svelte";
 <\/script>
 
 <Select
@@ -71,7 +73,7 @@
     expanded
 >
     <span slot="prefix">
-        <Icon name="user" />
+        <User size={16} />
     </span>
 </Select>`;
     let example4 = `<script>
@@ -187,7 +189,7 @@
                     ]}
                 >
                     <span slot="prefix">
-                        <Icon name="user" />
+                        <User size={16} />
                     </span>
                 </Select>
             </CodeExample>
@@ -203,7 +205,7 @@
                     expanded
                 >
                     <span slot="prefix">
-                        <Icon name="user" />
+                        <User size={16} />
                     </span>
                 </Select>
             </CodeExample>

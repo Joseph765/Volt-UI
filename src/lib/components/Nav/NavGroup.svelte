@@ -1,3 +1,4 @@
+<!-- Icons: Lucide (ISC License), see THIRD_PARTY_NOTICES.md -->
 <script>
     /** @type {{ title: string; open?: boolean, icon?: import('svelte').Snippet<[boolean]>, children?: import('svelte').Snippet }} */
     let { title, open = true, icon, children } = $props();

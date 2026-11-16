@@ -9,7 +9,6 @@ import CopyCode from "./components/CopyCode.svelte";
 import Divider from "./components/Divider.svelte";
 import Fieldset from "./components/Fieldset.svelte";
 import Flex from "./components/Flex.svelte";
-import Icon from "./components/Icon.svelte";
 import Input from "./components/Input.svelte";
 import Layout from "./components/Layout/Layout.svelte";
 import LayoutContent from "./components/Layout/LayoutContent.svelte";
@@ -49,7 +48,6 @@ export {
     Divider,
     Fieldset,
     Flex,
-    Icon,
     Input,
     Layout,
     LayoutContent,

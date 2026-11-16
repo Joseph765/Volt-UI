@@ -1,4 +1,5 @@
 <script>
+    import { Plus, Search } from "@lucide/svelte";
     // Example app UI for stress-testing the design system: an analytics dashboard.
     // Not linked from the nav; visit /examples/dashboard.
     import {
@@ -8,7 +9,6 @@
         Card,
         Container,
         Flex,
-        Icon,
         Input,
         Link,
         Select,
@@ -101,7 +101,7 @@
                 <Select name="range" options={ranges} bind:value={range} />
                 <Button variant="secondary">Export</Button>
                 <Button variant="primary">
-                    <Icon name="plus" slot="start" />
+                    <Plus slot="start" size={16} />
                     New invoice
                 </Button>
             </Flex>
@@ -163,7 +163,7 @@
             <Tab id="orders" selected={selectedTab}>
                 <Flex direction="column" gap="m">
                     <Input name="order-search" placeholder="Search by customer, email or order" bind:value={search} expanded>
-                        <svelte:fragment slot="prefix"><Icon name="search" /></svelte:fragment>
+                        <svelte:fragment slot="prefix"><Search size={16} /></svelte:fragment>
                     </Input>
                     <Table interactive>
                         <TableHead>

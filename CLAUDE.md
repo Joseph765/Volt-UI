@@ -90,6 +90,13 @@ or changelog entries for the rename. The repo folder is still `Volt-UI`, and the
   actions groups can sit side by side.
 - **Text:** `align` is optional. When omitted, Text inherits its container's `text-align` (e.g. `TableCell align`).
   Explicit `center`/`end` also move the width-capped (`measure`) block with auto margins.
+- **Icons:**
+  - There is no `Icon` component; it was removed on purpose. Apps use Lucide (`@lucide/svelte`), documented in
+    Guidelines → Icons and Getting Started.
+  - Sizes: 16px inline and in medium controls, 20px in banners and large buttons, 24px standalone.
+  - Components that inline Lucide SVGs carry a comment pointing to `THIRD_PARTY_NOTICES.md` (ships in the package
+    via `files`).
+  - `@lucide/svelte` and `@jis3r/icons` are docs-only devDependencies.
 - **Text selection:** `--m-color-highlight` (`--m-accent-7`) everywhere.
 - **Dark only:** there is no light theme. The stylesheet loads Outfit and Geist Mono from Google Fonts and styles
   `html`/`body` globally (documented on Getting Started).

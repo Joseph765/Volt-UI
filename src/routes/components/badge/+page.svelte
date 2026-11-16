@@ -1,9 +1,9 @@
 <script>
+    import { ChevronUp } from "@lucide/svelte";
     import { 
         Badge,
         Code,
         Flex, 
-        Icon,
         Select,
         Table,
         TableBody,
@@ -46,11 +46,12 @@
     <Badge variant="info" strong>Info</Badge>
 </Flex>`;
     let example3 = `<script>
-    import { Badge, Flex, Icon } from "moth-ui-svelte";
+    import { Badge, Flex } from "moth-ui-svelte";
+    import { ChevronUp } from "@lucide/svelte";
 <\/script>        
 
 <Badge variant="success">
-    <Icon name="chevron-up" slot="icon" size="s" />
+    <ChevronUp slot="icon" size={12} />
     22%
 </Badge>`;
 </script>
@@ -90,7 +91,7 @@
         {:else if selectedExample === "icon"}
             <CodeExample code={example3}>
                 <Badge variant="success">
-                    <Icon name="chevron-up" slot="icon" size="s" />
+                    <ChevronUp slot="icon" size={12} />
                     22%
                 </Badge>
             </CodeExample>

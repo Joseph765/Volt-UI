@@ -880,34 +880,6 @@
     padding: calc(var(--m-space-2xl));
 }
 
-/* Icon */
-.m-icon.is-danger {
-    color: var(--m-color-danger);
-}
-
-.m-icon.is-warning {
-    color: var(--m-color-warning);
-}
-
-.m-icon.is-success {
-    color: var(--m-color-success);
-}
-
-.m-icon.is-size-s {
-    min-width: 12px;
-    min-height: 12px;
-}
-
-.m-icon.is-size-m {
-    min-width: 16px;
-    min-height: 16px;
-}
-
-.m-icon.is-size-l {
-    min-width: 24px;
-    min-height: 24px;
-}
-
 /* Layout */
 /*
  * Mobile first: a top header with a menu button, and a nav drawer that slides in from the left.

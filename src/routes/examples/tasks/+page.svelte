@@ -1,4 +1,5 @@
 <script>
+    import { CircleCheck, Plus, X } from "@lucide/svelte";
     // Example app UI for stress-testing the design system: a task manager.
     // Not linked from the nav; visit /examples/tasks.
     import {
@@ -9,7 +10,6 @@
         Container,
         Divider,
         Flex,
-        Icon,
         Input,
         Select,
         Tab,
@@ -114,7 +114,7 @@
         <Card space="l">
             <form class="add-form" onsubmit={addTask}>
                 <Input name="new-task" placeholder="What needs doing?" bind:value={newTitle} error={titleError} aria-label="New task" expanded>
-                    <svelte:fragment slot="prefix"><Icon name="plus" /></svelte:fragment>
+                    <svelte:fragment slot="prefix"><Plus size={16} /></svelte:fragment>
                 </Input>
                 <Select name="new-priority" options={priorities} bind:value={newPriority} aria-label="Priority" />
                 <Button variant="primary" type="submit">Add task</Button>
@@ -142,7 +142,7 @@
                                             </Flex>
                                         </Flex>
                                         <Button variant="tertiary" aria-label="Delete “{task.title}”" on:click={() => remove(task.id)}>
-                                            <Icon name="x" />
+                                            <X size={16} />
                                         </Button>
                                     </li>
                                 {/each}
@@ -151,7 +151,7 @@
                     {:else}
                         <Card space="l">
                             <Flex direction="column" gap="s" align="center">
-                                <Icon name="circle-check" size="l" status="success" />
+                                <CircleCheck size={24} color="var(--m-color-success)" />
                                 <Text weight="bold" align="center">{which === "done" ? "Nothing completed yet" : "All caught up"}</Text>
                                 <Text size="s" variant="weak" align="center">{which === "done" ? "Tick off a task and it'll show up here." : "Add a task above to get started."}</Text>
                             </Flex>

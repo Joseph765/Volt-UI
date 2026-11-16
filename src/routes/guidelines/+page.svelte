@@ -1,11 +1,12 @@
 <script>
     import { Button, Code, Container, Flex, Input, Link, Text } from "$lib";
+    import { CircleCheck, Plus, Search, Settings } from "@lucide/svelte";
     import Seo from "../Seo.svelte";
 </script>
 
 <Seo
     title="Guidelines · Moth UI"
-    description="How to use Moth UI well: button hierarchy, when to use the accent color, focus states, forms and dark-only design."
+    description="How to use Moth UI well: button hierarchy, when to use the accent color, focus states, forms, icons and dark-only design."
     path="/guidelines"
 />
 
@@ -84,6 +85,40 @@
             </div>
         </section>
 
+        <!-- Icons -->
+        <section class="guideline" id="icons">
+            <Text size="2xl" weight="bold" as="h2">Icons</Text>
+            <Text size="l" variant="weak" measure="l">
+                Moth doesn't ship an icon set. Use <Link size="l" href="https://lucide.dev" target="_blank">Lucide</Link>
+                (<Code>npm i @lucide/svelte</Code>): it's the family Moth's own components are drawn from, so your
+                icons match the built-in ones. Pass them into slots and prefixes like any other content.
+            </Text>
+            <div class="example">
+                <Flex wrap align="center" gap="l">
+                    <Button>
+                        <Plus slot="start" size={16} />
+                        New project
+                    </Button>
+                    <Button variant="tertiary" aria-label="Settings">
+                        <Settings size={16} />
+                    </Button>
+                    <Input name="guideline-search" type="search" placeholder="Search">
+                        <svelte:fragment slot="prefix"><Search size={16} /></svelte:fragment>
+                    </Input>
+                    <span class="status">
+                        <CircleCheck size={16} color="var(--m-color-success)" />
+                        <Text size="s" variant="weak" as="span">All systems normal</Text>
+                    </span>
+                </Flex>
+            </div>
+            <ul class="rules">
+                <li><Text size="l" variant="weak" measure="l"><strong>Size:</strong> 16px next to body text and in medium controls (buttons, field prefixes), 20px in banners and large buttons, 24px on their own.</Text></li>
+                <li><Text size="l" variant="weak" measure="l"><strong>Color:</strong> icons use <Code>currentColor</Code>, so they follow the text and stay gray. Don't color them with the accent; use a status color (e.g. <Code>--m-color-success</Code>) only when the icon shows a status.</Text></li>
+                <li><Text size="l" variant="weak" measure="l"><strong>Accessibility:</strong> icons next to a label are decorative and hidden from screen readers by default. An icon-only button needs an <Code>aria-label</Code>.</Text></li>
+                <li><Text size="l" variant="weak" measure="l"><strong>Animated icons:</strong> the icons that move when you hover this site's navigation come from <Link size="l" href="https://www.movingicons.dev" target="_blank">movingicons.dev</Link> (<Code>npm i @jis3r/icons</Code>), animated versions of Lucide icons. Nav items pass an <Code>animate</Code> value to their icon slot that's true while hovered or keyboard-focused, so these icons play only then. See the <Link size="l" href="/components/navigation">Navigation</Link> docs. Keep animation to navigation; elsewhere, use still icons.</Text></li>
+            </ul>
+        </section>
+
         <!-- Dark only -->
         <section class="guideline">
             <Text size="2xl" weight="bold" as="h2">Dark only</Text>
@@ -117,6 +152,12 @@
 
     .inline-form :global(.m-label-wrapper) {
         flex: 1;
+    }
+
+    .status {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--m-space-xs);
     }
 
     .rules {
