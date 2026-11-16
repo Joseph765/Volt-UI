@@ -1,6 +1,6 @@
 {
 	"name": "moth-ui-svelte",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "A polished, dark-first design system for Svelte 5.",
 	"author": "Joseph Chauvin (https://github.com/Joseph765)",
 	"license": "MIT",
