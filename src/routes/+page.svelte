@@ -527,7 +527,7 @@
     }
 
     /* Tighter cells so the table fits the narrow preview; recess it so its edges show on the matching surface */
-    .showcase-preview :global(.m-table-head),
+    .showcase-preview :global(.m-table-header),
     .showcase-preview :global(.m-table-cell) {
         padding-inline: var(--m-space-s);
     }

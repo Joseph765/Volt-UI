@@ -3,7 +3,7 @@
     import "./glow.css";
     import { page } from '$app/state';
     import components from "./components/components.json";
-    import MothLogo from "$lib/components/MothLogo.svelte";
+    import MothLogo from "./MothLogo.svelte";
 
     import { Blocks, Compass, Paintbrush, Rocket } from "@jis3r/icons";
 

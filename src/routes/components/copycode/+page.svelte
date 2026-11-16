@@ -7,8 +7,8 @@
         Table,
         TableBody,
         TableCell,
-        TableHead,
         TableHeader,
+        TableHead,
         TableRow,
         Text
     } from "$lib";
@@ -49,13 +49,13 @@
         {/if}
     </Flex>
     <Table>
-        <TableHeader>
+        <TableHead>
             <TableRow>
-                <TableHead>Property</TableHead>
-                <TableHead>Description</TableHead>
-                <TableHead>Type</TableHead>
+                <TableHeader>Property</TableHeader>
+                <TableHeader>Description</TableHeader>
+                <TableHeader>Type</TableHeader>
             </TableRow>
-        </TableHeader>
+        </TableHead>
         <TableBody>
             <TableRow>
                 <TableCell><Code>code</Code></TableCell>

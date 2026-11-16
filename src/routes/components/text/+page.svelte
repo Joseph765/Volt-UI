@@ -6,8 +6,8 @@
         Table,
         TableBody,
         TableCell,
-        TableHead,
         TableHeader,
+        TableHead,
         TableRow,
         Text
     } from "$lib";
@@ -173,13 +173,13 @@
         {/if}
     </Flex>
     <Table>
-        <TableHeader>
+        <TableHead>
             <TableRow>
-                <TableHead>Property</TableHead>
-                <TableHead>Description</TableHead>
-                <TableHead>Type</TableHead>
+                <TableHeader>Property</TableHeader>
+                <TableHeader>Description</TableHeader>
+                <TableHeader>Type</TableHeader>
             </TableRow>
-        </TableHeader>
+        </TableHead>
         <TableBody>
             <TableRow>
                 <TableCell><Code>size</Code></TableCell>
@@ -213,12 +213,17 @@
             </TableRow>
             <TableRow>
                 <TableCell><Code>align</Code></TableCell>
-                <TableCell>The direction the text is aligned.</TableCell>
+                <TableCell>Text alignment. When omitted, follows its container (e.g. <Code>TableCell align</Code>).</TableCell>
                 <TableCell><Code>start</Code> | <Code>center</Code> | <Code>end</Code></TableCell>
             </TableRow>
             <TableRow>
                 <TableCell><Code>id</Code></TableCell>
                 <TableCell>Id for the text element, for example to use as a link anchor.</TableCell>
+                <TableCell><Code>string</Code></TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell><Code>class</Code></TableCell>
+                <TableCell>Extra classes added to the element, for your own styles.</TableCell>
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
         </TableBody>

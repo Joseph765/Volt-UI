@@ -17,16 +17,20 @@
     /** @type { boolean } */
     export let mono = false;
 
-    /** @type { 'start' | 'center' | 'end' } */
-    export let align = "start";
+    /** @type { 'start' | 'center' | 'end' | undefined } When omitted, the text follows its container's alignment (e.g. a TableCell's align) */
+    export let align = undefined;
 
     /** @type { string } */
     export let id = "";
 
     /** @type { string } */
     export let style = "";
+
+    /** @type { string } Extra classes, added after Text's own */
+    let className = "";
+    export { className as class };
 </script>
 
-<svelte:element this={as} {id} class="m-text is-size-{size} is-{variant} has-weight-{weight} has-measure-{measure} is-align-{align} {mono ? "is-mono" : undefined}" {style}>
+<svelte:element this={as} {id} class="m-text is-size-{size} is-{variant} has-weight-{weight} has-measure-{measure} {align ? `is-align-${align}` : undefined} {mono ? "is-mono" : undefined} {className}" {style}>
     <slot />
 </svelte:element>

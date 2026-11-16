@@ -16,7 +16,7 @@
         Textarea,
         Toggle
     } from "$lib";
-    import Seo from "../Seo.svelte";
+    import Seo from "../../Seo.svelte";
 
     const countries = [
         { value: "us", label: "United States" },

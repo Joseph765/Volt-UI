@@ -116,7 +116,7 @@
         width: 100% !important;
     }
 
-    .component-preview :global(.m-table-head),
+    .component-preview :global(.m-table-header),
     .component-preview :global(.m-table-cell) {
         padding-inline: var(--m-space-s);
     }

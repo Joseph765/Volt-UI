@@ -619,6 +619,12 @@
     width: 100%;
 }
 
+/* Inside a row, a Flex is one item among siblings: size it to its content (like any flex item) instead of taking
+   the full row, so e.g. a title group and an actions group can sit side by side with justify="between" */
+.m-flex:is(.has-direction-row, .has-direction-row-reverse) > .m-flex {
+    width: auto;
+}
+
 .m-flex.has-direction-row {
     flex-direction: row;
 }
@@ -633,10 +639,6 @@
 
 .m-flex.has-direction-row-reverse {
     flex-direction: row-reverse;
-}
-
-.m-flex.is-justify-between {
-    justify-content: space-between;
 }
 
 .m-flex.has-gap-none {
@@ -1015,8 +1017,9 @@
 }
 
 /* While the slide-in nav is open, blur the page behind it so the menu stands out. The blurred page can't be
-   interacted with: a click on it just closes the nav (LayoutNav dispatches `close`) instead of following a link */
-.m-layout:has(.m-layout-nav.is-open) .m-layout-content {
+   interacted with: a click on it just closes the nav (LayoutNav dispatches `close`) instead of following a link.
+   Direct children only (`>`), so a Layout nested inside another (e.g. a docs example) only blurs its own content */
+.m-layout:has(> .m-layout-nav.is-open) > .m-layout-content {
     filter: blur(4px);
     pointer-events: none;
 }
@@ -1068,6 +1071,9 @@
 
     .m-layout-logo {
         top: 0;
+        /* Above the nav, with the page's background: if a long nav ever scrolls up, it passes under the logo */
+        z-index: 1;
+        background-color: var(--m-color-background);
         display: flex;
         align-items: center;
         padding: var(--m-space-xl) var(--m-space-m) var(--m-space-l) calc(var(--m-space-xl) + var(--m-space-m));
@@ -1090,7 +1096,7 @@
     }
 
     /* The sidebar is always shown here, so `open` has no effect and the content stays sharp */
-    .m-layout:has(.m-layout-nav.is-open) .m-layout-content {
+    .m-layout:has(> .m-layout-nav.is-open) > .m-layout-content {
         filter: none;
         pointer-events: auto;
     }
@@ -1594,7 +1600,7 @@
     padding: var(--m-space-m);
 }
 
-.m-table-head {
+.m-table-header {
     text-align: start;
     padding: var(--m-space-m);
     font-family: var(--m-font);
@@ -1613,7 +1619,6 @@
     font-variant-numeric: tabular-nums lining-nums;
     padding: var(--m-space-m);
     border-block-end: 1px solid var(--m-color-border);
-    white-space: nowrap;
 }
 
 /* The card's edge ends the table, so the last row doesn't need a divider */
@@ -1642,16 +1647,27 @@
     text-align: end;
 }
 
-.m-table-head.is-align-start {
+.m-table-header.is-align-start {
     text-align: start;
 }
 
-.m-table-head.is-align-center {
+.m-table-header.is-align-center {
     text-align: center;
 }
 
-.m-table-head.is-align-end {
+.m-table-header.is-align-end {
     text-align: end;
+}
+
+/* Text inherits the cell's alignment; also move its (width-capped) block so long text reaches the cell's edge */
+.m-table-cell.is-align-center > .m-text,
+.m-table-header.is-align-center > .m-text {
+    margin-inline: auto;
+}
+
+.m-table-cell.is-align-end > .m-text,
+.m-table-header.is-align-end > .m-text {
+    margin-inline-start: auto;
 }
 
 .m-table-cell.is-truncated {
@@ -1867,7 +1883,7 @@
     font-weight: var(--m-font-weight-black);
 }
 
-.m-text.has-measure-s {
+.m-text.has-measure-none {
     max-width: none;
 }
 
@@ -1887,12 +1903,16 @@
     text-align: start;
 }
 
+/* Aligning also moves the block: Text has a max-width (measure), so center/end push the whole box over,
+   not just the lines inside it */
 .m-text.is-align-center {
     text-align: center;
+    margin-inline: auto;
 }
 
 .m-text.is-align-end {
     text-align: end;
+    margin-inline-start: auto;
 }
 
 /* Textarea */

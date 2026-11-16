@@ -12,7 +12,7 @@
     {
         "name": "Button",
         "description": "An interactive element that triggers actions or submits forms when clicked.",
-        "example": "<button class='m-button' style='background-color: var(--m-gray-5); border-color: var(--m-gray-5); color: var(--m-color-text);'>Button</button>"
+        "example": "<span class='m-button' style='background-color: var(--m-gray-5); border-color: var(--m-gray-5); color: var(--m-color-text);'>Button</span>"
     },
     {
         "name": "Card",
@@ -57,7 +57,7 @@
     {
         "name": "Icon",
         "description": "A scalable vector component for displaying symbolic icons with customizable size, color, and accessibility features.",
-        "example": "<svg class='m-icon is-size-l' xmlns='http://www.w3.org/2000/svg' width='24' height='24'viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2'/><circle cx='12' cy='7' r='4'/>"
+        "example": "<svg class='m-icon is-size-l' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2'/><circle cx='12' cy='7' r='4'/></svg>"
     },
     {
         "name": "Input",
@@ -72,7 +72,7 @@
     {
         "name": "Link",
         "description": "An interactive text element that navigates to another page or resource.",
-        "example": "<a href='#' class='m-link' style='color: var(--m-color-text);'>Link</a>"
+        "example": "<span class='m-link' style='color: var(--m-color-text);'>Link</span>"
     },
     {
         "name": "Navigation",
@@ -92,7 +92,7 @@
     {
         "name": "Table",
         "description": "A structured component for displaying tabular data in rows and columns with consistent styling and layout.",
-        "example": "<div class='m-table-wrapper' style='width: calc(100% - var(--m-space-xl));'><table class='m-table'><thead class='m-table-header'><tr class='m-table-row'><th class='m-table-head' scope='col' class='m-table-heading'>Property</th><th class='m-table-head' scope='col' class='m-table-heading'>Type</th></tr></thead><tbody class='m-table-body'><tr class='m-table-row'><td class='m-table-cell'><code class='m-code'>size</code></td><td class='m-table-cell'>s | m | l</td></tr></tbody></table></div>"
+        "example": "<div class='m-table-wrapper' style='width: calc(100% - var(--m-space-xl));'><table class='m-table'><thead class='m-table-head'><tr class='m-table-row'><th class='m-table-header' scope='col'>Property</th><th class='m-table-header' scope='col'>Type</th></tr></thead><tbody class='m-table-body'><tr class='m-table-row'><td class='m-table-cell'><code class='m-code'>size</code></td><td class='m-table-cell'>s | m | l</td></tr></tbody></table></div>"
     },
     {
         "name": "Tabs",
@@ -112,7 +112,7 @@
     {
         "name": "Toast",
         "description": "A temporary, non-intrusive notification that appears in the bottom-right corner to provide feedback.",
-        "example": "<div class='m-toast'><span class='m-toast-message'>Copied to clipboard</span><button class='m-toast-dismiss' aria-label='close' onclick={onDismiss}><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-x-icon lucide-x'><path d='M18 6 6 18'/><path d='m6 6 12 12'/></svg></button></div>"
+        "example": "<div class='m-toast'><span class='m-toast-message'>Copied to clipboard</span><span class='m-toast-dismiss' aria-hidden='true'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-x-icon lucide-x'><path d='M18 6 6 18'/><path d='m6 6 12 12'/></svg></span></div>"
     },
     {
         "name": "Toggle",

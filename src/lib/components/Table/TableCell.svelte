@@ -7,8 +7,11 @@
 
     /** @type { string } */
     export let style = "";
+
+    /** @type { number | undefined } Number of columns the cell spans */
+    export let colspan = undefined;
 </script>
 
-<td class="m-table-cell is-align-{align} {truncate ? "is-truncated" : undefined}" {style}>
+<td class="m-table-cell is-align-{align} {truncate ? "is-truncated" : undefined}" {style} {colspan}>
     <slot />
 </td>

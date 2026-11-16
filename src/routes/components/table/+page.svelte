@@ -7,8 +7,8 @@
         TableBody,
         TableCaption,
         TableCell,
-        TableHead,
         TableHeader,
+        TableHead,
         TableRow,
         Text
     } from "$lib";
@@ -30,20 +30,20 @@
         Table,
         TableBody,
         TableCell,
-        TableHead,
         TableHeader,
+        TableHead,
         TableRow
     } from "moth-ui-svelte";
 <\/script>
 
 <Table>
-    <TableHeader>
+    <TableHead>
         <TableRow>
-            <TableHead>Col 1</TableHead>
-            <TableHead>Col 2</TableHead>
-            <TableHead>Col 3</TableHead>
+            <TableHeader>Col 1</TableHeader>
+            <TableHeader>Col 2</TableHeader>
+            <TableHeader>Col 3</TableHeader>
         </TableRow>
-    </TableHeader>
+    </TableHead>
     <TableBody>
         <TableRow>
             <TableCell>Value 1.1</TableCell>
@@ -67,20 +67,20 @@
         Table,
         TableBody,
         TableCell,
-        TableHead,
         TableHeader,
+        TableHead,
         TableRow
     } from "moth-ui-svelte";
 <\/script>
 
 <Table striped>
-    <TableHeader>
+    <TableHead>
         <TableRow>
-            <TableHead>Col 1</TableHead>
-            <TableHead>Col 2</TableHead>
-            <TableHead>Col 3</TableHead>
+            <TableHeader>Col 1</TableHeader>
+            <TableHeader>Col 2</TableHeader>
+            <TableHeader>Col 3</TableHeader>
         </TableRow>
-    </TableHeader>
+    </TableHead>
     <TableBody>
         <TableRow>
             <TableCell>Value 1.1</TableCell>
@@ -114,20 +114,20 @@
         Table,
         TableBody,
         TableCell,
-        TableHead,
         TableHeader,
+        TableHead,
         TableRow
     } from "moth-ui-svelte";
 <\/script>
 
 <Table interactive>
-    <TableHeader>
+    <TableHead>
         <TableRow>
-            <TableHead>Col 1</TableHead>
-            <TableHead>Col 2</TableHead>
-            <TableHead>Col 3</TableHead>
+            <TableHeader>Col 1</TableHeader>
+            <TableHeader>Col 2</TableHeader>
+            <TableHeader>Col 3</TableHeader>
         </TableRow>
-    </TableHeader>
+    </TableHead>
     <TableBody>
         <TableRow>
             <TableCell>Value 1.1</TableCell>
@@ -151,20 +151,20 @@
         Table,
         TableBody,
         TableCell,
-        TableHead,
         TableHeader,
+        TableHead,
         TableRow
     } from "moth-ui-svelte";
 <\/script>
 
 <Table interactive>
-    <TableHeader>
+    <TableHead>
         <TableRow>
-            <TableHead>Col 1</TableHead>
-            <TableHead align="end">Align End</TableHead>
-            <TableHead>Col 3</TableHead>
+            <TableHeader>Col 1</TableHeader>
+            <TableHeader align="end">Align End</TableHeader>
+            <TableHeader>Col 3</TableHeader>
         </TableRow>
-    </TableHeader>
+    </TableHead>
     <TableBody>
         <TableRow>
             <TableCell>Value 1.1</TableCell>
@@ -188,20 +188,20 @@
         Table,
         TableBody,
         TableCell,
-        TableHead,
         TableHeader,
+        TableHead,
         TableRow
     } from "moth-ui-svelte";
 <\/script>
 
 <Table>
-    <TableHeader>
+    <TableHead>
         <TableRow>
-            <TableHead>Col 1</TableHead>
-            <TableHead>Col 2</TableHead>
-            <TableHead>Col 3</TableHead>
+            <TableHeader>Col 1</TableHeader>
+            <TableHeader>Col 2</TableHeader>
+            <TableHeader>Col 3</TableHeader>
         </TableRow>
-    </TableHeader>
+    </TableHead>
     <TableBody>
         <TableRow>
             <TableCell>Value 1.1</TableCell>
@@ -226,8 +226,8 @@
         TableBody,
         TableCaption,
         TableCell,
-        TableHead,
         TableHeader,
+        TableHead,
         TableRow,
         Text
     } from "moth-ui-svelte";
@@ -237,13 +237,13 @@
     <TableCaption>
         <Text size="2xl">Caption</Text>
     </TableCaption>
-    <TableHeader>
+    <TableHead>
         <TableRow>
-            <TableHead>Col 1</TableHead>
-            <TableHead>Col 2</TableHead>
-            <TableHead>Col 3</TableHead>
+            <TableHeader>Col 1</TableHeader>
+            <TableHeader>Col 2</TableHeader>
+            <TableHeader>Col 3</TableHeader>
         </TableRow>
-    </TableHeader>
+    </TableHead>
     <TableBody>
         <TableRow>
             <TableCell>Value 1.1</TableCell>
@@ -279,13 +279,13 @@
         {#if selectedExample === "basic"}
             <CodeExample code={example1}>
                 <Table>
-                    <TableHeader>
+                    <TableHead>
                         <TableRow>
-                            <TableHead>Col 1</TableHead>
-                            <TableHead>Col 2</TableHead>
-                            <TableHead>Col 3</TableHead>
+                            <TableHeader>Col 1</TableHeader>
+                            <TableHeader>Col 2</TableHeader>
+                            <TableHeader>Col 3</TableHeader>
                         </TableRow>
-                    </TableHeader>
+                    </TableHead>
                     <TableBody>
                         <TableRow>
                             <TableCell>Value 1.1</TableCell>
@@ -308,13 +308,13 @@
         {:else if selectedExample === "striped"}
             <CodeExample code={example2}>
                 <Table striped>
-                    <TableHeader>
+                    <TableHead>
                         <TableRow>
-                            <TableHead>Col 1</TableHead>
-                            <TableHead>Col 2</TableHead>
-                            <TableHead>Col 3</TableHead>
+                            <TableHeader>Col 1</TableHeader>
+                            <TableHeader>Col 2</TableHeader>
+                            <TableHeader>Col 3</TableHeader>
                         </TableRow>
-                    </TableHeader>
+                    </TableHead>
                     <TableBody>
                         <TableRow>
                             <TableCell>Value 1.1</TableCell>
@@ -347,13 +347,13 @@
         {:else if selectedExample === "interactive"}
             <CodeExample code={example4}>
                 <Table interactive>
-                    <TableHeader>
+                    <TableHead>
                         <TableRow>
-                            <TableHead>Col 1</TableHead>
-                            <TableHead>Col 2</TableHead>
-                            <TableHead>Col 3</TableHead>
+                            <TableHeader>Col 1</TableHeader>
+                            <TableHeader>Col 2</TableHeader>
+                            <TableHeader>Col 3</TableHeader>
                         </TableRow>
-                    </TableHeader>
+                    </TableHead>
                     <TableBody>
                         <TableRow>
                             <TableCell>Value 1.1</TableCell>
@@ -376,13 +376,13 @@
         {:else if selectedExample === "align"}
             <CodeExample code={example5}>
                 <Table interactive>
-                    <TableHeader>
+                    <TableHead>
                         <TableRow>
-                            <TableHead>Col 1</TableHead>
-                            <TableHead align="end">Align End</TableHead>
-                            <TableHead>Col 3</TableHead>
+                            <TableHeader>Col 1</TableHeader>
+                            <TableHeader align="end">Align End</TableHeader>
+                            <TableHeader>Col 3</TableHeader>
                         </TableRow>
-                    </TableHeader>
+                    </TableHead>
                     <TableBody>
                         <TableRow>
                             <TableCell>Value 1.1</TableCell>
@@ -405,13 +405,13 @@
         {:else if selectedExample === "truncate"}
             <CodeExample code={example6}>
                 <Table>
-                    <TableHeader>
+                    <TableHead>
                         <TableRow>
-                            <TableHead>Col 1</TableHead>
-                            <TableHead>Col 2</TableHead>
-                            <TableHead>Col 3</TableHead>
+                            <TableHeader>Col 1</TableHeader>
+                            <TableHeader>Col 2</TableHeader>
+                            <TableHeader>Col 3</TableHeader>
                         </TableRow>
-                    </TableHeader>
+                    </TableHead>
                     <TableBody>
                         <TableRow>
                             <TableCell>Value 1.1</TableCell>
@@ -437,13 +437,13 @@
                     <TableCaption>
                         <Text size="2xl">Caption</Text>
                     </TableCaption>
-                    <TableHeader>
+                    <TableHead>
                         <TableRow>
-                            <TableHead>Col 1</TableHead>
-                            <TableHead>Col 2</TableHead>
-                            <TableHead>Col 3</TableHead>
+                            <TableHeader>Col 1</TableHeader>
+                            <TableHeader>Col 2</TableHeader>
+                            <TableHeader>Col 3</TableHeader>
                         </TableRow>
-                    </TableHeader>
+                    </TableHead>
                     <TableBody>
                         <TableRow>
                             <TableCell>Value 1.1</TableCell>
@@ -466,13 +466,13 @@
         {/if}
     </Flex>
     <Table>
-        <TableHeader>
+        <TableHead>
             <TableRow>
-                <TableHead>Property</TableHead>
-                <TableHead>Description</TableHead>
-                <TableHead>Type</TableHead>
+                <TableHeader>Property</TableHeader>
+                <TableHeader>Description</TableHeader>
+                <TableHeader>Type</TableHeader>
             </TableRow>
-        </TableHeader>
+        </TableHead>
         <TableBody>
             <TableRow>
                 <TableCell><Code>Table striped</Code></TableCell>
@@ -485,7 +485,7 @@
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>TableHead align</Code></TableCell>
+                <TableCell><Code>TableHeader align</Code></TableCell>
                 <TableCell>Horizontal alignment of the header cell. Defaults to <Code>start</Code>.</TableCell>
                 <TableCell><Code>start</Code> | <Code>center</Code> | <Code>end</Code></TableCell>
             </TableRow>
@@ -500,12 +500,17 @@
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>
+                <TableCell><Code>TableCell colspan</Code></TableCell>
+                <TableCell>Number of columns the cell spans, for example a full-width "No results" row.</TableCell>
+                <TableCell><Code>number</Code></TableCell>
+            </TableRow>
+            <TableRow>
                 <TableCell><Code>TableCaption</Code></TableCell>
                 <TableCell>Title for the table, shown inside its card at the top.</TableCell>
                 <TableCell><Code>component</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>TableHeader / TableBody / TableRow</Code></TableCell>
+                <TableCell><Code>TableHead / TableBody / TableRow</Code></TableCell>
                 <TableCell>Structural parts that render <Code>thead</Code>, <Code>tbody</Code> and <Code>tr</Code>.</TableCell>
                 <TableCell><Code>component</Code></TableCell>
             </TableRow>

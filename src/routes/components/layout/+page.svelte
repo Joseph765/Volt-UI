@@ -18,8 +18,8 @@
         Table,
         TableBody,
         TableCell,
-        TableHead,
         TableHeader,
+        TableHead,
         TableRow,
         Text
     } from "$lib";
@@ -114,48 +114,50 @@
         />
         {#if selectedExample === "basic"}
             <CodeExample code={example1}>
-                <Layout>
-                    <LayoutHeader>
-                        <LayoutMenuButton {open} on:click={() => open = !open} />
-                        <a href="#top" class="example-mobile-logo" slot="mobile-logo">L</a>
-                    </LayoutHeader>
-                    <a href="#top" class="example-logo" slot="logo">Logo</a>
-                    <LayoutNav {open} on:close={() => open = false}>
-                        <NavItem href="#top" active={activeItem === "dashboard"} on:click={() => select("dashboard")}>
-                            <ChartPie slot="icon" let:animate {animate} />
-                            Dashboard
-                        </NavItem>
-                        <NavItem href="#top" active={activeItem === "assets"} on:click={() => select("assets")}>
-                            <Layers slot="icon" let:animate {animate} />
-                            Assets
-                        </NavItem>
-                        <NavItem href="#top" active={activeItem === "transactions"} on:click={() => select("transactions")}>
-                            <History slot="icon" let:animate {animate} />
-                            Transactions
-                        </NavItem>
-                        <NavGroup title="Settings">
-                            {#snippet icon(animate)}<Settings {animate} />{/snippet}
-                            <NavGroupItem href="#top" active={activeItem === "profile"} on:click={() => select("profile")}>Profile</NavGroupItem>
-                            <NavGroupItem href="#top" active={activeItem === "security"} on:click={() => select("security")}>Security</NavGroupItem>
-                        </NavGroup>
-                    </LayoutNav>
-                    <LayoutContent>
-                        <Container>
-                            <Text size="3xl" weight="black" as="h3">Page content</Text>
-                        </Container>
-                    </LayoutContent>
-                </Layout>
+                <div class="layout-demo">
+                    <Layout>
+                        <LayoutHeader>
+                            <LayoutMenuButton {open} on:click={() => open = !open} />
+                            <a href="#top" class="example-mobile-logo" slot="mobile-logo">L</a>
+                        </LayoutHeader>
+                        <a href="#top" class="example-logo" slot="logo">Logo</a>
+                        <LayoutNav {open} on:close={() => open = false}>
+                            <NavItem href="#top" active={activeItem === "dashboard"} on:click={() => select("dashboard")}>
+                                <ChartPie slot="icon" let:animate {animate} />
+                                Dashboard
+                            </NavItem>
+                            <NavItem href="#top" active={activeItem === "assets"} on:click={() => select("assets")}>
+                                <Layers slot="icon" let:animate {animate} />
+                                Assets
+                            </NavItem>
+                            <NavItem href="#top" active={activeItem === "transactions"} on:click={() => select("transactions")}>
+                                <History slot="icon" let:animate {animate} />
+                                Transactions
+                            </NavItem>
+                            <NavGroup title="Settings">
+                                {#snippet icon(animate)}<Settings {animate} />{/snippet}
+                                <NavGroupItem href="#top" active={activeItem === "profile"} on:click={() => select("profile")}>Profile</NavGroupItem>
+                                <NavGroupItem href="#top" active={activeItem === "security"} on:click={() => select("security")}>Security</NavGroupItem>
+                            </NavGroup>
+                        </LayoutNav>
+                        <LayoutContent>
+                            <Container>
+                                <Text size="3xl" weight="black" as="h3">Page content</Text>
+                            </Container>
+                        </LayoutContent>
+                    </Layout>
+                </div>
             </CodeExample>
         {/if}
     </Flex>
     <Table>
-        <TableHeader>
+        <TableHead>
             <TableRow>
-                <TableHead>Property</TableHead>
-                <TableHead>Description</TableHead>
-                <TableHead>Type</TableHead>
+                <TableHeader>Property</TableHeader>
+                <TableHeader>Description</TableHeader>
+                <TableHeader>Type</TableHeader>
             </TableRow>
-        </TableHeader>
+        </TableHead>
         <TableBody>
             <TableRow>
                 <TableCell><Code>LayoutNav open</Code></TableCell>
@@ -207,6 +209,33 @@
 </Flex>
 
 <style>
+    /*
+     * The demo is a whole app inside a small box, so the box acts as its window:
+     * - It fills the preview area exactly and scrolls itself, so the demo's sticky header and sidebar stick
+     *   inside it.
+     * - `contain: layout paint` makes the box the reference for the demo's position: fixed drawer. On a phone
+     *   it slides in inside the box, not over the whole screen, and is clipped while off-screen.
+     */
+    .layout-demo {
+        width: 100%;
+        height: calc(33dvh - 2 * var(--m-space-m));
+        overflow-y: auto;
+        contain: layout paint;
+        /* Lets the demo's sidebar size itself to this box (cqh) instead of the browser window (dvh) */
+        container-type: size;
+        border-radius: var(--m-radius);
+    }
+
+    .layout-demo :global(.m-layout) {
+        min-height: 100%;
+    }
+
+    /* The real sidebar is capped at the window's height below the logo; in the demo, cap it at the box's height,
+       so a long nav scrolls on its own under the logo instead of sliding up over it */
+    .layout-demo :global(.m-layout-nav) {
+        max-height: calc(100cqh - var(--m-layout-logo-offset));
+    }
+
     .example-logo {
         font-family: var(--m-font);
         font-size: var(--m-font-size-3xl);
