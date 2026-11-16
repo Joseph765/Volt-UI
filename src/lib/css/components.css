@@ -1978,8 +1978,11 @@
 }
 
 /* Toast Group */
+/* Pinned to the viewport (not the page), so toasts stay in view however far the page is scrolled,
+   and above the sticky header and mobile nav */
 .m-toast-group {
-    position: absolute;
+    position: fixed;
+    z-index: 10;
     right: var(--m-space-xl);
     bottom: var(--m-space-xl);
     display: flex;
