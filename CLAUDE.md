@@ -101,6 +101,11 @@ or changelog entries for the rename. The repo folder is still `Volt-UI`, and the
 - **Dark only:** there is no light theme. The stylesheet loads Outfit and Geist Mono from Google Fonts and styles
   `html`/`body` globally (documented on Getting Started).
 
+## Docs scope decisions
+- No customization/theming docs: Moth is meant to be used as-is, not customized.
+- No keyboard-support or form-submission explanations on the docs site for now.
+- Browser support is stated on Getting Started → Requirements: Chrome/Edge 111+, Safari 16.2+, Firefox 121+.
+
 ## Verifying changes
 - Type check: `npx svelte-check --tsconfig ./jsconfig.json`. Keep it at 0 errors and 0 warnings.
 - Package check: `npm run prepack` (svelte-package + publint).
@@ -111,4 +116,6 @@ or changelog entries for the rename. The repo folder is still `Volt-UI`, and the
 - The user commits and pushes themselves. Don't commit unless asked.
 
 ## Open items / ideas not yet done
+- `Radio` has no `bind:group` and forwards no `change` event, so its value can only be read by submitting a
+  form. Consider adding `bind:group` (and documenting it) when fixing.
 - If button text still "drops" after hovering, fake the grow with the light layer instead of `transform`.

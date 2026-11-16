@@ -38,6 +38,10 @@
             <Text size="l" variant="weak" measure="l">
                 Moth UI needs <Code>svelte</Code> 5 or later. It works in SvelteKit and in any Vite + Svelte project.
             </Text>
+            <Text size="l" variant="weak" measure="l">
+                It targets modern browsers: Chrome and Edge 111+, Safari 16.2+ and Firefox 121+. Its styles use
+                <Code>:has()</Code>, <Code>color-mix()</Code> and dynamic viewport units, which older browsers don't support.
+            </Text>
         </Flex>
 
         <Flex direction="column">
