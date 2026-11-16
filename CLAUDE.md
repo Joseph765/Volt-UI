@@ -63,7 +63,8 @@ or changelog entries for the rename. The repo folder is still `Volt-UI`, and the
   - The page scrolls the **window**. Header and sidebar use sticky/fixed positioning, so SvelteKit scroll
     restoration works.
   - `Layout` measures its logo height into `--m-layout-logo-height` for the sticky sidebar.
-  - The mobile nav blurs the content behind it, and Esc closes it via `LayoutNav on:close`.
+  - The mobile nav blurs the content behind it. Esc or a click on the blurred content closes it via `LayoutNav on:close`.
+    The blurred content has `pointer-events: none`, so that click doesn't also follow a link.
 - **Docs component cards** (All Components and the landing showcase):
   - Previews stay grayscale.
   - Hover is a "moth to the light" glow with a fixed position (no cursor tracking): light behind the preview, a
@@ -92,7 +93,6 @@ or changelog entries for the rename. The repo folder is still `Volt-UI`, and the
 ## Open items / ideas not yet done
 - The All Components page logs a hydration warning because the Button card preview HTML contains `<button>`
   inside the card link. Convert it to `<span>` like the Navigation and Tabs previews.
-- Clicking blurred content behind the open mobile nav doesn't close the menu.
 - On a phone, the Layout docs page's embedded example opens its drawer over the whole screen, because the drawer
   is `position: fixed`.
 - `MothLogo.svelte` lives in `src/lib/components` (so it ships in `dist`) but is docs-only and not exported.

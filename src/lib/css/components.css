@@ -1014,9 +1014,11 @@
     transition: filter 0.2s ease-out;
 }
 
-/* While the slide-in nav is open, blur the page behind it so the menu stands out */
+/* While the slide-in nav is open, blur the page behind it so the menu stands out. The blurred page can't be
+   interacted with: a click on it just closes the nav (LayoutNav dispatches `close`) instead of following a link */
 .m-layout:has(.m-layout-nav.is-open) .m-layout-content {
     filter: blur(4px);
+    pointer-events: none;
 }
 
 /*
@@ -1090,6 +1092,7 @@
     /* The sidebar is always shown here, so `open` has no effect and the content stays sharp */
     .m-layout:has(.m-layout-nav.is-open) .m-layout-content {
         filter: none;
+        pointer-events: auto;
     }
 }
 

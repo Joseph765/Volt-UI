@@ -169,7 +169,7 @@
             </TableRow>
             <TableRow>
                 <TableCell><Code>LayoutNav on:close</Code></TableCell>
-                <TableCell>Fires when the user presses Esc while the navigation is open. Set <Code>open</Code> to false in response. Focus moves back to the menu button if it was inside the navigation.</TableCell>
+                <TableCell>Fires when the user presses Esc or clicks the blurred page outside the navigation while it is open. Set <Code>open</Code> to false in response. On Esc, focus moves back to the menu button if it was inside the navigation.</TableCell>
                 <TableCell><Code>event</Code></TableCell>
             </TableRow>
             <TableRow>

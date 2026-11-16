@@ -26,9 +26,25 @@
             menuButton?.focus();
         }
     }
+
+    /**
+     * Clicking outside the open nav (on the blurred page, not the nav or header) closes it.
+     * The blurred content ignores pointer events, so the click lands on the layout itself rather than on a link.
+     * @param { MouseEvent } event
+     */
+    function handleClick(event) {
+        if (!open || !(event.target instanceof Node)) return;
+
+        const layout = nav.closest(".m-layout");
+        if (!layout?.contains(event.target)) return;
+        if (nav.contains(event.target)) return;
+        if (layout.querySelector(".m-layout-header")?.contains(event.target)) return;
+
+        dispatch("close");
+    }
 </script>
 
-<svelte:window on:keydown={handleKeydown} />
+<svelte:window on:keydown={handleKeydown} on:click={handleClick} />
 
 <nav class="m-layout-nav" class:is-open={open} aria-label={label} bind:this={nav}>
     <slot />
