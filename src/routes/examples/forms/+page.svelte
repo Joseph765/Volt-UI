@@ -149,7 +149,7 @@
             <Card space="l">
                 <Text size="xl" weight="bold" as="h2" slot="header">Errors</Text>
                 <Flex direction="column" gap="m">
-                    <Input label="Email" name="badEmail" value="ada@" error="Enter a valid email address." expanded required />
+                    <Input label="Email" name="badEmail" value="adalol@" error="Enter a valid email address." expanded required />
                     <Textarea label="Message" name="badMessage" error="A message is required." expanded required />
                     <Select label="Role" name="badRole" options={roles} error="Choose a role." expanded required />
                     <Checkbox name="terms" label="I accept the terms" error="You must accept the terms to continue." />
