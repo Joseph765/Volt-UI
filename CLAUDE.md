@@ -2,8 +2,8 @@
 
 A polished, dark-first design system for **Svelte 5**, plus its documentation site. The project was previously
 called "Volt UI" and is relaunching as **Moth**, a brand-new design system. Don't add Volt references, migration notes
-or changelog entries for the rename. The repo folder is still `Volt-UI`, and the GitHub repo is still
-`Joseph765/Volt-UI`.
+or changelog entries for the rename. The local repo folder is still `Volt-UI`; the GitHub repo is
+`Joseph765/moth-ui` (https://github.com/Joseph765/moth-ui).
 
 - Package: `moth-ui-svelte` (`package.json`). Docs site: `https://moth-ui.com`.
 - Library: `src/lib` (published as `dist/` via `svelte-package`). Docs site: `src/routes` (SvelteKit).

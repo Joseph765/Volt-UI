@@ -1,7 +1,7 @@
 <script>
     import components from "./components/components.json";
 
-    const repoUrl = "https://github.com/Joseph765/Volt-UI";
+    const repoUrl = "https://github.com/Joseph765/moth-ui";
     const year = new Date().getFullYear();
     import CodeExample from "./components/CodeExample.svelte";
     import Seo from "./Seo.svelte";

@@ -7,10 +7,10 @@
 	"homepage": "https://moth-ui.com",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Joseph765/Volt-UI"
+		"url": "git+https://github.com/Joseph765/moth-ui"
 	},
 	"bugs": {
-		"url": "https://github.com/Joseph765/Volt-UI/issues"
+		"url": "https://github.com/Joseph765/moth-ui/issues"
 	},
 	"keywords": [
 		"design-system",
