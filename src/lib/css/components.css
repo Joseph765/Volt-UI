@@ -19,7 +19,7 @@
 /* Active nav row in the Layout and Navigation examples, in gray */
 .is-grayscale .layout-example-active,
 .is-grayscale .nav-example-active {
-    background: linear-gradient(90deg, var(--m-gray-3) 0%, var(--m-gray-5) 50%, var(--m-gray-6) 100%);
+    background: color-mix(in srgb, var(--m-gray-12) 12%, transparent);
 }
 
 .nav-example-active {
@@ -1191,7 +1191,8 @@
 
 .m-nav-item[aria-current="true"],
 .m-nav-group-item[aria-current="true"] {
-    background: linear-gradient(90deg, var(--m-accent-2) 0%, var(--m-accent-5) 50%, var(--m-accent-6) 100%);
+    /* A flat, subtle accent tint: clearly "you are here" without competing with primary actions */
+    background: color-mix(in srgb, var(--m-accent-9) 35%, transparent);
     color: var(--m-color-text);
 }
 
@@ -1252,30 +1253,73 @@
         color: var(--m-color-text);
     }
 
+    /* Keep the selected tint underneath the light */
     .m-nav-item[aria-current="true"]:hover,
     .m-nav-group-item[aria-current="true"]:hover {
-        background: linear-gradient(90deg, var(--m-accent-6) 0%, var(--m-accent-9) 50%, var(--m-accent-10) 100%);
-        background-size: 400% 100%;
-        animation: m-nav-gradient 2s ease infinite;
+        --m-nav-glow-opacity: 1;
+        background: color-mix(in srgb, var(--m-accent-9) 35%, transparent);
     }
 }
 
-@keyframes m-nav-gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+/* Selected item: on hover (or keyboard focus) it lights up like the docs site's component cards, without the grow.
+   A light glows from its center and its edge catches the light, brightest along the top. */
+.m-nav-item[aria-current="true"],
+.m-nav-group-item[aria-current="true"] {
+    --m-nav-glow-opacity: 0;
+    position: relative;
+    isolation: isolate;
+}
+
+.m-nav-item[aria-current="true"]:focus-visible,
+.m-nav-group-item[aria-current="true"]:focus-visible {
+    --m-nav-glow-opacity: 1;
+}
+
+.m-nav-item[aria-current="true"]::before,
+.m-nav-group-item[aria-current="true"]::before,
+.m-nav-item[aria-current="true"]::after,
+.m-nav-group-item[aria-current="true"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: var(--m-nav-glow-opacity);
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+/* The light */
+.m-nav-item[aria-current="true"]::before,
+.m-nav-group-item[aria-current="true"]::before {
+    z-index: -1;
+    background: radial-gradient(
+        ellipse 60% 120% at 50% 50%,
+        color-mix(in srgb, var(--m-accent-9) 70%, transparent),
+        transparent 75%
+    );
+}
+
+/* Rim light on the 1px edge */
+.m-nav-item[aria-current="true"]::after,
+.m-nav-group-item[aria-current="true"]::after {
+    padding: 1px;
+    background: radial-gradient(
+        ellipse 70% 100% at 50% 0%,
+        var(--m-accent-11),
+        transparent 80%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .m-nav-item[aria-current="true"]:hover,
-    .m-nav-group-item[aria-current="true"]:hover {
-        animation: none;
+    .m-nav-item[aria-current="true"]::before,
+    .m-nav-group-item[aria-current="true"]::before,
+    .m-nav-item[aria-current="true"]::after,
+    .m-nav-group-item[aria-current="true"]::after {
+        transition: none;
     }
 }
 

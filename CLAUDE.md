@@ -66,8 +66,16 @@ or changelog entries for the rename. The repo folder is still `Volt-UI`, and the
   - The mobile nav blurs the content behind it, and Esc closes it via `LayoutNav on:close`.
 - **Docs component cards** (All Components and the landing showcase):
   - Previews stay grayscale.
-  - Hover is a "moth to the light" glow following the cursor (`src/routes/glow.js` + `glow.css`, classes
-    `glow-card` and `glow-stage`), plus a lit rim, a halo and `scale(1.03)`.
+  - Hover is a "moth to the light" glow with a fixed position (no cursor tracking): light behind the preview, a
+    rim lit brightest along the top, a halo and `scale(1.03)`. It lives in `src/routes/glow.css` (classes
+    `glow-card` and `glow-stage`).
+- **Nav items:** the selected item is a flat tint, `color-mix(accent-9 35%, transparent)`, with no gradient.
+  Card previews use a flat gray tint. Hovering the selected item lights it like the component cards, with a fixed
+  light (centered glow and a rim brightest along the top), no cursor tracking and no scale. Unselected items get a
+  gray-4 hover. Neither the cards nor the nav track the cursor: that code was removed on purpose.
+- **Logo:** both the desktop and mobile logos use `MothLogo`. On hover the wings flap twice (CSS `scaleX` on
+  `.wing`, mouse only, off with reduced motion).
+- **Toasts:** `ToastGroup` is `position: fixed` (bottom-right of the viewport, `z-index: 10`).
 - **Text selection:** `--m-color-highlight` (`--m-accent-7`) everywhere.
 - **Dark only:** there is no light theme. The stylesheet loads Outfit and Geist Mono from Google Fonts and styles
   `html`/`body` globally (documented on Getting Started).

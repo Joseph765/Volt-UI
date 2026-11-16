@@ -5,7 +5,6 @@
     const year = new Date().getFullYear();
     import CodeExample from "./components/CodeExample.svelte";
     import Seo from "./Seo.svelte";
-    import { glow } from "./glow.js";
     import {
         Badge,
         Button,
@@ -201,7 +200,7 @@
             </div>
             <div class="showcase-grid">
                 {#each showcase as component}
-                    <a href="/components/{component.name.toLocaleLowerCase()}" class="showcase-card glow-card" use:glow>
+                    <a href="/components/{component.name.toLocaleLowerCase()}" class="showcase-card glow-card">
                         <div class="showcase-preview glow-stage is-grayscale" inert>
                             {@html component.example}
                         </div>

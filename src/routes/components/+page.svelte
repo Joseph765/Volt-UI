@@ -1,6 +1,5 @@
 <script>
     import components from "./components.json";
-    import { glow } from "../glow.js";
     import {
         Flex,
         Icon,
@@ -38,7 +37,7 @@
         </Input>
         <section class="components">
             {#each componentResults as component}
-                <a href="/components/{component.name.toLocaleLowerCase()}" class="component-card glow-card" use:glow>
+                <a href="/components/{component.name.toLocaleLowerCase()}" class="component-card glow-card">
                     <div class="component-preview glow-stage is-grayscale" inert>
                         {@html component.example}
                     </div>

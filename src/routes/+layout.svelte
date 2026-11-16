@@ -27,28 +27,7 @@
     <LayoutHeader>
         <LayoutMenuButton {open} on:click={() => open = !open} />
         <a href="/" class="logo" slot="mobile-logo" aria-label="Moth UI home">
-            <svg
-                class="mark"
-                width="32"
-                height="32"
-                viewBox="0 0 64 64"
-                aria-hidden="true"
-            >
-                <g stroke-linejoin="round" stroke-width="3">
-                    <path fill="#8E78EC" stroke="#8E78EC" d="M30 23 L7 11 Q5 10 6 13 L11 33 Q12 35 14 34 L30 31 Z" />
-                    <path fill="#8E78EC" stroke="#8E78EC" d="M34 23 L57 11 Q59 10 58 13 L53 33 Q52 35 50 34 L34 31 Z" />
-                    <path fill="#5A46A8" stroke="#5A46A8" d="M30 34 L16 38 Q13 39 15 42 L22 51 Q24 53 25 51 L30 42 Z" />
-                    <path fill="#5A46A8" stroke="#5A46A8" d="M34 34 L48 38 Q51 39 49 42 L42 51 Q40 53 39 51 L34 42 Z" />
-                </g>
-                <rect fill="#EEEEF0" x="29" y="19" width="6" height="30" rx="3" />
-                <path
-                    d="M31 20 Q28 12 23 8 M33 20 Q36 12 41 8"
-                    fill="none"
-                    stroke="#C9BFF5"
-                    stroke-width="2.2"
-                    stroke-linecap="round"
-                />
-            </svg>
+            <MothLogo size={32} wordmark={false} />
         </a>
     </LayoutHeader>
     <a href="/" class="logo is-desktop" slot="logo">
