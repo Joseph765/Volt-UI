@@ -85,6 +85,8 @@
 	--m-danger-7: #8c333a;
 	--m-danger-8: #b54548;
 	--m-danger-9: #e5484d;
+	/* Test 0.2.0 */
+	--m-danger-9: #d63941;
 	--m-danger-10: #ec5d5e;
 	--m-danger-11: #ff9592;
 	--m-danger-12: #ffd1d9;
@@ -99,6 +101,8 @@
 	--m-info-7: #205d9e;
 	--m-info-8: #2870bd;
 	--m-info-9: #0090ff;
+	/* Test 0.2.0 */
+	--m-info-9: #0073e0;
 	--m-info-10: #3b9eff;
 	--m-info-11: #70b8ff;
 	--m-info-12: #c2e6ff;
@@ -126,7 +130,9 @@
 	--m-success-6: #20573e;
 	--m-success-7: #28684a;
 	--m-success-8: #2f7c57;
-	--m-success-9: #30a46c;
+	/* --m-success-9: #30a46c; */
+	/* Test 0.2.0 */
+	--m-success-9: #008650;
 	--m-success-10: #33b074;
 	--m-success-11: #3dd68c;
 	--m-success-12: #b1f1cb;
@@ -156,7 +162,9 @@
     --m-color-surface-raised: var(--m-gray-3);
 	
 	/* Borders */
-    --m-color-border: var(--m-gray-4);
+    /* --m-color-border: var(--m-gray-4); */
+	/* Test 0.2.0 */
+    --m-color-border: var(--m-gray-7);
 	--m-color-border-info: var(--m-info-5);
 	--m-color-border-warning: var(--m-warning-5);
 	--m-color-border-danger: var(--m-danger-5);
@@ -176,6 +184,12 @@
     --m-color-text-weak: var(--m-gray-11);
     --m-color-text-weaker: var(--m-gray-10);
     --m-color-text-weakest: var(--m-gray-8);
+	--m-color-text-on-accent:  #ffffff;
+	--m-color-text-on-danger:  #ffffff;
+	--m-color-text-on-success: #ffffff;
+	--m-color-text-on-info:    #ffffff;
+	--m-color-text-on-neutral: #ffffff;
+	--m-color-text-on-warning: #050505;
 
 	/* Status Colors */
 	--m-color-neutral: var(--m-gray-9);
