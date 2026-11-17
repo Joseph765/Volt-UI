@@ -50,7 +50,11 @@
         { token: "--m-radius-full", name: "Full", description: "Pill shapes like buttons." }
     ];
 
-    /** kind: "fill" shows the color as a block, "text" shows it as type on a surface */
+    /**
+     * kind: "fill" shows the color as a block, "text" shows it as type on a surface,
+     * "on" shows it as type on its solid `fill` color
+     * @type { { title: string, colors: { token: string, name: string, kind: string, description: string, fill?: string }[] }[] }
+     */
     const colorGroups = [
         {
             title: "Surfaces & borders",
@@ -59,10 +63,10 @@
                 { token: "--m-color-surface", name: "Surface", kind: "fill", description: "Surfaces on top of the background." },
                 { token: "--m-color-surface-raised", name: "Surface raised", kind: "fill", description: "Surfaces on top of surfaces." },
                 { token: "--m-color-border", name: "Border", kind: "fill", description: "Default border color." },
-                { token: "--m-color-border-info", name: "Border info", kind: "fill", description: "Borders of informational elements." },
-                { token: "--m-color-border-success", name: "Border success", kind: "fill", description: "Borders of success elements." },
-                { token: "--m-color-border-warning", name: "Border warning", kind: "fill", description: "Borders of warning elements." },
-                { token: "--m-color-border-danger", name: "Border danger", kind: "fill", description: "Borders of error and destructive elements." }
+                { token: "--m-color-border-info-weak", name: "Border info", kind: "fill", description: "Borders of informational elements." },
+                { token: "--m-color-border-success-weak", name: "Border success", kind: "fill", description: "Borders of success elements." },
+                { token: "--m-color-border-warning-weak", name: "Border warning", kind: "fill", description: "Borders of warning elements." },
+                { token: "--m-color-border-danger-weak", name: "Border danger", kind: "fill", description: "Borders of error and destructive elements." }
             ]
         },
         {
@@ -85,6 +89,17 @@
                 { token: "--m-color-warning", name: "Warning", kind: "fill", description: "Use to warn the user." },
                 { token: "--m-color-danger", name: "Danger", kind: "fill", description: "Errors, or when something will be deleted." },
                 { token: "--m-color-neutral", name: "Neutral", kind: "fill", description: "Solid neutral status color, used on components like badge." }
+            ]
+        },
+        {
+            title: "Text on solid colors",
+            colors: [
+                { token: "--m-color-text-on-accent", name: "Text on accent", kind: "on", fill: "--m-color-accent", description: "Text and icons on an accent fill, like a primary button." },
+                { token: "--m-color-text-on-info", name: "Text on info", kind: "on", fill: "--m-color-info", description: "Text and icons on an info fill, like a strong badge." },
+                { token: "--m-color-text-on-success", name: "Text on success", kind: "on", fill: "--m-color-success", description: "Text and icons on a success fill." },
+                { token: "--m-color-text-on-warning", name: "Text on warning", kind: "on", fill: "--m-color-warning", description: "Text and icons on a warning fill." },
+                { token: "--m-color-text-on-danger", name: "Text on danger", kind: "on", fill: "--m-color-danger", description: "Text and icons on a danger fill, like a danger button or toast." },
+                { token: "--m-color-text-on-neutral", name: "Text on neutral", kind: "on", fill: "--m-color-neutral", description: "Text and icons on a neutral fill, like a toast." }
             ]
         },
         {
@@ -374,6 +389,12 @@
                             <article class="panel tile">
                                 {#if color.kind === "contrast"}
                                     <div class="tile-preview is-text is-contrast" style="color: var({color.token});">
+                                        <span class="text-glyph">Aa</span>
+                                        <span class="text-line">The quick brown fox</span>
+                                    </div>
+                                {:else if color.kind === "on"}
+                                    <!-- On-colors are meant for their solid fill, so preview them on it -->
+                                    <div class="tile-preview is-text is-on" style="color: var({color.token}); background-color: var({color.fill});">
                                         <span class="text-glyph">Aa</span>
                                         <span class="text-line">The quick brown fox</span>
                                     </div>
@@ -684,6 +705,10 @@
     /* Contrast text is meant for light fills, so preview it on one */
     .tile-preview.is-contrast {
         background-color: var(--m-gray-12);
+    }
+
+    .tile-preview.is-on {
+        border-radius: var(--m-radius) var(--m-radius) 0 0;
     }
 
     .text-glyph {

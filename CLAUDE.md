@@ -115,6 +115,11 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
     (movingicons.dev, animated Lucide). NavItem/NavGroupItem pass `animate` to the icon slot (true on hover or
     focus). Guidelines → Icons says to keep animated icons to navigation.
 - **Text selection:** `--m-color-highlight` (`--m-accent-7`) everywhere.
+- **Solid fills:** step 9 of a scale is the solid color. Components use the semantic tokens (`--m-color-accent`,
+  `-danger`, `-info`, `-success`, `-warning`, `-neutral`), not raw `-9` steps. Text and icons on them use the
+  matching `--m-color-text-on-<status>`. `--m-color-text-inverse` is for light fills (e.g. a lit button).
+  Soft status components (e.g. a non-strong badge) use the `-weak` set: `--m-color-<status>-weak` fill,
+  `--m-color-text-on-<status>-weak` text and `--m-color-border-<status>-weak` border.
 - **Dark only:** there is no light theme. The stylesheet loads Outfit and Geist Mono from Google Fonts and styles
   `html`/`body` globally (documented on Getting Started).
 

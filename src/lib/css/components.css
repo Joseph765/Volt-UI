@@ -37,64 +37,66 @@
     font-size: var(--m-font-size-s);
     font-weight: var(--m-font-weight-regular);
     letter-spacing: var(--m-letter-spacing-s);
-    background-color: var(--m-gray-4);
+    background-color: var(--m-color-neutral-weak);
+    color: var(--m-color-text-on-neutral-weak);
     border-radius: var(--m-radius-full);
     padding: var(--m-space-xs) var(--m-space-s);
-    border: 2px solid var(--m-gray-5);
+    border: 2px solid var(--m-color-border-neutral-weak);
     white-space: nowrap;
 }
 
 .m-badge.is-strong {
     background-color: var(--m-color-neutral);
     border-color: var(--m-color-neutral);
+    color: var(--m-color-text-on-neutral);
 }
 
 .m-badge.is-danger {
-    background-color: var(--m-danger-4);
-    border-color: var(--m-color-border-danger);
-    color: var(--m-danger-12);
+    background-color: var(--m-color-danger-weak);
+    border-color: var(--m-color-border-danger-weak);
+    color: var(--m-color-text-on-danger-weak);
 }
 
 .m-badge.is-danger.is-strong {
     background-color: var(--m-color-danger);
     border-color: var(--m-color-danger);
-    color: var(--m-color-text);
+    color: var(--m-color-text-on-danger);
 }
 
 .m-badge.is-warning {
-    background-color: var(--m-warning-4);
-    border-color: var(--m-color-border-warning);
-    color: var(--m-warning-12);
+    background-color: var(--m-color-warning-weak);
+    border-color: var(--m-color-border-warning-weak);
+    color: var(--m-color-text-on-warning-weak);
 }
 
 .m-badge.is-warning.is-strong {
     background-color: var(--m-color-warning);
     border-color: var(--m-color-warning);
-    color: var(--m-color-text-inverse);
+    color: var(--m-color-text-on-warning);
 }
 
 .m-badge.is-success {
-    background-color: var(--m-success-4);
-    border-color: var(--m-color-border-success);
-    color: var(--m-success-12);
+    background-color: var(--m-color-success-weak);
+    border-color: var(--m-color-border-success-weak);
+    color: var(--m-color-text-on-success-weak);
 }
 
 .m-badge.is-success.is-strong {
     background-color: var(--m-color-success);
     border-color: var(--m-color-success);
-    color: var(--m-color-text);
+    color: var(--m-color-text-on-success);
 }
 
 .m-badge.is-info {
-    background-color: var(--m-info-4);
-    border-color: var(--m-color-border-info);
-    color: var(--m-info-12);
+    background-color: var(--m-color-info-weak);
+    border-color: var(--m-color-border-info-weak);
+    color: var(--m-color-text-on-info-weak);
 }
 
 .m-badge.is-info.is-strong {
     background-color: var(--m-color-info);
     border-color: var(--m-color-info);
-    color: var(--m-color-text);
+    color: var(--m-color-text-on-info);
 }
 
 /* Banner */
@@ -103,7 +105,7 @@
     align-items: center;
     gap: var(--m-space-s);
     padding: var(--m-space-m);
-    background-color: var(--m-info-4);
+    background-color: var(--m-color-info-weak);
     border: none;
     color: var(--m-color-text);
     border-radius: var(--m-radius);
@@ -121,34 +123,34 @@
 
 .m-banner.is-info,
 .m-banner.is-info .m-link {
-    color: var(--m-info-12);
+    color: var(--m-color-text-on-info-weak);
 }
 
 .m-banner.is-warning,
 .m-banner.is-warning .m-link {
-    color: var(--m-warning-12);
+    color: var(--m-color-text-on-warning-weak);
 }
 
 .m-banner.is-danger,
 .m-banner.is-danger .m-link {
-    color: var(--m-danger-12);
+    color: var(--m-color-text-on-danger-weak);
 }
 
 .m-banner.is-success,
 .m-banner.is-success .m-link {
-    color: var(--m-success-12);
+    color: var(--m-color-text-on-success-weak);
 }
 
 .m-banner.is-warning {
-    background-color: var(--m-warning-4);
+    background-color: var(--m-color-warning-weak);
 }
 
 .m-banner.is-danger {
-    background-color: var(--m-danger-4);
+    background-color: var(--m-color-danger-weak);
 }
 
 .m-banner.is-success {
-    background-color: var(--m-success-4);
+    background-color: var(--m-color-success-weak);
 }
 
 /* Button */
@@ -174,12 +176,12 @@
     font-weight: var(--m-font-weight-regular);
     letter-spacing: var(--m-letter-spacing-m);
     line-height: var(--m-line-height-m);
-    border: 1px solid var(--m-accent-9);
+    border: 1px solid var(--m-color-accent);
     border-radius: var(--m-radius-full);
-    background-color: var(--m-accent-9);
+    background-color: var(--m-color-accent);
     height: var(--m-control-height);
     width: max-content;
-    color: var(--m-color-text);
+    color: var(--m-color-text-on-accent);
     cursor: pointer;
     padding-block: 0;
     padding-inline: var(--m-space-m);
@@ -250,7 +252,7 @@
 .m-button.is-danger {
     background-color: var(--m-color-danger);
     border-color: var(--m-color-danger);
-    color: var(--m-color-text);
+    color: var(--m-color-text-on-danger);
     --m-button-lit-background: radial-gradient(ellipse at center, var(--m-gray-12) 0%, var(--m-danger-12) 45%, var(--m-danger-11) 100%);
     --m-button-halo: 0 0 24px -2px color-mix(in srgb, var(--m-danger-9) 70%, transparent);
 }
@@ -444,12 +446,16 @@
 
 .m-checkbox-check {
     opacity: 0;
-    color: var(--m-gray-12);
+    color: var(--m-color-text-on-accent);
     min-width: 24px;
 }
 
 .m-checkbox-indeterminate {
-    color: var(--m-color-text);
+    color: var(--m-color-text-on-accent);
+}
+
+.m-checkbox-wrapper.is-danger .m-checkbox-check {
+    color: var(--m-color-text-on-danger);
 }
 
 .m-checkbox-input:indeterminate ~ .m-checkbox-box {
@@ -1970,9 +1976,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--m-gray-9);
-    color: var(--m-color-text);
-    border: 1px solid var(--m-gray-9);
+    background: var(--m-color-neutral);
+    color: var(--m-color-text-on-neutral);
+    border: 1px solid var(--m-color-neutral);
     padding: var(--m-space-m) var(--m-space-m) var(--m-space-m) var(--m-space-l);
     border-radius: var(--m-radius-full);
     width: 17rem;
@@ -1980,8 +1986,9 @@
 }
 
 .m-toast.is-danger {
-    background-color: var(--m-danger-9);
-    border-color: var(--m-danger-9);
+    background-color: var(--m-color-danger);
+    border-color: var(--m-color-danger);
+    color: var(--m-color-text-on-danger);
 }
 
 .m-toast-message {
@@ -2002,7 +2009,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--m-color-text);
+    /* Follow the toast's on-color */
+    color: inherit;
 }
 
 
@@ -2047,7 +2055,7 @@
 }
 
 .m-toggle-wrapper.is-danger .m-toggle:checked:before {
-    background-color: var(--m-color-text);
+    background-color: var(--m-color-text-on-danger);
 }
 
 .m-toggle {
@@ -2078,7 +2086,7 @@
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(22px);
-    background-color: var(--m-color-text);
+    background-color: var(--m-color-text-on-accent);
 }
 
 .m-toggle:checked {
