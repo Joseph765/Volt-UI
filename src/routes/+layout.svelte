@@ -4,6 +4,7 @@
     import { page } from '$app/state';
     import components from "./components/components.json";
     import MothLogo from "./MothLogo.svelte";
+    import { version } from "../../package.json";
 
     import { Blocks, Compass, Paintbrush, Rocket } from "@jis3r/icons";
 
@@ -30,9 +31,12 @@
             <MothLogo size={32} wordmark={false} />
         </a>
     </LayoutHeader>
-    <a href="/" class="logo is-desktop" slot="logo">
-        <MothLogo size={36} />
-    </a>
+    <svelte:fragment slot="logo">
+        <a href="/" class="logo is-desktop">
+            <MothLogo size={36} />
+        </a>
+        <span class="version">v{version}</span>
+    </svelte:fragment>
     <LayoutNav {open} on:close={() => open = false}>
         <NavItem href="/getting-started" active={page.url.pathname === "/getting-started"} on:click={() => open = false}>
             <Rocket slot="icon" let:animate {animate} />
@@ -80,5 +84,18 @@
     /* Center the 36px mark on the nav's 24px icon column, so it starts 6px further left */
     .logo.is-desktop {
         margin-inline-start: -6px;
+    }
+
+    /* Sit the version on the wordmark's baseline ("last" skips the mark, which comes first) */
+    .logo.is-desktop,
+    .version {
+        align-self: last baseline;
+    }
+
+    .version {
+        margin-inline-start: var(--m-space-s);
+        font-family: var(--m-font-mono);
+        font-size: var(--m-font-size-xs);
+        color: var(--m-color-text-weaker);
     }
 </style>
