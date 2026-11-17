@@ -23,7 +23,7 @@
     ];
 
     /** @type { string } */
-    let selectedExample = 'basic';
+    let selectedExample = $state('basic');
 
     /** @type { string } */
     let example1 = `<script>
@@ -87,7 +87,7 @@
     <Flex direction="column">
         <Select
             name="examples"
-            bind:options={options}
+            {options}
             bind:value={selectedExample}
             placeholder="Select an example..."
         />

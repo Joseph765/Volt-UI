@@ -24,7 +24,7 @@
         { value: 'link', label: 'Example: Link' }
     ];
 
-    let selectedExample = 'variants';
+    let selectedExample = $state('variants');
 
     let example1 = `<script>
     import { Button, Flex } from "moth-ui-svelte";
@@ -48,22 +48,22 @@
 
 <Flex>
     <Button>
-        <Plus slot="start" size={16} />
+        {#snippet start()}<Plus size={16} />{/snippet}
         Add
     </Button>
     <Button>
-        <Plus slot="end" size={16} />
+        {#snippet end()}<Plus size={16} />{/snippet}
         Add
     </Button>
     <Button variant="secondary">
-        <Minus slot="start" size={16} />
+        {#snippet start()}<Minus size={16} />{/snippet}
         Remove
     </Button>
     <Button variant="tertiary" aria-label="Show more">
         <ChevronDown size={24} />
     </Button>
     <Button variant="danger">
-        <X slot="start" size={16} />
+        {#snippet start()}<X size={16} />{/snippet}
         Delete
     </Button>
 </Flex>`;
@@ -95,7 +95,7 @@
     <Flex direction="column">
         <Select
             name="examples"
-            bind:options={options}
+            {options}
             bind:value={selectedExample}
             placeholder="Select an example..."
         />
@@ -127,22 +127,22 @@
             <CodeExample code={example3}>
                 <Flex>
                     <Button>
-                        <Plus slot="start" size={16} />
+                        {#snippet start()}<Plus size={16} />{/snippet}
                         Add
                     </Button>
                     <Button>
-                        <Plus slot="end" size={16} />
+                        {#snippet end()}<Plus size={16} />{/snippet}
                         Add
                     </Button>
                     <Button variant="secondary">
-                        <Minus slot="start" size={16} />
+                        {#snippet start()}<Minus size={16} />{/snippet}
                         Remove
                     </Button>
                     <Button variant="tertiary" aria-label="Show more">
                         <ChevronDown size={24} />
                     </Button>
                     <Button variant="danger">
-                        <X slot="start" size={16} />
+                        {#snippet start()}<X size={16} />{/snippet}
                         Delete
                     </Button>
                 </Flex>
@@ -188,19 +188,19 @@
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>slot="start"</Code></TableCell>
+                <TableCell><Code>start</Code></TableCell>
                 <TableCell>Content placed before the label, usually an icon.</TableCell>
-                <TableCell><Code>slot</Code></TableCell>
+                <TableCell><Code>Snippet</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>slot="end"</Code></TableCell>
+                <TableCell><Code>end</Code></TableCell>
                 <TableCell>Content placed after the label, usually an icon.</TableCell>
-                <TableCell><Code>slot</Code></TableCell>
+                <TableCell><Code>Snippet</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>on:click</Code></TableCell>
+                <TableCell><Code>onclick</Code></TableCell>
                 <TableCell>Fires when the button (or link) is clicked.</TableCell>
-                <TableCell><Code>event</Code></TableCell>
+                <TableCell><Code>function</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

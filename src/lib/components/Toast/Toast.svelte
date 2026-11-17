@@ -2,22 +2,21 @@
 <script>
     import { fly } from "svelte/transition";
 
-    /** @type { string } */
-    export let id;
-
-    /** @type { boolean } */
-    export let dismissable = true;
-
-    /** @type { 'default' | 'danger' } */
-    export let variant = "default";
-
-    /** @type { () => void } */
-    export let onDismiss = () => {};
+    /**
+     * @type {{
+     *   id: string,
+     *   dismissable?: boolean,
+     *   variant?: 'default' | 'danger',
+     *   onDismiss?: () => void,
+     *   children?: import('svelte').Snippet
+     * }}
+     */
+    let { id, dismissable = true, variant = "default", onDismiss = () => {}, children } = $props();
 </script>
 
 <div class="m-toast {variant === "danger" ? "is-danger" : undefined}" {id} transition:fly={{ x: 200, duration: 250 }}>
     <span class="m-toast-message">
-        <slot />
+        {@render children?.()}
     </span>
     {#if dismissable}
         <button class="m-toast-dismiss" aria-label="close" onclick={onDismiss}>

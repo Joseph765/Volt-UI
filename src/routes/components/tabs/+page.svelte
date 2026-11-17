@@ -19,13 +19,13 @@
         { value: 'basic', label: 'Example: Basic' }
     ];
 
-    let selectedExample = 'basic';
+    let selectedExample = $state('basic');
 
     let example1 = `<script>
     import { Tab, Tabs, Text } from "moth-ui-svelte";
 
     /** @type { string } */
-    let selectedTab = "overview";
+    let selectedTab = $state("overview");
     
     /** @type {{ id: string, label: string }[]} */
     let tabs = [
@@ -52,7 +52,7 @@
 </Tabs>`;
 
     /** @type { string } */
-    let selectedTab = "overview";
+    let selectedTab = $state("overview");
 
     /** @type {{ id: string, label: string }[]} */
     let tabs = [
@@ -70,7 +70,7 @@
     <Flex direction="column">
         <Select
             name="examples"
-            bind:options={options}
+            {options}
             bind:value={selectedExample}
             placeholder="Select an example..."
         />

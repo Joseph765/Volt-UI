@@ -20,7 +20,7 @@
         { value: 'required', label: 'Example: Required' }
     ];
 
-    let selectedExample = 'basic';
+    let selectedExample = $state('basic');
 
     let example1 = `<script>
     import { Fieldset, Flex, Radio } from "moth-ui-svelte";
@@ -52,7 +52,7 @@
     <Flex direction="column">
         <Select
             name="examples"
-            bind:options={options}
+            {options}
             bind:value={selectedExample}
             placeholder="Select an example..."
         />

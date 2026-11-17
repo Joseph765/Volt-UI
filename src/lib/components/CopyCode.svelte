@@ -1,11 +1,8 @@
 <script>
     import CopyButton from "./CopyButton.svelte";
 
-    /** @type { string } */
-    export let code;
-
-    /** @type { string } */
-    export let style = "";
+    /** @type {{ code: string, style?: string }} */
+    let { code, style = "" } = $props();
 </script>
 
 <div class="m-copy-code" {style}>

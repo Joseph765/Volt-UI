@@ -24,7 +24,7 @@
         { value: 'align', label: 'Example: Align' },
     ];
 
-    let selectedExample = 'basic';
+    let selectedExample = $state('basic');
 
     let example1 = `<script>
     import { Text } from "moth-ui-svelte";
@@ -105,7 +105,7 @@
     <Flex direction="column">
         <Select
             name="examples"
-            bind:options={options}
+            {options}
             bind:value={selectedExample}
             placeholder="Select an example..."
         />

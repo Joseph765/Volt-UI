@@ -1,6 +1,11 @@
+<script>
+    /** @type {{ mobileLogo?: import('svelte').Snippet, children?: import('svelte').Snippet }} */
+    let { mobileLogo, children } = $props();
+</script>
+
 <header class="m-layout-header">
-    <slot />
+    {@render children?.()}
     <div class="m-layout-mobile-logo">
-        <slot name="mobile-logo" />
+        {@render mobileLogo?.()}
     </div>
 </header>

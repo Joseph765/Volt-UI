@@ -19,59 +19,64 @@
         NavItem
     } from "$lib";
 
+    /** @type {{ children: import('svelte').Snippet }} */
+    let { children } = $props();
+
     /** @type { boolean } */
-    let open = false;
+    let open = $state(false);
 </script>
 
 
 <Layout>
     <LayoutHeader>
-        <LayoutMenuButton {open} on:click={() => open = !open} />
-        <a href="/" class="logo" slot="mobile-logo" aria-label="Moth UI home">
-            <MothLogo size={32} wordmark={false} />
-        </a>
+        <LayoutMenuButton {open} onclick={() => open = !open} />
+        {#snippet mobileLogo()}
+            <a href="/" class="logo" aria-label="Moth UI home">
+                <MothLogo size={32} wordmark={false} />
+            </a>
+        {/snippet}
     </LayoutHeader>
-    <svelte:fragment slot="logo">
+    {#snippet logo()}
         <a href="/" class="logo is-desktop">
             <MothLogo size={36} />
         </a>
         <span class="version">v{version}</span>
-    </svelte:fragment>
-    <LayoutNav {open} on:close={() => open = false}>
-        <NavItem href="/getting-started" active={page.url.pathname === "/getting-started"} on:click={() => open = false}>
-            <Rocket slot="icon" let:animate {animate} />
+    {/snippet}
+    <LayoutNav {open} onclose={() => open = false}>
+        <NavItem href="/getting-started" active={page.url.pathname === "/getting-started"} onclick={() => open = false}>
+            {#snippet icon(animate)}<Rocket {animate} />{/snippet}
             Getting Started
         </NavItem>
         <NavGroup title="Guidelines" open={page.url.pathname.startsWith("/guidelines")}>
             {#snippet icon(animate)}<Compass {animate} />{/snippet}
-            <NavGroupItem href="/guidelines" active={page.url.pathname === "/guidelines"} on:click={() => open = false}>Overview</NavGroupItem>
-            <NavGroupItem href="/guidelines/color" active={page.url.pathname === "/guidelines/color"} on:click={() => open = false}>Color</NavGroupItem>
+            <NavGroupItem href="/guidelines" active={page.url.pathname === "/guidelines"} onclick={() => open = false}>Overview</NavGroupItem>
+            <NavGroupItem href="/guidelines/color" active={page.url.pathname === "/guidelines/color"} onclick={() => open = false}>Color</NavGroupItem>
         </NavGroup>
         <NavGroup title="Design Tokens" open={page.url.pathname === "/tokens"}>
             {#snippet icon(animate)}<Paintbrush {animate} />{/snippet}
-            <NavGroupItem href="/tokens#top" active={page.url.pathname + page.url.hash === "/tokens#top"} on:click={() => open = false}>All tokens</NavGroupItem>
-            <NavGroupItem href="/tokens#font" active={page.url.pathname + page.url.hash === "/tokens#font"} on:click={() => open = false}>Font</NavGroupItem>
-            <NavGroupItem href="/tokens#font-weight" active={page.url.pathname + page.url.hash === "/tokens#font-weight"} on:click={() => open = false}>Font Weight</NavGroupItem>
-            <NavGroupItem href="/tokens#font-size" active={page.url.pathname + page.url.hash === "/tokens#font-size"} on:click={() => open = false}>Font Size</NavGroupItem>
-            <NavGroupItem href="/tokens#line-height" active={page.url.pathname + page.url.hash === "/tokens#line-height"} on:click={() => open = false}>Line Height</NavGroupItem>
-            <NavGroupItem href="/tokens#letter-spacing" active={page.url.pathname + page.url.hash === "/tokens#letter-spacing"} on:click={() => open = false}>Letter Spacing</NavGroupItem>
-            <NavGroupItem href="/tokens#space" active={page.url.pathname + page.url.hash === "/tokens#space"} on:click={() => open = false}>Space</NavGroupItem>
-            <NavGroupItem href="/tokens#sizing" active={page.url.pathname + page.url.hash === "/tokens#sizing"} on:click={() => open = false}>Sizing</NavGroupItem>
-            <NavGroupItem href="/tokens#radius" active={page.url.pathname + page.url.hash === "/tokens#radius"} on:click={() => open = false}>Border Radius</NavGroupItem>
-            <NavGroupItem href="/tokens#breakpoints" active={page.url.pathname + page.url.hash === "/tokens#breakpoints"} on:click={() => open = false}>Breakpoints</NavGroupItem>
-            <NavGroupItem href="/tokens#color" active={page.url.pathname + page.url.hash === "/tokens#color"} on:click={() => open = false}>Color</NavGroupItem>
-            <NavGroupItem href="/tokens#color-scales" active={page.url.pathname + page.url.hash === "/tokens#color-scales"} on:click={() => open = false}>Color Scales</NavGroupItem>
+            <NavGroupItem href="/tokens#top" active={page.url.pathname + page.url.hash === "/tokens#top"} onclick={() => open = false}>All tokens</NavGroupItem>
+            <NavGroupItem href="/tokens#font" active={page.url.pathname + page.url.hash === "/tokens#font"} onclick={() => open = false}>Font</NavGroupItem>
+            <NavGroupItem href="/tokens#font-weight" active={page.url.pathname + page.url.hash === "/tokens#font-weight"} onclick={() => open = false}>Font Weight</NavGroupItem>
+            <NavGroupItem href="/tokens#font-size" active={page.url.pathname + page.url.hash === "/tokens#font-size"} onclick={() => open = false}>Font Size</NavGroupItem>
+            <NavGroupItem href="/tokens#line-height" active={page.url.pathname + page.url.hash === "/tokens#line-height"} onclick={() => open = false}>Line Height</NavGroupItem>
+            <NavGroupItem href="/tokens#letter-spacing" active={page.url.pathname + page.url.hash === "/tokens#letter-spacing"} onclick={() => open = false}>Letter Spacing</NavGroupItem>
+            <NavGroupItem href="/tokens#space" active={page.url.pathname + page.url.hash === "/tokens#space"} onclick={() => open = false}>Space</NavGroupItem>
+            <NavGroupItem href="/tokens#sizing" active={page.url.pathname + page.url.hash === "/tokens#sizing"} onclick={() => open = false}>Sizing</NavGroupItem>
+            <NavGroupItem href="/tokens#radius" active={page.url.pathname + page.url.hash === "/tokens#radius"} onclick={() => open = false}>Border Radius</NavGroupItem>
+            <NavGroupItem href="/tokens#breakpoints" active={page.url.pathname + page.url.hash === "/tokens#breakpoints"} onclick={() => open = false}>Breakpoints</NavGroupItem>
+            <NavGroupItem href="/tokens#color" active={page.url.pathname + page.url.hash === "/tokens#color"} onclick={() => open = false}>Color</NavGroupItem>
+            <NavGroupItem href="/tokens#color-scales" active={page.url.pathname + page.url.hash === "/tokens#color-scales"} onclick={() => open = false}>Color Scales</NavGroupItem>
         </NavGroup>
         <NavGroup title="Components">
             {#snippet icon(animate)}<Blocks {animate} />{/snippet}
-            <NavGroupItem href="/components" active={page.url.pathname === "/components"} on:click={() => open = false}>All Components</NavGroupItem>
+            <NavGroupItem href="/components" active={page.url.pathname === "/components"} onclick={() => open = false}>All Components</NavGroupItem>
             {#each components as component}
-                <NavGroupItem href="/components/{component.name.toLocaleLowerCase()}" active={page.url.pathname === '/components/' + component.name.toLocaleLowerCase()} on:click={() => open = false}>{component.name}</NavGroupItem>
+                <NavGroupItem href="/components/{component.name.toLocaleLowerCase()}" active={page.url.pathname === '/components/' + component.name.toLocaleLowerCase()} onclick={() => open = false}>{component.name}</NavGroupItem>
             {/each}
         </NavGroup>
     </LayoutNav>
     <LayoutContent>
-        <slot />
+        {@render children()}
     </LayoutContent>
 </Layout>
 

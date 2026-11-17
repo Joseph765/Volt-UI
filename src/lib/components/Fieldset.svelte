@@ -1,9 +1,6 @@
 <script>
-    /** @type { string } */
-    export let label;
-
-    /** @type { boolean } */
-    export let required = false;
+    /** @type {{ label: string, required?: boolean, children?: import('svelte').Snippet }} */
+    let { label, required = false, children } = $props();
 </script>
 
 <fieldset class="m-fieldset">
@@ -13,5 +10,5 @@
             <span class="m-required">*</span>
         {/if}
     </legend>
-    <slot />
+    {@render children?.()}
 </fieldset>

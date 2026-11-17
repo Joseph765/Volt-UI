@@ -1,14 +1,10 @@
 <script>
-    import { createEventDispatcher } from 'svelte';
-
-    /** @type { boolean } */
-    export let open = false;
-
-    /** @type { string } */
-    export let label = "Main";
-
-    /** @type { import('svelte').EventDispatcher<{ close: void }> } */
-    const dispatch = createEventDispatcher();
+    /**
+     * `onclose` is called when the user presses Esc, or clicks the blurred page outside the open nav.
+     * Set `open` to false in response.
+     * @type {{ open?: boolean, label?: string, onclose?: () => void, children?: import('svelte').Snippet }}
+     */
+    let { open = false, label = "Main", onclose, children } = $props();
 
     /** @type { HTMLElement } */
     let nav;
@@ -16,10 +12,9 @@
     /** @param { KeyboardEvent } event */
     function handleKeydown(event) {
         if (!open || event.key !== "Escape" || event.defaultPrevented) return;
-
         // The nav is about to be hidden; if focus was inside it, hand focus back to the menu button
         const hadFocus = nav.contains(document.activeElement);
-        dispatch("close");
+        onclose?.();
         if (hadFocus) {
             /** @type { HTMLElement | null | undefined } */
             const menuButton = nav.closest(".m-layout")?.querySelector(".m-layout-menu-button");
@@ -34,18 +29,16 @@
      */
     function handleClick(event) {
         if (!open || !(event.target instanceof Node)) return;
-
         const layout = nav.closest(".m-layout");
         if (!layout?.contains(event.target)) return;
         if (nav.contains(event.target)) return;
         if (layout.querySelector(".m-layout-header")?.contains(event.target)) return;
-
-        dispatch("close");
+        onclose?.();
     }
 </script>
 
-<svelte:window on:keydown={handleKeydown} on:click={handleClick} />
+<svelte:window onkeydown={handleKeydown} onclick={handleClick} />
 
 <nav class="m-layout-nav" class:is-open={open} aria-label={label} bind:this={nav}>
-    <slot />
+    {@render children?.()}
 </nav>

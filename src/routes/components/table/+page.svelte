@@ -23,7 +23,7 @@
         { value: 'caption', label: 'Example: Caption' },
     ];
 
-    let selectedExample = 'basic';
+    let selectedExample = $state('basic');
 
     let example1 = `<script>
     import { 
@@ -272,7 +272,7 @@
     <Flex direction="column">
         <Select
             name="examples"
-            bind:options={options}
+            {options}
             bind:value={selectedExample}
             placeholder="Select an example..."
         />

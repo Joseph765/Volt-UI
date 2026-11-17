@@ -1,28 +1,29 @@
 <!-- Icons: Lucide (ISC License), see THIRD_PARTY_NOTICES.md -->
 <script>
-    /** @type { string | undefined } */
-    export let name = undefined;
-
-    /** @type { boolean } */
-    export let checked = false;
-
-    /** @type { boolean } */
-    export let disabled = false;
-
-    /** @type { boolean } */
-    export let indeterminate = false;
-
-    /** @type { string } */
-    export let label = '';
-
-    /** @type { string } */
-    export let error = '';
-
-    /** @type { string } */
-    export let hint = '';
-
-    /** @type { string | undefined } */
-    export let style = undefined;
+    /**
+     * Any other attribute (e.g. onchange, value, aria-describedby) goes on the <input>.
+     * @type {{
+     *   name?: string,
+     *   checked?: boolean,
+     *   disabled?: boolean,
+     *   indeterminate?: boolean,
+     *   label?: string,
+     *   error?: string,
+     *   hint?: string,
+     *   style?: string
+     * } & import('svelte/elements').HTMLInputAttributes}
+     */
+    let {
+        name = undefined,
+        checked = $bindable(false),
+        disabled = false,
+        indeterminate = $bindable(false),
+        label = "",
+        error = "",
+        hint = "",
+        style = undefined,
+        ...rest
+    } = $props();
 </script>
 
 <label
@@ -35,7 +36,7 @@
         {disabled}
         bind:checked
         bind:indeterminate
-        {...$$restProps}
+        {...rest}
         tabindex="0"
         class="m-checkbox-input"
     />

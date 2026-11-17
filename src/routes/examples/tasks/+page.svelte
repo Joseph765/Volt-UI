@@ -31,7 +31,7 @@
         { id: 5, title: "Set up status page", project: "Infra", priority: "medium", due: "Mon", done: true },
         { id: 6, title: "Draft onboarding emails", project: "Growth", priority: "low", due: "Last week", done: true }
     ]);
-    let nextId = 7;
+    let nextId = $state(7);
 
     const priorities = [
         { value: "high", label: "High priority" },
@@ -89,7 +89,7 @@
 
     /** @type {{ id: string, message: string }[]} */
     let toasts = $state([]);
-    let nextToastId = 1;
+    let nextToastId = $state(1);
 
     /** @param { string } message */
     function toast(message) {
@@ -108,13 +108,13 @@
                 <Text size="3xl" weight="black" as="h1">My tasks</Text>
                 <Text variant="weak">{completedCount} of {tasks.length} done · {progress}% complete</Text>
             </Flex>
-            <Button variant="secondary" disabled={!completedCount} on:click={clearCompleted}>Clear completed</Button>
+            <Button variant="secondary" disabled={!completedCount} onclick={clearCompleted}>Clear completed</Button>
         </Flex>
 
         <Card space="l">
             <form class="add-form" onsubmit={addTask}>
                 <Input name="new-task" placeholder="What needs doing?" bind:value={newTitle} error={titleError} aria-label="New task" expanded>
-                    <svelte:fragment slot="prefix"><Plus size={16} /></svelte:fragment>
+                    {#snippet prefix()}<Plus size={16} />{/snippet}
                 </Input>
                 <Select name="new-priority" options={priorities} bind:value={newPriority} aria-label="Priority" />
                 <Button variant="primary" type="submit">Add task</Button>
@@ -141,7 +141,7 @@
                                                 <Text size="xs" variant={task.due === "Overdue" && !task.done ? "danger" : "weaker"}>· {task.due}</Text>
                                             </Flex>
                                         </Flex>
-                                        <Button variant="tertiary" aria-label="Delete “{task.title}”" on:click={() => remove(task.id)}>
+                                        <Button variant="tertiary" aria-label="Delete “{task.title}”" onclick={() => remove(task.id)}>
                                             <X size={16} />
                                         </Button>
                                     </li>

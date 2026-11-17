@@ -1,3 +1,8 @@
+<script>
+    /** @type {{ children?: import('svelte').Snippet }} */
+    let { children } = $props();
+</script>
+
 <tr class="m-table-row">
-    <slot />
+    {@render children?.()}
 </tr>

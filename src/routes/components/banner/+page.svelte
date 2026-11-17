@@ -19,7 +19,7 @@
         { value: 'basic', label: 'Example: Basic' }
     ];
 
-    let selectedExample = 'basic';
+    let selectedExample = $state('basic');
 
     let example1 = `<script>
     import { Banner, Flex, Link } from "moth-ui-svelte";
@@ -41,7 +41,7 @@
     <Flex direction="column">
         <Select
             name="examples"
-            bind:options={options}
+            {options}
             bind:value={selectedExample}
             placeholder="Select an example..."
         />

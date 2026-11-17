@@ -107,7 +107,7 @@
 <\/script>
 
 <Button>
-    <Plus slot="start" size={16} />
+    {#snippet start()}<Plus size={16} />{/snippet}
     New project
 </Button>`} />
         </Flex>

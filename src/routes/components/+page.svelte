@@ -7,19 +7,13 @@
         Text
     } from "$lib";
 
-    let componentResults = components;
-    let searchTerm = "";
+    let searchTerm = $state("");
 
-    $: if (searchTerm) {
-        search(searchTerm.toLocaleLowerCase());
-    } else {
-        componentResults = components;
-    }
-
-    /** @param { string } searchTerm - Search term entered by input */
-    function search(searchTerm) {
-        componentResults = components.filter((component) => component.name.toLocaleLowerCase().includes(searchTerm));
-    }
+    let componentResults = $derived(
+        searchTerm
+            ? components.filter((component) => component.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()))
+            : components
+    );
 </script>
 
 <Flex direction="column" gap="xl">
@@ -31,9 +25,9 @@
     </Flex>
     <Flex direction="column" gap="l">
         <Input type="search" name="componentSearch" placeholder="Search" expanded bind:value={searchTerm}>
-            <svelte:fragment slot="prefix">
+            {#snippet prefix()}
                 <Search size={16} />
-            </svelte:fragment>
+            {/snippet}
         </Input>
         <section class="components">
             {#each componentResults as component}

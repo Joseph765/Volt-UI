@@ -1,15 +1,14 @@
 <script>
-    /** @type { 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl' | '3xl' } */
-    export let size = "m";
-
-    /** @type { string } */
-    export let href = "#";
-
-    /** @type { string } */
-    export let target = "";
-
-    /** @type { string } */
-    export let style = "";
+    /**
+     * @type {{
+     *   size?: 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl' | '3xl',
+     *   href?: string,
+     *   target?: string,
+     *   style?: string,
+     *   children?: import('svelte').Snippet
+     * }}
+     */
+    let { size = "m", href = "#", target = "", style = "", children } = $props();
 </script>
 
 <a
@@ -19,5 +18,5 @@
     rel={target === "_blank" ? "noopener noreferrer" : undefined}
     class="m-link is-size-{size}"
 >
-    <slot />
+    {@render children?.()}
 </a>

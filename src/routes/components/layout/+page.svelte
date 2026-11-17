@@ -30,13 +30,13 @@
     ];
 
     /** @type { string } */
-    let selectedExample = 'basic';
+    let selectedExample = $state('basic');
 
     /** @type { boolean } */
-    let open = false;
+    let open = $state(false);
 
     /** @type { string } */
-    let activeItem = 'dashboard';
+    let activeItem = $state('dashboard');
 
     /** @param { string } item */
     function select(item) {
@@ -59,38 +59,40 @@
         NavItem
     } from "moth-ui-svelte";
 
+    let { children } = $props();
+
     /** @type { boolean } */
-    let open = false;
+    let open = $state(false);
 <\/script>
 
 <Layout>
     <LayoutHeader>
-        <LayoutMenuButton {open} on:click={() => open = !open} />
-        <a href="/" class="mobile-logo" slot="mobile-logo">L</a>
+        <LayoutMenuButton {open} onclick={() => open = !open} />
+        {#snippet mobileLogo()}<a href="/" class="mobile-logo">L</a>{/snippet}
     </LayoutHeader>
-    <a href="/" class="logo" slot="logo">Logo</a>
-    <LayoutNav {open} on:close={() => open = false}>
-        <NavItem href="/" active={page.url.pathname === "/"} on:click={() => open = false}>
-            <ChartPie slot="icon" let:animate {animate} />
+    {#snippet logo()}<a href="/" class="logo">Logo</a>{/snippet}
+    <LayoutNav {open} onclose={() => open = false}>
+        <NavItem href="/" active={page.url.pathname === "/"} onclick={() => open = false}>
+            {#snippet icon(animate)}<ChartPie {animate} />{/snippet}
             Dashboard
         </NavItem>
-        <NavItem href="/assets" active={page.url.pathname === "/assets"} on:click={() => open = false}>
-            <Layers slot="icon" let:animate {animate} />
+        <NavItem href="/assets" active={page.url.pathname === "/assets"} onclick={() => open = false}>
+            {#snippet icon(animate)}<Layers {animate} />{/snippet}
             Assets
         </NavItem>
-        <NavItem href="/transactions" active={page.url.pathname === "/transactions"} on:click={() => open = false}>
-            <History slot="icon" let:animate {animate} />
+        <NavItem href="/transactions" active={page.url.pathname === "/transactions"} onclick={() => open = false}>
+            {#snippet icon(animate)}<History {animate} />{/snippet}
             Transactions
         </NavItem>
         <NavGroup title="Settings">
             {#snippet icon(animate)}<Settings {animate} />{/snippet}
-            <NavGroupItem href="/settings/profile" active={page.url.pathname === "/settings/profile"} on:click={() => open = false}>Profile</NavGroupItem>
-            <NavGroupItem href="/settings/security" active={page.url.pathname === "/settings/security"} on:click={() => open = false}>Security</NavGroupItem>
+            <NavGroupItem href="/settings/profile" active={page.url.pathname === "/settings/profile"} onclick={() => open = false}>Profile</NavGroupItem>
+            <NavGroupItem href="/settings/security" active={page.url.pathname === "/settings/security"} onclick={() => open = false}>Security</NavGroupItem>
         </NavGroup>
     </LayoutNav>
     <LayoutContent>
         <Container>
-            <slot />
+            {@render children()}
         </Container>
     </LayoutContent>
 </Layout>`;
@@ -108,7 +110,7 @@
     <Flex direction="column">
         <Select
             name="examples"
-            bind:options={options}
+            {options}
             bind:value={selectedExample}
             placeholder="Select an example..."
         />
@@ -117,27 +119,27 @@
                 <div class="layout-demo">
                     <Layout>
                         <LayoutHeader>
-                            <LayoutMenuButton {open} on:click={() => open = !open} />
-                            <a href="#top" class="example-mobile-logo" slot="mobile-logo">L</a>
+                            <LayoutMenuButton {open} onclick={() => open = !open} />
+                            {#snippet mobileLogo()}<a href="#top" class="example-mobile-logo">L</a>{/snippet}
                         </LayoutHeader>
-                        <a href="#top" class="example-logo" slot="logo">Logo</a>
-                        <LayoutNav {open} on:close={() => open = false}>
-                            <NavItem href="#top" active={activeItem === "dashboard"} on:click={() => select("dashboard")}>
-                                <ChartPie slot="icon" let:animate {animate} />
+                        {#snippet logo()}<a href="#top" class="example-logo">Logo</a>{/snippet}
+                        <LayoutNav {open} onclose={() => open = false}>
+                            <NavItem href="#top" active={activeItem === "dashboard"} onclick={() => select("dashboard")}>
+                                {#snippet icon(animate)}<ChartPie {animate} />{/snippet}
                                 Dashboard
                             </NavItem>
-                            <NavItem href="#top" active={activeItem === "assets"} on:click={() => select("assets")}>
-                                <Layers slot="icon" let:animate {animate} />
+                            <NavItem href="#top" active={activeItem === "assets"} onclick={() => select("assets")}>
+                                {#snippet icon(animate)}<Layers {animate} />{/snippet}
                                 Assets
                             </NavItem>
-                            <NavItem href="#top" active={activeItem === "transactions"} on:click={() => select("transactions")}>
-                                <History slot="icon" let:animate {animate} />
+                            <NavItem href="#top" active={activeItem === "transactions"} onclick={() => select("transactions")}>
+                                {#snippet icon(animate)}<History {animate} />{/snippet}
                                 Transactions
                             </NavItem>
                             <NavGroup title="Settings">
                                 {#snippet icon(animate)}<Settings {animate} />{/snippet}
-                                <NavGroupItem href="#top" active={activeItem === "profile"} on:click={() => select("profile")}>Profile</NavGroupItem>
-                                <NavGroupItem href="#top" active={activeItem === "security"} on:click={() => select("security")}>Security</NavGroupItem>
+                                <NavGroupItem href="#top" active={activeItem === "profile"} onclick={() => select("profile")}>Profile</NavGroupItem>
+                                <NavGroupItem href="#top" active={activeItem === "security"} onclick={() => select("security")}>Security</NavGroupItem>
                             </NavGroup>
                         </LayoutNav>
                         <LayoutContent>
@@ -170,9 +172,9 @@
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>LayoutNav on:close</Code></TableCell>
+                <TableCell><Code>LayoutNav onclose</Code></TableCell>
                 <TableCell>Fires when the user presses Esc or clicks the blurred page outside the navigation while it is open. Set <Code>open</Code> to false in response. On Esc, focus moves back to the menu button if it was inside the navigation.</TableCell>
-                <TableCell><Code>event</Code></TableCell>
+                <TableCell><Code>function</Code></TableCell>
             </TableRow>
             <TableRow>
                 <TableCell><Code>LayoutMenuButton open</Code></TableCell>
@@ -180,24 +182,24 @@
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>LayoutMenuButton on:click</Code></TableCell>
+                <TableCell><Code>LayoutMenuButton onclick</Code></TableCell>
                 <TableCell>Fires when the menu button is pressed. Toggle <Code>open</Code> in response.</TableCell>
-                <TableCell><Code>event</Code></TableCell>
+                <TableCell><Code>function</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>Layout slot="logo"</Code></TableCell>
+                <TableCell><Code>Layout logo</Code></TableCell>
                 <TableCell>Logo shown above the sidebar on larger screens.</TableCell>
-                <TableCell><Code>slot</Code></TableCell>
+                <TableCell><Code>Snippet</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>LayoutHeader slot="mobile-logo"</Code></TableCell>
+                <TableCell><Code>LayoutHeader mobileLogo</Code></TableCell>
                 <TableCell>Logo centered in the header on smaller screens.</TableCell>
-                <TableCell><Code>slot</Code></TableCell>
+                <TableCell><Code>Snippet</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>NavItem slot="icon"</Code></TableCell>
+                <TableCell><Code>NavItem icon</Code></TableCell>
                 <TableCell>Icon before the label. Receives <Code>animate</Code>, which is true while the item is hovered or keyboard-focused, so animated icons play for the whole row. Also available on <Code>NavGroupItem</Code>.</TableCell>
-                <TableCell><Code>slot</Code></TableCell>
+                <TableCell><Code>Snippet</Code></TableCell>
             </TableRow>
             <TableRow>
                 <TableCell><Code>NavGroup icon</Code></TableCell>

@@ -21,7 +21,7 @@
         { value: 'icon', label: 'Example: Icon' },
     ];
 
-    let selectedExample = 'basic';
+    let selectedExample = $state('basic');
 
     let example1 = `<script>
     import { Badge, Flex } from "moth-ui-svelte";
@@ -51,7 +51,7 @@
 <\/script>        
 
 <Badge variant="success">
-    <ChevronUp slot="icon" size={12} />
+    {#snippet icon()}<ChevronUp size={12} />{/snippet}
     22%
 </Badge>`;
 </script>
@@ -64,7 +64,7 @@
     <Flex direction="column">
         <Select
             name="examples"
-            bind:options={options}
+            {options}
             bind:value={selectedExample}
             placeholder="Select an example..."
         />
@@ -91,7 +91,7 @@
         {:else if selectedExample === "icon"}
             <CodeExample code={example3}>
                 <Badge variant="success">
-                    <ChevronUp slot="icon" size={12} />
+                    {#snippet icon()}<ChevronUp size={12} />{/snippet}
                     22%
                 </Badge>
             </CodeExample>
@@ -117,9 +117,9 @@
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>slot="icon"</Code></TableCell>
+                <TableCell><Code>icon</Code></TableCell>
                 <TableCell>An icon shown before the label.</TableCell>
-                <TableCell><Code>slot</Code></TableCell>
+                <TableCell><Code>Snippet</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

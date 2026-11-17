@@ -20,7 +20,7 @@
         { value: 'basic', label: 'Example: Basic' }
     ];
 
-    let selectedExample = 'basic';
+    let selectedExample = $state('basic');
 
     let example1 = `<script>
     import { NavGroup, NavGroupItem, NavItem } from "moth-ui-svelte";
@@ -42,7 +42,7 @@
     <Flex direction="column">
         <Select
             name="examples"
-            bind:options={options}
+            {options}
             bind:value={selectedExample}
             placeholder="Select an example..."
         />
@@ -77,14 +77,14 @@
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>NavItem slot="icon"</Code></TableCell>
+                <TableCell><Code>NavItem icon</Code></TableCell>
                 <TableCell>Icon before the label. Receives <Code>animate</Code>, true while the item is hovered or keyboard-focused.</TableCell>
-                <TableCell><Code>slot</Code></TableCell>
+                <TableCell><Code>Snippet</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>NavItem on:click</Code></TableCell>
+                <TableCell><Code>NavItem onclick</Code></TableCell>
                 <TableCell>Fires when the item is clicked, for example to close the mobile menu.</TableCell>
-                <TableCell><Code>event</Code></TableCell>
+                <TableCell><Code>function</Code></TableCell>
             </TableRow>
             <TableRow>
                 <TableCell><Code>NavGroup title</Code></TableCell>
@@ -112,14 +112,14 @@
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>NavGroupItem slot="icon"</Code></TableCell>
+                <TableCell><Code>NavGroupItem icon</Code></TableCell>
                 <TableCell>Optional icon before the label. Receives <Code>animate</Code>.</TableCell>
-                <TableCell><Code>slot</Code></TableCell>
+                <TableCell><Code>Snippet</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>NavGroupItem on:click</Code></TableCell>
+                <TableCell><Code>NavGroupItem onclick</Code></TableCell>
                 <TableCell>Fires when the item is clicked.</TableCell>
-                <TableCell><Code>event</Code></TableCell>
+                <TableCell><Code>function</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

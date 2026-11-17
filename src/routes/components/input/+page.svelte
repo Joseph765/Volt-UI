@@ -27,7 +27,7 @@
         { value: 'customStyle', label: 'Example: Custom Style' }
     ];
 
-    let selectedExample = 'types';
+    let selectedExample = $state('types');
 
     let example1 = `<script>
     import { Flex, Input } from "moth-ui-svelte";
@@ -53,10 +53,10 @@
 
 <Flex direction="column">
     <Input label="Prefix" name="money">
-        <svelte:fragment slot="prefix">$</svelte:fragment>
+        {#snippet prefix()}\${/snippet}
     </Input>
     <Input label="Suffix" type="text" name="amount">
-        <svelte:fragment slot="suffix">cm</svelte:fragment>
+        {#snippet suffix()}cm{/snippet}
     </Input>
 </Flex>`;
     let example5 = `<script>
@@ -76,14 +76,14 @@
 
 <Flex direction="column">
     <Input label="Icon Prefix" name="iconPrefix">
-        <svelte:fragment slot="prefix">
+        {#snippet prefix()}
             <Search size={16} />
-        </svelte:fragment>
+        {/snippet}
     </Input>
     <Input label="Icon Prefix 2" name="iconPrefix2">
-        <svelte:fragment slot="prefix">
+        {#snippet prefix()}
             <Phone size={16} />
-        </svelte:fragment>
+        {/snippet}
     </Input>
 </Flex>`;
     let example8 = `<script>
@@ -106,7 +106,7 @@
     <Flex direction="column">
         <Select
             name="examples"
-            bind:options={options}
+            {options}
             bind:value={selectedExample}
             placeholder="Select an example..."
         />
@@ -133,10 +133,10 @@
             <CodeExample code={example4}>
                 <Flex direction="column">
                     <Input label="Prefix" name="money">
-                        <svelte:fragment slot="prefix">$</svelte:fragment>
+                        {#snippet prefix()}${/snippet}
                     </Input>
                     <Input label="Suffix" type="text" name="amount">
-                        <svelte:fragment slot="suffix">cm</svelte:fragment>
+                        {#snippet suffix()}cm{/snippet}
                     </Input>
                 </Flex>
             </CodeExample>
@@ -152,14 +152,14 @@
             <CodeExample code={example7}>
                 <Flex direction="column">
                     <Input label="Icon Prefix" name="iconPrefix">
-                        <svelte:fragment slot="prefix">
+                        {#snippet prefix()}
                             <Search size={16} />
-                        </svelte:fragment>
+                        {/snippet}
                     </Input>
                     <Input label="Icon Prefix 2" name="iconPrefix2">
-                        <svelte:fragment slot="prefix">
+                        {#snippet prefix()}
                             <Phone size={16} />
-                        </svelte:fragment>
+                        {/snippet}
                     </Input>
                 </Flex>
             </CodeExample>
@@ -239,24 +239,24 @@
                 <TableCell><Code>on</Code> | <Code>off</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>slot="prefix"</Code></TableCell>
+                <TableCell><Code>prefix</Code></TableCell>
                 <TableCell>Content shown inside the field before the text, such as an icon or a unit.</TableCell>
-                <TableCell><Code>slot</Code></TableCell>
+                <TableCell><Code>Snippet</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>slot="suffix"</Code></TableCell>
+                <TableCell><Code>suffix</Code></TableCell>
                 <TableCell>Content shown inside the field after the text, such as a unit.</TableCell>
-                <TableCell><Code>slot</Code></TableCell>
+                <TableCell><Code>Snippet</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>on:change</Code></TableCell>
+                <TableCell><Code>onchange</Code></TableCell>
                 <TableCell>Fires when the value is committed (on blur or Enter).</TableCell>
-                <TableCell><Code>event</Code></TableCell>
+                <TableCell><Code>function</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>on:keydown</Code></TableCell>
+                <TableCell><Code>onkeydown</Code></TableCell>
                 <TableCell>Fires for each key press while the field is focused.</TableCell>
-                <TableCell><Code>event</Code></TableCell>
+                <TableCell><Code>function</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

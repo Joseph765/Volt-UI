@@ -22,7 +22,7 @@
         { value: 'headerWithAction', label: 'Example: Header With Action' }
     ];
 
-    let selectedExample = 'basic';
+    let selectedExample = $state('basic');
 
     let example1 = `<script>
     import { Card } from "moth-ui-svelte";
@@ -43,7 +43,7 @@
 <\/script>
 
 <Card>
-    <Text as="h2" weight="bold" slot="header">Header content</Text>
+    {#snippet header()}<Text as="h2" weight="bold">Header content</Text>{/snippet}
     <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
 </Card>`;
     let example4 = `<script>
@@ -51,8 +51,8 @@
 <\/script>
 
 <Card>
-    <Text as="h2" weight="bold" slot="header">Header content</Text>
-    <Button slot="header-end">Action</Button>
+    {#snippet header()}<Text as="h2" weight="bold">Header content</Text>{/snippet}
+    {#snippet headerEnd()}<Button>Action</Button>{/snippet}
     <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
 </Card>`;
 </script>
@@ -65,7 +65,7 @@
     <Flex direction="column">
         <Select
             name="examples"
-            bind:options={options}
+            {options}
             bind:value={selectedExample}
             placeholder="Select an example..."
         />
@@ -84,15 +84,15 @@
         {:else if selectedExample === "header"}
             <CodeExample code={example3}>
                 <Card>
-                    <Text as="h2" weight="bold" slot="header">Header content</Text>
+                    {#snippet header()}<Text as="h2" weight="bold">Header content</Text>{/snippet}
                     <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
                 </Card>
             </CodeExample>
         {:else if selectedExample === "headerWithAction"}
             <CodeExample code={example4}>
                 <Card>
-                    <Text as="h2" weight="bold" slot="header">Header content</Text>
-                    <Button slot="header-end">Action</Button>
+                    {#snippet header()}<Text as="h2" weight="bold">Header content</Text>{/snippet}
+                    {#snippet headerEnd()}<Button>Action</Button>{/snippet}
                     <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
                 </Card>
             </CodeExample>
@@ -113,14 +113,14 @@
                 <TableCell><Code>none</Code> | <Code>m</Code> | <Code>l</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>slot="header"</Code></TableCell>
+                <TableCell><Code>header</Code></TableCell>
                 <TableCell>Content for the card header, shown above a divider.</TableCell>
-                <TableCell><Code>slot</Code></TableCell>
+                <TableCell><Code>Snippet</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>slot="header-end"</Code></TableCell>
+                <TableCell><Code>headerEnd</Code></TableCell>
                 <TableCell>Content aligned to the end of the header, such as an action button.</TableCell>
-                <TableCell><Code>slot</Code></TableCell>
+                <TableCell><Code>Snippet</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

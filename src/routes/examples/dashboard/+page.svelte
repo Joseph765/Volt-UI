@@ -101,7 +101,7 @@
                 <Select name="range" options={ranges} bind:value={range} />
                 <Button variant="secondary">Export</Button>
                 <Button variant="primary">
-                    <Plus slot="start" size={16} />
+                    {#snippet start()}<Plus size={16} />{/snippet}
                     New invoice
                 </Button>
             </Flex>
@@ -127,8 +127,8 @@
 
         <div class="split">
             <Card space="l">
-                <Text size="l" weight="bold" as="h2" slot="header">Revenue by week</Text>
-                <Badge slot="header-end">8 weeks</Badge>
+                {#snippet header()}<Text size="l" weight="bold" as="h2">Revenue by week</Text>{/snippet}
+                {#snippet headerEnd()}<Badge>8 weeks</Badge>{/snippet}
                 <div class="chart" role="img" aria-label="Weekly revenue, rising from $8,200 to $14,600 over 8 weeks">
                     {#each weeks as week, i}
                         <div class="bar-column">
@@ -144,7 +144,7 @@
             </Card>
 
             <Card space="l">
-                <Text size="l" weight="bold" as="h2" slot="header">Goals</Text>
+                {#snippet header()}<Text size="l" weight="bold" as="h2">Goals</Text>{/snippet}
                 <Flex direction="column" gap="l">
                     {#each [{ label: "Monthly revenue", value: 48290, goal: 60000 }, { label: "New customers", value: 312, goal: 400 }, { label: "NPS responses", value: 188, goal: 200 }] as goal}
                         <Flex direction="column" gap="xs">
@@ -163,7 +163,7 @@
             <Tab id="orders" selected={selectedTab}>
                 <Flex direction="column" gap="m">
                     <Input name="order-search" placeholder="Search by customer, email or order" bind:value={search} expanded>
-                        <svelte:fragment slot="prefix"><Search size={16} /></svelte:fragment>
+                        {#snippet prefix()}<Search size={16} />{/snippet}
                     </Input>
                     <Table interactive>
                         <TableHead>
@@ -194,7 +194,7 @@
                                         <Flex direction="column" gap="s" align="center" style="padding-block: var(--m-space-l);">
                                             <Text weight="bold" align="center">No orders found</Text>
                                             <Text size="s" variant="weak" align="center">Nothing matches “{search}”. Try a different name or order number.</Text>
-                                            <Button variant="secondary" on:click={() => (search = "")}>Clear search</Button>
+                                            <Button variant="secondary" onclick={() => (search = "")}>Clear search</Button>
                                         </Flex>
                                     </TableCell>
                                 </TableRow>

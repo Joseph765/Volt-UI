@@ -1,10 +1,13 @@
 <!-- Icons: Lucide (ISC License), see THIRD_PARTY_NOTICES.md -->
 <script>
-    /** @type { 'info' | 'warning' | 'danger' | 'success' } */
-    export let variant = "info";
-
-    /** @type { string } */
-    export let style = "";
+    /**
+     * @type {{
+     *   variant?: 'info' | 'warning' | 'danger' | 'success',
+     *   style?: string,
+     *   children?: import('svelte').Snippet
+     * }}
+     */
+    let { variant = "info", style = "", children } = $props();
 </script>
 
 <div class="m-banner is-{variant}" {style}>
@@ -20,6 +23,6 @@
         {/if}
     </div>
     <div class="m-banner-content">
-        <slot />
+        {@render children?.()}
     </div>
 </div>

@@ -1,23 +1,18 @@
 <script>
-    /** @type { 'row' | 'column' | 'row-reverse' | 'column-reverse' } */
-    export let direction = 'row';
-
-    /** @type { 'none' | 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl' } */
-    export let gap = 'm';
-
-    /** @type { boolean } */
-    export let wrap = false;
-
-    /** @type { 'start' | 'end' | 'flex-start' | 'flex-end' | 'center' | 'between' | 'around' | 'evenly' } */
-    export let justify = "start";
-
-    /** @type { 'initial' | 'stretch' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'start' | 'end' | 'self-start' | 'self-end'} */
-    export let align = "initial";
-
-    /** @type { string } */
-    export let style = "";
+    /**
+     * @type {{
+     *   direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse',
+     *   gap?: 'none' | 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl',
+     *   wrap?: boolean,
+     *   justify?: 'start' | 'end' | 'flex-start' | 'flex-end' | 'center' | 'between' | 'around' | 'evenly',
+     *   align?: 'initial' | 'stretch' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'start' | 'end' | 'self-start' | 'self-end',
+     *   style?: string,
+     *   children?: import('svelte').Snippet
+     * }}
+     */
+    let { direction = "row", gap = "m", wrap = false, justify = "start", align = "initial", style = "", children } = $props();
 </script>
 
 <div class="m-flex has-direction-{direction} is-align-{align} has-gap-{gap} {wrap ? "has-flex-wrap" : "has-flex-nowrap"} has-justify-{justify}" {style}>
-    <slot />
+    {@render children?.()}
 </div>

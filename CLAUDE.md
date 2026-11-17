@@ -12,8 +12,15 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
 
 ## Code conventions
 - **Naming:** every class and token is prefixed `m-`, e.g. `--m-color-text` and `.m-button`. Never use `v-`.
-- **Svelte syntax:** library components mostly use legacy syntax (`export let`, slots, `on:click`); some use
-  runes. Newer docs-site files use runes (`$props`, `$state`, snippets).
+- **Svelte syntax: Svelte 5 everywhere**, library and docs (including code-example strings). Use `$props()`,
+  `$state`, `$derived`, `$effect`, `$bindable()` (value, checked, indeterminate, group), snippets with
+  `{@render}` instead of slots, and callback props / `onclick`-style attributes instead of `on:click`. No
+  `export let`, `$:`, `<slot>`, `slot="…"`, `let:`, `<svelte:fragment>` or `createEventDispatcher`.
+  - Snippet names: `children` (default), `icon`, `start`, `end`, `prefix`, `suffix`, `header`, `headerEnd`, `logo`,
+    `mobileLogo`. Nav `icon` snippets receive `animate`: `{#snippet icon(animate)}<Rocket {animate} />{/snippet}`.
+  - Callback props: `onclick`, `onchange`, `onkeydown` (forwarded to the element), `LayoutNav onclose`.
+    `Tabs onClick` and `Toast onDismiss` keep their names.
+  - In code-example template strings, escape a literal `$` before `{` as `\${` (e.g. a `$` prefix snippet).
 - **Where styles live:**
   - Component CSS: `src/lib/css/components.css`.
   - Tokens: `src/lib/css/tokens.css`.
@@ -22,9 +29,9 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
 - **Docs component pages** (`src/routes/components/<name>/+page.svelte`):
   - Layout: an `h1` title (`<Text size="3xl" weight="black" as="h1">`), an example `Select`, `CodeExample`, then a
     props table (Property / Description / Type).
-  - Table rows: props first, then slots (Type `slot`), then events (Type `event`). Pages covering several
-    components prefix the name, e.g. `TableCell align`.
-  - Document only events a component actually forwards. Check the source.
+  - Table rows: props first, then snippets (Type `Snippet`), then callback props (Type `function`, e.g.
+    `onclick`). Pages covering several components prefix the name, e.g. `TableCell align`.
+  - Document only callbacks a component actually accepts. Check the source.
   - Bindable props are listed by their plain name with "Use `bind:value`/`bind:checked`" in the description.
     Exception: a prop that only makes sense bound is listed as written, e.g. Radio's `bind:group`.
   - Code-example strings show consumer imports (`moth-ui-svelte`, `@lucide/svelte`). Icon-only buttons in examples
@@ -103,7 +110,7 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
     `100dvh`.
   - The mobile nav blurs its own Layout's content. The selectors use direct children (`>`), so a nested Layout
     doesn't blur the outer page.
-  - Esc or a click on the blurred content closes the nav via `LayoutNav on:close`. The blurred content has
+  - Esc or a click on the blurred content closes the nav via `LayoutNav onclose`. The blurred content has
     `pointer-events: none`, so that click doesn't also follow a link.
   - The desktop logo area has the page background and sits above the nav, so a scrolling nav passes under it.
 - **Docs component cards** (All Components and the landing showcase):
@@ -125,7 +132,7 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
 - **Component API notes:**
   - `Text` takes `class` (style it from a page with `:global(...)`) and `id`.
   - `TableCell` takes `colspan` (e.g. a full-width "No results" row).
-  - `Radio` supports `bind:group` (one variable on every radio in a set) and forwards `on:change`. Without
+  - `Radio` supports `bind:group` (one variable on every radio in a set) and takes `onchange`. Without
     `bind:group`, `checked` works as before.
   - `Card` doesn't space its children: wrap multiple children in `<Flex direction="column" gap="l">`.
   - There are no progress-bar or avatar components; the example pages build their own with page CSS.
@@ -136,7 +143,7 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
   - Components that inline Lucide SVGs carry a comment pointing to `THIRD_PARTY_NOTICES.md` (ships in the package
     via `files`).
   - `@lucide/svelte` and `@jis3r/icons` are docs-only devDependencies. The docs nav uses `@jis3r/icons`
-    (movingicons.dev, animated Lucide). NavItem/NavGroupItem pass `animate` to the icon slot (true on hover or
+    (movingicons.dev, animated Lucide). NavItem/NavGroupItem pass `animate` to the `icon` snippet (true on hover or
     focus). Guidelines → Icons says to keep animated icons to navigation.
 - **Text selection:** `--m-color-highlight` (`--m-accent-7`) everywhere.
 - **Solid fills:** step 9 of a scale is the solid color. Components use the semantic tokens (`--m-color-accent`,

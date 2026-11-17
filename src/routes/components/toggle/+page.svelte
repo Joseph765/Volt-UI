@@ -21,7 +21,7 @@
         { value: 'hint', label: 'Example: Hint' }
     ];
 
-    let selectedExample = 'basic';
+    let selectedExample = $state('basic');
 
     let example1 = `<script>
     import { Flex, Toggle } from "moth-ui-svelte";
@@ -62,7 +62,7 @@
     <Flex direction="column">
         <Select
             name="examples"
-            bind:options={options}
+            {options}
             bind:value={selectedExample}
             placeholder="Select an example..."
         />
@@ -133,9 +133,9 @@
                 <TableCell><Code>string</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>on:change</Code></TableCell>
+                <TableCell><Code>onchange</Code></TableCell>
                 <TableCell>Fires when the toggle is switched.</TableCell>
-                <TableCell><Code>event</Code></TableCell>
+                <TableCell><Code>function</Code></TableCell>
             </TableRow>
         </TableBody>
     </Table>

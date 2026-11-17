@@ -25,7 +25,7 @@
         { value: 'customStyle', label: 'Example: Custom Style' },
     ];
 
-    let selectedExample = 'basic';
+    let selectedExample = $state('basic');
 
     let example1 = `<script>
     import { Select } from "moth-ui-svelte";
@@ -54,9 +54,9 @@
         { value: "designer', label: "Designer" },
     ]}
 >
-    <span slot="prefix">
+    {#snippet prefix()}
         <User size={16} />
-    </span>
+    {/snippet}
 </Select>`;
     let example3 = `<script>
     import { Select } from "moth-ui-svelte";
@@ -72,9 +72,9 @@
     ]}
     expanded
 >
-    <span slot="prefix">
+    {#snippet prefix()}
         <User size={16} />
-    </span>
+    {/snippet}
 </Select>`;
     let example4 = `<script>
     import { Select } from "moth-ui-svelte";
@@ -161,7 +161,7 @@
     <Flex direction="column">
         <Select
             name="examples"
-            bind:options={options}
+            {options}
             bind:value={selectedExample}
             placeholder="Select an example..."
         />
@@ -188,9 +188,9 @@
                         { value: 'designer', label: 'Designer' },
                     ]}
                 >
-                    <span slot="prefix">
+                    {#snippet prefix()}
                         <User size={16} />
-                    </span>
+                    {/snippet}
                 </Select>
             </CodeExample>
         {:else if selectedExample === "expanded"}
@@ -204,9 +204,9 @@
                     ]}
                     expanded
                 >
-                    <span slot="prefix">
+                    {#snippet prefix()}
                         <User size={16} />
-                    </span>
+                    {/snippet}
                 </Select>
             </CodeExample>
         {:else if selectedExample === "disabled"}
@@ -341,14 +341,14 @@
                 <TableCell><Code>on</Code> | <Code>off</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>slot="prefix"</Code></TableCell>
+                <TableCell><Code>prefix</Code></TableCell>
                 <TableCell>Content shown inside the field before the selected option, such as an icon.</TableCell>
-                <TableCell><Code>slot</Code></TableCell>
+                <TableCell><Code>Snippet</Code></TableCell>
             </TableRow>
             <TableRow>
-                <TableCell><Code>slot="suffix"</Code></TableCell>
+                <TableCell><Code>suffix</Code></TableCell>
                 <TableCell>Content shown inside the field after the selected option.</TableCell>
-                <TableCell><Code>slot</Code></TableCell>
+                <TableCell><Code>Snippet</Code></TableCell>
             </TableRow>
             <TableRow>
                 <TableCell><Code>value</Code></TableCell>

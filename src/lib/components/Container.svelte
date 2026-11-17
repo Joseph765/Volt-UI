@@ -1,17 +1,16 @@
 <script>
-    /** @type { 'default' | 'none' }*/
-    export let space = "default";
-
-    /** @type { 's' | 'm' | 'l' | 'xl' | '2xl' } */
-    export let size = "2xl";
-
-    /** @type { 'start' | 'center' | 'end' } */
-    export let align = "start";
-
-    /** @type { boolean } */
-    export let debug = false;
+    /**
+     * @type {{
+     *   space?: 'default' | 'none',
+     *   size?: 's' | 'm' | 'l' | 'xl' | '2xl',
+     *   align?: 'start' | 'center' | 'end',
+     *   debug?: boolean,
+     *   children?: import('svelte').Snippet
+     * }}
+     */
+    let { space = "default", size = "2xl", align = "start", debug = false, children } = $props();
 </script>
 
 <div class="m-container {debug ? "is-debug" : undefined} is-size-{size} is-align-{align} has-space-{space}">
-    <slot />
+    {@render children?.()}
 </div>

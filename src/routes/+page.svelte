@@ -21,9 +21,9 @@
     } from "$lib";
 
     // --- Live demo state (the hero card is built entirely from Moth components) ---
-    let seats = "5";
-    let billing = "yearly";
-    let prioritySupport = false;
+    let seats = $state("5");
+    let billing = $state("yearly");
+    let prioritySupport = $state(false);
     const billingOptions = [
         { value: "yearly", label: "Yearly · $10 per seat / month" },
         { value: "monthly", label: "Monthly · $12 per seat / month" }
@@ -32,9 +32,9 @@
     const seatPrice = { yearly: 10, monthly: 12 };
     const supportPrice = 4;
 
-    $: seatCount = Number(seats);
-    $: invalid = seats !== "" && (!Number.isInteger(seatCount) || seatCount < 1);
-    $: monthly = !invalid && seatCount > 0 ? seatCount * ((seatPrice[billing] ?? 0) + (prioritySupport ? supportPrice : 0)) : 0;
+    let seatCount = $derived(Number(seats));
+    let invalid = $derived(seats !== "" && (!Number.isInteger(seatCount) || seatCount < 1));
+    let monthly = $derived(!invalid && seatCount > 0 ? seatCount * ((seatPrice[billing] ?? 0) + (prioritySupport ? supportPrice : 0)) : 0);
 
     /** @param { number } n */
     const usd = (n) => n.toLocaleString("en-US", { style: "currency", currency: "USD" });
@@ -100,12 +100,14 @@
 
             <div class="hero-demo">
                 <Card space="l">
-                    <Flex slot="header" justify="between" align="center" style="width: 100%;">
-                        <Text size="xl" weight="bold" as="h2">Team plan</Text>
-                        {#if billing === "yearly"}
-                            <Badge variant="success">Save 17%</Badge>
-                        {/if}
-                    </Flex>
+                    {#snippet header()}
+                        <Flex justify="between" align="center" style="width: 100%;">
+                            <Text size="xl" weight="bold" as="h2">Team plan</Text>
+                            {#if billing === "yearly"}
+                                <Badge variant="success">Save 17%</Badge>
+                            {/if}
+                        </Flex>
+                    {/snippet}
                     <Flex direction="column" gap="l">
                         <Input
                             name="demo-seats"
@@ -115,7 +117,7 @@
                             inputmode="numeric"
                             error={invalid ? "Enter a whole number of seats" : ""}
                         >
-                            <span slot="suffix">seats</span>
+                            {#snippet suffix()}<span>seats</span>{/snippet}
                         </Input>
                         <Select name="demo-billing" label="Billing" options={billingOptions} bind:value={billing} expanded />
                         <Toggle name="demo-support" label="Priority support (+$4 per seat)" bind:checked={prioritySupport} />
