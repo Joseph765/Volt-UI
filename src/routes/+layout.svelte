@@ -42,10 +42,11 @@
             <Rocket slot="icon" let:animate {animate} />
             Getting Started
         </NavItem>
-        <NavItem href="/guidelines" active={page.url.pathname === "/guidelines"} on:click={() => open = false}>
-            <Compass slot="icon" let:animate {animate} />
-            Guidelines
-        </NavItem>
+        <NavGroup title="Guidelines" open={page.url.pathname.startsWith("/guidelines")}>
+            {#snippet icon(animate)}<Compass {animate} />{/snippet}
+            <NavGroupItem href="/guidelines" active={page.url.pathname === "/guidelines"} on:click={() => open = false}>Overview</NavGroupItem>
+            <NavGroupItem href="/guidelines/color" active={page.url.pathname === "/guidelines/color"} on:click={() => open = false}>Color</NavGroupItem>
+        </NavGroup>
         <NavGroup title="Design Tokens" open={page.url.pathname === "/tokens"}>
             {#snippet icon(animate)}<Paintbrush {animate} />{/snippet}
             <NavGroupItem href="/tokens#top" active={page.url.pathname + page.url.hash === "/tokens#top"} on:click={() => open = false}>All tokens</NavGroupItem>

@@ -53,6 +53,9 @@
                 <li><Text size="l" variant="weak" measure="l">If a screen shows more than a few purple elements, demote some to secondary or tertiary.</Text></li>
                 <li><Text size="l" variant="weak" measure="l">Status colors (success, warning, danger, info) are for status only, never for emphasis.</Text></li>
             </ul>
+            <Text size="l" variant="weak" measure="l">
+                See <Link size="l" href="/guidelines/color">Color</Link> for which color token to use where.
+            </Text>
         </section>
 
         <!-- Focus -->

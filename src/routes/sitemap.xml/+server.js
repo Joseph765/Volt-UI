@@ -10,6 +10,7 @@ export function GET() {
         "/",
         "/getting-started",
         "/guidelines",
+        "/guidelines/color",
         "/tokens",
         "/components",
         ...components.map((component) => `/components/${component.name.toLocaleLowerCase()}`)

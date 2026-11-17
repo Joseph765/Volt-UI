@@ -157,8 +157,7 @@
 	
 	/* Borders */
     --m-color-border: var(--m-gray-4);
-	/* Test 0.2.0 */
-    /* --m-color-border: var(--m-gray-7); */
+	--m-color-border-control: var(--m-gray-4);
 	/* Soft status borders, for components on a weak status fill */
 	--m-color-border-neutral-weak: var(--m-gray-5);
 	--m-color-border-info-weak: var(--m-info-5);
@@ -208,3 +207,10 @@
 	--m-color-success: var(--m-success-9);
 	--m-color-success-weak: var(--m-success-4);
 }
+
+/* @media (prefers-contrast: more) {
+	:root {
+		--m-color-border-control: var(--m-gray-8);
+		--m-color-text-weakest: var(--m-gray-10);
+	}
+} */

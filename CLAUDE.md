@@ -44,7 +44,20 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
 
 ## Design decisions (keep consistent)
 - **Accent purple is rare:** primary actions and selected state only (checked, active tab or nav item, text
-  selection). No decorative purple, and gray everywhere else. See the Guidelines page (`src/routes/guidelines`).
+  selection). No decorative purple, and gray everywhere else. See the Guidelines section (`src/routes/guidelines`).
+- **Guidelines section:** a nav group like Components. `/guidelines` is the Overview page (button hierarchy,
+  accent, focus, forms, icons, dark only); `/guidelines/color` explains when to use each semantic color token.
+  New guideline pages go in the nav group and the sitemap.
+- **Callout diagrams** (`src/routes/guidelines/color/CalloutDiagram.svelte`, docs-only), Nord style: token pills
+  (swatch + name) on the left, each level with a ring on the left edge of its part, joined by a short straight line.
+  The demo runs off the right edge (cropped), so it fits phones; narrow figures drop the `--m-color-` prefix from
+  the pills. Space marked parts a pill's height apart. Marks can share an element via `target`; the diagram
+  re-lays out when its marks change. Used for every section (Status has one Banner with a Status select + Weak/Strong
+  radios; the demo adds a border so it can be labelled). One token per row: a button's fill and label share a
+  height, so Accent labels the checkbox's fill and the button's label.
+- **Do/don't examples** (Carbon style): a surface card with a 4px status bar on top (success / danger) and a round
+  badge (check / cross, in the on-color) in the corner; the example sits inside on a raised canvas, the caption sits
+  under the card. Code examples there hide the copy button.
 - **Buttons:**
   - Variants: `default`/`primary` (purple), `secondary` (gray outline), `tertiary` (gray text), `danger`.
     There is no `ghost`.
@@ -55,6 +68,8 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
   - Variables: `--m-button-lit-background`, `--m-button-lit-color`, `--m-button-halo`.
   - Buttons grow `scale(1.03)` on hover; full-width ones `1.01`. They use `will-change: transform` to avoid text
     snapping. Hover doesn't follow the cursor.
+- **Borders:** form controls (input, select, textarea, checkbox, radio) use `--m-color-border-control`; everything
+  else (dividers, card headers, nav, tables) uses `--m-color-border`.
 - **Focus:** one neutral gray everywhere: `--m-color-focus-border` (outline) and `--m-color-focus-ring` (halo on
   fields).
 - **Form fields:**
@@ -147,4 +162,6 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
 - The user commits and pushes themselves. Don't commit unless asked.
 
 ## Open items / ideas not yet done
+- Status text in components should use `--m-color-text-<status>` (as the Color guidelines say), but `.m-text.is-danger`
+  and friends in `components.css` still use the fill tokens (`--m-color-danger` etc.). Switch them over.
 - If button text still "drops" after hovering, fake the grow with the light layer instead of `transform`.
