@@ -215,8 +215,7 @@
 }
 
 .m-button:focus-visible {
-    outline: 2px solid var(--m-color-focus-border);
-    outline-offset: 2px;
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
 }
 
 .m-button.is-expanded {
@@ -246,7 +245,8 @@
     /* Quiet: a gray pill and a brighter label, no glow */
     --m-button-lit-background: var(--m-gray-4);
     --m-button-lit-color: var(--m-color-text);
-    --m-button-halo: none;
+    /* No glow; a no-op shadow rather than none, so the focus shadow list stays valid */
+    --m-button-halo: 0 0 0 transparent;
 }
 
 .m-button.is-danger {
@@ -293,7 +293,8 @@
 
 .m-button:focus-visible {
     color: var(--m-button-lit-color);
-    box-shadow: var(--m-button-halo);
+    /* The focus ring plus the lit halo */
+    box-shadow: var(--m-shadow-focus), var(--m-button-halo);
     /* Grows slightly when lit. transform doesn't affect layout, so neighboring fields and buttons don't move */
     transform: scale(1.03);
 }
@@ -344,6 +345,13 @@
     background-color: var(--m-color-surface);
     border: none;
     border-radius: var(--m-radius);
+}
+
+/* More contrast: a card is only one shade lighter than the page, so give it an edge (--m-color-border is 3:1 here) */
+@media (prefers-contrast: more) {
+    .m-card {
+        border: 1px solid var(--m-color-border);
+    }
 }
 
 .m-card-header {
@@ -440,8 +448,8 @@
 }
 
 .m-checkbox-input:focus-visible ~ .m-checkbox-box {
-    outline: 2px solid var(--m-color-focus-border);
-    outline-offset: 2px;
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
 }
 
 .m-checkbox-check {
@@ -573,8 +581,14 @@
     /* Same background as multi-line code blocks */
     background: var(--m-color-surface);
     padding: var(--m-space-s) var(--m-space-s) var(--m-space-s) var(--m-space-m);
-    /* border: 1px solid var(--m-color-border); */
     border-radius: var(--m-radius);
+}
+
+/* More contrast: the same edge cards and code examples get */
+@media (prefers-contrast: more) {
+    .m-copy-code {
+        border: 1px solid var(--m-color-border);
+    }
 }
 
 /* Divider */
@@ -785,12 +799,14 @@
     outline: none;
 }
 
-/* Focus: lighter border plus a soft neutral halo (also while hovered) */
+/* Focus: a near-white border, a lifted fill and the focus glow every element shares (also while hovered) */
 .m-input:focus-visible,
 .m-input:focus-visible:hover {
-    outline: none;
-    border-color: var(--m-color-focus-border);
-    box-shadow: 0 0 0 3px var(--m-color-focus-ring);
+    border-color: var(--m-color-border-control-focus);
+    /* The field lights up: its fill lifts a step */
+    background-color: var(--m-color-surface-raised);
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
 }
 
 .m-input.is-danger:focus-visible {
@@ -846,7 +862,7 @@
 
 @media (pointer: fine) {
     .m-input:hover {
-        border-color: var(--m-gray-7);
+        border-color: var(--m-color-border-control-hover);
     }
 
     .m-input:disabled:hover {
@@ -950,8 +966,8 @@
 }
 
 .m-layout-menu-button:focus-visible {
-    outline: 2px solid var(--m-color-focus-border);
-    outline-offset: 2px;
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
 }
 
 .m-layout-logo {
@@ -1186,8 +1202,8 @@
 .m-nav-item:focus-visible,
 .m-nav-group-expander:focus-visible,
 .m-nav-group-item:focus-visible {
-    outline: 2px solid var(--m-color-focus-border);
-    outline-offset: 2px;
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
 }
 
 .m-nav-group {
@@ -1410,9 +1426,10 @@
     display: block;
 }
 
-.m-radio-wrapper:has(:focus-visible) {
-    outline: 2px solid var(--m-color-focus-border);
-    outline-offset: 2px;
+/* The ring goes around the circle, like the checkbox's box */
+.m-radio:focus-visible + .m-radio-label::before {
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
 }
 
 /* Required */
@@ -1465,9 +1482,11 @@
 }
 
 .m-select-wrapper:has(.m-select:focus-visible) {
-    outline: none;
-    border-color: var(--m-color-focus-border);
-    box-shadow: 0 0 0 3px var(--m-color-focus-ring);
+    border-color: var(--m-color-border-control-focus);
+    /* The field lights up: its fill lifts a step */
+    background-color: var(--m-color-surface-raised);
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
 }
 
 .m-select-wrapper.is-danger:has(.m-select:focus-visible) {
@@ -1538,7 +1557,7 @@
 
 @media (pointer: fine) {
     .m-select-wrapper:hover {
-        border-color: var(--m-gray-7);
+        border-color: var(--m-color-border-control-hover);
     }
 
     .m-select-wrapper:has(.m-select:disabled):hover {
@@ -1557,6 +1576,13 @@
     width: 100%;
     background-color: var(--m-color-surface);
     border-radius: var(--m-radius);
+}
+
+/* More contrast: the same edge cards get, since a table is a borderless card */
+@media (prefers-contrast: more) {
+    .m-table-wrapper {
+        border: 1px solid var(--m-color-border);
+    }
 }
 
 .m-table {
@@ -1739,10 +1765,15 @@
 .m-tabs:focus-visible,
 .m-tab:focus-visible,
 .m-tab-panel:focus-visible {
-    outline: 2px solid var(--m-color-focus-border);
-    outline-offset: 1px;
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
     border-radius: var(--m-radius);
     border-color: transparent;
+}
+
+/* The tab list keeps its bottom line under the ring */
+.m-tabs:focus-visible {
+    box-shadow: var(--m-shadow-focus), 0 -1px 0 var(--m-color-border) inset;
 }
 
 @media (pointer: fine) {
@@ -1929,9 +1960,11 @@
 
 .m-textarea:focus-visible,
 .m-textarea:focus-visible:hover {
-    outline: none;
-    border-color: var(--m-color-focus-border);
-    box-shadow: 0 0 0 3px var(--m-color-focus-ring);
+    border-color: var(--m-color-border-control-focus);
+    /* The field lights up: its fill lifts a step */
+    background-color: var(--m-color-surface-raised);
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
 }
 
 .m-textarea.is-danger:focus-visible {
@@ -1959,7 +1992,7 @@
 
 @media (pointer: fine) {
     .m-textarea:hover {
-        border-color: var(--m-gray-7);
+        border-color: var(--m-color-border-control-hover);
     }
 
     .m-textarea:disabled:hover {
@@ -2127,6 +2160,6 @@
 }
 
 .m-toggle:focus-visible {
-    outline: 2px solid var(--m-color-focus-border);
-    outline-offset: 2px;
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
 }

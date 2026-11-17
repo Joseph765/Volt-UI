@@ -105,8 +105,8 @@
         {
             title: "Focus & selection",
             colors: [
-                { token: "--m-color-focus-border", name: "Focus border", kind: "fill", description: "Focus outline on every control, and the border of a focused field." },
-                { token: "--m-color-focus-ring", name: "Focus ring", kind: "ring", description: "Soft halo around a focused field." },
+                { token: "--m-color-focus-ring", name: "Focus ring", kind: "ring", description: "Color of the focus ring (--m-shadow-focus) around every focusable element." },
+                { token: "--m-color-border-control-focus", name: "Border control focus", kind: "fill", description: "The border of a focused form control, inside the focus ring." },
                 { token: "--m-color-highlight", name: "Highlight", kind: "fill", description: "Background of selected text, everywhere." }
             ]
         }
@@ -400,7 +400,7 @@
                                     </div>
                                 {:else if color.kind === "ring"}
                                     <div class="tile-preview">
-                                        <span class="ring-sample" style="box-shadow: 0 0 0 3px var({color.token});"></span>
+                                        <span class="ring-sample" style="box-shadow: var(--m-shadow-focus);"></span>
                                     </div>
                                 {:else if color.kind === "text"}
                                     <div class="tile-preview is-text" style="color: var({color.token});">
@@ -621,7 +621,7 @@
     .ring-sample {
         width: 8rem;
         height: var(--m-control-height);
-        border: 1px solid var(--m-color-focus-border);
+        border: 1px solid var(--m-color-border-control-focus);
         border-radius: var(--m-radius-full);
     }
 
@@ -759,5 +759,12 @@
         letter-spacing: var(--m-letter-spacing-xs);
         text-transform: uppercase;
         color: var(--m-color-text-weaker);
+    }
+
+    /* More contrast: the same edge Moth's cards get, so these surfaces (token tiles) read against the page */
+    @media (prefers-contrast: more) {
+        .panel {
+            border: 1px solid var(--m-color-border);
+        }
     }
 </style>

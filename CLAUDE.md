@@ -38,13 +38,13 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
 - **SEO:**
   - Every page renders `src/routes/Seo.svelte`; component pages get it from `components/+layout.svelte`.
   - `static/robots.txt` and `src/routes/sitemap.xml/+server.js` list the routes. Add new pages there.
-  - `/form-preview` and `/examples/*` (dashboard, settings, tasks, forms) are private design test benches with
+  - `/form-preview` and `/examples/*` (dashboard, settings, tasks, forms, focus) are private design test benches with
     `noindex`, disallowed in robots.txt and not in the nav or sitemap. They're realistic app screens for checking
     how the system holds up. Use them (and add to them) when testing component changes.
 
 ## Design decisions (keep consistent)
 - **Accent purple is rare:** primary actions and selected state only (checked, active tab or nav item, text
-  selection). No decorative purple, and gray everywhere else. See the Guidelines section (`src/routes/guidelines`).
+  selection). No decorative purple, and gray everywhere else (focus included). See the Guidelines section (`src/routes/guidelines`).
 - **Guidelines section:** a nav group like Components. `/guidelines` is the Overview page (button hierarchy,
   accent, focus, forms, icons, dark only); `/guidelines/color` explains when to use each semantic color token.
   New guideline pages go in the nav group and the sitemap.
@@ -70,8 +70,15 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
     snapping. Hover doesn't follow the cursor.
 - **Borders:** form controls (input, select, textarea, checkbox, radio) use `--m-color-border-control`; everything
   else (dividers, card headers, nav, tables) uses `--m-color-border`.
-- **Focus:** one neutral gray everywhere: `--m-color-focus-border` (outline) and `--m-color-focus-ring` (halo on
-  fields).
+- **Focus ("Lamplight", chosen on `/examples/focus`, which keeps the alternatives):** one indicator on every
+  focusable element: `--m-shadow-focus`, a tight 3px ring plus a wide soft glow, both mixed from
+  `--m-color-focus-ring` (`--m-gray-12`). Focused fields also turn their border `--m-color-border-control-focus`
+  (`--m-gray-12`) and lift their fill to `--m-color-surface-raised`; hovered fields use
+  `--m-color-border-control-hover` (`--m-gray-9`), so rest → hover → focus reads clearly. Each focus rule also sets
+  `outline: 2px solid transparent` so forced-colors mode (which drops shadows) still shows focus. Elements with
+  their own shadow list both (button halo, tab list's bottom line, docs glow cards); tertiary's halo is a no-op
+  shadow, not `none`, so the list stays valid. The radio glow hugs the circle. Moonlit (purple focus) was tried
+  and dropped because it spent the accent on focus. Removed on purpose: the old gray-10 focus, the 2px focus outlines, `--m-color-focus-border` and `--m-shadow-control-focus`.
 - **Form fields:**
   - Subdued: `--m-color-surface` fill with a gray border, so actions stand out. Disabled is flat with dimmed text.
   - Hints and errors sit 4px under the field.
@@ -135,6 +142,12 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
   matching `--m-color-text-on-<status>`. `--m-color-text-inverse` is for light fills (e.g. a lit button).
   Soft status components (e.g. a non-strong badge) use the `-weak` set: `--m-color-<status>-weak` fill,
   `--m-color-text-on-<status>-weak` text and `--m-color-border-<status>-weak` border.
+- **More contrast:** `@media (prefers-contrast: more)` in `tokens.css` only overrides tokens. Text, borders and
+  status borders move up so text reaches 4.5:1 and control edges 3:1 on `--m-color-surface`, and focus becomes a
+  crisp gapped ring instead of the glow. Keep new color tokens inside those bars there too. Cards and tables (normally
+  borderless) get a `--m-color-border` edge in this mode, set in `components.css` (so does `CopyCode`). Every docs
+  surface block gets the same edge: code examples (`highlight.css`), component cards (`.glow-card` in `src/routes/glow.css`) and each
+  page's own surface boxes (a `prefers-contrast` block at the end of that page's styles). Add one for new ones.
 - **Dark only:** there is no light theme. The stylesheet loads Outfit and Geist Mono from Google Fonts and styles
   `html`/`body` globally (documented on Getting Started).
 

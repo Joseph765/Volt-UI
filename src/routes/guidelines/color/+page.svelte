@@ -62,10 +62,11 @@
     /** @type { Mark[] } */
     const borderMarks = [
         { key: "control", token: "--m-color-border-control" },
+        { key: "control-focus", token: "--m-color-border-control-focus" },
         { key: "border", token: "--m-color-border" },
         { key: "info-border", token: "--m-color-border-info-weak" },
-        // On the focus outline, which sits 2px outside the button
-        { key: "focus", token: "--m-color-focus-border", dx: -3 }
+        // On the focus ring, which sits 2px outside the button
+        { key: "focus", token: "--m-color-focus-ring", dx: -3 }
     ];
 
     // A button's fill and label sit at the same height, so each token gets its own row: the checkbox shows the fill
@@ -181,12 +182,17 @@
                 Surfaces already separate content, so use borders only where an edge has a job: a form control, a
                 divider, or a soft status component. Form controls get their own token,
                 <Code>--m-color-border-control</Code>, which turns brighter when people ask their system for more
-                contrast. Moth's cards and tables don't have borders.
+                contrast. When a field is focused, its border brightens to <Code>--m-color-border-control-focus</Code>,
+                and like every focusable element it gets the focus ring, <Code>--m-shadow-focus</Code>, drawn in
+                <Code>--m-color-focus-ring</Code>. Moth's cards and tables don't have borders.
             </Text>
-            <CalloutDiagram label="Border tokens on a field, a divider, a badge and a focused button" marks={borderMarks}>
+            <CalloutDiagram label="Border tokens on a field, a focused field, a divider, a badge and a focused button" marks={borderMarks}>
                 <div class="demo-borders">
                     <div class="demo-text-row">
                         <input class="m-input is-expanded" placeholder="Search" readonly tabindex="-1" data-mark="control" />
+                    </div>
+                    <div class="demo-text-row">
+                        <input class="m-input is-expanded demo-focus-field" value="Ada Lovelace" readonly tabindex="-1" data-mark="control-focus" />
                     </div>
                     <div class="demo-text-row">
                         <div class="m-divider demo-divider" data-mark="border"></div>
@@ -446,9 +452,14 @@
         flex: 1;
     }
 
+    /* A field drawn in its focused state */
+    .demo-focus-field {
+        border-color: var(--m-color-border-control-focus);
+        box-shadow: var(--m-shadow-focus);
+    }
+
     .demo-focus {
-        outline: 2px solid var(--m-color-focus-border);
-        outline-offset: 2px;
+        box-shadow: var(--m-shadow-focus);
     }
 
 
@@ -571,5 +582,18 @@
     .rules strong {
         color: var(--m-color-text);
         font-weight: var(--m-font-weight-bold);
+    }
+
+    /* More contrast: the same edge Moth's cards get, so these surfaces read against the page
+       (principle and do/don't cards, and the demo cards in the diagrams) */
+    @media (prefers-contrast: more) {
+        .principle,
+        .verdict-card,
+        .demo-table,
+        .demo-invoice,
+        .demo-accent,
+        .demo-borders {
+            border: 1px solid var(--m-color-border);
+        }
     }
 </style>

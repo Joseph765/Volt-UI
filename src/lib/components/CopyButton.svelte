@@ -42,8 +42,8 @@
     }
 
     .m-copy-button:focus-visible {
-        outline: 2px solid var(--m-color-focus-border);
-        outline-offset: 2px;
+        outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+        box-shadow: var(--m-shadow-focus);
     }
 
     /* Same as Button's secondary variant: on hover the outline turns white and glows */

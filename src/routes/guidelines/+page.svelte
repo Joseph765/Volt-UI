@@ -62,9 +62,12 @@
         <section class="guideline">
             <Text size="2xl" weight="bold" as="h2">Focus</Text>
             <Text size="l" variant="weak" measure="l">
-                Every interactive element shows the same neutral focus outline (<Code>--m-color-focus-border</Code>)
-                when reached with the keyboard, and form fields add a soft halo (<Code>--m-color-focus-ring</Code>).
-                Keep focus visible: never remove an outline without replacing it.
+                Focus switches things on, like a lamp a moth is drawn to. Every interactive element reached with the
+                keyboard gets the same soft white glow, <Code>--m-shadow-focus</Code> in
+                <Code>--m-color-focus-ring</Code>. A focused field also turns its border near-white
+                (<Code>--m-color-border-control-focus</Code>) and lifts its fill a step, so it stands out clearly from its quiet resting state. Hovered fields brighten their border
+                first (<Code>--m-color-border-control-hover</Code>). Keep focus visible: never remove the glow without
+                replacing it.
             </Text>
         </section>
 
@@ -175,5 +178,12 @@
     .rules strong {
         color: var(--m-color-text);
         font-weight: var(--m-font-weight-bold);
+    }
+
+    /* More contrast: the same edge Moth's cards get, so these surfaces (example boxes) read against the page */
+    @media (prefers-contrast: more) {
+        .example {
+            border: 1px solid var(--m-color-border);
+        }
     }
 </style>

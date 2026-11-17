@@ -146,8 +146,7 @@
     }
 
     .component-card:focus-visible {
-        outline: 2px solid var(--m-color-focus-border);
-        outline-offset: 2px;
+        outline: 2px solid transparent; /* shows in forced-colors mode; the ring itself is in glow.css */
     }
 
     @media (pointer: fine) {

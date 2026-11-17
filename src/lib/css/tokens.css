@@ -158,6 +158,8 @@
 	/* Borders */
     --m-color-border: var(--m-gray-4);
 	--m-color-border-control: var(--m-gray-4);
+	--m-color-border-control-hover: var(--m-gray-9); /* Border of a hovered form control */
+	--m-color-border-control-focus: var(--m-gray-12); /* Border of a focused form control */
 	/* Soft status borders, for components on a weak status fill */
 	--m-color-border-neutral-weak: var(--m-gray-5);
 	--m-color-border-info-weak: var(--m-info-5);
@@ -168,9 +170,12 @@
 	/* Highlight */
 	--m-color-highlight: var(--m-accent-7); /* Selected text, everywhere */
 
-	/* Focus: one neutral color for every control, so it never competes with the accent */
-	--m-color-focus-border: var(--m-gray-10);
-	--m-color-focus-ring: color-mix(in srgb, var(--m-gray-12) 16%, transparent);
+	/* Focus ("Lamplight"): every focusable element switches on like a lamp. A tight ring, then a wide soft glow.
+	   Neutral, so purple stays rare */
+	--m-color-focus-ring: var(--m-gray-12);
+	--m-shadow-focus:
+		0 0 0 3px color-mix(in srgb, var(--m-color-focus-ring) 25%, transparent),
+		0 0 28px 4px color-mix(in srgb, var(--m-color-focus-ring) 20%, transparent);
 
 	/* Text colors */
     --m-color-text: var(--m-gray-12);
@@ -208,9 +213,27 @@
 	--m-color-success-weak: var(--m-success-4);
 }
 
-/* @media (prefers-contrast: more) {
+/*
+ * More contrast, when people ask their system for it. Every value clears WCAG's bars on a card (--m-color-surface):
+ * 4.5:1 for text, 3:1 for control edges and focus. The ratios in the comments are measured against the surface.
+ */
+@media (prefers-contrast: more) {
 	:root {
-		--m-color-border-control: var(--m-gray-8);
-		--m-color-text-weakest: var(--m-gray-10);
+		/* Text: the faint steps move up; hierarchy comes from size and weight instead */
+		--m-color-text-weaker: var(--m-gray-11); /* 9.0:1, was 4.5:1 */
+		--m-color-text-weakest: var(--m-gray-10); /* 4.5:1, was 3.0:1 */
+
+		/* Borders: dividers and field edges become clearly visible */
+		--m-color-border: var(--m-gray-8); /* 3.0:1, was 1.3:1 */
+		--m-color-border-control: var(--m-gray-10); /* 4.5:1, was 1.3:1 */
+		--m-color-border-control-hover: var(--m-gray-11);
+		--m-color-border-neutral-weak: var(--m-gray-8);
+		--m-color-border-info-weak: var(--m-info-8);
+		--m-color-border-warning-weak: var(--m-warning-8);
+		--m-color-border-danger-weak: var(--m-danger-8);
+		--m-color-border-success-weak: var(--m-success-8);
+
+		/* Focus: a crisp solid ring instead of the soft glow; 2px wide, 2px away (the gap is the page background) */
+		--m-shadow-focus: 0 0 0 2px var(--m-color-background), 0 0 0 4px var(--m-color-focus-ring);
 	}
-} */
+}

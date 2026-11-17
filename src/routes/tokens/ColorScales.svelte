@@ -106,8 +106,8 @@
     }
 
     .swatch:focus-visible {
-        outline: 2px solid var(--m-color-focus-border);
-        outline-offset: 2px;
+        outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+        box-shadow: var(--m-shadow-focus);
     }
 
     .icon {
@@ -153,6 +153,13 @@
         .icon {
             width: 12px;
             height: 12px;
+        }
+    }
+
+    /* More contrast: the same edge Moth's cards get, so these surfaces (the color scale grid) read against the page */
+    @media (prefers-contrast: more) {
+        .palette {
+            border: 1px solid var(--m-color-border);
         }
     }
 </style>

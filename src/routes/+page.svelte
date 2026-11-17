@@ -550,8 +550,7 @@
     }
 
     .showcase-card:focus-visible {
-        outline: 2px solid var(--m-color-focus-border);
-        outline-offset: 2px;
+        outline: 2px solid transparent; /* shows in forced-colors mode; the ring itself is in glow.css */
     }
 
     @media (pointer: fine) {
@@ -663,5 +662,13 @@
     .footer-links :global(.m-link:hover),
     .footer-links :global(.m-link:focus-visible) {
         color: var(--m-color-text);
+    }
+
+    /* More contrast: the same edge Moth's cards get, so these surfaces (feature tiles and the palette panel) read against the page */
+    @media (prefers-contrast: more) {
+        .feature,
+        .palette {
+            border: 1px solid var(--m-color-border);
+        }
     }
 </style>
