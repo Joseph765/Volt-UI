@@ -36,12 +36,16 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
     Exception: a prop that only makes sense bound is listed as written, e.g. Radio's `bind:group`.
   - Code-example strings show consumer imports (`moth-ui-svelte`, `@lucide/svelte`). Icon-only buttons in examples
     get an `aria-label`.
-- **API changes:** breaking changes are fine before launch (no changelog, no migration notes). Recently removed on
-  purpose: the `Icon` component, `Container`'s `id` prop, and the Card `ghost` and Button `ghost` variants.
+- **API changes:** breaking changes are fine before launch (no migration notes). Record notable changes in
+  `CHANGELOG.md` under the current `package.json` version. Recently removed on purpose: the `Icon` component,
+  `Container`'s `id` prop, and the Card `ghost` and Button `ghost` variants.
 - **`src/routes/components/components.json`** drives the nav, the All Components cards, the landing showcase,
   the sitemap and each component page's SEO. Card previews are static HTML. Use `<span>`/`<div>`, never
   `<button>`/`<a>`, because they sit inside a link. Close every tag (an unclosed `<svg>` broke hydration once).
 - **Page-level `Container`s** on the docs site use `align="center"`.
+- **Version label:** the docs sidebar shows `v{version}` next to the logo, imported from `package.json` in
+  `src/routes/+layout.svelte`. `vite.config.js` allows `package.json` in `server.fs.allow`; without it the dev
+  server 403s the import and hydration breaks (SSR still looks fine).
 - **SEO:**
   - Every page renders `src/routes/Seo.svelte`; component pages get it from `components/+layout.svelte`.
   - `static/robots.txt` and `src/routes/sitemap.xml/+server.js` list the routes. Add new pages there.
@@ -51,7 +55,8 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
 
 ## Design decisions (keep consistent)
 - **Accent purple is rare:** primary actions and selected state only (checked, active tab or nav item, text
-  selection). No decorative purple, and gray everywhere else (focus included). See the Guidelines section (`src/routes/guidelines`).
+  selection). No decorative purple, and gray everywhere else (focus included). See the Guidelines section
+  (`src/routes/guidelines`).
 - **Guidelines section:** a nav group like Components. `/guidelines` is the Overview page (button hierarchy,
   accent, focus, forms, icons, dark only); `/guidelines/color` explains when to use each semantic color token.
   New guideline pages go in the nav group and the sitemap.
@@ -85,7 +90,8 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
   `outline: 2px solid transparent` so forced-colors mode (which drops shadows) still shows focus. Elements with
   their own shadow list both (button halo, tab list's bottom line, docs glow cards); tertiary's halo is a no-op
   shadow, not `none`, so the list stays valid. The radio glow hugs the circle. Moonlit (purple focus) was tried
-  and dropped because it spent the accent on focus. Removed on purpose: the old gray-10 focus, the 2px focus outlines, `--m-color-focus-border` and `--m-shadow-control-focus`.
+  and dropped because it spent the accent on focus. Removed on purpose: the old gray-10 focus, the 2px focus
+  outlines, `--m-color-focus-border` and `--m-shadow-control-focus`.
 - **Form fields:**
   - Subdued: `--m-color-surface` fill with a gray border, so actions stand out. Disabled is flat with dimmed text.
   - Hints and errors sit 4px under the field.
@@ -129,6 +135,8 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
   actions groups can sit side by side.
 - **Text:** `align` is optional. When omitted, Text inherits its container's `text-align` (e.g. `TableCell align`).
   Explicit `center`/`end` also move the width-capped (`measure`) block with auto margins.
+- **Links:** hover only removes the underline. A brighten-to-gray-12 hover (incl. banner links) was tried and
+  reverted on purpose.
 - **Component API notes:**
   - `Text` takes `class` (style it from a page with `:global(...)`) and `id`.
   - `TableCell` takes `colspan` (e.g. a full-width "No results" row).
@@ -153,10 +161,11 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
   `--m-color-text-on-<status>-weak` text and `--m-color-border-<status>-weak` border.
 - **More contrast:** `@media (prefers-contrast: more)` in `tokens.css` only overrides tokens. Text, borders and
   status borders move up so text reaches 4.5:1 and control edges 3:1 on `--m-color-surface`, and focus becomes a
-  crisp gapped ring instead of the glow. Keep new color tokens inside those bars there too. Cards and tables (normally
-  borderless) get a `--m-color-border` edge in this mode, set in `components.css` (so does `CopyCode`). Every docs
-  surface block gets the same edge: code examples (`highlight.css`), component cards (`.glow-card` in `src/routes/glow.css`) and each
-  page's own surface boxes (a `prefers-contrast` block at the end of that page's styles). Add one for new ones.
+  crisp gapped ring instead of the glow. Keep new color tokens inside those bars there too. Cards and tables
+  (normally borderless) get a `--m-color-border` edge in this mode, set in `components.css` (so does `CopyCode`).
+  Every docs surface block gets the same edge: code examples (`highlight.css`), component cards (`.glow-card` in
+  `src/routes/glow.css`) and each page's own surface boxes (a `prefers-contrast` block at the end of that page's
+  styles). Add one for new ones.
 - **Dark only:** there is no light theme. The stylesheet loads Outfit and Geist Mono from Google Fonts and styles
   `html`/`body` globally (documented on Getting Started).
 
@@ -179,11 +188,31 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
   - Check with the Playwright MCP tools; screenshots must go in `.playwright-mcp/` inside the repo.
   - Afterwards, delete `.playwright-mcp` and stop the server with `pkill -f "vite dev --port 5199"`.
   - Hidden tab panels are in the DOM: target `:visible` elements in Playwright.
-  - The first page load after starting the server can log a spurious hydration warning. Reload before
-    concluding there's a real mismatch.
+  - The first page load after starting the server can log a spurious hydration warning (or a failed dynamic
+    import while Vite optimizes deps). Reload before concluding there's a real problem.
+  - Playwright's browser reports no fine pointer, so `@media (pointer: fine)` hover rules never apply there. Test
+    them by applying the rule's declarations directly (or via a class) instead of hovering.
+  - `browser_click` sometimes times out even though the click happened; check the resulting state.
+  - In zsh, quote globs passed to grep (`--include='*.svelte'`).
 - The user commits and pushes themselves. Don't commit unless asked.
 
 ## Open items / ideas not yet done
+- **Update `CHANGELOG.md`** with a `[0.2.0]` entry (it only has 0.1.1). Breaking changes since 0.1.1 include:
+  - Svelte 5 API: callback props (`onclick`, `onchange`, `onkeydown`, `LayoutNav onclose`) replace `on:` events;
+    snippets replace slots (`header-end` → `headerEnd`, `mobile-logo` → `mobileLogo`, nav `icon` gets `animate` as a
+    snippet param); `value`/`checked`/`indeterminate`/`group` are `$bindable`.
+  - Tokens renamed or removed: `--m-color-text-contrast` → `--m-color-text-inverse`; `--m-color-border-<status>` →
+    `--m-color-border-<status>-weak`; `--m-color-focus-border` removed (now `--m-color-border-control-focus`).
+  - New tokens: `--m-color-text-on-<status>` and `-weak` variants, `--m-color-<status>-weak`,
+    `--m-color-border-neutral-weak`, `--m-color-border-control` / `-hover` / `-focus`, `--m-shadow-focus`.
+  - Focus redesigned ("Lamplight" glow on every focusable element, fields brighten border and fill); field hover
+    brighter; radio focus hugs the circle.
+  - `prefers-contrast: more` support (stronger text/borders, crisp focus ring, edges on cards, tables, CopyCode).
+  - Layout sidebar now starts at 66rem (was 82rem).
+  - Components use semantic status tokens and on-colors (badges, buttons, banner, toast, checkbox, toggle).
+  - Docs: Guidelines became a section with a new Color page; version shown in the docs sidebar.
+- **Tokens page docs** are behind: it doesn't list the `-weak` fills/text/borders, the `-control` borders or
+  `--m-shadow-focus` (it has no shadow section). The user wants to revisit these docs later.
 - Status text in components should use `--m-color-text-<status>` (as the Color guidelines say), but `.m-text.is-danger`
   and friends in `components.css` still use the fill tokens (`--m-color-danger` etc.). Switch them over.
 - If button text still "drops" after hovering, fake the grow with the light layer instead of `transform`.
