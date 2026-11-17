@@ -180,7 +180,7 @@
 	/* Text colors */
     --m-color-text: var(--m-gray-12);
 	--m-color-text-accent: var(--m-accent-11);
-	--m-color-text-contrast: var(--m-gray-1);
+	--m-color-text-inverse: var(--m-gray-1);
     --m-color-text-weak: var(--m-gray-11);
     --m-color-text-weaker: var(--m-gray-10);
     --m-color-text-weakest: var(--m-gray-8);

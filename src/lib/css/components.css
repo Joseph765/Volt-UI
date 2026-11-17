@@ -70,7 +70,7 @@
 .m-badge.is-warning.is-strong {
     background-color: var(--m-color-warning);
     border-color: var(--m-color-warning);
-    color: var(--m-color-text-contrast);
+    color: var(--m-color-text-inverse);
 }
 
 .m-badge.is-success {
@@ -189,7 +189,7 @@
      * center) and their label turns dark; every variant can cast a soft halo. Variants set the values below.
      */
     --m-button-lit-background: radial-gradient(ellipse at center, var(--m-gray-12) 0%, var(--m-accent-12) 45%, var(--m-accent-11) 100%);
-    --m-button-lit-color: var(--m-color-text-contrast);
+    --m-button-lit-color: var(--m-color-text-inverse);
     --m-button-halo: 0 0 24px -2px color-mix(in srgb, var(--m-accent-9) 75%, transparent);
     position: relative;
     isolation: isolate;

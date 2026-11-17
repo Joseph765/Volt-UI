@@ -73,7 +73,7 @@
                 { token: "--m-color-text-weaker", name: "Text weaker", kind: "text", description: "More subdued color for body text." },
                 { token: "--m-color-text-weakest", name: "Text weakest", kind: "text", description: "Placeholders in form elements." },
                 { token: "--m-color-text-accent", name: "Text accent", kind: "text", description: "Accent-colored text, used sparingly." },
-                { token: "--m-color-text-contrast", name: "Text contrast", kind: "contrast", description: "Text on light fills, like a hovered primary button." }
+                { token: "--m-color-text-inverse", name: "Text inverse", kind: "contrast", description: "Text on light fills, like a hovered primary button." }
             ]
         },
         {

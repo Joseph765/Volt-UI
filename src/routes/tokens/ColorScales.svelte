@@ -102,7 +102,7 @@
     }
 
     .swatch.is-dark-icon {
-        color: var(--m-color-text-contrast);
+        color: var(--m-color-text-inverse);
     }
 
     .swatch:focus-visible {
