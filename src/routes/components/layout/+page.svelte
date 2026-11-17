@@ -161,7 +161,7 @@
         <TableBody>
             <TableRow>
                 <TableCell><Code>LayoutNav open</Code></TableCell>
-                <TableCell>Slides the navigation in on screens narrower than 82rem and blurs the page content behind it. The sidebar is always shown on larger screens.</TableCell>
+                <TableCell>Slides the navigation in on screens narrower than 66rem (1056px) and blurs the page content behind it. The sidebar is always shown on larger screens.</TableCell>
                 <TableCell><Code>boolean</Code></TableCell>
             </TableRow>
             <TableRow>

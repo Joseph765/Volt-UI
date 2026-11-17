@@ -93,6 +93,8 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
   - The "Inside Card" example was removed.
 - **Tabs:** solid accent indicator bar that slides 0.2s; panels fade in.
 - **Layout:**
+  - The sidebar starts at 66rem (`--m-breakpoint-l`, 1056px), not 82rem, so 1280px laptop windows (1920px at
+    150% scaling) get the sidebar instead of the mobile menu. Below that: header, menu button and drawer.
   - The page scrolls the **window**. Header and sidebar use sticky/fixed positioning, so SvelteKit scroll
     restoration works.
   - `Layout` measures its logo height into `--m-layout-logo-height` for the sticky sidebar.

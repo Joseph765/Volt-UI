@@ -905,7 +905,8 @@
 /* Layout */
 /*
  * Mobile first: a top header with a menu button, and a nav drawer that slides in from the left.
- * At 82rem (--m-breakpoint-xl) and up, the nav becomes a sidebar with the logo above it.
+ * At 66rem (--m-breakpoint-l) and up, the nav becomes a sidebar with the logo above it. That includes common
+ * laptop windows like 1280px (a 1920px screen at 150% scaling), which would otherwise get the mobile menu.
  *
  * The page scrolls the browser window (not an inner element), so routers like SvelteKit reset and restore
  * the scroll position on navigation as usual. The header and sidebar stay put with position: sticky/fixed.
@@ -1026,7 +1027,7 @@
     max-width: var(--m-breakpoint-2xl);
 }
 
-@media (min-width: 82rem) {
+@media (min-width: 66rem) {
     /*
      * Centered layout: the content column (as wide as the largest Container) sits in the middle of
      * the page, with the sidebar hugging its left edge. The gutters share the leftover space equally,
