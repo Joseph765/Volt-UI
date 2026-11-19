@@ -16,7 +16,8 @@
         LayoutNav, 
         NavGroup,
         NavGroupItem,
-        NavItem
+        NavItem,
+        ThemeSwitcher
     } from "$lib";
 
     /** @type {{ children: import('svelte').Snippet }} */
@@ -30,6 +31,7 @@
 <Layout>
     <LayoutHeader>
         <LayoutMenuButton {open} onclick={() => open = !open} />
+        <ThemeSwitcher />
         {#snippet mobileLogo()}
             <a href="/" class="logo" aria-label="Moth UI home">
                 <MothLogo size={32} wordmark={false} />
@@ -69,6 +71,8 @@
         </NavGroup>
     </LayoutNav>
     <LayoutContent>
+        <!-- Desktop: top right of the page, like Geist's docs. Mobile: in the header, above -->
+        <div class="theme-corner"><ThemeSwitcher /></div>
         {@render children()}
     </LayoutContent>
 </Layout>
@@ -89,6 +93,26 @@
     .logo.is-desktop,
     .version {
         align-self: last baseline;
+    }
+
+    /* The theme switcher's desktop spot: the page's top right corner. Below 66rem (--m-breakpoint-l, where the
+       sidebar becomes the header) it's in the header instead */
+    .theme-corner {
+        display: none;
+    }
+
+    @media (min-width: 66rem) {
+        :global(.m-layout-content) {
+            position: relative;
+        }
+
+        .theme-corner {
+            display: block;
+            position: absolute;
+            top: var(--m-space-l);
+            right: var(--m-space-l);
+            z-index: 1;
+        }
     }
 
     .version {

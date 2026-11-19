@@ -52,8 +52,8 @@
         <section class="section" id="no-borders">
             <Text size="2xl" weight="bold" as="h2">Surfaces don't have borders</Text>
             <Text size="l" variant="weak" measure="l">
-                Cards, tables, panels and banners are separated by their fill, not by an outline. Each layer up is a
-                little lighter than the one below it (background, then surface, then raised), so depth reads
+                Cards, tables, panels and banners are separated by their fill, not by an outline. Each layer has a
+                different fill from the one below it (background, then surface, then raised), so depth reads
                 without a line around every box. Fewer lines also keep dense screens calm. See
                 <Link size="l" href="/foundations/colors#surfaces">Colors</Link> for the surface tokens.
             </Text>
@@ -85,7 +85,7 @@
                 Use a border only where an edge has a job. There are three:
             </Text>
             <ul class="rules">
-                <li><Text size="l" variant="weak" measure="l"><strong>Form controls.</strong> Fields share the surface fill, and they often sit on a surface card, so the border is what shows where to click and type. It also carries state: it brightens on hover and turns near-white on focus.</Text></li>
+                <li><Text size="l" variant="weak" measure="l"><strong>Form controls.</strong> Fields share the surface fill, and they often sit on a surface card, so the border is what shows where to click and type. It also carries state: it gets stronger on hover and takes the text color on focus.</Text></li>
                 <li><Text size="l" variant="weak" measure="l"><strong>Dividers.</strong> A single line between parts of one surface, like a card's header and body or the rows of a table.</Text></li>
                 <li><Text size="l" variant="weak" measure="l"><strong>Soft status components.</strong> A weak badge or banner has a border in its status color. See <Link size="l" href="/foundations/colors#status">Colors</Link>.</Text></li>
             </ul>

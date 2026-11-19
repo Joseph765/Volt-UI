@@ -58,8 +58,8 @@
             icon: `<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>`
         },
         {
-            title: "Dark by design",
-            body: "Designed dark-first rather than inverted from a light theme, so every surface, border and text color is tuned for low-light interfaces.",
+            title: "Dark first, light too",
+            body: "Designed dark-first, so every surface, border and text color is tuned for low-light interfaces, with a matching light theme one attribute away.",
             icon: `<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>`
         },
         {
@@ -606,7 +606,7 @@
     .swatch {
         height: 2.25rem;
         border-radius: 6px;
-        box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.04);
+        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--m-gray-12) 8%, transparent);
     }
 
     @media (max-width: 36rem) {

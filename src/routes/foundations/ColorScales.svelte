@@ -96,7 +96,7 @@
         padding: 0;
         border: none;
         border-radius: 6px;
-        box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.04);
+        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--m-gray-12) 8%, transparent);
         color: var(--m-color-text);
         cursor: pointer;
     }

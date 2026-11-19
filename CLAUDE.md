@@ -245,11 +245,43 @@ We're simplifying the documentation site. Goals so far:
   Every docs surface block gets the same edge: code examples (`highlight.css`), component cards (`.glow-card` in
   `src/routes/glow.css`) and each page's own surface boxes (a `prefers-contrast` block at the end of that page's
   styles). Add one for new ones.
-- **Dark only:** there is no light theme. The stylesheet loads Outfit and Geist Mono from Google Fonts and styles
-  `html`/`body` globally (documented on Getting Started).
+- **Themes: dark by default, light on request.** `data-theme="light"` on `<html>` (or any element, to theme a
+  part of the page) switches every color token. How `tokens.css` is built:
+  - Raw scales: dark on `:root, [data-theme="dark"]`, light on `[data-theme="light"]`. All are Radix Colors:
+    Mauve (gray), Violet (accent), Blue (info), Green (success), Yellow (warning), Red (danger). Dark gray is
+    customized (darker step 1 for the page; step 3 is Radix 2). Danger, info and success use a darker step 9 in
+    both themes so white text on them passes 4.5:1. Violet and Yellow are unchanged.
+  - Semantic tokens are declared on `:root, [data-theme]`, not just `:root`, so a nested theme resolves them
+    against its own scales. A `[data-theme="light"]` block then overrides what doesn't mirror: page
+    `--m-gray-3` with white cards (`--m-color-surface: #ffffff`), raised `--m-gray-4` (gray-3 matched the page,
+    so table headers looked like holes), borders a step or two up
+    (`--m-color-border` gray-6), `--m-color-text-weaker` a gray-10/11 mix (4.6:1 on white), placeholders gray-9,
+    text on warning gray-12, neutral solid gray-11, highlight accent-5.
+  - `prefers-contrast: more` has a light block too (measured on white: borders gray-9, weak status borders step 11).
+  - Theme-dependent component colors that can't come from a semantic token are variables in the same blocks
+    (`--m-toggle-track`, `--m-toggle-knob`), so nested themes work. Don't use `[data-theme="light"] .m-x` selectors.
+  - Everything else follows because components use scale steps by their Radix role (e.g. the button "lamp"
+    gradient becomes deep ink in light mode, with light text via `--m-color-text-inverse`, which means "text on an
+    inverted fill").
+  - `index.css` sets `color` on every `[data-theme]` element so a nested theme's text doesn't inherit the page's.
+  - **`ThemeSwitcher`** (library component, `src/lib/components/ThemeSwitcher.svelte`, styles `.m-theme-switcher*`
+    in `components.css`), modeled on the Geist docs: a pill of three icon buttons (System, Light, Dark; inlined
+    Lucide icons) with the choice on a gray circle (gray, not the accent: a preference, not a primary selection). A
+    radio group (arrow keys move the choice). Sets `data-theme` on `<html>`; System follows `prefers-color-scheme`
+    live. Saves Light/Dark under `storageKey` (default `moth-theme`, `""` = don't save; System removes it). Props:
+    `storageKey`, `label`, `onchange`. All instances share module-level `$state`, so they agree.
+  - The library defaults to dark (no `data-theme` = dark). The docs site defaults to System: an inline script in
+    `src/app.html` resolves the saved choice or the OS setting before first paint (the same snippet is on the
+    ThemeSwitcher page, "Avoid a flash"). The docs put the switcher top right of the page on desktop
+    (`.theme-corner` in `+layout.svelte`, absolute in `.m-layout-content`) and in the header below 66rem.
+    `MothLogo` follows the page theme (`theme="auto"` default).
+  - Write copy that's true in both themes ("its own fill", "the text color"), not "lighter" or "near-white".
+- The stylesheet loads Outfit and Geist Mono from Google Fonts and styles `html`/`body` globally (documented on
+  Getting Started, along with themes).
 
 ## Docs scope decisions
-- No customization/theming docs: Moth is meant to be used as-is, not customized.
+- No customization docs: Moth is meant to be used as-is, not customized. Switching between the built-in dark and
+  light themes is documented (Getting Started → Themes).
 - No keyboard-support or form-submission explanations on the docs site for now.
 - Browser support is stated on Getting Started → Requirements: Chrome/Edge 111+, Safari 16.2+, Firefox 121+.
 

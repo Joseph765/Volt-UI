@@ -213,6 +213,6 @@
     }
 
     .task + .task {
-        border-top: 1px solid var(--m-gray-4);
+        border-top: 1px solid var(--m-color-border);
     }
 </style>

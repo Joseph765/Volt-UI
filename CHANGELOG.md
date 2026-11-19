@@ -53,6 +53,23 @@ All notable changes to this project will be documented in this file.
   form controls use `--m-color-border` like every other border).
 - **Focus:** `--m-shadow-focus`, the focus ring used by every focusable element.
 
+#### Light theme
+- Set `data-theme="light"` on `<html>`, or on any element to theme just that part of the page. Dark stays the
+  default (`data-theme="dark"` works too).
+- Every color token switches. The raw scales (`--m-gray-*`, `--m-accent-*` and the status scales) take the light
+  versions of the same Radix scales, with the same darker step 9 for danger, info and success. Semantic tokens are
+  remapped where light needs it: white cards (`--m-color-surface`) on a light gray page, raised surfaces a step
+  darker than the page, borders a step or two stronger, and the faint text steps nudged darker so they still pass
+  contrast on white. `prefers-contrast: more` has its own light values.
+- The stylesheet sets `color-scheme` per theme (it was always `dark`), and every `[data-theme]` element sets its
+  own text color, so a nested theme doesn't inherit the page's.
+
+#### New components
+- **ThemeSwitcher:** a small pill of System, Light and Dark buttons. System follows the OS setting (and switches
+  when it does); Light and Dark override it. It sets `data-theme` on `<html>`, saves the choice in `localStorage`
+  (`storageKey`, default `moth-theme`) and fires `onchange`. Every switcher on a page stays in sync. The docs show a
+  short `app.html` script that applies the saved theme before the first paint.
+
 #### Other additions
 - `prefers-contrast: more` support: stronger text and borders, a crisp gapped focus ring instead of the glow, and
   an edge on cards, tables and CopyCode.

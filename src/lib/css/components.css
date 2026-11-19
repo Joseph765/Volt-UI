@@ -2034,6 +2034,53 @@
     }
 }
 
+/* Theme Switcher: a pill of three icon buttons; the chosen one sits on a gray circle (gray, not the accent: a
+   theme is a preference, not a primary selection) */
+.m-theme-switcher {
+    display: inline-flex;
+    gap: 2px;
+    padding: 2px;
+    border: 1px solid var(--m-color-border);
+    border-radius: var(--m-radius-full);
+}
+
+.m-theme-switcher-option {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: none;
+    border-radius: var(--m-radius-full);
+    background: transparent;
+    color: var(--m-color-text-weaker);
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.m-theme-switcher-option[aria-checked="true"] {
+    background-color: var(--m-color-surface-raised);
+    color: var(--m-color-text);
+}
+
+.m-theme-switcher-option:focus-visible {
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
+}
+
+@media (pointer: fine) {
+    .m-theme-switcher-option[aria-checked="false"]:hover {
+        color: var(--m-color-text);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .m-theme-switcher-option {
+        transition: none;
+    }
+}
+
 /* Toast */
 .m-toast {
     display: flex;
@@ -2127,7 +2174,7 @@
     min-width: 48px;
     height: 28px;
     margin: 0;
-    background-color: var(--m-gray-5);
+    background-color: var(--m-toggle-track);
     border-radius: var(--m-radius-full);
     cursor: pointer;
 }
@@ -2139,7 +2186,7 @@
     width: 18px;
     left: 4px;
     bottom: 5px;
-    background-color: var(--m-color-text);
+    background-color: var(--m-toggle-knob);
     -webkit-transition: .2s;
     transition: .2s;
     border-radius: 100%;

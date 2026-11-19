@@ -32,6 +32,7 @@ import Tab from "./components/Tab.svelte";
 import Tabs from "./components/Tabs.svelte";
 import Text from "./components/Text.svelte";
 import Textarea from "./components/Textarea.svelte";
+import ThemeSwitcher from "./components/ThemeSwitcher.svelte";
 import Toast from "./components/Toast/Toast.svelte";
 import ToastGroup from "./components/Toast/ToastGroup.svelte";
 import Toggle from "./components/Toggle.svelte";
@@ -71,6 +72,7 @@ export {
     Tabs,
     Text,
     Textarea,
+    ThemeSwitcher,
     Toast,
     ToastGroup,
     Toggle

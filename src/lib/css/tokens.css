@@ -60,8 +60,13 @@
 	--m-breakpoint-l: 66rem; /* 1056px */
 	--m-breakpoint-xl: 82rem; /* 1312px */
 	--m-breakpoint-2xl: 99rem; /* 1584rem */
+}
 
-	/* Muave */
+:root,
+[data-theme="dark"] {
+	color-scheme: dark;
+
+	/* Mauve (Radix dark), with a darker step 1 for the page and step 3 moved down one (Radix 2); steps 4-12 are Radix 4-12 */
 	--m-gray-1: #050505;
 	--m-gray-2: #121113;
 	--m-gray-3: #1a191b;
@@ -75,7 +80,7 @@
 	--m-gray-11: #b5b2bc;
 	--m-gray-12: #eeeef0;
 
-    /* Red */
+    /* Red (Radix dark), step 9 darkened so white text on it passes 4.5:1 */
 	--m-danger-1: #191111;
 	--m-danger-2: #201314;
 	--m-danger-3: #3b1219;
@@ -89,7 +94,7 @@
 	--m-danger-11: #ff9592;
 	--m-danger-12: #ffd1d9;
 
-	/* Blue */
+	/* Blue (Radix dark), step 9 darkened */
 	--m-info-1: #0d1520;
 	--m-info-2: #111927;
 	--m-info-3: #0d2847;
@@ -103,7 +108,7 @@
 	--m-info-11: #70b8ff;
 	--m-info-12: #c2e6ff;
 
-	/* Yellow */
+	/* Yellow (Radix dark) */
 	--m-warning-1: #14120b;
 	--m-warning-2: #1b180f;
 	--m-warning-3: #2d2305;
@@ -117,7 +122,7 @@
 	--m-warning-11: #f5e147;
 	--m-warning-12: #f6eeb4;
 
-	/* Green */
+	/* Green (Radix dark), step 9 darkened */
 	--m-success-1: #0e1512;
 	--m-success-2: #121b17;
 	--m-success-3: #132d21;
@@ -131,7 +136,7 @@
 	--m-success-11: #3dd68c;
 	--m-success-12: #b1f1cb;
 	
-	/* Violet */
+	/* Violet (Radix dark) */
 	--m-accent-1: #14121f;
 	--m-accent-2: #1b1525;
 	--m-accent-3: #291f43;
@@ -144,8 +149,107 @@
 	--m-accent-10: #7d66d9;
 	--m-accent-11: #baa7ff;
 	--m-accent-12: #e2ddfe;
+}
 
-    /* Semantic Colors */
+/*
+ * Light theme: <html data-theme="light"> (or any element, to theme just that part of the page).
+ * The same Radix scales in their light versions. Danger, info and success keep the darker step 9 from the dark
+ * theme, so white text on the solid fills passes 4.5:1 here too.
+ */
+[data-theme="light"] {
+	color-scheme: light;
+
+	/* Mauve (Radix light) */
+	--m-gray-1: #fdfcfd;
+	--m-gray-2: #faf9fb;
+	--m-gray-3: #f2eff3;
+	--m-gray-4: #eae7ec;
+	--m-gray-5: #e3dfe6;
+	--m-gray-6: #dbd8e0;
+	--m-gray-7: #d0cdd7;
+	--m-gray-8: #bcbac7;
+	--m-gray-9: #8e8c99;
+	--m-gray-10: #84828e;
+	--m-gray-11: #65636d;
+	--m-gray-12: #211f26;
+
+	/* Red (Radix light), step 9 darkened */
+	--m-danger-1: #fffcfc;
+	--m-danger-2: #fff7f7;
+	--m-danger-3: #feebec;
+	--m-danger-4: #ffdbdc;
+	--m-danger-5: #ffcdce;
+	--m-danger-6: #fdbdbe;
+	--m-danger-7: #f4a9aa;
+	--m-danger-8: #eb8e90;
+	--m-danger-9: #d63941;
+	--m-danger-10: #dc3e42;
+	--m-danger-11: #ce2c31;
+	--m-danger-12: #641723;
+
+	/* Blue (Radix light), step 9 darkened */
+	--m-info-1: #fbfdff;
+	--m-info-2: #f4faff;
+	--m-info-3: #e6f4fe;
+	--m-info-4: #d5efff;
+	--m-info-5: #c2e5ff;
+	--m-info-6: #acd8fc;
+	--m-info-7: #8ec8f6;
+	--m-info-8: #5eb1ef;
+	--m-info-9: #0073e0;
+	--m-info-10: #0588f0;
+	--m-info-11: #0d74ce;
+	--m-info-12: #113264;
+
+	/* Yellow (Radix light) */
+	--m-warning-1: #fdfdf9;
+	--m-warning-2: #fefce9;
+	--m-warning-3: #fffab8;
+	--m-warning-4: #fff394;
+	--m-warning-5: #ffe770;
+	--m-warning-6: #f3d768;
+	--m-warning-7: #e4c767;
+	--m-warning-8: #d5ae39;
+	--m-warning-9: #ffe629;
+	--m-warning-10: #ffdc00;
+	--m-warning-11: #9e6c00;
+	--m-warning-12: #473b1f;
+
+	/* Green (Radix light), step 9 darkened */
+	--m-success-1: #fbfefc;
+	--m-success-2: #f4fbf6;
+	--m-success-3: #e6f6eb;
+	--m-success-4: #d6f1df;
+	--m-success-5: #c4e8d1;
+	--m-success-6: #adddc0;
+	--m-success-7: #8eceaa;
+	--m-success-8: #5bb98b;
+	--m-success-9: #008650;
+	--m-success-10: #2b9a66;
+	--m-success-11: #218358;
+	--m-success-12: #193b2d;
+
+	/* Violet (Radix light) */
+	--m-accent-1: #fdfcfe;
+	--m-accent-2: #faf8ff;
+	--m-accent-3: #f4f0fe;
+	--m-accent-4: #ebe4ff;
+	--m-accent-5: #e1d9ff;
+	--m-accent-6: #d4cafe;
+	--m-accent-7: #c2b5f5;
+	--m-accent-8: #aa99ec;
+	--m-accent-9: #6e56cf;
+	--m-accent-10: #654dc4;
+	--m-accent-11: #6550b9;
+	--m-accent-12: #2f265f;
+}
+
+/*
+ * Semantic colors. Declared on every theme root (not only :root), so a nested data-theme element resolves them
+ * against its own scales.
+ */
+:root,
+[data-theme] {
     --m-color-background: var(--m-gray-1);
 
 	/* Accent */
@@ -210,6 +314,41 @@
 	--m-color-warning-weak: var(--m-warning-4);
 	--m-color-success: var(--m-success-9);
 	--m-color-success-weak: var(--m-success-4);
+
+	/* Component colors that differ by theme (not for use in apps) */
+	--m-toggle-track: var(--m-gray-5);
+	--m-toggle-knob: var(--m-color-text);
+}
+
+/* Light: where the dark mapping doesn't mirror. Cards are white on a light gray page, raised parts a step darker
+   than the page, borders sit a step or two
+   further up the scale, and the faint text steps are nudged darker so they still pass contrast on white */
+[data-theme="light"] {
+	--m-color-background: var(--m-gray-3);
+	--m-color-surface: #ffffff;
+	/* One step past the page, so a table header or focused field differs from both the white card and the page */
+	--m-color-surface-raised: var(--m-gray-4);
+
+	--m-color-border: var(--m-gray-6);
+	--m-color-border-control-hover: var(--m-gray-8);
+	--m-color-border-neutral-weak: var(--m-gray-6);
+	--m-color-border-info-weak: var(--m-info-6);
+	--m-color-border-warning-weak: var(--m-warning-6);
+	--m-color-border-danger-weak: var(--m-danger-6);
+	--m-color-border-success-weak: var(--m-success-6);
+
+	--m-color-highlight: var(--m-accent-5);
+
+	--m-color-text-weaker: color-mix(in srgb, var(--m-gray-10) 50%, var(--m-gray-11)); /* 4.6:1 on white */
+	--m-color-text-weakest: var(--m-gray-9); /* 3.3:1, placeholders */
+	--m-color-text-on-warning: var(--m-gray-12);
+
+	/* Neutral's solid fill one step darker than Radix 9, so white text on it passes */
+	--m-color-neutral: var(--m-gray-11);
+
+	/* A white knob on a gray track, like most light-mode switches */
+	--m-toggle-track: var(--m-gray-8);
+	--m-toggle-knob: var(--m-color-surface);
 }
 
 /*
@@ -217,7 +356,8 @@
  * 4.5:1 for text, 3:1 for control edges and focus. The ratios in the comments are measured against the surface.
  */
 @media (prefers-contrast: more) {
-	:root {
+	:root,
+	[data-theme] {
 		/* Text: the faint steps move up; hierarchy comes from size and weight instead */
 		--m-color-text-weaker: var(--m-gray-11); /* 9.0:1, was 4.5:1 */
 		--m-color-text-weakest: var(--m-gray-10); /* 4.5:1, was 3.0:1 */
@@ -233,5 +373,18 @@
 
 		/* Focus: a crisp solid ring instead of the soft glow; 2px wide, 2px away (the gap is the page background) */
 		--m-shadow-focus: 0 0 0 2px var(--m-color-background), 0 0 0 4px var(--m-color-focus-ring);
+	}
+
+	/* Light: measured on white. Gray-8 borders are under 2:1 here, so everything moves further up */
+	[data-theme="light"] {
+		--m-color-text-weaker: var(--m-gray-11); /* 5.9:1 */
+		--m-color-text-weakest: color-mix(in srgb, var(--m-gray-10) 50%, var(--m-gray-11)); /* 4.6:1 */
+		--m-color-border: var(--m-gray-9); /* 3.3:1 */
+		--m-color-border-control-hover: var(--m-gray-11);
+		--m-color-border-neutral-weak: var(--m-gray-9);
+		--m-color-border-info-weak: var(--m-info-11);
+		--m-color-border-warning-weak: var(--m-warning-11);
+		--m-color-border-danger-weak: var(--m-danger-11);
+		--m-color-border-success-weak: var(--m-success-11);
 	}
 }

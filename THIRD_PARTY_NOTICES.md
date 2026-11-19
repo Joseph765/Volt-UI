@@ -1,7 +1,7 @@
 # Third-party notices
 
 Moth UI includes icon artwork from the projects below. Some Moth components (for example Banner, Checkbox,
-CopyButton, LayoutMenuButton, NavGroup, Select and Toast) inline a few of these icons as SVG.
+CopyButton, LayoutMenuButton, NavGroup, Select, ThemeSwitcher and Toast) inline a few of these icons as SVG.
 
 ## Lucide
 

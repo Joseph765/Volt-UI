@@ -47,7 +47,7 @@
         { token: "--m-color-text-weaker", kind: "text", use: "Metadata, like timestamps and hints." },
         { token: "--m-color-text-weakest", kind: "text", use: "Placeholders in form fields." },
         { token: "--m-color-text-accent", kind: "text", use: "Rare accent-colored text." },
-        { token: "--m-color-text-inverse", kind: "on", fill: "--m-gray-12", use: "Dark text on a light fill, like a hovered primary button." }
+        { token: "--m-color-text-inverse", kind: "on", fill: "--m-gray-12", use: "Text on an inverted fill, like a hovered primary button." }
     ];
 
     // Borders
@@ -182,8 +182,8 @@
                 </div>
             </CalloutDiagram>
             <Text size="l" variant="weak" measure="l">
-                Screens are built in layers: background, then surface, then raised. Each layer up is a little
-                lighter, so depth comes from the fill, not from borders or shadows.
+                Screens are built in layers: background, then surface, then raised. Each layer has its own fill,
+                so depth comes from the fill, not from borders or shadows.
             </Text>
             {@render tokenList(surfaceTokens)}
         </section>
@@ -335,7 +335,7 @@
         height: 2.25rem;
         border-radius: 6px;
         /* Keeps dark fills like the background distinguishable from the list */
-        box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.08);
+        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--m-gray-12) 8%, transparent);
     }
 
     .swatch.is-text {
