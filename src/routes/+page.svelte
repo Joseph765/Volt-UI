@@ -165,7 +165,7 @@
                     <span class="step-number">1</span>
                     <div class="step-body">
                         <Text size="l" weight="bold" as="h3">Install the package</Text>
-                        <CodeExample codeOnly code={`npm install moth-ui-svelte`} />
+                        <CopyCode code="npm install moth-ui-svelte" />
                     </div>
                 </li>
                 <li class="step">
@@ -224,7 +224,7 @@
                         Six 12-step scales, each step with a job: backgrounds, borders, solids and text.
                     </Text>
                 </div>
-                <Button variant="tertiary" href="/tokens#color-scales">Explore tokens →</Button>
+                <Button variant="tertiary" href="/foundations/colors">Explore colors →</Button>
             </div>
             <div class="palette">
                 {#each scales as scale}

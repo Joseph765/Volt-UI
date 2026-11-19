@@ -505,12 +505,19 @@
     border-radius: var(--m-radius);
 }
 
+/* The preview is a dot-grid canvas on the page background, not a surface, so components show on the color
+   they're usually placed on. A soft light around the inside edge (not a border) marks where it starts */
 .m-code-example {
-    background-color: var(--m-color-surface-raised);
+    background-color: var(--m-color-background);
+    background-image: radial-gradient(circle, var(--m-gray-7) 1px, transparent 1.5px);
+    background-size: 16px 16px;
+    background-position: center;
+    box-shadow: inset 0 0 64px color-mix(in srgb, var(--m-gray-4) 70%, transparent);
     max-height: 33dvh;
     max-width: 100%;
     overflow-y: auto;
-    padding: var(--m-space-m);
+    /* Room for the dots to read as a canvas, not as a dotted outline */
+    padding: var(--m-space-xl);
     resize: horizontal;
     border-radius: var(--m-radius) var(--m-radius) 0 0;
 }
@@ -582,6 +589,28 @@
     background: var(--m-color-surface);
     padding: var(--m-space-s) var(--m-space-s) var(--m-space-s) var(--m-space-m);
     border-radius: var(--m-radius);
+}
+
+/* The command's parts, in the same colors as the code blocks (see highlight.css) */
+.m-copy-code-text {
+    min-width: 0;
+    overflow-x: auto;
+    white-space: pre;
+    font: inherit;
+    font-variant-ligatures: none;
+    color: var(--m-color-text);
+}
+
+.m-copy-code-command {
+    color: var(--m-info-11);
+}
+
+.m-copy-code-argument {
+    color: var(--m-success-11);
+}
+
+.m-copy-code-flag {
+    color: var(--m-color-text-weaker);
 }
 
 /* More contrast: the same edge cards and code examples get */

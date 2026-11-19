@@ -6,7 +6,7 @@
 
 <Seo
     title="Guidelines · Moth UI"
-    description="How to use Moth UI well: button hierarchy, when to use the accent color, focus states, forms, icons and dark-only design."
+    description="How to use Moth UI well: when to use the accent color, focus states, forms, icons and dark-only design."
     path="/guidelines"
 />
 
@@ -19,27 +19,6 @@
                 clear hierarchy, purple only where it means something, and nothing competing with the content.
             </Text>
         </Flex>
-
-        <!-- Buttons -->
-        <section class="guideline">
-            <Text size="2xl" weight="bold" as="h2">Button hierarchy</Text>
-            <Text size="l" variant="weak" measure="l">
-                Every view should have one obvious next step. Pick the variant by importance, not by looks.
-            </Text>
-            <div class="example">
-                <Flex wrap align="center">
-                    <Button>Save changes</Button>
-                    <Button variant="secondary">Cancel</Button>
-                    <Button variant="tertiary">Learn more</Button>
-                </Flex>
-            </div>
-            <ul class="rules">
-                <li><Text size="l" variant="weak" measure="l"><strong>Primary:</strong> the main action. Use at most one per view.</Text></li>
-                <li><Text size="l" variant="weak" measure="l"><strong>Secondary:</strong> alternatives next to the primary action, like Cancel or Back.</Text></li>
-                <li><Text size="l" variant="weak" measure="l"><strong>Tertiary:</strong> low-emphasis or repeated actions, like "View all" links or per-row actions in a list.</Text></li>
-                <li><Text size="l" variant="weak" measure="l"><strong>Danger:</strong> only for actions that delete or can't be undone.</Text></li>
-            </ul>
-        </section>
 
         <!-- Accent -->
         <section class="guideline">
@@ -54,7 +33,7 @@
                 <li><Text size="l" variant="weak" measure="l">Status colors (success, warning, danger, info) are for status only, never for emphasis.</Text></li>
             </ul>
             <Text size="l" variant="weak" measure="l">
-                See <Link size="l" href="/guidelines/color">Color</Link> for which color token to use where.
+                See <Link size="l" href="/foundations/colors">Colors</Link> for which color token to use where.
             </Text>
         </section>
 
@@ -131,7 +110,7 @@
             <Text size="l" variant="weak" measure="l">
                 Moth is designed for dark interfaces and has no light theme. Build on <Code>--m-color-background</Code>,
                 raise content onto <Code>--m-color-surface</Code> cards, and use <Code>--m-color-surface-raised</Code>
-                for anything that sits on a card. See the <Link size="l" href="/tokens#color">color tokens</Link>.
+                for anything that sits on a card. See <Link size="l" href="/foundations/colors#surfaces">Colors</Link>.
             </Text>
         </section>
     </Flex>

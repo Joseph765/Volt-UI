@@ -127,12 +127,35 @@
         margin: 0;
         padding-block: var(--m-space-xl);
         padding-inline-start: var(--m-space-m);
-        border-radius: var(--m-radius);
-        /* The page is the background too, so outline the figure to show where it starts */
-        box-shadow: inset 0 0 0 1px var(--m-color-border);
         /* The demo runs off the right edge on purpose */
         overflow: hidden;
         container-type: inline-size;
+        /* Keeps the dot grid (z-index -1) inside the figure, above the page */
+        isolation: isolate;
+        /* Without a frame, a hard crop looks like a broken card, so the demo fades out where it's cut */
+        mask-image: linear-gradient(to right, black calc(100% - 8rem), transparent);
+    }
+
+    /* No border (Moth's cards don't have one): the figure is a dot-grid canvas on the page background that
+       fades out towards its edges, so it reads as an area without an outline */
+    .callout::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-image: radial-gradient(circle, var(--m-gray-7) 1px, transparent 1.5px);
+        background-size: 16px 16px;
+        background-position: center;
+        mask-image: radial-gradient(ellipse 70% 70% at center, black 40%, transparent 100%);
+        pointer-events: none;
+    }
+
+    /* More contrast: the dots alone are too faint, so the figure gets the same edge as Moth's cards */
+    @media (prefers-contrast: more) {
+        .callout {
+            border-radius: var(--m-radius);
+            box-shadow: inset 0 0 0 1px var(--m-color-border);
+        }
     }
 
     .callout-labels {

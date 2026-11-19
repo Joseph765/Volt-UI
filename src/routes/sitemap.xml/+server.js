@@ -9,9 +9,11 @@ export function GET() {
     const paths = [
         "/",
         "/getting-started",
+        "/foundations/colors",
+        "/foundations/typography",
+        "/foundations/spacing-and-layout",
+        "/foundations/surfaces",
         "/guidelines",
-        "/guidelines/color",
-        "/tokens",
         "/components",
         ...components.map((component) => `/components/${component.name.toLocaleLowerCase()}`)
     ];

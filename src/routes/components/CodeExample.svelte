@@ -4,8 +4,12 @@
     import Button from '$lib/components/Button.svelte';
     import CopyButton from '$lib/components/CopyButton.svelte';
 
-    /** @type {{ code: string, codeOnly?: boolean, children?: import('svelte').Snippet }} */
-    let { code, codeOnly = false, children } = $props();
+    /**
+     * `language` is the highlight.js language: "xml" (default) covers Svelte markup with its <script>; use "css"
+     * for CSS snippets.
+     * @type {{ code: string, codeOnly?: boolean, language?: string, children?: import('svelte').Snippet }}
+     */
+    let { code, codeOnly = false, language = "xml", children } = $props();
 
     /** @type { HTMLElement } */
     let codeElement;
@@ -27,6 +31,14 @@
     onMount(() => {
         codeElement.textContent = code;
         hljs.highlightElement(codeElement);
+        if (language === "css") {
+            // highlight.js leaves custom properties (e.g. --m-font-size-xl) as plain text; mark them so the token
+            // names, the part people copy, get their own color. Text nodes only, never inside a tag.
+            codeElement.innerHTML = codeElement.innerHTML.replace(
+                /(^|>)([^<]*)/g,
+                (_, start, text) => start + text.replace(/--[a-z0-9-]+/gi, '<span class="hljs-variable">$&</span>')
+            );
+        }
     });
 </script>
 
@@ -38,7 +50,7 @@
     {/if}
     <pre class="m-code-block {expanded ? "is-expanded" : undefined}" bind:this={codeBlock}>
         <CopyButton copyText={code} style="position: absolute; top: var(--m-space-s); right: var(--m-space-s);" />
-        <code bind:this={codeElement} class="language-xml"></code>
+        <code bind:this={codeElement} class="language-{language}"></code>
         {#if collapsible && !expanded}
             <div class="m-code-block-fade">
                 <Button variant="secondary" onclick={() => expanded = true} aria-expanded="false">

@@ -10,6 +10,61 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
 - Consumers import `moth-ui-svelte` for components and `moth-ui-svelte/css/index.css` for styles. There is no
   `$moth` alias any more. Docs code snippets must use these imports; docs pages themselves import from `$lib`.
 
+## How the docs site is laid out
+**Keep the docs simple.** The gold standard for simple design system docs is the **Geist Design System**
+(Vercel, https://vercel.com/geist). When in doubt, do what Geist does: short pages, a heading, a sentence or two,
+an example, and nothing extra.
+
+- **Getting Started:** install and setup.
+- **Foundations:** the tokens and how to use them (Colors, Typography, Spacing & Layout, Surfaces). Each page
+  explains when to use which token and lets people copy token names.
+- **Components:** one page per component (Geist style), in this order:
+  1. `h1` title and one-line description.
+  2. One section per example, all shown at once (no example-switching `Select`): an `h2` (e.g. "Variants",
+     "Sizes", "With icon", "Disabled", "Full width", "Link") with an `id`, one or two sentences on when and how to
+     use it, then its `CodeExample`. The first section is the basic one (for Button, the four variants).
+     Component-specific usage guidance goes in these sentences, not in Guidelines or a separate Usage section.
+  3. **API reference** (`h2`, `id="api-reference"`): the props table.
+  - Every component page follows this (Button was the model). Pages without props (Code, Divider) have no API
+    reference. All examples render at once, so radios in different sections need different `name`s (e.g.
+    `testRadio-hint`) and ids must be unique across the page; the code strings can keep simple names.
+- **Guidelines:** hidden from the nav for now (commented out in `src/routes/+layout.svelte`; `/guidelines` still
+  exists and is in the sitemap). The whole section (page, nav group, sitemap entry) will be deleted later, once
+  its content has moved; keep it as is until the user asks. Being emptied. Each part of the Overview page moves to the component page or Foundations page it
+  belongs to (e.g. button hierarchy → Button's Variants section). Done so far: button hierarchy.
+
+## Current goal: simplify the docs site
+We're simplifying the documentation site. Goals so far:
+- **Foundations** nav group (after Getting Started, open by default) holds the core pages. It replaced the old
+  Design Tokens page (`/tokens`) and Guidelines → Color (`/guidelines/color`), both removed on purpose. Shared
+  docs helpers live in `src/routes/foundations/`: `TokenCopy.svelte` (copy button for a token) and
+  `ColorScales.svelte` (the palette grid).
+- **Foundations → Colors** (`/foundations/colors`). Layout: title + one-line description, the full palette (`ColorScales`), then one section per
+  role (Surfaces, Text, Borders, Accent, Status). Each section is a callout diagram, short copy on when to use
+  which token, then a list of its tokens (swatch, what it's for, copy button).
+- **Foundations → Typography** (`/foundations/typography`). Layout: the two fonts (Geist Mono is stated as code-only),
+  the type scale (one row per size with its sample and its three paired tokens: font size, line height, letter
+  spacing, plus a CSS snippet using a set together), then font weights with when to use each.
+- **Foundations → Spacing & Layout** (`/foundations/spacing-and-layout`). Layout: the scale (true-size block, name and px, when to use, copy button), then "In practice": a static profile card
+  with its spacing drawn as gray stripes and each step tagged in a gutter (label → field `s`, field → hint `xs`,
+  between fields `m`, before actions and card padding `l`, between buttons `s`).
+  Then "Control height" (`--m-control-height`): a static row (field, select, secondary and primary button) between
+  dashed guides with the height marked, copy on when to use it (large buttons are the exception), and the token.
+  There's no separate Size page; it was merged in here on purpose.
+  Then "Breakpoints": rows with name and px, what each is for with a bar to scale, and the token; copy says they're
+  min-widths (phones first), cap `Container` sizes, and that media queries need the rem value (CSS variables don't
+  work there), with a CSS snippet. The sidebar starts at `l`.
+- **Foundations → Surfaces** (`/foundations/surfaces`, named "Surfaces", not "Materials") covers how surfaces are
+  drawn. Sections: "Surfaces don't have borders"
+  (do/don't with a mini card; the do/don't canvas is the page background here so the card reads as on a page; the
+  `prefers-contrast` exception), "When to use a border" (form controls, dividers, soft status components; field
+  rest/hover/focus demo; border tokens with copy), and "Border radius" (sharp, default, full with what uses each).
+- **Code example previews** (`.m-code-example` in `components.css`) are a dot-grid canvas on
+  `--m-color-background` (same dots as the callout diagrams) with `--m-space-xl` padding, not a raised surface,
+  so components show on the color they normally sit on (cards, tables and fields are surface-colored). The area
+  is marked by a soft inset glow (gray-4, 64px blur) around its inside edge. Dots alone made it too hard to tell
+  from the page; a light from the top only was tried and lost the bottom and side edges.
+
 ## Code conventions
 - **Naming:** every class and token is prefixed `m-`, e.g. `--m-color-text` and `.m-button`. Never use `v-`.
 - **Svelte syntax: Svelte 5 everywhere**, library and docs (including code-example strings). Use `$props()`,
@@ -27,8 +82,9 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
   - Global and page styles: `src/lib/css/index.css`.
   - Code highlighting: `src/lib/css/highlight.css`.
 - **Docs component pages** (`src/routes/components/<name>/+page.svelte`):
-  - Layout: an `h1` title (`<Text size="3xl" weight="black" as="h1">`), an example `Select`, `CodeExample`, then a
-    props table (Property / Description / Type).
+  - Layout: an `h1` title (`<Text size="3xl" weight="black" as="h1">`), one `h2` section per example (short copy +
+    `CodeExample`), then "API reference" with the props table (Property / Description / Type). See "How the docs
+    site is laid out"; Button is the model.
   - Table rows: props first, then snippets (Type `Snippet`), then callback props (Type `function`, e.g.
     `onclick`). Pages covering several components prefix the name, e.g. `TableCell align`.
   - Document only callbacks a component actually accepts. Check the source.
@@ -37,7 +93,8 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
   - Code-example strings show consumer imports (`moth-ui-svelte`, `@lucide/svelte`). Icon-only buttons in examples
     get an `aria-label`.
 - **API changes:** breaking changes are fine before launch (no migration notes). Record notable changes in
-  `CHANGELOG.md` under the current `package.json` version. Recently removed on purpose: the `Icon` component,
+  `CHANGELOG.md` under the current `package.json` version. `[0.2.0]` (marked Unreleased) covers everything since the 0.1.0 release;
+  add to it until it ships. Recently removed on purpose: the `Icon` component,
   `Container`'s `id` prop, and the Card `ghost` and Button `ghost` variants.
 - **`src/routes/components/components.json`** drives the nav, the All Components cards, the landing showcase,
   the sitemap and each component page's SEO. Card previews are static HTML. Use `<span>`/`<div>`, never
@@ -58,18 +115,21 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
   selection). No decorative purple, and gray everywhere else (focus included). See the Guidelines section
   (`src/routes/guidelines`).
 - **Guidelines section:** a nav group like Components. `/guidelines` is the Overview page (button hierarchy,
-  accent, focus, forms, icons, dark only); `/guidelines/color` explains when to use each semantic color token.
-  New guideline pages go in the nav group and the sitemap.
-- **Callout diagrams** (`src/routes/guidelines/color/CalloutDiagram.svelte`, docs-only), Nord style: token pills
+  accent, focus, forms, icons, dark only). Which color token to use where lives on Foundations → Colors. New
+  guideline pages go in the nav group and the sitemap.
+- **Callout diagrams** (`src/routes/foundations/colors/CalloutDiagram.svelte`, docs-only), Nord style: token pills
   (swatch + name) on the left, each level with a ring on the left edge of its part, joined by a short straight line.
   The demo runs off the right edge (cropped), so it fits phones; narrow figures drop the `--m-color-` prefix from
   the pills. Space marked parts a pill's height apart. Marks can share an element via `target`; the diagram
-  re-lays out when its marks change. Used for every section (Status has one Banner with a Status select + Weak/Strong
+  re-lays out when its marks change. The figure has no border: it's a dot grid on the page background
+  (`::before`, faded out towards the edges), and the whole figure fades out on the right where the demo is cropped.
+  Only `prefers-contrast: more` gives it an edge. Used for every section (Status has one Banner with a Status select + Weak/Strong
   radios; the demo adds a border so it can be labelled). One token per row: a button's fill and label share a
   height, so Accent labels the checkbox's fill and the button's label.
 - **Do/don't examples** (Carbon style): a surface card with a 4px status bar on top (success / danger) and a round
-  badge (check / cross, in the on-color) in the corner; the example sits inside on a raised canvas, the caption sits
-  under the card. Code examples there hide the copy button.
+  badge (check / cross, in the on-color) in the corner; the example sits inside on a canvas in the page background
+  color (so components look as they do on a page), the caption sits under the card. Use
+  `src/routes/components/DoDont.svelte` (`kind`, `caption`, children). Code examples there hide the copy button.
 - **Buttons:**
   - Variants: `default`/`primary` (purple), `secondary` (gray outline), `tertiary` (gray text), `danger`.
     There is no `ghost`.
@@ -97,6 +157,10 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
   - Hints and errors sit 4px under the field.
   - Fields and medium buttons share `--m-control-height` (36px). The copy button is a 36px circle.
 - **Cards:** borderless `--m-color-surface` with `--m-radius`. There are no card variants (`ghost` was removed).
+- **No borders on cards or card-like areas, anywhere (library and docs).** Surfaces separate content by their
+  fill, not an outline. This includes docs-only boxes like diagrams, demo areas and token lists. Borders are only
+  for edges with a job (form controls, dividers, soft status components). The one exception is
+  `prefers-contrast: more`, which adds a `--m-color-border` edge to surfaces.
 - **Table:**
   - Names follow HTML: `TableHead` renders `<thead>` (class `m-table-head`), `TableHeader` renders a `<th>` header
     cell (class `m-table-header`, has `align`). They were swapped once on purpose. Don't swap them back.
@@ -153,6 +217,19 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
   - `@lucide/svelte` and `@jis3r/icons` are docs-only devDependencies. The docs nav uses `@jis3r/icons`
     (movingicons.dev, animated Lucide). NavItem/NavGroupItem pass `animate` to the `icon` snippet (true on hover or
     focus). Guidelines → Icons says to keep animated icons to navigation.
+- **Code highlighting** (`src/lib/css/highlight.css`, highlight.js with `language-xml`, which highlights `<script>`
+  as JS): Geist Mono at `--m-font-size-s`, line-height 1.7, ligatures off. Mostly grayscale with three soft hues
+  from the raw step-11 scales (syntax colors are an illustration, not UI): component/tag names and imported
+  components `--m-info-11`, strings and attribute `{expressions}` `--m-success-11`, keywords `--m-danger-11`,
+  numbers `--m-warning-11`; brackets `--m-color-text-weaker`, attributes `--m-color-text-weak`, comments weaker and
+  italic. No accent purple in code (it means primary/selected). Only the classes the snippets produce are styled.
+  CSS snippets pass `language="css"` to `CodeExample` (default `xml`): selectors `--m-info-11`, properties
+  `--m-info-12` (a pale tint; all-gray declarations looked bad), `var()`, at-rules and `!important` coral, numbers
+  yellow, and custom properties (`--m-…` token names) `--m-success-11`. highlight.js leaves custom properties as
+  plain text, so `CodeExample` wraps them in `.hljs-variable` after highlighting (CSS only).
+  `CopyCode` (one-line commands) can't use highlight.js (it's a docs-only devDependency, and its bash grammar
+  doesn't color `npm install …`), so it tokenizes the command itself in the same colors: command `--m-info-11`,
+  subcommand plain, arguments `--m-success-11`, flags weaker (`.m-copy-code-*` in `components.css`).
 - **Text selection:** `--m-color-highlight` (`--m-accent-7`) everywhere.
 - **Solid fills:** step 9 of a scale is the solid color. Components use the semantic tokens (`--m-color-accent`,
   `-danger`, `-info`, `-success`, `-warning`, `-neutral`), not raw `-9` steps. Text and icons on them use the
@@ -197,22 +274,6 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
 - The user commits and pushes themselves. Don't commit unless asked.
 
 ## Open items / ideas not yet done
-- **Update `CHANGELOG.md`** with a `[0.2.0]` entry (it only has 0.1.1). Breaking changes since 0.1.1 include:
-  - Svelte 5 API: callback props (`onclick`, `onchange`, `onkeydown`, `LayoutNav onclose`) replace `on:` events;
-    snippets replace slots (`header-end` → `headerEnd`, `mobile-logo` → `mobileLogo`, nav `icon` gets `animate` as a
-    snippet param); `value`/`checked`/`indeterminate`/`group` are `$bindable`.
-  - Tokens renamed or removed: `--m-color-text-contrast` → `--m-color-text-inverse`; `--m-color-border-<status>` →
-    `--m-color-border-<status>-weak`; `--m-color-focus-border` removed (now `--m-color-border-control-focus`).
-  - New tokens: `--m-color-text-on-<status>` and `-weak` variants, `--m-color-<status>-weak`,
-    `--m-color-border-neutral-weak`, `--m-color-border-control` / `-hover` / `-focus`, `--m-shadow-focus`.
-  - Focus redesigned ("Lamplight" glow on every focusable element, fields brighten border and fill); field hover
-    brighter; radio focus hugs the circle.
-  - `prefers-contrast: more` support (stronger text/borders, crisp focus ring, edges on cards, tables, CopyCode).
-  - Layout sidebar now starts at 66rem (was 82rem).
-  - Components use semantic status tokens and on-colors (badges, buttons, banner, toast, checkbox, toggle).
-  - Docs: Guidelines became a section with a new Color page; version shown in the docs sidebar.
-- **Tokens page docs** are behind: it doesn't list the `-weak` fills/text/borders, the `-control` borders or
-  `--m-shadow-focus` (it has no shadow section). The user wants to revisit these docs later.
-- Status text in components should use `--m-color-text-<status>` (as the Color guidelines say), but `.m-text.is-danger`
+- Status text in components should use `--m-color-text-<status>` (as Foundations → Colors says), but `.m-text.is-danger`
   and friends in `components.css` still use the fill tokens (`--m-color-danger` etc.). Switch them over.
 - If button text still "drops" after hovering, fake the grow with the light layer instead of `transform`.

@@ -117,7 +117,10 @@
             <Text size="l" variant="weak" measure="l">
                 The foundation of Moth UI: reusable values for colors, spacing, typography, etc. 
                 Use them via CSS variables like <Code>var(--m-color-text)</Code>. 
-                See the full list in the <Link size="l" href="/tokens/">design tokens</Link> docs.
+                They're documented in Foundations: <Link size="l" href="/foundations/colors">Colors</Link>,
+                <Link size="l" href="/foundations/typography">Typography</Link>,
+                <Link size="l" href="/foundations/spacing-and-layout">Spacing &amp; Layout</Link> and
+                <Link size="l" href="/foundations/surfaces">Surfaces</Link>.
             </Text>
         </Flex>
 

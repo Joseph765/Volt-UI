@@ -88,9 +88,26 @@ code.hljs {
   padding: 3px 5px;
 }
 
+/*
+ * Moth code theme. Mostly grayscale like the rest of the system, with three soft hues so the parts of a
+ * Svelte snippet are easy to tell apart. Syntax colors are an illustration, not UI, so they use the
+ * raw scale steps (step 11, the light text step); the accent purple stays out, because it means
+ * "primary action / selected" everywhere else.
+ *   Components and tags  -> info-11 (blue): the thing people came to copy
+ *   Strings and {values} -> success-11 (green)
+ *   Keywords             -> danger-11 (soft coral)
+ *   Numbers              -> warning-11 (yellow)
+ *   Attributes, plain    -> grays, so the colored parts stand out
+ */
 .hljs {
   color: var(--m-color-text);
   background: var(--m-color-surface);
+  font-family: var(--m-font-mono);
+  font-size: var(--m-font-size-s);
+  line-height: 1.7;
+  /* Geist Mono's ligatures turn => and != into single glyphs; keep code literal */
+  font-variant-ligatures: none;
+  tab-size: 4;
 }
 
 .hljs::selection,
@@ -99,130 +116,71 @@ code.hljs {
   color: var(--m-color-text);
 }
 
-
-/* purposely do not highlight these things */
-.hljs-formula,
-.hljs-params,
-.hljs-property
-{}
-
-/* base03 - #969896 -  Comments, Invisibles, Line Highlighting */
-.hljs-comment {
+/* Angle brackets, slashes and = : quiet, so the names inside read first */
+.hljs-tag {
   color: var(--m-color-text-weaker);
 }
 
-/* base04 - #e8e8e8 -  Dark Foreground (Used for status bars) */
-.hljs-tag {
-  color: var(--m-color-text);
-}
-
-/* base05 - #333333 -  Default Foreground, Caret, Delimiters, Operators */
-.hljs-subst,
-.hljs-punctuation,
-.hljs-operator {
-  color: var(--m-color-text);
-}
-
-.hljs-operator {
-  opacity: 0.7;
-}
-
-/* base08 - Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted */
-.hljs-bullet,
-.hljs-variable,
-.hljs-selector-tag,
+/* Element and component names, and the components named in imports */
 .hljs-name,
-.hljs-deletion {
-  color: var(--m-accent-11);
-}
-
-.hljs-template-variable {
+.hljs-title.class_ {
   color: var(--m-info-11);
 }
 
-/* base09 - Integers, Boolean, Constants, XML Attributes, Markup Link Url */
-.hljs-symbol,
-.hljs-number,
-.hljs-link,
-.hljs-attr,
-.hljs-variable.constant_,
-.hljs-literal {
-  color: var(--m-info-11);
+/* Attribute and prop names */
+.hljs-attr {
+  color: var(--m-color-text-weak);
 }
 
-/* base0A - Classes, Markup Bold, Search Text Background */
-.hljs-title,
-.hljs-class .hljs-title,
-.hljs-title.class_
-{
-  color: var(--m-success-10);
-}
-
-.hljs-strong {
-  font-weight: bold;
-  color: #795da3;
-}
-
-/* base0B - Strings, Inherited Class, Markup Code, Diff Inserted */
-.hljs-code,
-.hljs-addition,
-.hljs-title.class_.inherited__,
+/* Strings, and Svelte {expressions} in attributes (highlight.js reads both as strings) */
 .hljs-string {
-  color: var(--m-danger-10);
-}
-
-/* base0C - Support, Regular Expressions, Escape Characters, Markup Quotes */
-.hljs-built_in,
-.hljs-doctag, /* guessing */
-.hljs-quote,
-.hljs-keyword.hljs-atrule,
-.hljs-regexp {
-  color: var(--m-info-10);
-}
-
-/* base0D - Functions, Methods, Attribute IDs, Headings */
-.hljs-function .hljs-title,
-.hljs-attribute,
-.ruby .hljs-property,
-.hljs-title.function_,
-.hljs-section {
-  color: var(--m-success-10);
-}
-
-/* base0E - Keywords, Storage, Selector, Markup Italic, Diff Changed */
-.hljs-type,
-/* .hljs-selector-id, */
-/* .hljs-selector-class, */
-/* .hljs-selector-attr, */
-/* .hljs-selector-pseudo, */
-.hljs-template-tag,
-.diff .hljs-meta {
   color: var(--m-success-11);
 }
 
-.hljs-keyword {
-  color: var(--m-danger-10);
+.hljs-keyword,
+.hljs-literal {
+  color: var(--m-danger-11);
 }
 
-.hljs-emphasis {
-  color: #a71d5d;
+.hljs-number {
+  color: var(--m-warning-11);
+}
+
+/* Function names in <script> */
+.hljs-title.function_ {
+  color: var(--m-color-text);
+}
+
+.hljs-params {
+  color: var(--m-color-text-weak);
+}
+
+.hljs-comment {
+  color: var(--m-color-text-weaker);
   font-style: italic;
 }
 
-/* base0F - Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?> */
-.hljs-meta,
-/*
-  prevent top level .keyword and .string scopes
-  from leaking into meta by accident
-*/
-.hljs-meta .hljs-keyword,
-.hljs-meta .hljs-string
-{
-  color: #333333;
+/* CSS, in the same roles: selectors are the "names" (blue), token names are the values people copy (green,
+   like strings), functions such as var() and at-rules read like keywords (coral). Properties get a pale blue
+   tint so a block of declarations isn't a wall of gray. */
+.hljs-selector-class,
+.hljs-selector-tag,
+.hljs-selector-id,
+.hljs-selector-pseudo,
+.hljs-selector-attr {
+  color: var(--m-info-11);
 }
 
-.hljs-meta .hljs-keyword,
-/* for v10 compatible themes */
-.hljs-meta-keyword {
-  font-weight: bold;
+.hljs-attribute {
+  color: var(--m-info-12);
+}
+
+.hljs-built_in,
+.hljs-meta {
+  color: var(--m-danger-11);
+}
+
+/* Custom properties, e.g. --m-font-size-xl (marked by CodeExample, highlight.js leaves them plain) */
+.hljs-variable {
+  color: var(--m-success-11);
 }
