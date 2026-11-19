@@ -157,7 +157,6 @@
 	
 	/* Borders */
     --m-color-border: var(--m-gray-4);
-	--m-color-border-control: var(--m-gray-4);
 	--m-color-border-control-hover: var(--m-gray-9); /* Border of a hovered form control */
 	--m-color-border-control-focus: var(--m-gray-12); /* Border of a focused form control */
 	/* Soft status borders, for components on a weak status fill */
@@ -225,7 +224,6 @@
 
 		/* Borders: dividers and field edges become clearly visible */
 		--m-color-border: var(--m-gray-8); /* 3.0:1, was 1.3:1 */
-		--m-color-border-control: var(--m-gray-10); /* 4.5:1, was 1.3:1 */
 		--m-color-border-control-hover: var(--m-gray-11);
 		--m-color-border-neutral-weak: var(--m-gray-8);
 		--m-color-border-info-weak: var(--m-info-8);

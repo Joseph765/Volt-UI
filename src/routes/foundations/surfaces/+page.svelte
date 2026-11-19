@@ -6,10 +6,9 @@
     import Seo from "../../Seo.svelte";
 
     const borderTokens = [
-        { token: "--m-color-border-control", use: "Form controls at rest: inputs, selects, textareas, checkboxes and radios." },
         { token: "--m-color-border-control-hover", use: "A hovered form control." },
         { token: "--m-color-border-control-focus", use: "A focused form control, inside the focus ring." },
-        { token: "--m-color-border", use: "Dividers: card headers, table rows and the nav." }
+        { token: "--m-color-border", use: "Every border at rest: form controls (inputs, selects, textareas, checkboxes, radios) and dividers (card headers, table rows, the nav)." }
     ];
 
     const radii = [

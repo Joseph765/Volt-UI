@@ -53,9 +53,8 @@
     // Borders
     /** @type { Mark[] } */
     const borderMarks = [
-        { key: "control", token: "--m-color-border-control" },
-        { key: "control-focus", token: "--m-color-border-control-focus" },
         { key: "border", token: "--m-color-border" },
+        { key: "control-focus", token: "--m-color-border-control-focus" },
         { key: "info-border", token: "--m-color-border-info-weak" },
         // On the focus ring, which sits 2px outside the button
         { key: "focus", token: "--m-color-focus-ring", dx: -3 }
@@ -63,8 +62,7 @@
 
     /** @type { Token[] } */
     const borderTokens = [
-        { token: "--m-color-border", kind: "fill", use: "Dividers, card headers, nav and table rows." },
-        { token: "--m-color-border-control", kind: "fill", use: "Form controls: inputs, selects, checkboxes and radios." },
+        { token: "--m-color-border", kind: "fill", use: "Form controls at rest, dividers, card headers, nav and table rows." },
         { token: "--m-color-border-control-hover", kind: "fill", use: "A hovered form control." },
         { token: "--m-color-border-control-focus", kind: "fill", use: "A focused form control." },
         { token: "--m-color-focus-ring", kind: "ring", use: "The focus ring around every focusable element." }
@@ -214,16 +212,13 @@
         <!-- Borders -->
         <section class="section" id="borders">
             <Text size="2xl" weight="bold" as="h2">Borders</Text>
-            <CalloutDiagram label="Border tokens on a field, a focused field, a divider, a badge and a focused button" marks={borderMarks}>
+            <CalloutDiagram label="Border tokens on a field, a focused field, a badge and a focused button" marks={borderMarks}>
                 <div class="demo-card">
                     <div class="demo-row">
-                        <input class="m-input is-expanded" placeholder="Search" readonly tabindex="-1" aria-hidden="true" data-mark="control" />
+                        <input class="m-input is-expanded" placeholder="Search" readonly tabindex="-1" aria-hidden="true" data-mark="border" />
                     </div>
                     <div class="demo-row">
                         <input class="m-input is-expanded demo-focus-field" value="Ada Lovelace" readonly tabindex="-1" aria-hidden="true" data-mark="control-focus" />
-                    </div>
-                    <div class="demo-row">
-                        <div class="m-divider demo-divider" data-mark="border"></div>
                     </div>
                     <div class="demo-row">
                         <div class="m-badge is-info" data-mark="info-border">Beta</div>
@@ -448,10 +443,6 @@
     .demo-error {
         color: var(--m-color-text-danger);
         font-size: var(--m-font-size-s);
-    }
-
-    .demo-divider {
-        flex: 1;
     }
 
     /* A field and a button drawn in their focused state */

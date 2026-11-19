@@ -140,8 +140,10 @@ We're simplifying the documentation site. Goals so far:
   - Variables: `--m-button-lit-background`, `--m-button-lit-color`, `--m-button-halo`.
   - Buttons grow `scale(1.03)` on hover; full-width ones `1.01`. They use `will-change: transform` to avoid text
     snapping. Hover doesn't follow the cursor.
-- **Borders:** form controls (input, select, textarea, checkbox, radio) use `--m-color-border-control`; everything
-  else (dividers, card headers, nav, tables) uses `--m-color-border`.
+- **Borders:** every border at rest uses `--m-color-border`, form controls (input, select, textarea, checkbox,
+  radio) included. There's no `--m-color-border-control`: it was removed on purpose, because in
+  `prefers-contrast: more` `--m-color-border` (gray-8, 3:1) is already enough for field edges. Field states keep
+  their own tokens: `--m-color-border-control-hover` and `--m-color-border-control-focus`.
 - **Focus ("Lamplight", chosen on `/examples/focus`, which keeps the alternatives):** one indicator on every
   focusable element: `--m-shadow-focus`, a tight 3px ring plus a wide soft glow, both mixed from
   `--m-color-focus-ring` (`--m-gray-12`). Focused fields also turn their border `--m-color-border-control-focus`

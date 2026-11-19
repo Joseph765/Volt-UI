@@ -49,8 +49,8 @@ All notable changes to this project will be documented in this file.
   `--m-color-text-on-success-weak`, `--m-color-text-on-warning-weak`, `--m-color-text-on-danger-weak`.
 - **Status text on surfaces:** `--m-color-text-info`, `--m-color-text-success`, `--m-color-text-warning`,
   `--m-color-text-danger`.
-- **Form control borders:** `--m-color-border-control`, `--m-color-border-control-hover`,
-  `--m-color-border-control-focus`.
+- **Form control borders:** `--m-color-border-control-hover` and `--m-color-border-control-focus` (at rest,
+  form controls use `--m-color-border` like every other border).
 - **Focus:** `--m-shadow-focus`, the focus ring used by every focusable element.
 
 #### Other additions
