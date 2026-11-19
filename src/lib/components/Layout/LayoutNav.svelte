@@ -2,9 +2,17 @@
     /**
      * `onclose` is called when the user presses Esc, or clicks the blurred page outside the open nav.
      * Set `open` to false in response.
-     * @type {{ open?: boolean, label?: string, onclose?: () => void, children?: import('svelte').Snippet }}
+     * `footer` stays pinned to the bottom of the nav while the items above it scroll: global actions like the
+     * signed-in user, settings or a theme switcher.
+     * @type {{
+     *   open?: boolean,
+     *   label?: string,
+     *   onclose?: () => void,
+     *   children?: import('svelte').Snippet,
+     *   footer?: import('svelte').Snippet
+     * }}
      */
-    let { open = false, label = "Main", onclose, children } = $props();
+    let { open = false, label = "Main", onclose, children, footer } = $props();
 
     /** @type { HTMLElement } */
     let nav;
@@ -40,5 +48,12 @@
 <svelte:window onkeydown={handleKeydown} onclick={handleClick} />
 
 <nav class="m-layout-nav" class:is-open={open} aria-label={label} bind:this={nav}>
-    {@render children?.()}
+    <div class="m-layout-nav-items">
+        {@render children?.()}
+    </div>
+    {#if footer}
+        <div class="m-layout-nav-footer">
+            {@render footer()}
+        </div>
+    {/if}
 </nav>

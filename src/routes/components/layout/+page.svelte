@@ -1,6 +1,7 @@
 <script>
     import { ChartPie, History, Layers, Settings } from "@jis3r/icons";
     import {
+        Avatar,
         Banner,
         Code,
         Container,
@@ -20,15 +21,16 @@
         TableHead,
         TableHeader,
         TableRow,
-        Text
+        Text,
+        ThemeSwitcher
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
 
-
-    /** @type { string } */
-
     /** @type { boolean } */
     let open = $state(false);
+
+    /** @type { boolean } */
+    let openFooter = $state(false);
 
     /** @type { string } */
     let activeItem = $state('dashboard');
@@ -37,6 +39,7 @@
     function select(item) {
         activeItem = item;
         open = false;
+        openFooter = false;
     }
 
     let example1 = `<script>
@@ -89,6 +92,49 @@
         <Container>
             {@render children()}
         </Container>
+    </LayoutContent>
+</Layout>`;
+
+    let example2 = `<script>
+    import { page } from '$app/state';
+    import { ChartPie, Layers } from "@jis3r/icons";
+    import {
+        Layout,
+        LayoutContent,
+        LayoutHeader,
+        LayoutMenuButton,
+        LayoutNav,
+        Avatar,
+        NavItem,
+        ThemeSwitcher
+    } from "moth-ui-svelte";
+
+    let { children } = $props();
+
+    /** @type { boolean } */
+    let open = $state(false);
+<\/script>
+
+<Layout>
+    <LayoutHeader>
+        <LayoutMenuButton {open} onclick={() => open = !open} />
+    </LayoutHeader>
+    <LayoutNav {open} onclose={() => open = false}>
+        <NavItem href="/" active={page.url.pathname === "/"} onclick={() => open = false}>
+            {#snippet icon(animate)}<ChartPie {animate} />{/snippet}
+            Dashboard
+        </NavItem>
+        <NavItem href="/assets" active={page.url.pathname === "/assets"} onclick={() => open = false}>
+            {#snippet icon(animate)}<Layers {animate} />{/snippet}
+            Assets
+        </NavItem>
+        {#snippet footer()}
+            <Avatar name="Ada Lovelace" />
+            <ThemeSwitcher />
+        {/snippet}
+    </LayoutNav>
+    <LayoutContent>
+        {@render children()}
     </LayoutContent>
 </Layout>`;
 </script>
@@ -146,6 +192,44 @@
         </CodeExample>
     </section>
 
+    <section class="section" id="footer">
+        <Text size="2xl" weight="bold" as="h2">Footer</Text>
+        <Text size="l" variant="weak" measure="l">
+            The <Code>footer</Code> snippet stays at the bottom of the sidebar (and of the slide-in nav on smaller
+            screens) while the items above it scroll. Use it for global actions that aren't pages: the signed-in user,
+            their settings, or a <Link size="l" href="/components/themeswitcher">ThemeSwitcher</Link>. Keep it to one
+            row.
+        </Text>
+        <CodeExample code={example2}>
+            <div class="layout-demo">
+                <Layout>
+                    <LayoutHeader>
+                        <LayoutMenuButton open={openFooter} onclick={() => openFooter = !openFooter} />
+                    </LayoutHeader>
+                    <LayoutNav open={openFooter} onclose={() => openFooter = false}>
+                        <NavItem href="#top" active={activeItem === "dashboard"} onclick={() => select("dashboard")}>
+                            {#snippet icon(animate)}<ChartPie {animate} />{/snippet}
+                            Dashboard
+                        </NavItem>
+                        <NavItem href="#top" active={activeItem === "assets"} onclick={() => select("assets")}>
+                            {#snippet icon(animate)}<Layers {animate} />{/snippet}
+                            Assets
+                        </NavItem>
+                        {#snippet footer()}
+                            <Avatar name="Ada Lovelace" />
+                            <ThemeSwitcher />
+                        {/snippet}
+                    </LayoutNav>
+                    <LayoutContent>
+                        <Container>
+                            <Text size="3xl" weight="black" as="h3">Page content</Text>
+                        </Container>
+                    </LayoutContent>
+                </Layout>
+            </div>
+        </CodeExample>
+    </section>
+
     <section class="section" id="api-reference">
         <Text size="2xl" weight="bold" as="h2">API reference</Text>
         <Table>
@@ -171,6 +255,11 @@
                     <TableCell><Code>LayoutNav onclose</Code></TableCell>
                     <TableCell>Fires when the user presses Esc or clicks the blurred page outside the navigation while it is open. Set <Code>open</Code> to false in response. On Esc, focus moves back to the menu button if it was inside the navigation.</TableCell>
                     <TableCell><Code>function</Code></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell><Code>LayoutNav footer</Code></TableCell>
+                    <TableCell>Global actions pinned to the bottom of the navigation, below a divider, such as the signed-in user, settings or a theme switcher. The items above it scroll on their own.</TableCell>
+                    <TableCell><Code>Snippet</Code></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>LayoutMenuButton open</Code></TableCell>
@@ -236,10 +325,12 @@
         min-height: 100%;
     }
 
-    /* The real sidebar is capped at the window's height below the logo; in the demo, cap it at the box's height,
-       so a long nav scrolls on its own under the logo instead of sliding up over it */
-    .layout-demo :global(.m-layout-nav) {
-        max-height: calc(100cqh - var(--m-layout-logo-offset));
+    /* The real sidebar fills the window's height below the logo; in the demo, it fills the box's height, so a long
+       nav scrolls on its own under the logo and the footer sits at the bottom of the box */
+    @media (min-width: 66rem) {
+        .layout-demo :global(.m-layout-nav) {
+            height: calc(100cqh - var(--m-layout-logo-offset));
+        }
     }
 
     .example-logo {

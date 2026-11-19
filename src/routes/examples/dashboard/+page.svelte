@@ -11,6 +11,7 @@
         Flex,
         Input,
         Link,
+        Progress,
         Select,
         Tab,
         Table,
@@ -147,13 +148,7 @@
                 {#snippet header()}<Text size="l" weight="bold" as="h2">Goals</Text>{/snippet}
                 <Flex direction="column" gap="l">
                     {#each [{ label: "Monthly revenue", value: 48290, goal: 60000 }, { label: "New customers", value: 312, goal: 400 }, { label: "NPS responses", value: 188, goal: 200 }] as goal}
-                        <Flex direction="column" gap="xs">
-                            <Flex justify="between">
-                                <Text size="s">{goal.label}</Text>
-                                <Text size="s" variant="weak" mono>{Math.round((goal.value / goal.goal) * 100)}%</Text>
-                            </Flex>
-                            <div class="progress"><div style:width="{(goal.value / goal.goal) * 100}%"></div></div>
-                        </Flex>
+                        <Progress label={goal.label} value={goal.value} max={goal.goal} />
                     {/each}
                 </Flex>
             </Card>
@@ -269,18 +264,5 @@
 
     .bar.is-current {
         background: var(--m-color-accent);
-    }
-
-    .progress {
-        height: 6px;
-        border-radius: var(--m-radius-full);
-        background: var(--m-gray-4);
-        overflow: hidden;
-    }
-
-    .progress > div {
-        height: 100%;
-        border-radius: inherit;
-        background: var(--m-gray-11);
     }
 </style>

@@ -185,6 +185,11 @@ We're simplifying the documentation site. Goals so far:
   - Esc or a click on the blurred content closes the nav via `LayoutNav onclose`. The blurred content has
     `pointer-events: none`, so that click doesn't also follow a link.
   - The desktop logo area has the page background and sits above the nav, so a scrolling nav passes under it.
+  - `LayoutNav footer` (snippet): global actions (user, settings, theme switcher) pinned to the bottom of the
+    sidebar and the drawer, below a `--m-color-border` divider (a divider, so it's allowed). The nav renders
+    `.m-layout-nav-items` (scrolls on its own) and `.m-layout-nav-footer`; on desktop the nav has a fixed
+    `height` (window below the logo) so the footer sits at the bottom of the window. The footer lines up with the
+    items (divider starts where they do, content where their icons do).
 - **Docs component cards** (All Components and the landing showcase):
   - Previews stay grayscale.
   - Hover is a "moth to the light" glow with a fixed position (no cursor tracking): light behind the preview, a
@@ -209,7 +214,14 @@ We're simplifying the documentation site. Goals so far:
   - `Radio` supports `bind:group` (one variable on every radio in a set) and takes `onchange`. Without
     `bind:group`, `checked` works as before.
   - `Card` doesn't space its children: wrap multiple children in `<Flex direction="column" gap="l">`.
-  - There are no progress-bar or avatar components; the example pages build their own with page CSS.
+  - `Progress` (`label`, `value`, `max` = 100): label and percentage (mono, weak) above a 6px bar; track
+    `--m-color-neutral-weak`, fill `--m-gray-11` (gray, not accent). The header is `aria-hidden`; the track is the
+    `role="progressbar"` with `aria-label` and `aria-valuetext`. Built from the dashboard example's Goals bars (the
+    dashboard now uses it). Doesn't use `$props.id()`, which needs Svelte 5.20 (peer dep is `^5.0.0`).
+  - `Avatar` (`name`, `src`): one size for now (32px circle, `.m-avatar`). Letter version: first letter of `name`
+    on `--m-color-neutral-weak` (gray, not accent); image version: `src` cropped with `object-fit: cover`, falls
+    back to the letter on error. Kept deliberately simple; sizes etc. can come later. The docs image example uses
+    `static/avatar-example.svg`. The docs nav footer shows `<Avatar name="Guest" />` next to the ThemeSwitcher.
 - **Icons:**
   - There is no `Icon` component; it was removed on purpose. Apps use Lucide (`@lucide/svelte`), documented in
     Guidelines → Icons and Getting Started.
@@ -272,8 +284,8 @@ We're simplifying the documentation site. Goals so far:
     `storageKey`, `label`, `onchange`. All instances share module-level `$state`, so they agree.
   - The library defaults to dark (no `data-theme` = dark). The docs site defaults to System: an inline script in
     `src/app.html` resolves the saved choice or the OS setting before first paint (the same snippet is on the
-    ThemeSwitcher page, "Avoid a flash"). The docs put the switcher top right of the page on desktop
-    (`.theme-corner` in `+layout.svelte`, absolute in `.m-layout-content`) and in the header below 66rem.
+    ThemeSwitcher page, "Avoid a flash"). The docs put the switcher in the `LayoutNav` footer (sidebar on
+    desktop, drawer below 66rem). It used to sit top right of the page and in the mobile header; moved on purpose.
     `MothLogo` follows the page theme (`theme="auto"` default).
   - Write copy that's true in both themes ("its own fill", "the text color"), not "lighter" or "near-white".
 - The stylesheet loads Outfit and Geist Mono from Google Fonts and styles `html`/`body` globally (documented on

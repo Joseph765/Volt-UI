@@ -26,6 +26,26 @@
     color: var(--m-color-text);
 }
 
+/* Avatar: a 32px circle with a photo, or the first letter of the name on a soft gray fill (gray, not the accent:
+   a person isn't a primary action or a selection) */
+.m-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--m-radius-full);
+    background-color: var(--m-color-neutral-weak);
+    color: var(--m-color-text-on-neutral-weak);
+    font-family: var(--m-font);
+    font-size: var(--m-font-size-s);
+    font-weight: var(--m-font-weight-bold);
+    line-height: 1;
+    object-fit: cover;
+    user-select: none;
+}
+
 /* Badge */
 .m-badge {
     display: flex;
@@ -1013,12 +1033,7 @@
     z-index: 1;
     display: flex;
     flex-direction: column;
-    gap: var(--m-space-m);
     width: 16rem;
-    padding-block: var(--m-space-l);
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--m-gray-4) transparent;
     background-color: var(--m-color-surface);
     border-inline-end: 1px solid var(--m-color-border);
     /* Closed: off-screen and hidden from focus/AT; visibility flips after the slide finishes */
@@ -1031,6 +1046,31 @@
     transform: translateX(0);
     visibility: visible;
     transition: transform 0.2s ease-out;
+}
+
+/* The items scroll on their own, so the footer stays pinned to the bottom of the nav */
+.m-layout-nav-items {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--m-space-m);
+    padding-block: var(--m-space-l);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--m-gray-4) transparent;
+}
+
+/* Global actions (the signed-in user, settings, a theme switcher), split from the nav items by a divider */
+.m-layout-nav-footer {
+    flex-shrink: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--m-space-s);
+    padding: var(--m-space-m);
+    border-block-start: 1px solid var(--m-color-border);
 }
 
 .m-layout-content {
@@ -1109,14 +1149,24 @@
         bottom: auto;
         left: auto;
         margin-block-start: var(--m-layout-logo-offset);
-        /* A long nav scrolls on its own instead of running off the bottom of the window */
-        max-height: calc(100dvh - var(--m-layout-logo-offset));
-        padding: 0 0 var(--m-space-xl) var(--m-space-xl);
+        /* Fills the window below the logo: a long list of items scrolls on its own, and the footer sits at the
+           bottom of the window */
+        height: calc(100dvh - var(--m-layout-logo-offset));
         background-color: transparent;
         border: none;
         transform: none;
         visibility: visible;
         transition: none;
+    }
+
+    .m-layout-nav-items {
+        padding: 0 0 var(--m-space-xl) var(--m-space-xl);
+    }
+
+    /* Lines up with the items: the divider starts where they do, the content where their icons do */
+    .m-layout-nav-footer {
+        margin-inline-start: var(--m-space-xl);
+        padding-block-end: var(--m-space-xl);
     }
 
     /* The sidebar is always shown here, so `open` has no effect and the content stays sharp */
@@ -1352,6 +1402,53 @@
     .m-nav-group-item[aria-current="true"]::before,
     .m-nav-item[aria-current="true"]::after,
     .m-nav-group-item[aria-current="true"]::after {
+        transition: none;
+    }
+}
+
+/* Progress: a slim gray bar (gray, not the accent: progress isn't a primary action or a selection) */
+.m-progress {
+    display: flex;
+    flex-direction: column;
+    gap: var(--m-space-xs);
+    width: 100%;
+}
+
+.m-progress-header {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--m-space-s);
+    font-family: var(--m-font);
+    font-size: var(--m-font-size-s);
+    line-height: var(--m-line-height-s);
+    letter-spacing: var(--m-letter-spacing-s);
+}
+
+.m-progress-label {
+    color: var(--m-color-text);
+}
+
+.m-progress-value {
+    font-family: var(--m-font-mono);
+    color: var(--m-color-text-weak);
+}
+
+.m-progress-track {
+    height: 6px;
+    border-radius: var(--m-radius-full);
+    background-color: var(--m-color-neutral-weak);
+    overflow: hidden;
+}
+
+.m-progress-fill {
+    height: 100%;
+    border-radius: inherit;
+    background-color: var(--m-gray-11);
+    transition: width 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .m-progress-fill {
         transition: none;
     }
 }

@@ -65,10 +65,20 @@ All notable changes to this project will be documented in this file.
   own text color, so a nested theme doesn't inherit the page's.
 
 #### New components
+- **Progress:** a slim gray bar with its label and percentage above it. Takes `label`, `value` and `max`
+  (default 100); out-of-range values are clamped. Screen readers get a `progressbar` with the label and percentage.
+- **Avatar:** a 32px circle for a person. Shows `src` (their photo, cropped to a circle) or the first letter of
+  `name` on a soft gray fill, and falls back to the letter if the photo fails to load. `name` is the accessible
+  name.
 - **ThemeSwitcher:** a small pill of System, Light and Dark buttons. System follows the OS setting (and switches
   when it does); Light and Dark override it. It sets `data-theme` on `<html>`, saves the choice in `localStorage`
   (`storageKey`, default `moth-theme`) and fires `onchange`. Every switcher on a page stays in sync. The docs show a
   short `app.html` script that applies the saved theme before the first paint.
+
+#### Layout nav footer
+- `LayoutNav` takes a `footer` snippet: global actions (the signed-in user, settings, a theme switcher) pinned to
+  the bottom of the sidebar and of the slide-in nav, below a divider. The nav items scroll on their own above it.
+  On wide screens the sidebar now fills the window below the logo (it was capped at that height).
 
 #### Other additions
 - `prefers-contrast: more` support: stronger text and borders, a crisp gapped focus ring instead of the glow, and
