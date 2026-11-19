@@ -1,12 +1,9 @@
 <!-- Icons: Lucide (ISC License), see THIRD_PARTY_NOTICES.md -->
 <script>
-    /** @type { string } */
-    export let copyText;
+    /** @type {{ copyText: string, style?: string }} */
+    let { copyText, style = "" } = $props();
 
-    /** @type { string } */
-    export let style = "";
-
-    $: showCheckmark = false;
+    let showCheckmark = $state(false);
 
     function copyTextFunc() {
         navigator.clipboard.writeText(copyText);
@@ -17,7 +14,7 @@
     }
 </script>
 
-<button class="m-copy-button" on:click={copyTextFunc} aria-label="copy" {style} tabindex="0">
+<button class="m-copy-button" onclick={copyTextFunc} aria-label="copy" {style} tabindex="0">
     {#if showCheckmark}
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
     {:else}
@@ -42,8 +39,8 @@
     }
 
     .m-copy-button:focus-visible {
-        outline: 2px solid var(--m-color-focus-border);
-        outline-offset: 2px;
+        outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+        box-shadow: var(--m-shadow-focus);
     }
 
     /* Same as Button's secondary variant: on hover the outline turns white and glows */

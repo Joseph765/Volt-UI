@@ -1,14 +1,13 @@
 <script>
-    import { 
-        Button, 
+    import {
+        Button,
         Code,
-        Flex, 
-        Select,
+        Flex,
         Table,
         TableBody,
         TableCell,
-        TableHeader,
         TableHead,
+        TableHeader,
         TableRow,
         Text,
         Toast,
@@ -16,12 +15,7 @@
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
 
-    let options = $state([
-        { value: 'basic', label: 'Example: Basic' },
-        { value: 'danger', label: 'Example: Danger' }
-    ]);
 
-    let selectedExample = $state('basic');
 
     let example1 = `<script>
     import { Button, Toast, ToastGroup } from "moth-ui-svelte";
@@ -174,69 +168,77 @@
     }
 </script>
 
-<Flex direction="column" gap="xl">
+<Flex direction="column" gap="2xl">
     <Flex direction="column">
         <Text size="3xl" weight="black" as="h1">Toast</Text>
         <Text size="xl" variant="weak">A temporary, non-intrusive notification that appears in the bottom-right corner to provide feedback.</Text>
     </Flex>
-    <Flex direction="column">
-        <Select
-            name="examples"
-            bind:options={options}
-            bind:value={selectedExample}
-            placeholder="Select an example..."
-        />
-        {#if selectedExample === "basic"}
-            <CodeExample code={example1}>
-                <Button onclick={() => addToast("Copied to clipboard", "default")}>Add Toast</Button>
-            </CodeExample>
-        {:else if selectedExample === "danger"}
-            <CodeExample code={example2}>
-                <Button onclick={() => addToast("No internet connection", "danger")}>Danger Toast</Button>
-            </CodeExample>
-        {/if}
-    </Flex>
-    <Table>
-        <TableHead>
-            <TableRow>
-                <TableHeader>Property</TableHeader>
-                <TableHeader>Description</TableHeader>
-                <TableHeader>Type</TableHeader>
-            </TableRow>
-        </TableHead>
-        <TableBody>
-            <TableRow>
-                <TableCell><Code>onDismiss</Code></TableCell>
-                <TableCell>Executes a function when the dismiss button is clicked.</TableCell>
-                <TableCell><Code>{`() => void`}</Code></TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell><Code>id</Code></TableCell>
-                <TableCell>ID passed to the Toast component. Necessary for dismissable functionality.</TableCell>
-                <TableCell><Code>string</Code></TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell><Code>variant</Code></TableCell>
-                <TableCell>The style of the toast.</TableCell>
-                <TableCell><Code>default</Code> | <Code>danger</Code></TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell><Code>dismissable</Code></TableCell>
-                <TableCell>Shows a close button. Defaults to <Code>true</Code>.</TableCell>
-                <TableCell><Code>boolean</Code></TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell><Code>onDismiss</Code></TableCell>
-                <TableCell>Called when the close button is clicked. Remove the toast from your list here.</TableCell>
-                <TableCell><Code>() =&gt; void</Code></TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell><Code>ToastGroup</Code></TableCell>
-                <TableCell>Wrap all toasts in one group. It stacks them in the corner and is a polite live region, so screen readers announce each new toast without interrupting.</TableCell>
-                <TableCell><Code>component</Code></TableCell>
-            </TableRow>
-        </TableBody>
-    </Table>
+    <section class="section" id="basic">
+        <Text size="2xl" weight="bold" as="h2">Basic</Text>
+        <Text size="l" variant="weak" measure="l">
+            A short confirmation that something happened, like "Copied to clipboard". Toasts stack in a
+            <Code>ToastGroup</Code> at the bottom right. You keep the list and remove each toast after a few seconds;
+            the example does it after 2.
+        </Text>
+        <CodeExample code={example1}>
+            <Button onclick={() => addToast("Copied to clipboard", "default")}>Add Toast</Button>
+        </CodeExample>
+    </section>
+
+    <section class="section" id="danger">
+        <Text size="2xl" weight="bold" as="h2">Danger</Text>
+        <Text size="l" variant="weak" measure="l">
+            For a problem people should know about, like a lost connection.
+        </Text>
+        <CodeExample code={example2}>
+            <Button onclick={() => addToast("No internet connection", "danger")}>Danger Toast</Button>
+        </CodeExample>
+    </section>
+
+    <section class="section" id="api-reference">
+        <Text size="2xl" weight="bold" as="h2">API reference</Text>
+        <Table>
+            <TableHead>
+                <TableRow>
+                    <TableHeader>Property</TableHeader>
+                    <TableHeader>Description</TableHeader>
+                    <TableHeader>Type</TableHeader>
+                </TableRow>
+            </TableHead>
+            <TableBody>
+                <TableRow>
+                    <TableCell><Code>onDismiss</Code></TableCell>
+                    <TableCell>Executes a function when the dismiss button is clicked.</TableCell>
+                    <TableCell><Code>{`() => void`}</Code></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell><Code>id</Code></TableCell>
+                    <TableCell>ID passed to the Toast component. Necessary for dismissable functionality.</TableCell>
+                    <TableCell><Code>string</Code></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell><Code>variant</Code></TableCell>
+                    <TableCell>The style of the toast.</TableCell>
+                    <TableCell><Code>default</Code> | <Code>danger</Code></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell><Code>dismissable</Code></TableCell>
+                    <TableCell>Shows a close button. Defaults to <Code>true</Code>.</TableCell>
+                    <TableCell><Code>boolean</Code></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell><Code>onDismiss</Code></TableCell>
+                    <TableCell>Called when the close button is clicked. Remove the toast from your list here.</TableCell>
+                    <TableCell><Code>() =&gt; void</Code></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell><Code>ToastGroup</Code></TableCell>
+                    <TableCell>Wrap all toasts in one group. It stacks them in the corner and is a polite live region, so screen readers announce each new toast without interrupting.</TableCell>
+                    <TableCell><Code>component</Code></TableCell>
+                </TableRow>
+            </TableBody>
+        </Table>
+    </section>
 </Flex>
 
 <ToastGroup>
@@ -244,3 +246,12 @@
         <Toast id={toast.id} onDismiss={() => removeToast(toast.id)} variant={toast.status}>{toast.message}</Toast>
     {/each}
 </ToastGroup>
+
+<style>
+    .section {
+        display: flex;
+        flex-direction: column;
+        gap: var(--m-space-m);
+        scroll-margin-block-start: var(--m-space-l);
+    }
+</style>

@@ -4,8 +4,9 @@
     import { page } from '$app/state';
     import components from "./components/components.json";
     import MothLogo from "./MothLogo.svelte";
+    import { version } from "../../package.json";
 
-    import { Blocks, Compass, Paintbrush, Rocket } from "@jis3r/icons";
+    import { Blocks, Compass, Layers, Rocket } from "@jis3r/icons"; // Compass: the hidden Guidelines group
 
     import { 
         Layout, 
@@ -13,60 +14,68 @@
         LayoutHeader, 
         LayoutMenuButton,
         LayoutNav, 
+        Avatar,
         NavGroup,
         NavGroupItem,
-        NavItem
+        NavItem,
+        ThemeSwitcher
     } from "$lib";
 
+    /** @type {{ children: import('svelte').Snippet }} */
+    let { children } = $props();
+
     /** @type { boolean } */
-    let open = false;
+    let open = $state(false);
 </script>
 
 
 <Layout>
     <LayoutHeader>
-        <LayoutMenuButton {open} on:click={() => open = !open} />
-        <a href="/" class="logo" slot="mobile-logo" aria-label="Moth UI home">
-            <MothLogo size={32} wordmark={false} />
-        </a>
+        <LayoutMenuButton {open} onclick={() => open = !open} />
+        {#snippet mobileLogo()}
+            <a href="/" class="logo" aria-label="Moth UI home">
+                <MothLogo size={32} wordmark={false} />
+            </a>
+        {/snippet}
     </LayoutHeader>
-    <a href="/" class="logo is-desktop" slot="logo">
-        <MothLogo size={36} />
-    </a>
-    <LayoutNav {open} on:close={() => open = false}>
-        <NavItem href="/getting-started" active={page.url.pathname === "/getting-started"} on:click={() => open = false}>
-            <Rocket slot="icon" let:animate {animate} />
+    {#snippet logo()}
+        <a href="/" class="logo is-desktop">
+            <MothLogo size={36} />
+        </a>
+        <span class="version">v{version}</span>
+    {/snippet}
+    <LayoutNav {open} onclose={() => open = false}>
+        <NavItem href="/getting-started" active={page.url.pathname === "/getting-started"} onclick={() => open = false}>
+            {#snippet icon(animate)}<Rocket {animate} />{/snippet}
             Getting Started
         </NavItem>
-        <NavItem href="/guidelines" active={page.url.pathname === "/guidelines"} on:click={() => open = false}>
-            <Compass slot="icon" let:animate {animate} />
-            Guidelines
-        </NavItem>
-        <NavGroup title="Design Tokens" open={page.url.pathname === "/tokens"}>
-            {#snippet icon(animate)}<Paintbrush {animate} />{/snippet}
-            <NavGroupItem href="/tokens#top" active={page.url.pathname + page.url.hash === "/tokens#top"} on:click={() => open = false}>All tokens</NavGroupItem>
-            <NavGroupItem href="/tokens#font" active={page.url.pathname + page.url.hash === "/tokens#font"} on:click={() => open = false}>Font</NavGroupItem>
-            <NavGroupItem href="/tokens#font-weight" active={page.url.pathname + page.url.hash === "/tokens#font-weight"} on:click={() => open = false}>Font Weight</NavGroupItem>
-            <NavGroupItem href="/tokens#font-size" active={page.url.pathname + page.url.hash === "/tokens#font-size"} on:click={() => open = false}>Font Size</NavGroupItem>
-            <NavGroupItem href="/tokens#line-height" active={page.url.pathname + page.url.hash === "/tokens#line-height"} on:click={() => open = false}>Line Height</NavGroupItem>
-            <NavGroupItem href="/tokens#letter-spacing" active={page.url.pathname + page.url.hash === "/tokens#letter-spacing"} on:click={() => open = false}>Letter Spacing</NavGroupItem>
-            <NavGroupItem href="/tokens#space" active={page.url.pathname + page.url.hash === "/tokens#space"} on:click={() => open = false}>Space</NavGroupItem>
-            <NavGroupItem href="/tokens#sizing" active={page.url.pathname + page.url.hash === "/tokens#sizing"} on:click={() => open = false}>Sizing</NavGroupItem>
-            <NavGroupItem href="/tokens#radius" active={page.url.pathname + page.url.hash === "/tokens#radius"} on:click={() => open = false}>Border Radius</NavGroupItem>
-            <NavGroupItem href="/tokens#breakpoints" active={page.url.pathname + page.url.hash === "/tokens#breakpoints"} on:click={() => open = false}>Breakpoints</NavGroupItem>
-            <NavGroupItem href="/tokens#color" active={page.url.pathname + page.url.hash === "/tokens#color"} on:click={() => open = false}>Color</NavGroupItem>
-            <NavGroupItem href="/tokens#color-scales" active={page.url.pathname + page.url.hash === "/tokens#color-scales"} on:click={() => open = false}>Color Scales</NavGroupItem>
+        <NavGroup title="Foundations">
+            {#snippet icon(animate)}<Layers {animate} />{/snippet}
+            <NavGroupItem href="/foundations/colors" active={page.url.pathname === "/foundations/colors"} onclick={() => open = false}>Colors</NavGroupItem>
+            <NavGroupItem href="/foundations/typography" active={page.url.pathname === "/foundations/typography"} onclick={() => open = false}>Typography</NavGroupItem>
+            <NavGroupItem href="/foundations/spacing-and-layout" active={page.url.pathname === "/foundations/spacing-and-layout"} onclick={() => open = false}>Spacing &amp; Layout</NavGroupItem>
+            <NavGroupItem href="/foundations/surfaces" active={page.url.pathname === "/foundations/surfaces"} onclick={() => open = false}>Surfaces</NavGroupItem>
         </NavGroup>
+        <!-- Guidelines is hidden from the nav for now (the page still exists while its content moves elsewhere)
+        <NavGroup title="Guidelines" open={page.url.pathname.startsWith("/guidelines")}>
+            {#snippet icon(animate)}<Compass {animate} />{/snippet}
+            <NavGroupItem href="/guidelines" active={page.url.pathname === "/guidelines"} onclick={() => open = false}>Overview</NavGroupItem>
+        </NavGroup>
+        -->
         <NavGroup title="Components">
             {#snippet icon(animate)}<Blocks {animate} />{/snippet}
-            <NavGroupItem href="/components" active={page.url.pathname === "/components"} on:click={() => open = false}>All Components</NavGroupItem>
+            <NavGroupItem href="/components" active={page.url.pathname === "/components"} onclick={() => open = false}>All Components</NavGroupItem>
             {#each components as component}
-                <NavGroupItem href="/components/{component.name.toLocaleLowerCase()}" active={page.url.pathname === '/components/' + component.name.toLocaleLowerCase()} on:click={() => open = false}>{component.name}</NavGroupItem>
+                <NavGroupItem href="/components/{component.name.toLocaleLowerCase()}" active={page.url.pathname === '/components/' + component.name.toLocaleLowerCase()} onclick={() => open = false}>{component.name}</NavGroupItem>
             {/each}
         </NavGroup>
+        {#snippet footer()}
+            <Avatar name="Guest" />
+            <ThemeSwitcher />
+        {/snippet}
     </LayoutNav>
     <LayoutContent>
-        <slot />
+        {@render children()}
     </LayoutContent>
 </Layout>
 
@@ -80,5 +89,18 @@
     /* Center the 36px mark on the nav's 24px icon column, so it starts 6px further left */
     .logo.is-desktop {
         margin-inline-start: -6px;
+    }
+
+    /* Sit the version on the wordmark's baseline ("last" skips the mark, which comes first) */
+    .logo.is-desktop,
+    .version {
+        align-self: last baseline;
+    }
+
+    .version {
+        margin-inline-start: var(--m-space-s);
+        font-family: var(--m-font-mono);
+        font-size: var(--m-font-size-xs);
+        color: var(--m-color-text-weaker);
     }
 </style>

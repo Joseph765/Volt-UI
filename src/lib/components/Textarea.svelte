@@ -1,33 +1,32 @@
 <script>
-    /** @type { string } */
-    export let label = "";
-
-    /** @type { string } */
-    export let value = '';
-
-    /** @type { string } */
-    export let name;
-
-    /** @type { boolean } */
-    export let expanded = false;
-
-    /** @type { boolean } */
-    export let required = false;
-
-    /** @type { string } */
-    export let error = '';
-
-    /** @type { string } */
-    export let hint = '';
-
-    /** @type { 'start' | 'end' } */
-    export let align = 'start';
-
-    /** @type { 'on' | 'off' } */
-    export let autocomplete = 'off';
-
-    /** @type { string | undefined } */
-    export let style = undefined;
+    /**
+     * Any other attribute (e.g. placeholder, rows, oninput) goes on the <textarea>.
+     * @type {{
+     *   label?: string,
+     *   value?: string,
+     *   name: string,
+     *   expanded?: boolean,
+     *   required?: boolean,
+     *   error?: string,
+     *   hint?: string,
+     *   align?: 'start' | 'end',
+     *   autocomplete?: import('svelte/elements').HTMLTextareaAttributes['autocomplete'],
+     *   style?: string
+     * } & import('svelte/elements').HTMLTextareaAttributes}
+     */
+    let {
+        label = "",
+        value = $bindable(""),
+        name,
+        expanded = false,
+        required = false,
+        error = "",
+        hint = "",
+        align = "start",
+        autocomplete = "off",
+        style = undefined,
+        ...rest
+    } = $props();
 </script>
 
 <div class="m-label-wrapper">
@@ -47,7 +46,7 @@
             {autocomplete}
             {style}
             bind:value
-            {...$$restProps}
+            {...rest}
             class="m-textarea {expanded ? "is-expanded" : undefined} {error ? "is-danger" : undefined} is-align-{align}"
         ></textarea>
     </div>
@@ -55,7 +54,6 @@
     {#if error}
         <span class="m-text is-size-s is-danger">{error}</span>
     {/if}
-
     {#if hint}
       <span class="m-text is-size-s is-weak">{hint}</span>
     {/if}

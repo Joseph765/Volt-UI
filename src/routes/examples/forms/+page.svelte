@@ -37,9 +37,9 @@
         { value: "admin", label: "Admin" }
     ];
 
-    let country = "";
-    let network = "eth";
-    let role = "editor";
+    let country = $state("");
+    let network = $state("eth");
+    let role = $state("editor");
 
     const categories = [
         { value: "all", label: "All categories" },
@@ -54,8 +54,8 @@
         { value: "utc", label: "UTC" }
     ];
 
-    let category = "all";
-    let timezone = "pst";
+    let category = $state("all");
+    let timezone = $state("pst");
 </script>
 
 <Seo title="Form preview · Moth UI" description="Internal page for reviewing form design." path="/form-preview" noindex />
@@ -89,11 +89,11 @@
 
             <!-- 2. Profile: card header, prefix, textarea, select, two actions -->
             <Card space="l">
-                <Text size="xl" weight="bold" as="h2" slot="header">Profile</Text>
+                {#snippet header()}<Text size="xl" weight="bold" as="h2">Profile</Text>{/snippet}
                 <Flex direction="column" gap="m">
                     <Input label="Full name" name="fullName" value="Ada Lovelace" expanded />
                     <Input label="Username" name="username" value="ada" hint="Your public handle. Letters and numbers only." expanded>
-                        <svelte:fragment slot="prefix">@</svelte:fragment>
+                        {#snippet prefix()}@{/snippet}
                     </Input>
                     <Textarea label="Bio" name="bio" hint="Up to 160 characters." expanded />
                     <Select label="Country" name="country" options={countries} bind:value={country} expanded />
@@ -106,7 +106,7 @@
 
             <!-- 3. Preferences: toggles, radios in a fieldset -->
             <Card space="l">
-                <Text size="xl" weight="bold" as="h2" slot="header">Notifications</Text>
+                {#snippet header()}<Text size="xl" weight="bold" as="h2">Notifications</Text>{/snippet}
                 <Flex direction="column" gap="l">
                     <Flex direction="column" gap="m">
                         <Toggle name="emailAlerts" label="Email alerts" hint="Get an email when a transaction settles." checked />
@@ -126,14 +126,14 @@
 
             <!-- 4. Transaction: suffix, end-aligned numbers, icon prefix, summary -->
             <Card space="l">
-                <Text size="xl" weight="bold" as="h2" slot="header">Send funds</Text>
+                {#snippet header()}<Text size="xl" weight="bold" as="h2">Send funds</Text>{/snippet}
                 <Flex direction="column" gap="m">
                     <Select label="Network" name="network" options={networks} bind:value={network} expanded />
                     <Input label="Recipient" name="recipient" placeholder="0x…" expanded>
-                        <svelte:fragment slot="prefix"><Search size={16} /></svelte:fragment>
+                        {#snippet prefix()}<Search size={16} />{/snippet}
                     </Input>
                     <Input label="Amount" name="amount" value="0.25" align="end" hint="Balance: 1.4021 ETH" expanded>
-                        <svelte:fragment slot="suffix">ETH</svelte:fragment>
+                        {#snippet suffix()}ETH{/snippet}
                     </Input>
                     <Divider />
                     <Flex justify="between">
@@ -147,7 +147,7 @@
 
             <!-- 5. Validation: every component in its error state -->
             <Card space="l">
-                <Text size="xl" weight="bold" as="h2" slot="header">Errors</Text>
+                {#snippet header()}<Text size="xl" weight="bold" as="h2">Errors</Text>{/snippet}
                 <Flex direction="column" gap="m">
                     <Input label="Email" name="badEmail" value="adalol@" error="Enter a valid email address." expanded required />
                     <Textarea label="Message" name="badMessage" error="A message is required." expanded required />
@@ -164,7 +164,7 @@
 
             <!-- 6. Disabled and read-only-ish states -->
             <Card space="l">
-                <Text size="xl" weight="bold" as="h2" slot="header">Team member</Text>
+                {#snippet header()}<Text size="xl" weight="bold" as="h2">Team member</Text>{/snippet}
                 <Flex direction="column" gap="m">
                     <Input label="Email" name="memberEmail" value="grace@example.com" hint="Email can't be changed after invite." expanded />
                     <Select label="Role" name="memberRole" options={roles} bind:value={role} disabled hint="Only owners can change roles." expanded />
@@ -190,7 +190,7 @@
             <div class="toolbar">
                 <div class="toolbar-search">
                     <Input type="search" name="pageSearch" placeholder="Search components" expanded>
-                        <svelte:fragment slot="prefix"><Search size={16} /></svelte:fragment>
+                        {#snippet prefix()}<Search size={16} />{/snippet}
                     </Input>
                 </div>
                 <Select name="category" options={categories} bind:value={category} />
@@ -209,7 +209,7 @@
                 <Flex direction="column" gap="m">
                     <Input label="Workspace name" name="wsName" value="Moth Labs" expanded />
                     <Input label="URL" name="wsUrl" value="moth-labs" hint="Changing this breaks existing links." expanded>
-                        <svelte:fragment slot="prefix">moth.app/</svelte:fragment>
+                        {#snippet prefix()}moth.app/{/snippet}
                     </Input>
                 </Flex>
             </div>

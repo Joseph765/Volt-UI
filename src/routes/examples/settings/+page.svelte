@@ -67,7 +67,7 @@
     // Toasts
     /** @type {{ id: string, message: string, variant: 'default' | 'danger' }[]} */
     let toasts = $state([]);
-    let nextToastId = 1;
+    let nextToastId = $state(1);
 
     /**
      * @param { string } message
@@ -98,7 +98,7 @@
             <Tab id="profile" selected={selectedTab}>
                 <Flex direction="column" gap="l">
                     <Card space="l">
-                        <Text size="l" weight="bold" as="h2" slot="header">Public profile</Text>
+                        {#snippet header()}<Text size="l" weight="bold" as="h2">Public profile</Text>{/snippet}
                         <Flex direction="column" gap="l">
                             <Flex gap="m" align="center">
                                 <div class="avatar" aria-hidden="true">JR</div>
@@ -113,7 +113,7 @@
                             <div class="field-grid">
                                 <Input label="Full name" name="name" bind:value={name} required expanded />
                                 <Input label="Username" name="username" bind:value={username} hint="moth.app/{username || '…'}" expanded>
-                                    <svelte:fragment slot="prefix">@</svelte:fragment>
+                                    {#snippet prefix()}@{/snippet}
                                 </Input>
                             </div>
                             <Input label="Email" name="email" type="email" bind:value={email} error={emailError} required expanded />
@@ -123,17 +123,17 @@
                     </Card>
                     <Flex justify="end" gap="s">
                         <Button variant="secondary">Cancel</Button>
-                        <Button variant="primary" disabled={!!emailError || bio.length > 160} on:click={() => toast("Profile saved")}>Save changes</Button>
+                        <Button variant="primary" disabled={!!emailError || bio.length > 160} onclick={() => toast("Profile saved")}>Save changes</Button>
                     </Flex>
 
                     <Card space="l">
-                        <Text size="l" weight="bold" as="h2" slot="header">Danger zone</Text>
+                        {#snippet header()}<Text size="l" weight="bold" as="h2">Danger zone</Text>{/snippet}
                         <Flex justify="between" align="center" gap="m" wrap>
                             <Flex direction="column" gap="xs">
                                 <Text weight="bold">Delete account</Text>
                                 <Text size="s" variant="weak">Permanently remove your account and all of its projects. This can't be undone.</Text>
                             </Flex>
-                            <Button variant="danger" on:click={() => toast("Account deletion requested", "danger")}>Delete account</Button>
+                            <Button variant="danger" onclick={() => toast("Account deletion requested", "danger")}>Delete account</Button>
                         </Flex>
                     </Card>
                 </Flex>
@@ -141,7 +141,7 @@
 
             <Tab id="notifications" selected={selectedTab}>
                 <Card space="l">
-                    <Text size="l" weight="bold" as="h2" slot="header">Notifications</Text>
+                    {#snippet header()}<Text size="l" weight="bold" as="h2">Notifications</Text>{/snippet}
                     <Flex direction="column" gap="l">
                         <Flex direction="column" gap="m">
                             <Toggle name="mentions" label="Mentions" hint="When someone @mentions you in a comment." checked />
@@ -159,7 +159,7 @@
                         </Fieldset>
                         <Divider />
                         <Flex justify="end">
-                            <Button variant="primary" on:click={() => toast("Notification preferences updated")}>Save preferences</Button>
+                            <Button variant="primary" onclick={() => toast("Notification preferences updated")}>Save preferences</Button>
                         </Flex>
                     </Flex>
                 </Card>
@@ -168,8 +168,8 @@
             <Tab id="billing" selected={selectedTab}>
                 <Flex direction="column" gap="l">
                     <Card space="l">
-                        <Text size="l" weight="bold" as="h2" slot="header">Plan</Text>
-                        <Badge slot="header-end" variant="success">Active</Badge>
+                        {#snippet header()}<Text size="l" weight="bold" as="h2">Plan</Text>{/snippet}
+                        {#snippet headerEnd()}<Badge variant="success">Active</Badge>{/snippet}
                         <Flex direction="column" gap="l">
                             <Fieldset label="Choose a plan">
                                 <Flex direction="column" gap="s">
@@ -181,7 +181,7 @@
                             <Divider />
                             <Flex justify="between" align="center" gap="m" wrap>
                                 <Text size="s" variant="weak">{#if currentPlan.id === "starter"}Starter is free: no upcoming payments.{:else}Next payment of <strong>{currentPlan.price}</strong> on Dec 1, 2026 to Visa ending in 4242.{/if}</Text>
-                                <Button variant="primary" on:click={() => toast(`Switched to ${currentPlan.name}`)}>Update plan</Button>
+                                <Button variant="primary" onclick={() => toast(`Switched to ${currentPlan.name}`)}>Update plan</Button>
                             </Flex>
                         </Flex>
                     </Card>

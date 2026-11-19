@@ -1,6 +1,7 @@
 <script>
     import { ChartPie, History, Layers, Settings } from "@jis3r/icons";
     import {
+        Avatar,
         Banner,
         Code,
         Container,
@@ -14,34 +15,31 @@
         NavGroup,
         NavGroupItem,
         NavItem,
-        Select,
         Table,
         TableBody,
         TableCell,
-        TableHeader,
         TableHead,
+        TableHeader,
         TableRow,
-        Text
+        Text,
+        ThemeSwitcher
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
 
-    let options = [
-        { value: 'basic', label: 'Example: Basic' }
-    ];
-
-    /** @type { string } */
-    let selectedExample = 'basic';
+    /** @type { boolean } */
+    let open = $state(false);
 
     /** @type { boolean } */
-    let open = false;
+    let openFooter = $state(false);
 
     /** @type { string } */
-    let activeItem = 'dashboard';
+    let activeItem = $state('dashboard');
 
     /** @param { string } item */
     function select(item) {
         activeItem = item;
         open = false;
+        openFooter = false;
     }
 
     let example1 = `<script>
@@ -59,44 +57,89 @@
         NavItem
     } from "moth-ui-svelte";
 
+    let { children } = $props();
+
     /** @type { boolean } */
-    let open = false;
+    let open = $state(false);
 <\/script>
 
 <Layout>
     <LayoutHeader>
-        <LayoutMenuButton {open} on:click={() => open = !open} />
-        <a href="/" class="mobile-logo" slot="mobile-logo">L</a>
+        <LayoutMenuButton {open} onclick={() => open = !open} />
+        {#snippet mobileLogo()}<a href="/" class="mobile-logo">L</a>{/snippet}
     </LayoutHeader>
-    <a href="/" class="logo" slot="logo">Logo</a>
-    <LayoutNav {open} on:close={() => open = false}>
-        <NavItem href="/" active={page.url.pathname === "/"} on:click={() => open = false}>
-            <ChartPie slot="icon" let:animate {animate} />
+    {#snippet logo()}<a href="/" class="logo">Logo</a>{/snippet}
+    <LayoutNav {open} onclose={() => open = false}>
+        <NavItem href="/" active={page.url.pathname === "/"} onclick={() => open = false}>
+            {#snippet icon(animate)}<ChartPie {animate} />{/snippet}
             Dashboard
         </NavItem>
-        <NavItem href="/assets" active={page.url.pathname === "/assets"} on:click={() => open = false}>
-            <Layers slot="icon" let:animate {animate} />
+        <NavItem href="/assets" active={page.url.pathname === "/assets"} onclick={() => open = false}>
+            {#snippet icon(animate)}<Layers {animate} />{/snippet}
             Assets
         </NavItem>
-        <NavItem href="/transactions" active={page.url.pathname === "/transactions"} on:click={() => open = false}>
-            <History slot="icon" let:animate {animate} />
+        <NavItem href="/transactions" active={page.url.pathname === "/transactions"} onclick={() => open = false}>
+            {#snippet icon(animate)}<History {animate} />{/snippet}
             Transactions
         </NavItem>
         <NavGroup title="Settings">
             {#snippet icon(animate)}<Settings {animate} />{/snippet}
-            <NavGroupItem href="/settings/profile" active={page.url.pathname === "/settings/profile"} on:click={() => open = false}>Profile</NavGroupItem>
-            <NavGroupItem href="/settings/security" active={page.url.pathname === "/settings/security"} on:click={() => open = false}>Security</NavGroupItem>
+            <NavGroupItem href="/settings/profile" active={page.url.pathname === "/settings/profile"} onclick={() => open = false}>Profile</NavGroupItem>
+            <NavGroupItem href="/settings/security" active={page.url.pathname === "/settings/security"} onclick={() => open = false}>Security</NavGroupItem>
         </NavGroup>
     </LayoutNav>
     <LayoutContent>
         <Container>
-            <slot />
+            {@render children()}
         </Container>
+    </LayoutContent>
+</Layout>`;
+
+    let example2 = `<script>
+    import { page } from '$app/state';
+    import { ChartPie, Layers } from "@jis3r/icons";
+    import {
+        Layout,
+        LayoutContent,
+        LayoutHeader,
+        LayoutMenuButton,
+        LayoutNav,
+        Avatar,
+        NavItem,
+        ThemeSwitcher
+    } from "moth-ui-svelte";
+
+    let { children } = $props();
+
+    /** @type { boolean } */
+    let open = $state(false);
+<\/script>
+
+<Layout>
+    <LayoutHeader>
+        <LayoutMenuButton {open} onclick={() => open = !open} />
+    </LayoutHeader>
+    <LayoutNav {open} onclose={() => open = false}>
+        <NavItem href="/" active={page.url.pathname === "/"} onclick={() => open = false}>
+            {#snippet icon(animate)}<ChartPie {animate} />{/snippet}
+            Dashboard
+        </NavItem>
+        <NavItem href="/assets" active={page.url.pathname === "/assets"} onclick={() => open = false}>
+            {#snippet icon(animate)}<Layers {animate} />{/snippet}
+            Assets
+        </NavItem>
+        {#snippet footer()}
+            <Avatar name="Ada Lovelace" />
+            <ThemeSwitcher />
+        {/snippet}
+    </LayoutNav>
+    <LayoutContent>
+        {@render children()}
     </LayoutContent>
 </Layout>`;
 </script>
 
-<Flex direction="column" gap="xl">
+<Flex direction="column" gap="2xl">
     <Flex direction="column">
         <Text size="3xl" weight="black" as="h1">Layout</Text>
         <Text size="xl" variant="weak">
@@ -105,110 +148,162 @@
         </Text>
     </Flex>
     <Banner>Animated icons shown here are from <Link href="https://www.movingicons.dev" target="_blank">movingicons.dev</Link> (<Code>@jis3r/icons</Code>). Install it to use them.</Banner>
-    <Flex direction="column">
-        <Select
-            name="examples"
-            bind:options={options}
-            bind:value={selectedExample}
-            placeholder="Select an example..."
-        />
-        {#if selectedExample === "basic"}
-            <CodeExample code={example1}>
-                <div class="layout-demo">
-                    <Layout>
-                        <LayoutHeader>
-                            <LayoutMenuButton {open} on:click={() => open = !open} />
-                            <a href="#top" class="example-mobile-logo" slot="mobile-logo">L</a>
-                        </LayoutHeader>
-                        <a href="#top" class="example-logo" slot="logo">Logo</a>
-                        <LayoutNav {open} on:close={() => open = false}>
-                            <NavItem href="#top" active={activeItem === "dashboard"} on:click={() => select("dashboard")}>
-                                <ChartPie slot="icon" let:animate {animate} />
-                                Dashboard
-                            </NavItem>
-                            <NavItem href="#top" active={activeItem === "assets"} on:click={() => select("assets")}>
-                                <Layers slot="icon" let:animate {animate} />
-                                Assets
-                            </NavItem>
-                            <NavItem href="#top" active={activeItem === "transactions"} on:click={() => select("transactions")}>
-                                <History slot="icon" let:animate {animate} />
-                                Transactions
-                            </NavItem>
-                            <NavGroup title="Settings">
-                                {#snippet icon(animate)}<Settings {animate} />{/snippet}
-                                <NavGroupItem href="#top" active={activeItem === "profile"} on:click={() => select("profile")}>Profile</NavGroupItem>
-                                <NavGroupItem href="#top" active={activeItem === "security"} on:click={() => select("security")}>Security</NavGroupItem>
-                            </NavGroup>
-                        </LayoutNav>
-                        <LayoutContent>
-                            <Container>
-                                <Text size="3xl" weight="black" as="h3">Page content</Text>
-                            </Container>
-                        </LayoutContent>
-                    </Layout>
-                </div>
-            </CodeExample>
-        {/if}
-    </Flex>
-    <Table>
-        <TableHead>
-            <TableRow>
-                <TableHeader>Property</TableHeader>
-                <TableHeader>Description</TableHeader>
-                <TableHeader>Type</TableHeader>
-            </TableRow>
-        </TableHead>
-        <TableBody>
-            <TableRow>
-                <TableCell><Code>LayoutNav open</Code></TableCell>
-                <TableCell>Slides the navigation in on screens narrower than 82rem and blurs the page content behind it. The sidebar is always shown on larger screens.</TableCell>
-                <TableCell><Code>boolean</Code></TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell><Code>LayoutNav label</Code></TableCell>
-                <TableCell>Accessible name for the navigation landmark. Defaults to "Main".</TableCell>
-                <TableCell><Code>string</Code></TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell><Code>LayoutNav on:close</Code></TableCell>
-                <TableCell>Fires when the user presses Esc or clicks the blurred page outside the navigation while it is open. Set <Code>open</Code> to false in response. On Esc, focus moves back to the menu button if it was inside the navigation.</TableCell>
-                <TableCell><Code>event</Code></TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell><Code>LayoutMenuButton open</Code></TableCell>
-                <TableCell>Reflects whether the navigation is open so screen readers announce it (<Code>aria-expanded</Code>).</TableCell>
-                <TableCell><Code>boolean</Code></TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell><Code>LayoutMenuButton on:click</Code></TableCell>
-                <TableCell>Fires when the menu button is pressed. Toggle <Code>open</Code> in response.</TableCell>
-                <TableCell><Code>event</Code></TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell><Code>Layout slot="logo"</Code></TableCell>
-                <TableCell>Logo shown above the sidebar on larger screens.</TableCell>
-                <TableCell><Code>slot</Code></TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell><Code>LayoutHeader slot="mobile-logo"</Code></TableCell>
-                <TableCell>Logo centered in the header on smaller screens.</TableCell>
-                <TableCell><Code>slot</Code></TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell><Code>NavItem slot="icon"</Code></TableCell>
-                <TableCell>Icon before the label. Receives <Code>animate</Code>, which is true while the item is hovered or keyboard-focused, so animated icons play for the whole row. Also available on <Code>NavGroupItem</Code>.</TableCell>
-                <TableCell><Code>slot</Code></TableCell>
-            </TableRow>
-            <TableRow>
-                <TableCell><Code>NavGroup icon</Code></TableCell>
-                <TableCell>Snippet rendered before the group title. Receives the same <Code>animate</Code> flag.</TableCell>
-                <TableCell><Code>Snippet&lt;[boolean]&gt;</Code></TableCell>
-            </TableRow>
-        </TableBody>
-    </Table>
+    <section class="section" id="basic">
+        <Text size="2xl" weight="bold" as="h2">Basic</Text>
+        <Text size="l" variant="weak" measure="l">
+            The page shell: a sidebar on wide screens, and a header with a menu button below the <Code>l</Code>
+            breakpoint (66rem). The window scrolls, so the header and sidebar stay in place. Fill the sidebar with <Link
+            size="l" href="/components/navigation">Navigation</Link> items.
+        </Text>
+        <CodeExample code={example1}>
+            <div class="layout-demo">
+                <Layout>
+                    <LayoutHeader>
+                        <LayoutMenuButton {open} onclick={() => open = !open} />
+                        {#snippet mobileLogo()}<a href="#top" class="example-mobile-logo">L</a>{/snippet}
+                    </LayoutHeader>
+                    {#snippet logo()}<a href="#top" class="example-logo">Logo</a>{/snippet}
+                    <LayoutNav {open} onclose={() => open = false}>
+                        <NavItem href="#top" active={activeItem === "dashboard"} onclick={() => select("dashboard")}>
+                            {#snippet icon(animate)}<ChartPie {animate} />{/snippet}
+                            Dashboard
+                        </NavItem>
+                        <NavItem href="#top" active={activeItem === "assets"} onclick={() => select("assets")}>
+                            {#snippet icon(animate)}<Layers {animate} />{/snippet}
+                            Assets
+                        </NavItem>
+                        <NavItem href="#top" active={activeItem === "transactions"} onclick={() => select("transactions")}>
+                            {#snippet icon(animate)}<History {animate} />{/snippet}
+                            Transactions
+                        </NavItem>
+                        <NavGroup title="Settings">
+                            {#snippet icon(animate)}<Settings {animate} />{/snippet}
+                            <NavGroupItem href="#top" active={activeItem === "profile"} onclick={() => select("profile")}>Profile</NavGroupItem>
+                            <NavGroupItem href="#top" active={activeItem === "security"} onclick={() => select("security")}>Security</NavGroupItem>
+                        </NavGroup>
+                    </LayoutNav>
+                    <LayoutContent>
+                        <Container>
+                            <Text size="3xl" weight="black" as="h3">Page content</Text>
+                        </Container>
+                    </LayoutContent>
+                </Layout>
+            </div>
+        </CodeExample>
+    </section>
+
+    <section class="section" id="footer">
+        <Text size="2xl" weight="bold" as="h2">Footer</Text>
+        <Text size="l" variant="weak" measure="l">
+            The <Code>footer</Code> snippet stays at the bottom of the sidebar (and of the slide-in nav on smaller
+            screens) while the items above it scroll. Use it for global actions that aren't pages: the signed-in user,
+            their settings, or a <Link size="l" href="/components/themeswitcher">ThemeSwitcher</Link>. Keep it to one
+            row.
+        </Text>
+        <CodeExample code={example2}>
+            <div class="layout-demo">
+                <Layout>
+                    <LayoutHeader>
+                        <LayoutMenuButton open={openFooter} onclick={() => openFooter = !openFooter} />
+                    </LayoutHeader>
+                    <LayoutNav open={openFooter} onclose={() => openFooter = false}>
+                        <NavItem href="#top" active={activeItem === "dashboard"} onclick={() => select("dashboard")}>
+                            {#snippet icon(animate)}<ChartPie {animate} />{/snippet}
+                            Dashboard
+                        </NavItem>
+                        <NavItem href="#top" active={activeItem === "assets"} onclick={() => select("assets")}>
+                            {#snippet icon(animate)}<Layers {animate} />{/snippet}
+                            Assets
+                        </NavItem>
+                        {#snippet footer()}
+                            <Avatar name="Ada Lovelace" />
+                            <ThemeSwitcher />
+                        {/snippet}
+                    </LayoutNav>
+                    <LayoutContent>
+                        <Container>
+                            <Text size="3xl" weight="black" as="h3">Page content</Text>
+                        </Container>
+                    </LayoutContent>
+                </Layout>
+            </div>
+        </CodeExample>
+    </section>
+
+    <section class="section" id="api-reference">
+        <Text size="2xl" weight="bold" as="h2">API reference</Text>
+        <Table>
+            <TableHead>
+                <TableRow>
+                    <TableHeader>Property</TableHeader>
+                    <TableHeader>Description</TableHeader>
+                    <TableHeader>Type</TableHeader>
+                </TableRow>
+            </TableHead>
+            <TableBody>
+                <TableRow>
+                    <TableCell><Code>LayoutNav open</Code></TableCell>
+                    <TableCell>Slides the navigation in on screens narrower than 66rem (1056px) and blurs the page content behind it. The sidebar is always shown on larger screens.</TableCell>
+                    <TableCell><Code>boolean</Code></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell><Code>LayoutNav label</Code></TableCell>
+                    <TableCell>Accessible name for the navigation landmark. Defaults to "Main".</TableCell>
+                    <TableCell><Code>string</Code></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell><Code>LayoutNav onclose</Code></TableCell>
+                    <TableCell>Fires when the user presses Esc or clicks the blurred page outside the navigation while it is open. Set <Code>open</Code> to false in response. On Esc, focus moves back to the menu button if it was inside the navigation.</TableCell>
+                    <TableCell><Code>function</Code></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell><Code>LayoutNav footer</Code></TableCell>
+                    <TableCell>Global actions pinned to the bottom of the navigation, below a divider, such as the signed-in user, settings or a theme switcher. The items above it scroll on their own.</TableCell>
+                    <TableCell><Code>Snippet</Code></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell><Code>LayoutMenuButton open</Code></TableCell>
+                    <TableCell>Reflects whether the navigation is open so screen readers announce it (<Code>aria-expanded</Code>).</TableCell>
+                    <TableCell><Code>boolean</Code></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell><Code>LayoutMenuButton onclick</Code></TableCell>
+                    <TableCell>Fires when the menu button is pressed. Toggle <Code>open</Code> in response.</TableCell>
+                    <TableCell><Code>function</Code></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell><Code>Layout logo</Code></TableCell>
+                    <TableCell>Logo shown above the sidebar on larger screens.</TableCell>
+                    <TableCell><Code>Snippet</Code></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell><Code>LayoutHeader mobileLogo</Code></TableCell>
+                    <TableCell>Logo centered in the header on smaller screens.</TableCell>
+                    <TableCell><Code>Snippet</Code></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell><Code>NavItem icon</Code></TableCell>
+                    <TableCell>Icon before the label. Receives <Code>animate</Code>, which is true while the item is hovered or keyboard-focused, so animated icons play for the whole row. Also available on <Code>NavGroupItem</Code>.</TableCell>
+                    <TableCell><Code>Snippet</Code></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell><Code>NavGroup icon</Code></TableCell>
+                    <TableCell>Snippet rendered before the group title. Receives the same <Code>animate</Code> flag.</TableCell>
+                    <TableCell><Code>Snippet&lt;[boolean]&gt;</Code></TableCell>
+                </TableRow>
+            </TableBody>
+        </Table>
+    </section>
 </Flex>
 
 <style>
+    .section {
+        display: flex;
+        flex-direction: column;
+        gap: var(--m-space-m);
+        scroll-margin-block-start: var(--m-space-l);
+    }
+
     /*
      * The demo is a whole app inside a small box, so the box acts as its window:
      * - It fills the preview area exactly and scrolls itself, so the demo's sticky header and sidebar stick
@@ -230,10 +325,12 @@
         min-height: 100%;
     }
 
-    /* The real sidebar is capped at the window's height below the logo; in the demo, cap it at the box's height,
-       so a long nav scrolls on its own under the logo instead of sliding up over it */
-    .layout-demo :global(.m-layout-nav) {
-        max-height: calc(100cqh - var(--m-layout-logo-offset));
+    /* The real sidebar fills the window's height below the logo; in the demo, it fills the box's height, so a long
+       nav scrolls on its own under the logo and the footer sits at the bottom of the box */
+    @media (min-width: 66rem) {
+        .layout-demo :global(.m-layout-nav) {
+            height: calc(100cqh - var(--m-layout-logo-offset));
+        }
     }
 
     .example-logo {

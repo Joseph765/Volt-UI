@@ -4,12 +4,12 @@
 	 *
 	 * <MothLogo href="/" />          header logo, default size
 	 * <MothLogo size={32} />         scale everything (size = mark height in px)
-	 * <MothLogo theme="light" />     for light backgrounds
+	 * <MothLogo theme="light" />     force the light-background colors (default "auto" follows the page's data-theme)
 	 * <MothLogo wordmark={false} />  mark only
 	 */
 	let {
 		size = 36,
-		theme = 'dark',
+		theme = 'auto',
 		wordmark = true,
 		href = undefined,
 		label = 'Moth UI'
@@ -62,7 +62,8 @@
 		text-decoration: none;
 	}
 
-	.moth-logo.light {
+	.moth-logo.light,
+	:global([data-theme="light"]) .moth-logo:not(.dark) {
 		--up: #6e56cf;
 		--low: #3c2e69;
 		--body: #17151c;

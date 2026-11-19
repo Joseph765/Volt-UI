@@ -1,12 +1,17 @@
 <script>
-    /** @type { string } */
-    export let href;
+    /**
+     * `icon` receives `animate`: true while the item is hovered or keyboard-focused, for animated icons.
+     * @type {{
+     *   href: string,
+     *   active?: boolean,
+     *   onclick?: import('svelte/elements').MouseEventHandler<HTMLAnchorElement>,
+     *   icon?: import('svelte').Snippet<[boolean]>,
+     *   children?: import('svelte').Snippet
+     * }}
+     */
+    let { href, active = false, onclick, icon, children } = $props();
 
-    /** @type { boolean } */
-    export let active = false;
-
-    /** @type { boolean } Passed to the icon slot so animated icons play while the item is hovered or keyboard-focused */
-    let animate = false;
+    let animate = $state(false);
 
     /** @param { FocusEvent & { currentTarget: HTMLElement } } event */
     function handleFocus(event) {
@@ -18,12 +23,12 @@
     {href}
     class="m-nav-item"
     aria-current={active}
-    on:click
-    on:mouseenter={() => animate = true}
-    on:mouseleave={() => animate = false}
-    on:focus={handleFocus}
-    on:blur={() => animate = false}
+    {onclick}
+    onmouseenter={() => animate = true}
+    onmouseleave={() => animate = false}
+    onfocus={handleFocus}
+    onblur={() => animate = false}
 >
-    <slot name="icon" {animate} />
-    <slot />
+    {@render icon?.(animate)}
+    {@render children?.()}
 </a>

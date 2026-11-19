@@ -74,16 +74,29 @@
                     <Text size="l" variant="weak" measure="l">
                         <strong>Styles the page globally.</strong> It sets the background, text color and font on
                         <Code>html</Code> and <Code>body</Code>, removes their margin and padding, styles text selection, applies
-                        <Code>box-sizing: border-box</Code> to every element, and sets <Code>color-scheme: dark</Code>
-                        so scrollbars and native controls match.
+                        <Code>box-sizing: border-box</Code> to every element, and sets <Code>color-scheme</Code>
+                        so scrollbars and native controls match the theme.
                     </Text>
                 </li>
                 <li>
                     <Text size="l" variant="weak" measure="l">
-                        <strong>Is dark only.</strong> Moth is designed for dark interfaces and has no light theme.
+                        <strong>Is dark by default.</strong> Moth is designed dark-first, and has a light theme too
+                        (see Themes below).
                     </Text>
                 </li>
             </ul>
+        </Flex>
+
+        <Flex direction="column">
+            <Text size="2xl" weight="bold" as="h2" id="themes">Themes</Text>
+            <Text size="l" variant="weak" measure="l">
+                Moth is dark unless you say otherwise. For the light theme, set <Code>data-theme="light"</Code> on
+                <Code>html</Code>. It also works on any element, to show just that part of the page in the other theme.
+                Every token switches with it, so your own styles follow as long as they use Moth's tokens. To let people
+                choose, and to follow their system setting, add a
+                <Link size="l" href="/components/themeswitcher">ThemeSwitcher</Link>.
+            </Text>
+            <CodeExample codeOnly code={`<html lang="en" data-theme="light">`} />
         </Flex>
 
         <Flex direction="column">
@@ -107,7 +120,7 @@
 <\/script>
 
 <Button>
-    <Plus slot="start" size={16} />
+    {#snippet start()}<Plus size={16} />{/snippet}
     New project
 </Button>`} />
         </Flex>
@@ -117,7 +130,10 @@
             <Text size="l" variant="weak" measure="l">
                 The foundation of Moth UI: reusable values for colors, spacing, typography, etc. 
                 Use them via CSS variables like <Code>var(--m-color-text)</Code>. 
-                See the full list in the <Link size="l" href="/tokens/">design tokens</Link> docs.
+                They're documented in Foundations: <Link size="l" href="/foundations/colors">Colors</Link>,
+                <Link size="l" href="/foundations/typography">Typography</Link>,
+                <Link size="l" href="/foundations/spacing-and-layout">Spacing &amp; Layout</Link> and
+                <Link size="l" href="/foundations/surfaces">Surfaces</Link>.
             </Text>
         </Flex>
 

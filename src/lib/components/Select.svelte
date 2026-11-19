@@ -1,55 +1,44 @@
 <!-- Icons: Lucide (ISC License), see THIRD_PARTY_NOTICES.md -->
 <script>
-    /** @type { string } */
-    export let label = '';
-
-    /** @type { string } */
-    export let name;
-
-    /** @type { boolean } */
-    export let expanded = false;
-
-    /** @type { boolean } */
-    export let required = false;
-
     /**
-     * The currently selected value (string by default)
-     * @type { string }
+     * `value` is the selected option's value; use `bind:value`. `options` is the list to choose from.
+     * Any other attribute (e.g. onchange, aria-describedby) goes on the <select>.
+     * @type {{
+     *   label?: string,
+     *   name: string,
+     *   expanded?: boolean,
+     *   required?: boolean,
+     *   value?: string,
+     *   options?: { value: string; label: string }[],
+     *   placeholder?: string,
+     *   error?: string,
+     *   hint?: string,
+     *   disabled?: boolean,
+     *   autocomplete?: import('svelte/elements').HTMLSelectAttributes['autocomplete'],
+     *   style?: string,
+     *   prefix?: import('svelte').Snippet,
+     *   suffix?: import('svelte').Snippet
+     * } & Omit<import('svelte/elements').HTMLSelectAttributes, 'prefix'>}
      */
-    export let value = '';
+    let {
+        label = "",
+        name,
+        expanded = false,
+        required = false,
+        value = $bindable(""),
+        options = [],
+        placeholder = "Select an option...",
+        error = "",
+        hint = "",
+        disabled = false,
+        autocomplete = "off",
+        style = undefined,
+        prefix,
+        suffix,
+        ...rest
+    } = $props();
 
-    /**
-     * Array of options for the select
-     * @type {{ value: string; label: string }[]}
-     */
-    export let options = [];
-
-    /**
-     * Placeholder text shown when no option is selected
-     * @type { string }
-     */
-    export let placeholder = 'Select an option...';
-
-    /** @type { string } */
-    export let error = '';
-
-    /** @type { string } */
-    export let hint = '';
-
-    /**
-     * Whether the select is disabled
-     * @type { boolean }
-     */
-    export let disabled = false;
-
-    /** @type { 'on' | 'off' } */
-    export let autocomplete = 'off';
-
-    /** @type { string | undefined } */
-    export let style = undefined;
-
-    /** @type { number } */
-    let prefixWidth = 0;
+    let prefixWidth = $state(0);
 </script>
 
 <div class="m-label-wrapper">
@@ -63,9 +52,9 @@
     {/if}
 
     <div class="m-select-wrapper {expanded ? "is-expanded" : undefined} {error ? "is-danger" : undefined}" {style}>
-        {#if $$slots.prefix}
+        {#if prefix}
             <span class="m-select-prefix" bind:clientWidth={prefixWidth}>
-                <slot name="prefix" />
+                {@render prefix()}
             </span>
         {/if}
 
@@ -75,7 +64,7 @@
             {disabled}
             {required}
             {autocomplete}
-            {...$$restProps}
+            {...rest}
             class="m-select"
             class:has-placeholder={value === ""}
             style:padding-inline-start={prefixWidth ? `${prefixWidth}px` : undefined}
@@ -93,9 +82,9 @@
             {/each}
         </select>
 
-        {#if $$slots.suffix}
+        {#if suffix}
             <span class="m-select-suffix">
-                <slot name="suffix" />
+                {@render suffix()}
             </span>
         {/if}
 

@@ -1,42 +1,41 @@
 <script>
-    /** @type { string } */
-    export let label = '';
+    /**
+     * Any other attribute (e.g. placeholder, onchange, onkeydown, oninput) goes on the <input>.
+     * @type {{
+     *   label?: string,
+     *   value?: string,
+     *   type?: string,
+     *   name: string,
+     *   expanded?: boolean,
+     *   required?: boolean,
+     *   error?: string,
+     *   hint?: string,
+     *   align?: 'start' | 'end',
+     *   autocomplete?: import('svelte/elements').HTMLInputAttributes['autocomplete'],
+     *   style?: string,
+     *   prefix?: import('svelte').Snippet,
+     *   suffix?: import('svelte').Snippet
+     * } & Omit<import('svelte/elements').HTMLInputAttributes, 'prefix'>}
+     */
+    let {
+        label = "",
+        value = $bindable(""),
+        type = "text",
+        name,
+        expanded = false,
+        required = false,
+        error = "",
+        hint = "",
+        align = "start",
+        autocomplete = "off",
+        style = undefined,
+        prefix,
+        suffix,
+        ...rest
+    } = $props();
 
-    /** @type { string } */
-    export let value = '';
-
-    /** @type { string } */
-    export let type = 'text';
-
-    /** @type { string } */
-    export let name;
-
-    /** @type { boolean } */
-    export let expanded = false;
-
-    /** @type { boolean } */
-    export let required = false;
-
-    /** @type { string } */
-    export let error = '';
-
-    /** @type { string } */
-    export let hint = '';
-
-    /** @type { 'start' | 'end' } */
-    export let align = 'start';
-
-    /** @type { 'on' | 'off' } */
-    export let autocomplete = 'off';
-
-    /** @type { string | undefined } */
-    export let style = undefined;
-
-    /** @type { number } */
-    let prefixWidth = 0;
-
-    /** @type { number } */
-    let suffixWidth = 0;
+    let prefixWidth = $state(0);
+    let suffixWidth = $state(0);
 </script>
 
 <div class="m-label-wrapper">
@@ -50,12 +49,12 @@
     {/if}
 
     <div class="m-input-wrapper {expanded ? "is-expanded" : undefined}">
-        {#if $$slots.prefix}
+        {#if prefix}
           <span class="m-input-prefix" bind:clientWidth={prefixWidth}>
-            <slot name="prefix" />
+            {@render prefix()}
           </span>
         {/if}
-    
+
         <input
             {type}
             {name}
@@ -63,17 +62,15 @@
             {autocomplete}
             {style}
             bind:value
-            on:change
-            on:keydown
-            {...$$restProps}
+            {...rest}
             class="m-input {expanded ? "is-expanded" : undefined} {error ? "is-danger" : undefined} is-align-{align}"
             style:padding-inline-start={prefixWidth ? `${prefixWidth}px` : undefined}
             style:padding-inline-end={suffixWidth ? `${suffixWidth}px` : undefined}
         />
-    
-        {#if $$slots.suffix}
+
+        {#if suffix}
           <span class="m-input-suffix" bind:clientWidth={suffixWidth}>
-            <slot name="suffix" />
+            {@render suffix()}
           </span>
         {/if}
     </div>
@@ -81,7 +78,6 @@
     {#if error}
         <span class="m-text is-danger is-size-s">{error}</span>
     {/if}
-
     {#if hint}
       <span class="m-text is-size-s is-weak">{hint}</span>
     {/if}

@@ -11,13 +11,18 @@
 
 html,
 body {
-  color-scheme: dark;
   margin: 0;
   padding: 0;
   font-family: var(--m-font);
   background-color: var(--m-color-background);
   color: var(--m-color-text);
   width: 100%;
+}
+
+/* A data-theme element (e.g. a light section on a dark page) sets its own text color; otherwise it would
+   inherit the other theme's from the page */
+[data-theme] {
+  color: var(--m-color-text);
 }
 
 ::selection {

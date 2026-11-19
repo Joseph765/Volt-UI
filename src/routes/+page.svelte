@@ -21,9 +21,9 @@
     } from "$lib";
 
     // --- Live demo state (the hero card is built entirely from Moth components) ---
-    let seats = "5";
-    let billing = "yearly";
-    let prioritySupport = false;
+    let seats = $state("5");
+    let billing = $state("yearly");
+    let prioritySupport = $state(false);
     const billingOptions = [
         { value: "yearly", label: "Yearly · $10 per seat / month" },
         { value: "monthly", label: "Monthly · $12 per seat / month" }
@@ -32,9 +32,9 @@
     const seatPrice = { yearly: 10, monthly: 12 };
     const supportPrice = 4;
 
-    $: seatCount = Number(seats);
-    $: invalid = seats !== "" && (!Number.isInteger(seatCount) || seatCount < 1);
-    $: monthly = !invalid && seatCount > 0 ? seatCount * ((seatPrice[billing] ?? 0) + (prioritySupport ? supportPrice : 0)) : 0;
+    let seatCount = $derived(Number(seats));
+    let invalid = $derived(seats !== "" && (!Number.isInteger(seatCount) || seatCount < 1));
+    let monthly = $derived(!invalid && seatCount > 0 ? seatCount * ((seatPrice[billing] ?? 0) + (prioritySupport ? supportPrice : 0)) : 0);
 
     /** @param { number } n */
     const usd = (n) => n.toLocaleString("en-US", { style: "currency", currency: "USD" });
@@ -58,8 +58,8 @@
             icon: `<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>`
         },
         {
-            title: "Dark by design",
-            body: "Designed dark-first rather than inverted from a light theme, so every surface, border and text color is tuned for low-light interfaces.",
+            title: "Dark first, light too",
+            body: "Designed dark-first, so every surface, border and text color is tuned for low-light interfaces, with a matching light theme one attribute away.",
             icon: `<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>`
         },
         {
@@ -100,12 +100,14 @@
 
             <div class="hero-demo">
                 <Card space="l">
-                    <Flex slot="header" justify="between" align="center" style="width: 100%;">
-                        <Text size="xl" weight="bold" as="h2">Team plan</Text>
-                        {#if billing === "yearly"}
-                            <Badge variant="success">Save 17%</Badge>
-                        {/if}
-                    </Flex>
+                    {#snippet header()}
+                        <Flex justify="between" align="center" style="width: 100%;">
+                            <Text size="xl" weight="bold" as="h2">Team plan</Text>
+                            {#if billing === "yearly"}
+                                <Badge variant="success">Save 17%</Badge>
+                            {/if}
+                        </Flex>
+                    {/snippet}
                     <Flex direction="column" gap="l">
                         <Input
                             name="demo-seats"
@@ -115,7 +117,7 @@
                             inputmode="numeric"
                             error={invalid ? "Enter a whole number of seats" : ""}
                         >
-                            <span slot="suffix">seats</span>
+                            {#snippet suffix()}<span>seats</span>{/snippet}
                         </Input>
                         <Select name="demo-billing" label="Billing" options={billingOptions} bind:value={billing} expanded />
                         <Toggle name="demo-support" label="Priority support (+$4 per seat)" bind:checked={prioritySupport} />
@@ -163,7 +165,7 @@
                     <span class="step-number">1</span>
                     <div class="step-body">
                         <Text size="l" weight="bold" as="h3">Install the package</Text>
-                        <CodeExample codeOnly code={`npm install moth-ui-svelte`} />
+                        <CopyCode code="npm install moth-ui-svelte" />
                     </div>
                 </li>
                 <li class="step">
@@ -222,7 +224,7 @@
                         Six 12-step scales, each step with a job: backgrounds, borders, solids and text.
                     </Text>
                 </div>
-                <Button variant="tertiary" href="/tokens#color-scales">Explore tokens →</Button>
+                <Button variant="tertiary" href="/foundations/colors">Explore colors →</Button>
             </div>
             <div class="palette">
                 {#each scales as scale}
@@ -550,8 +552,7 @@
     }
 
     .showcase-card:focus-visible {
-        outline: 2px solid var(--m-color-focus-border);
-        outline-offset: 2px;
+        outline: 2px solid transparent; /* shows in forced-colors mode; the ring itself is in glow.css */
     }
 
     @media (pointer: fine) {
@@ -605,7 +606,7 @@
     .swatch {
         height: 2.25rem;
         border-radius: 6px;
-        box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.04);
+        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--m-gray-12) 8%, transparent);
     }
 
     @media (max-width: 36rem) {
@@ -663,5 +664,13 @@
     .footer-links :global(.m-link:hover),
     .footer-links :global(.m-link:focus-visible) {
         color: var(--m-color-text);
+    }
+
+    /* More contrast: the same edge Moth's cards get, so these surfaces (feature tiles and the palette panel) read against the page */
+    @media (prefers-contrast: more) {
+        .feature,
+        .palette {
+            border: 1px solid var(--m-color-border);
+        }
     }
 </style>

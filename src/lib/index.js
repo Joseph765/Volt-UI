@@ -1,3 +1,4 @@
+import Avatar from "./components/Avatar.svelte";
 import Badge from "./components/Badge.svelte";
 import Banner from "./components/Banner.svelte";
 import Button from "./components/Button.svelte";
@@ -19,6 +20,7 @@ import Link from "./components/Link.svelte";
 import NavGroup from "./components/Nav/NavGroup.svelte";
 import NavGroupItem from "./components/Nav/NavGroupItem.svelte";
 import NavItem from "./components/Nav/NavItem.svelte";
+import Progress from "./components/Progress.svelte";
 import Radio from "./components/Radio.svelte";
 import Select from "./components/Select.svelte";
 import Table from "./components/Table/Table.svelte";
@@ -32,11 +34,13 @@ import Tab from "./components/Tab.svelte";
 import Tabs from "./components/Tabs.svelte";
 import Text from "./components/Text.svelte";
 import Textarea from "./components/Textarea.svelte";
+import ThemeSwitcher from "./components/ThemeSwitcher.svelte";
 import Toast from "./components/Toast/Toast.svelte";
 import ToastGroup from "./components/Toast/ToastGroup.svelte";
 import Toggle from "./components/Toggle.svelte";
 
 export { 
+    Avatar,
     Badge,
     Banner,
     Button,
@@ -58,6 +62,7 @@ export {
     NavGroup,
     NavGroupItem,
     NavItem,
+    Progress,
     Radio,
     Select,
     Table,
@@ -71,6 +76,7 @@ export {
     Tabs,
     Text,
     Textarea,
+    ThemeSwitcher,
     Toast,
     ToastGroup,
     Toggle

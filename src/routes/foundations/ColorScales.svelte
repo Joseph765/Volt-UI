@@ -96,18 +96,18 @@
         padding: 0;
         border: none;
         border-radius: 6px;
-        box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.04);
+        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--m-gray-12) 8%, transparent);
         color: var(--m-color-text);
         cursor: pointer;
     }
 
     .swatch.is-dark-icon {
-        color: var(--m-color-text-contrast);
+        color: var(--m-color-text-inverse);
     }
 
     .swatch:focus-visible {
-        outline: 2px solid var(--m-color-focus-border);
-        outline-offset: 2px;
+        outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+        box-shadow: var(--m-shadow-focus);
     }
 
     .icon {
@@ -153,6 +153,13 @@
         .icon {
             width: 12px;
             height: 12px;
+        }
+    }
+
+    /* More contrast: the same edge Moth's cards get, so these surfaces (the color scale grid) read against the page */
+    @media (prefers-contrast: more) {
+        .palette {
+            border: 1px solid var(--m-color-border);
         }
     }
 </style>

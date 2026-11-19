@@ -1,8 +1,8 @@
 <script>
-    /** @type { 'start' | 'center' | 'end' } */
-    export let align = "start";
+    /** @type {{ align?: 'start' | 'center' | 'end', children?: import('svelte').Snippet }} */
+    let { align = "start", children } = $props();
 </script>
 
 <th class="m-table-header is-align-{align}">
-    <slot />
+    {@render children?.()}
 </th>

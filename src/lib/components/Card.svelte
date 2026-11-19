@@ -1,19 +1,24 @@
 <script>
-    /** @type { 'none' | 'm' | 'l' } */
-    export let space = "m";
-
-    /** @type { string } */
-    export let style = "";
+    /**
+     * @type {{
+     *   space?: 'none' | 'm' | 'l',
+     *   style?: string,
+     *   header?: import('svelte').Snippet,
+     *   headerEnd?: import('svelte').Snippet,
+     *   children?: import('svelte').Snippet
+     * }}
+     */
+    let { space = "m", style = "", header, headerEnd, children } = $props();
 </script>
 
 <div class="m-card has-space-{space}" {style}>
-    {#if $$slots.header}
+    {#if header}
         <div class="m-card-header">
-            <slot name="header" />
-            <slot name="header-end" />
+            {@render header()}
+            {@render headerEnd?.()}
         </div>
     {/if}
     <div class="m-card-content">
-        <slot />
+        {@render children?.()}
     </div>
 </div>

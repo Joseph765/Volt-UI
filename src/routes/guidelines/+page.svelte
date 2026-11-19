@@ -6,7 +6,7 @@
 
 <Seo
     title="Guidelines · Moth UI"
-    description="How to use Moth UI well: button hierarchy, when to use the accent color, focus states, forms, icons and dark-only design."
+    description="How to use Moth UI well: when to use the accent color, focus states, forms, icons and dark-only design."
     path="/guidelines"
 />
 
@@ -20,27 +20,6 @@
             </Text>
         </Flex>
 
-        <!-- Buttons -->
-        <section class="guideline">
-            <Text size="2xl" weight="bold" as="h2">Button hierarchy</Text>
-            <Text size="l" variant="weak" measure="l">
-                Every view should have one obvious next step. Pick the variant by importance, not by looks.
-            </Text>
-            <div class="example">
-                <Flex wrap align="center">
-                    <Button>Save changes</Button>
-                    <Button variant="secondary">Cancel</Button>
-                    <Button variant="tertiary">Learn more</Button>
-                </Flex>
-            </div>
-            <ul class="rules">
-                <li><Text size="l" variant="weak" measure="l"><strong>Primary:</strong> the main action. Use at most one per view.</Text></li>
-                <li><Text size="l" variant="weak" measure="l"><strong>Secondary:</strong> alternatives next to the primary action, like Cancel or Back.</Text></li>
-                <li><Text size="l" variant="weak" measure="l"><strong>Tertiary:</strong> low-emphasis or repeated actions, like "View all" links or per-row actions in a list.</Text></li>
-                <li><Text size="l" variant="weak" measure="l"><strong>Danger:</strong> only for actions that delete or can't be undone.</Text></li>
-            </ul>
-        </section>
-
         <!-- Accent -->
         <section class="guideline">
             <Text size="2xl" weight="bold" as="h2">Use the accent color sparingly</Text>
@@ -53,15 +32,21 @@
                 <li><Text size="l" variant="weak" measure="l">If a screen shows more than a few purple elements, demote some to secondary or tertiary.</Text></li>
                 <li><Text size="l" variant="weak" measure="l">Status colors (success, warning, danger, info) are for status only, never for emphasis.</Text></li>
             </ul>
+            <Text size="l" variant="weak" measure="l">
+                See <Link size="l" href="/foundations/colors">Colors</Link> for which color token to use where.
+            </Text>
         </section>
 
         <!-- Focus -->
         <section class="guideline">
             <Text size="2xl" weight="bold" as="h2">Focus</Text>
             <Text size="l" variant="weak" measure="l">
-                Every interactive element shows the same neutral focus outline (<Code>--m-color-focus-border</Code>)
-                when reached with the keyboard, and form fields add a soft halo (<Code>--m-color-focus-ring</Code>).
-                Keep focus visible: never remove an outline without replacing it.
+                Focus switches things on, like a lamp a moth is drawn to. Every interactive element reached with the
+                keyboard gets the same soft white glow, <Code>--m-shadow-focus</Code> in
+                <Code>--m-color-focus-ring</Code>. A focused field also turns its border near-white
+                (<Code>--m-color-border-control-focus</Code>) and lifts its fill a step, so it stands out clearly from its quiet resting state. Hovered fields brighten their border
+                first (<Code>--m-color-border-control-hover</Code>). Keep focus visible: never remove the glow without
+                replacing it.
             </Text>
         </section>
 
@@ -91,19 +76,19 @@
             <Text size="l" variant="weak" measure="l">
                 Moth doesn't ship an icon set. Use <Link size="l" href="https://lucide.dev" target="_blank">Lucide</Link>
                 (<Code>npm i @lucide/svelte</Code>): it's the family Moth's own components are drawn from, so your
-                icons match the built-in ones. Pass them into slots and prefixes like any other content.
+                icons match the built-in ones. Pass them into snippets such as <Code>start</Code> or <Code>prefix</Code>, like any other content.
             </Text>
             <div class="example">
                 <Flex wrap align="center" gap="l">
                     <Button>
-                        <Plus slot="start" size={16} />
+                        {#snippet start()}<Plus size={16} />{/snippet}
                         New project
                     </Button>
                     <Button variant="tertiary" aria-label="Settings">
                         <Settings size={16} />
                     </Button>
                     <Input name="guideline-search" type="search" placeholder="Search">
-                        <svelte:fragment slot="prefix"><Search size={16} /></svelte:fragment>
+                        {#snippet prefix()}<Search size={16} />{/snippet}
                     </Input>
                     <span class="status">
                         <CircleCheck size={16} color="var(--m-color-success)" />
@@ -115,7 +100,7 @@
                 <li><Text size="l" variant="weak" measure="l"><strong>Size:</strong> 16px next to body text and in medium controls (buttons, field prefixes), 20px in banners and large buttons, 24px on their own.</Text></li>
                 <li><Text size="l" variant="weak" measure="l"><strong>Color:</strong> icons use <Code>currentColor</Code>, so they follow the text and stay gray. Don't color them with the accent; use a status color (e.g. <Code>--m-color-success</Code>) only when the icon shows a status.</Text></li>
                 <li><Text size="l" variant="weak" measure="l"><strong>Accessibility:</strong> icons next to a label are decorative and hidden from screen readers by default. An icon-only button needs an <Code>aria-label</Code>.</Text></li>
-                <li><Text size="l" variant="weak" measure="l"><strong>Animated icons:</strong> the icons that move when you hover this site's navigation come from <Link size="l" href="https://www.movingicons.dev" target="_blank">movingicons.dev</Link> (<Code>npm i @jis3r/icons</Code>), animated versions of Lucide icons. Nav items pass an <Code>animate</Code> value to their icon slot that's true while hovered or keyboard-focused, so these icons play only then. See the <Link size="l" href="/components/navigation">Navigation</Link> docs. Keep animation to navigation; elsewhere, use still icons.</Text></li>
+                <li><Text size="l" variant="weak" measure="l"><strong>Animated icons:</strong> the icons that move when you hover this site's navigation come from <Link size="l" href="https://www.movingicons.dev" target="_blank">movingicons.dev</Link> (<Code>npm i @jis3r/icons</Code>), animated versions of Lucide icons. Nav items pass an <Code>animate</Code> value to their <Code>icon</Code> snippet that's true while hovered or keyboard-focused, so these icons play only then. See the <Link size="l" href="/components/navigation">Navigation</Link> docs. Keep animation to navigation; elsewhere, use still icons.</Text></li>
             </ul>
         </section>
 
@@ -125,7 +110,7 @@
             <Text size="l" variant="weak" measure="l">
                 Moth is designed for dark interfaces and has no light theme. Build on <Code>--m-color-background</Code>,
                 raise content onto <Code>--m-color-surface</Code> cards, and use <Code>--m-color-surface-raised</Code>
-                for anything that sits on a card. See the <Link size="l" href="/tokens#color">color tokens</Link>.
+                for anything that sits on a card. See <Link size="l" href="/foundations/colors#surfaces">Colors</Link>.
             </Text>
         </section>
     </Flex>
@@ -172,5 +157,12 @@
     .rules strong {
         color: var(--m-color-text);
         font-weight: var(--m-font-weight-bold);
+    }
+
+    /* More contrast: the same edge Moth's cards get, so these surfaces (example boxes) read against the page */
+    @media (prefers-contrast: more) {
+        .example {
+            border: 1px solid var(--m-color-border);
+        }
     }
 </style>

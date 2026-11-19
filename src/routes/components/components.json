@@ -1,5 +1,10 @@
 [
     {
+        "name": "Avatar",
+        "description": "A small circle that stands for a person, with their photo or the first letter of their name.",
+        "example": "<span class='m-avatar' style='width: 48px; height: 48px; font-size: var(--m-font-size-l);'>A</span>"
+    },
+    {
         "name": "Badge",
         "description": "A small, inline label that displays status, counts, or categorical information",
         "example": "<div class='m-badge is-info' style='background-color: var(--m-color-surface-raised); color: var(--m-color-text); border-color: var(--m-gray-4);'>Badge</div>"
@@ -75,6 +80,11 @@
         "example": "<div class='m-nav-group is-expanded' style='width: 14rem;'><div class='m-nav-group-expander'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z'/><circle cx='12' cy='12' r='3'/></svg><span class='m-nav-group-heading'>Settings</span><svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='m18 15-6-6-6 6'/></svg></div><div class='m-nav-group-items'><span class='m-nav-group-item nav-example-active'>Profile</span><span class='m-nav-group-item'>Security</span></div></div>"
     },
     {
+        "name": "Progress",
+        "description": "A slim bar that shows how far along something is, with its label and percentage.",
+        "example": "<div class='m-progress' style='width: 60%;'><div class='m-progress-header'><span class='m-progress-label'>Progress</span><span class='m-progress-value'>64%</span></div><div class='m-progress-track'><div class='m-progress-fill' style='width: 64%;'></div></div></div>"
+    },
+    {
         "name": "Radio",
         "description": "A control that allows users to select exactly one option from a set.",
         "example": "<div class='m-radio-wrapper example-version'><input type='radio' class='m-radio' checked /><label class='m-radio-label'>Radio</label></div>"
@@ -103,6 +113,11 @@
         "name": "Textarea",
         "description": "A multi-line text field that allows users to enter longer-form input or comments.",
         "example": "<div class='m-label-wrapper'><label class='m-label-wrapper'>Textarea</label><div class='m-textarea-wrapper'><textarea class='m-textarea' placeholder='Enter message...'></textarea></div></div>"
+    },
+    {
+        "name": "ThemeSwitcher",
+        "description": "A small switch that lets people choose the system, light or dark theme, and remembers their choice.",
+        "example": "<div class='m-theme-switcher'><span class='m-theme-switcher-option' aria-checked='true'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='20' height='14' x='2' y='3' rx='2'/><line x1='8' x2='16' y1='21' y2='21'/><line x1='12' x2='12' y1='17' y2='21'/></svg></span><span class='m-theme-switcher-option' aria-checked='false'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='4'/><path d='M12 2v2'/><path d='M12 20v2'/><path d='m4.93 4.93 1.41 1.41'/><path d='m17.66 17.66 1.41 1.41'/><path d='M2 12h2'/><path d='M20 12h2'/><path d='m6.34 17.66-1.41 1.41'/><path d='m19.07 4.93-1.41 1.41'/></svg></span><span class='m-theme-switcher-option' aria-checked='false'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401'/></svg></span></div>"
     },
     {
         "name": "Toast",

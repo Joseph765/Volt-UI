@@ -2,16 +2,12 @@
     import {
         Code,
         Flex,
-        Select,
+        Link,
         Text
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
 
-    let options = [
-        { value: 'basic', label: 'Example: Basic' }
-    ];
 
-    let selectedExample = 'basic';
 
     let example1 = `<script>
     import { Code } from "moth-ui-svelte";
@@ -20,22 +16,28 @@
 <Code>Hello World</Code>`;
 </script>
 
-<Flex direction="column" gap="xl">
+<Flex direction="column" gap="2xl">
     <Flex direction="column">
         <Text size="3xl" weight="black" as="h1">Code</Text>
         <Text size="xl" variant="weak">An inline text component that styles short code snippets with a monospaced font for clear readability.</Text>
     </Flex>
-    <Flex direction="column">
-        <Select
-            name="examples"
-            bind:options={options}
-            bind:value={selectedExample}
-            placeholder="Select an example..."
-        />
-        {#if selectedExample === "basic"}
-            <CodeExample code={example1}>
-                <Code>Hello World</Code>
-            </CodeExample>
-        {/if}
-    </Flex>
+    <section class="section" id="basic">
+        <Text size="2xl" weight="bold" as="h2">Basic</Text>
+        <Text size="l" variant="weak" measure="l">
+            For code inside a sentence, like a prop name or a file path. For a command people should copy, use <Link
+            size="l" href="/components/copycode">CopyCode</Link>.
+        </Text>
+        <CodeExample code={example1}>
+            <Code>Hello World</Code>
+        </CodeExample>
+    </section>
 </Flex>
+
+<style>
+    .section {
+        display: flex;
+        flex-direction: column;
+        gap: var(--m-space-m);
+        scroll-margin-block-start: var(--m-space-l);
+    }
+</style>
