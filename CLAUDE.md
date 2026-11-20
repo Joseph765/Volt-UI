@@ -54,6 +54,12 @@ packages/react/     moth-ui-react (all components ported, not published; see MON
 - **The docs need the library built.** `dist/` must exist before the docs build or type check. The docs `build`
   builds the library first; when running `dev` or `check` after editing library components, run
   `npm run build -w moth-ui-svelte` (or keep `npm run dev -w moth-ui-svelte`, i.e. `svelte-package --watch`, running).
+- **Releasing (Changesets):** `moth-ui-svelte` and `moth-ui-react` are a `fixed` group (always the same version);
+  private workspaces are never released. After 0.2.0, add a changeset (`npx changeset`) with each change instead of
+  editing the CHANGELOGs. `.github/workflows/release.yml`: a push to `main` opens/updates the "Version packages" PR
+  (never publishes); publishing only runs when the workflow is started by hand, using npm trusted publishing (OIDC,
+  no token) and stopping if unversioned changesets remain. Each package has its own README, LICENSE and
+  CHANGELOG (npm reads them from the package folder); the root README is the repo overview.
 - Commands from the root: `npm run build` (library + docs), `npm run dev` (docs dev server), `npm run check`
   (docs type check), `npm run lint`.
 - **Install quirk:** with npm 12, a fresh `npm install` once left out some workspace devDependencies
@@ -146,9 +152,10 @@ We're simplifying the documentation site. Goals so far:
     Exception: a prop that only makes sense bound is listed as written, e.g. Radio's `bind:group`.
   - Code-example strings show consumer imports (`moth-ui-svelte`, `@lucide/svelte`). Icon-only buttons in examples
     get an `aria-label`.
-- **API changes:** breaking changes are fine before launch (no migration notes). Record notable changes in
-  `packages/svelte/CHANGELOG.md` under the current `packages/svelte/package.json` version. `[0.2.0]` (marked Unreleased) covers everything since the 0.1.0 release;
-  add to it until it ships. Recently removed on purpose: the `Icon` component,
+- **API changes:** breaking changes are fine before launch (no migration notes). Until 0.2.0 ships, record notable
+  changes by hand in `packages/svelte/CHANGELOG.md` under `## 0.2.0 (unreleased)` (it covers everything since 0.1.x;
+  React-only changes go in `packages/react/CHANGELOG.md`). Headings must start with the version number
+  (`## 0.2.0 …`): Changesets inserts new releases above the first one. Recently removed on purpose: the `Icon` component,
   `Container`'s `id` prop, and the Card `ghost` and Button `ghost` variants.
 - **`src/routes/components/components.json`** drives the nav, the All Components cards, the landing showcase,
   the sitemap and each component page's SEO. Card previews are static HTML. Use `<span>`/`<div>`, never

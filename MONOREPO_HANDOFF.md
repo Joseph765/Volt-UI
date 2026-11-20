@@ -82,7 +82,25 @@ render the same markup and class names. The CSS is shared, not rewritten.
 6. **`apps/react-playground`**: done (2026-11-20), `npm run dev:react`, port 5200; uses the React sources directly
    (Vite alias), so no build needed. Add a section for each newly ported component. Still to do: rebuild a couple of
    the docs' `/examples/*` pages there once the form controls and Layout are ported.
-7. **Tests**: Vitest + Testing Library in both packages, with the same behavior checks for both.
-8. **Publishing**: Changesets with `moth-ui-svelte` and `moth-ui-react` in a `fixed` group (same version number) and
-   a GitHub Action to publish.
-9. **Launch** `moth-ui-react`. Confirm the React version requirement (Getting Started says 18+, still unconfirmed).
+7. **Publishing**: done (2026-11-20). `@changesets/cli` v3 at the root (`.changeset/config.json`: fixed group,
+   public access; private workspaces aren't tracked). `.github/workflows/release.yml`: on push to `main` the
+   `version` job opens the "Version packages" PR; the `publish` job only runs on a manual run from `main`
+   (`workflow_dispatch`), uses npm trusted publishing (npm upgraded to latest for OIDC), refuses if unversioned
+   changesets remain, prints `changeset publish-plan`, runs `changeset publish` (each package's prepack builds and
+   runs publint) and pushes the tags. Rehearsed a patch release in a scratch copy: both packages bumped together and
+   both CHANGELOGs got the entry. Changelog headings switched to `## 0.2.0 (unreleased)` style so Changesets inserts
+   above them. Each package now has its own README and LICENSE (npm reads them from the package folder; both were
+   missing); the root README is a repo overview. The Svelte CHANGELOG lists a 0.1.1 (2026-01-13), but npm's latest
+   is 0.1.0.
+8. **Launch** both packages at 0.2.0. Confirm the React version requirement first (Getting Started and the React
+   README say 18+, still unconfirmed). Checklist:
+   1. Merge `react-support` into `main` (Vercel's root directory is already `apps/docs`).
+   2. Change `## 0.2.0 (unreleased)` to `## 0.2.0` in both CHANGELOGs.
+   3. npmjs.com → `moth-ui-svelte` → Settings → Trusted publisher: GitHub Actions, `Joseph765/moth-ui`, workflow
+      `release.yml`.
+   4. Publish `moth-ui-react` 0.2.0 once by hand (trusted publishing can only be set up for a package that exists):
+      `npm login`, then `npm publish` in `packages/react` (prepack builds it). Then add the same trusted publisher
+      to `moth-ui-react`.
+   5. GitHub → Actions → Release → Run workflow (on `main`): publishes `moth-ui-svelte` 0.2.0 (`moth-ui-react`
+      0.2.0 already exists, so it's skipped) and pushes the tags.
+   6. Optional: on both packages, require 2FA and disallow tokens, since CI no longer needs one.

@@ -1,8 +1,6 @@
-# Changelog
+# moth-ui-svelte
 
-All notable changes to this project will be documented in this file.
-
-## [0.2.0] - Unreleased
+## 0.2.0 (unreleased)
 
 ### Breaking changes
 
@@ -96,7 +94,7 @@ All notable changes to this project will be documented in this file.
   instead of raw scale steps.
 - Code blocks use Geist Mono and a new, mostly grayscale highlighting theme.
 
-## [0.1.1] - 2026-01-13
+## 0.1.1 (2026-01-13)
 
 ### Fixed
 - Removed highlight.js as a dependency
