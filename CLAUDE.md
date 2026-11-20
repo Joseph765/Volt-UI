@@ -24,10 +24,23 @@ or changelog entries for the rename. The GitHub repo is `Joseph765/moth-ui` (htt
 ```
 package.json        root, private, workspaces ["packages/*", "apps/*"]; prettier/eslint; eslint.config.js
 apps/docs/          moth-ui-docs (private): the SvelteKit docs site, Vercel root directory
+apps/react-playground/  moth-ui-react-playground (private): Vite + React page for trying the React components
 packages/css/       @moth-ui/css (private): tokens.css, components.css, highlight.css, index.css in src/
 packages/svelte/    moth-ui-svelte (published): components in src/lib, CHANGELOG.md, THIRD_PARTY_NOTICES.md
-packages/react/     moth-ui-react (not started; see MONOREPO_HANDOFF.md)
+packages/react/     moth-ui-react (in progress; see MONOREPO_HANDOFF.md): components in src/components/*.tsx
 ```
+- **React package build:** plain `tsc` (no bundler), one ESM `.js` + `.d.ts` per file in `dist/`, like
+  `svelte-package`. `NodeNext` resolution, so relative imports end in `.js` (`from "./components/Divider.js"`).
+  Same `copy-css.js` as Svelte. Peer deps `react`/`react-dom` `^18 || ^19`. Components use `forwardRef` (React 18
+  has no ref-as-prop), merge `className` with the `cx()` helper in `src/utils.ts`, and spread the remaining props
+  onto the root element. Stateful/effect components need `"use client"` at the top for Next.js. Check: `npm run
+  build`, `npm run check` (tsc) and `npx publint` in `packages/react`; compare HTML with `renderToStaticMarkup`.
+  ESLint doesn't lint `.ts`/`.tsx` yet.
+- **React playground** (`apps/react-playground`, `npm run dev:react` from the root, port 5200): one page
+  (`src/App.tsx`) with a section per ported component and a dark/light toggle. Vite aliases `moth-ui-react` to
+  `packages/react/src/index.ts` and `moth-ui-react/css/*` to `packages/css/src/*` (tsconfig `paths` matches), so
+  component and CSS edits hot-reload with no build. Add a section when porting a component. `@vitejs/plugin-react`
+  stays on 5.x until the workspace moves to Vite 8 (6.x needs it).
 - **Paths in this file:** `src/routes/…`, `src/app.html`, `static/…`, `vite.config.js` and `svelte.config.js` are in
   `apps/docs`; `src/lib/components/…` is in `packages/svelte`; CSS is in `packages/css/src`.
 - **Docs pages import the library as a package:** components from `moth-ui-svelte` (a workspace symlink to

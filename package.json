@@ -4,8 +4,9 @@
 	"type": "module",
 	"workspaces": ["packages/*", "apps/*"],
 	"scripts": {
-		"build": "npm run build -w moth-ui-docs",
+		"build": "npm run build -w moth-ui-docs && npm run build -w moth-ui-react",
 		"dev": "npm run dev -w moth-ui-docs",
+		"dev:react": "npm run dev -w moth-ui-react-playground",
 		"check": "npm run check -w moth-ui-docs",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint ."
