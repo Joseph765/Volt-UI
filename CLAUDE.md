@@ -153,7 +153,7 @@ We're simplifying the documentation site. Goals so far:
   - Code-example strings show consumer imports (`moth-ui-svelte`, `@lucide/svelte`). Icon-only buttons in examples
     get an `aria-label`.
 - **API changes:** breaking changes are fine before launch (no migration notes). Until 0.2.0 ships, record notable
-  changes by hand in `packages/svelte/CHANGELOG.md` under `## 0.2.0 (unreleased)` (it covers everything since 0.1.x;
+  changes by hand in `packages/svelte/CHANGELOG.md` under `## 0.2.0` (it covers everything since 0.1.x;
   React-only changes go in `packages/react/CHANGELOG.md`). Headings must start with the version number
   (`## 0.2.0 …`): Changesets inserts new releases above the first one. Recently removed on purpose: the `Icon` component,
   `Container`'s `id` prop, and the Card `ghost` and Button `ghost` variants.
@@ -227,7 +227,8 @@ Every code example on the docs site exists in Svelte and React and follows the f
     to control it, or use `defaultValue` for a starting value". Radio's `bind:group` row is Svelte-only; its React
     section is "Controlled group" (same `id`).
   - Live demos on the pages stay real Svelte (the docs site is Svelte); only what readers copy or read switches.
-  - Getting Started Requirements: Svelte 5+, React 18+ (React version assumed; confirm when the package ships).
+  - Getting Started Requirements: Svelte 5+, React 18+ (confirmed: the packed package renders, hydrates, works and
+    type-checks on React 18.3).
 
 ## Design decisions (keep consistent)
 - **Accent purple is rare:** primary actions and selected state only (checked, active tab or nav item, text
@@ -464,9 +465,6 @@ Every code example on the docs site exists in Svelte and React and follows the f
   glow instead of `--m-shadow-focus` (breaks the "one focus indicator everywhere" rule; elements with their own
   shadow should list both). Its rest border is `--m-gray-7`, not `--m-color-border`. Left as is when the styles were
   moved; ask before changing.
-- **React assumptions to confirm when the React package ships:** package name `moth-ui-react` (`packageName()` in
-  `src/routes/framework.svelte.js`), "React 18 or later" on Getting Started → Requirements, and the React API
-  conventions under "Code examples in both frameworks".
 - **FrameworkSwitcher flash:** with React saved, the chip shows "Svelte" until hydration (no inline script like the
   theme's). Same for code examples.
 - **Avatar in light mode:** the letter avatar's gray-4 fill is faint on the gray-3 page (fine on white cards); a step

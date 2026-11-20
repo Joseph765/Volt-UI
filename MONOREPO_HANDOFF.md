@@ -92,10 +92,11 @@ render the same markup and class names. The CSS is shared, not rewritten.
    above them. Each package now has its own README and LICENSE (npm reads them from the package folder; both were
    missing); the root README is a repo overview. The Svelte CHANGELOG lists a 0.1.1 (2026-01-13), but npm's latest
    is 0.1.0.
-8. **Launch** both packages at 0.2.0. Confirm the React version requirement first (Getting Started and the React
-   README say 18+, still unconfirmed). Checklist:
+8. **Launch** both packages at 0.2.0. React 18+ is confirmed (2026-11-20: the packed package renders on the server,
+   hydrates, handles interaction and type-checks with strict settings on React 18.3.1 and @types/react 18). Both
+   CHANGELOGs are marked `## 0.2.0`. Checklist:
    1. Merge `react-support` into `main` (Vercel's root directory is already `apps/docs`).
-   2. Change `## 0.2.0 (unreleased)` to `## 0.2.0` in both CHANGELOGs.
+   2. (Done) Both CHANGELOGs say `## 0.2.0`.
    3. npmjs.com → `moth-ui-svelte` → Settings → Trusted publisher: GitHub Actions, `Joseph765/moth-ui`, workflow
       `release.yml`.
    4. Publish `moth-ui-react` 0.2.0 once by hand (trusted publishing can only be set up for a package that exists):
