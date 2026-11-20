@@ -1051,12 +1051,14 @@
 /*
  * iOS Safari (26+) fills the strip under its floating toolbar with one solid color: a fixed element's background if
  * one at the bottom edge spans most of the screen, otherwise the html/body background. The drawer is too narrow to
- * count, so while it's open the page background takes the drawer's color and the strip continues it, instead of
- * showing a black bar under it. Nothing else shows the root background here (the layout covers it).
+ * count, so the page background takes the drawer's (and header's) color: the strip continues the open drawer instead
+ * of showing a black bar under it. It's set for good, not only while the drawer is open, because Safari only
+ * recolors the strip after the slide finishes, so a switch popped in late. The layout covers the root background
+ * everywhere else, so this only shows in that strip and in overscroll.
  */
 @media not all and (min-width: 66rem) {
-    html:has(.m-layout > .m-layout-nav.is-open),
-    html:has(.m-layout > .m-layout-nav.is-open) body {
+    html:has(.m-layout),
+    html:has(.m-layout) body {
         background-color: var(--m-color-surface);
     }
 }

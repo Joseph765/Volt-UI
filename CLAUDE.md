@@ -193,9 +193,10 @@ We're simplifying the documentation site. Goals so far:
     items (divider starts where they do, content where their icons do).
   - iOS Safari 26 fills the strip under its floating toolbar with one solid color: a fixed element at the bottom
     edge only counts if it's ~80%+ of the screen wide (pseudo-elements never count), otherwise it uses the
-    html/body background. The drawer (16rem) is too narrow, which showed a black bar under it, so while it's open
-    below 66rem `html`/`body` take `--m-color-surface` (`html:has(.m-layout > .m-layout-nav.is-open)` in
-    `components.css`). An `::after` extending the drawer was tried and doesn't work.
+    html/body background. The drawer (16rem) is too narrow, which showed a black bar under it, so below 66rem
+    `html`/`body` are always `--m-color-surface` (`html:has(.m-layout)` in `components.css`), matching the drawer and
+    header. Switching it only while the drawer was open popped in late (Safari recolors the strip after the slide
+    ends), and an `::after` extending the drawer doesn't work; both were tried.
 - **Docs component cards** (All Components and the landing showcase):
   - Previews stay grayscale.
   - Hover is a "moth to the light" glow with a fixed position (no cursor tracking): light behind the preview, a
