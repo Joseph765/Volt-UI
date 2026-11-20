@@ -197,6 +197,8 @@ Every code example on the docs site exists in Svelte and React and follows the f
     `lucide-react` icons, and the Layout page's movingicons banner only shows for Svelte.
   - Same component and prop names. Events are camelCase: `onClick`, `onChange`, `onKeyDown`, `LayoutNav onClose`
     (Tabs `onClick` and Toast `onDismiss` are already camelCase). `className`, `htmlFor`, `style={{ width: 300 }}`.
+  - React-only extras: `NavItem`/`NavGroupItem` `as` (the router's Link, for client-side navigation), documented in
+    React-only table rows. Toasts in a `ToastGroup` need a `key` so a removed one can fly out.
   - Snippets become props of the same name holding React nodes: `start={<Plus size={16} />}`, `prefix="$"`,
     `header={...}`, `headerEnd`, `logo`, `mobileLogo`, `footer`, `icon`; `children` is children.
   - Bindings become controlled props: `value`/`checked` + `onChange` with `useState`; a radio group is

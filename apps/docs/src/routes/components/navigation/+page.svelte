@@ -15,6 +15,7 @@
         Text
     } from "moth-ui-svelte";
     import CodeExample from "../CodeExample.svelte";
+    import ForFramework from "../../ForFramework.svelte";
     import { eventName, forFramework, slotType } from "../../framework.svelte.js";
 
     const example1 = {
@@ -56,6 +57,12 @@ export default function Example() {
             Items for the <Link size="l" href="/components/layout">Layout</Link> sidebar. Use <Code>NavItem</Code> for a
             single page and <Code>NavGroup</Code> to collapse related pages under one heading. Mark the current page
             with <Code>active</Code>.
+            <ForFramework>
+                {#snippet react()}
+                    Pass your router's link as <Code>as</Code> (e.g. <Code>{"as={Link}"}</Code> in Next.js) so clicks
+                    navigate without reloading the page.
+                {/snippet}
+            </ForFramework>
         </Text>
         <CodeExample code={example1}>
             <NavItem href="#">Home</NavItem>
@@ -88,6 +95,15 @@ export default function Example() {
                     <TableCell>Marks the item as the current page (sets <Code>aria-current</Code>).</TableCell>
                     <TableCell><Code>boolean</Code></TableCell>
                 </TableRow>
+                <ForFramework>
+                    {#snippet react()}
+                        <TableRow>
+                            <TableCell><Code>NavItem as</Code></TableCell>
+                            <TableCell>Your router's link component, rendered instead of <Code>&lt;a&gt;</Code> for client-side navigation. It receives <Code>href</Code>; for React Router, wrap <Code>Link</Code> to pass it on as <Code>to</Code>.</TableCell>
+                            <TableCell><Code>ElementType</Code></TableCell>
+                        </TableRow>
+                    {/snippet}
+                </ForFramework>
                 <TableRow>
                     <TableCell><Code>NavItem icon</Code></TableCell>
                     <TableCell>Icon before the label. {forFramework({ svelte: "Receives", react: "As a function, it receives" })} <Code>animate</Code>, true while the item is hovered or keyboard-focused.</TableCell>
@@ -123,6 +139,15 @@ export default function Example() {
                     <TableCell>Marks the item as the current page (sets <Code>aria-current</Code>).</TableCell>
                     <TableCell><Code>boolean</Code></TableCell>
                 </TableRow>
+                <ForFramework>
+                    {#snippet react()}
+                        <TableRow>
+                            <TableCell><Code>NavGroupItem as</Code></TableCell>
+                            <TableCell>Your router's link component, rendered instead of <Code>&lt;a&gt;</Code> for client-side navigation. It receives <Code>href</Code>; for React Router, wrap <Code>Link</Code> to pass it on as <Code>to</Code>.</TableCell>
+                            <TableCell><Code>ElementType</Code></TableCell>
+                        </TableRow>
+                    {/snippet}
+                </ForFramework>
                 <TableRow>
                     <TableCell><Code>NavGroupItem icon</Code></TableCell>
                     <TableCell>Optional icon before the label. {forFramework({ svelte: "Receives", react: "As a function, it receives" })} <Code>animate</Code>.</TableCell>

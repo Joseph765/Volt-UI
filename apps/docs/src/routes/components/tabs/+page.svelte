@@ -143,7 +143,7 @@ export default function Example() {
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>id</Code></TableCell>
-                    <TableCell>Provides the id to the Tab component that matches with the id in the list of tabs.</TableCell>
+                    <TableCell>The id of its tab in the list of tabs. The panel gets <Code>panel-</Code> plus this id, which its tab points at.</TableCell>
                     <TableCell><Code>string</Code></TableCell>
                 </TableRow>
             </TableBody>

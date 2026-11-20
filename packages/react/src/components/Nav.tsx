@@ -6,6 +6,7 @@ import {
 	useEffect,
 	useState,
 	type AnchorHTMLAttributes,
+	type ElementType,
 	type FocusEvent,
 	type HTMLAttributes,
 	type MouseEvent,
@@ -57,13 +58,31 @@ type NavLinkOwnProps = {
 	active?: boolean;
 	/** Rendered before the label. */
 	icon?: NavIcon;
+	/**
+	 * Renders your router's link instead of a plain `<a>`, for client-side navigation. It receives `href`, the
+	 * class and the other props. Next.js: `as={Link}`. React Router's `Link` takes `to`, so wrap it:
+	 * `forwardRef(({ href, ...props }, ref) => <Link ref={ref} to={href} {...props} />)`.
+	 */
+	as?: ElementType;
 };
 
 export type NavItemProps = NavLinkOwnProps & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof NavLinkOwnProps>;
 
 function createNavLink(displayName: string, baseClass: string) {
 	const NavLink = forwardRef<HTMLAnchorElement, NavItemProps>(function NavLink(
-		{ href, active = false, icon, className, children, onMouseEnter, onMouseLeave, onFocus, onBlur, ...rest },
+		{
+			href,
+			active = false,
+			icon,
+			as: Component = "a",
+			className,
+			children,
+			onMouseEnter,
+			onMouseLeave,
+			onFocus,
+			onBlur,
+			...rest
+		},
 		ref
 	) {
 		const { animate, handlers } = useAnimateOnInteraction<HTMLAnchorElement>({
@@ -73,10 +92,17 @@ function createNavLink(displayName: string, baseClass: string) {
 			onBlur
 		});
 		return (
-			<a ref={ref} href={href} className={cx(baseClass, className)} aria-current={active} {...rest} {...handlers}>
+			<Component
+				ref={ref}
+				href={href}
+				className={cx(baseClass, className)}
+				aria-current={active}
+				{...rest}
+				{...handlers}
+			>
 				{renderIcon(icon, animate)}
 				{children}
-			</a>
+			</Component>
 		);
 	});
 	NavLink.displayName = displayName;

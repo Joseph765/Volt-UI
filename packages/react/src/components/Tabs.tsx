@@ -152,7 +152,7 @@ export function Tabs({ tabs, selected, onClick, children }: TabsProps) {
 }
 
 type TabOwnProps = {
-	/** The id of its tab in `Tabs`. */
+	/** The id of its tab in `Tabs`. The panel itself gets `panel-{id}`, which the tab points at. */
 	id: string;
 	/** The selected tab's id; the panel is hidden unless it matches. */
 	selected: string;
@@ -167,7 +167,7 @@ export const Tab = forwardRef<HTMLDivElement, TabProps>(function Tab({ id, selec
 		<div
 			ref={ref}
 			className={cx("m-tab-panel", className)}
-			id={id}
+			id={`panel-${id}`}
 			role="tabpanel"
 			tabIndex={isSelected ? 0 : -1}
 			aria-labelledby={`tab-${id}`}

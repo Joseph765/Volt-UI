@@ -74,13 +74,11 @@ render the same markup and class names. The CSS is shared, not rewritten.
    click, link click), Tabs keys and indicator, toasts, theme saving and CopyCode in a browser.
    React notes: ThemeSwitcher's shared choice is a module-level store read with `useSyncExternalStore`; LayoutNav's
    window listeners read the latest props through a ref; Nav `icon` is a node or `(animate) => node`; Toast flies
-   in on mount with the Web Animations API (skipped with reduced motion). Open questions for the user:
-   - Toast has no fly-out in React (Svelte's `transition:fly` also plays on removal; React needs the group to keep
-     a removed toast mounted for 250ms).
-   - Nav items are plain `<a href>`, so in Next.js/React Router they do a full page load instead of client-side
-     navigation. Probably needs a way to pass the router's Link component.
-   - Tabs (both frameworks): `aria-controls="panel-{id}"` but the `Tab` panel's id is `{id}`, so it points at
-     nothing.
+   in and out with the Web Animations API (skipped with reduced motion): `ToastGroup` tracks its children by
+   `key` and keeps a removed toast mounted, with a `leaving` context, for the 250ms fly-out. Resolved with the user:
+   - NavItem/NavGroupItem take a React-only `as` prop (the router's Link; Next.js `as={Link}`, React Router needs
+     a wrapper that passes `href` as `to`), documented in React-only rows on the Navigation page.
+   - A `Tab` panel's id is now `panel-{id}` (both frameworks), so the tab's `aria-controls` resolves.
 6. **`apps/react-playground`**: done (2026-11-20), `npm run dev:react`, port 5200; uses the React sources directly
    (Vite alias), so no build needed. Add a section for each newly ported component. Still to do: rebuild a couple of
    the docs' `/examples/*` pages there once the form controls and Layout are ported.

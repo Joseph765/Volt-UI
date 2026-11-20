@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { forwardRef, useEffect, useState, type AnchorHTMLAttributes, type ReactNode } from 'react';
 import {
 	ArrowRight,
 	Blocks,
@@ -63,6 +63,31 @@ const regions = [
 	{ value: 'us', label: 'United States' },
 	{ value: 'ap', label: 'Asia Pacific' }
 ];
+
+/**
+ * Stands in for a router's Link (NavItem/NavGroupItem `as`): navigates with history.pushState instead of a page
+ * load, the way Next.js or React Router would.
+ */
+const RouterLink = forwardRef<HTMLAnchorElement, AnchorHTMLAttributes<HTMLAnchorElement>>(
+	function RouterLink({ href = '', onClick, ...props }, ref) {
+		return (
+			<a
+				ref={ref}
+				href={href}
+				data-router-link=""
+				onClick={(event) => {
+					onClick?.(event);
+					if (event.defaultPrevented) return;
+					event.preventDefault();
+					history.pushState(null, '', href);
+					window.dispatchEvent(new HashChangeEvent('hashchange'));
+					document.querySelector(href === '#' ? 'body' : href)?.scrollIntoView();
+				}}
+				{...props}
+			/>
+		);
+	}
+);
 
 const slug = (title: string) => title.toLowerCase().replace(/[^a-z]+/g, '-');
 
@@ -162,7 +187,7 @@ export default function App() {
 				<LayoutMenuButton open={open} onClick={() => setOpen((isOpen) => !isOpen)} />
 			</LayoutHeader>
 			<LayoutNav open={open} onClose={close} footer={<ThemeSwitcher />}>
-				<NavItem href="#" active={hash === '' || hash === '#'} onClick={close}>
+				<NavItem as={RouterLink} href="#" active={hash === '' || hash === '#'} onClick={close}>
 					Overview
 				</NavItem>
 				{navGroups.map((group) => (
@@ -170,6 +195,7 @@ export default function App() {
 						{group.sections.map((title) => (
 							<NavGroupItem
 								key={title}
+								as={RouterLink}
 								href={`#${slug(title)}`}
 								active={hash === `#${slug(title)}`}
 								onClick={close}

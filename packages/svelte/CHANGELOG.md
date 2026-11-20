@@ -102,3 +102,4 @@ All notable changes to this project will be documented in this file.
 - Removed highlight.js as a dependency
 - `Input`, `Textarea` and `Select` labels now point at their field: the field gets an `id` (new prop, defaults to
   `name`), so clicking the label focuses the field and screen readers announce the label.
+- A `Tab` panel's id is now `panel-{id}`, matching its tab's `aria-controls` (which pointed at nothing before).
