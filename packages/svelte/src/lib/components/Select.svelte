@@ -6,6 +6,7 @@
      * @type {{
      *   label?: string,
      *   name: string,
+     *   id?: string,
      *   expanded?: boolean,
      *   required?: boolean,
      *   value?: string,
@@ -23,6 +24,7 @@
     let {
         label = "",
         name,
+        id = undefined,
         expanded = false,
         required = false,
         value = $bindable(""),
@@ -38,12 +40,15 @@
         ...rest
     } = $props();
 
+    // The label points at the field: its id, or its name when no id is given
+    const fieldId = $derived(id || name);
+
     let prefixWidth = $state(0);
 </script>
 
 <div class="m-label-wrapper">
     {#if label}
-        <label class="m-label" for={name}>
+        <label class="m-label" for={fieldId}>
           {label}
           {#if required}
             <span class="m-required">*</span>
@@ -60,6 +65,7 @@
 
         <select
             bind:value
+            id={fieldId}
             {name}
             {disabled}
             {required}

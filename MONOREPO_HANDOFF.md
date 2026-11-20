@@ -61,8 +61,13 @@ render the same markup and class names. The CSS is shared, not rewritten.
 
 5. **Port the components**: the simple ones are done (Text, Badge, Divider, Flex, Container, Card, Link, Button;
    2026-11-20: their server-rendered HTML matches Svelte's for default and all-props cases, except Svelte Text
-   renders an empty `id=""` and React doesn't). Next the form
-   controls, then the stateful ones (Tabs, Toast, Layout/Nav, ThemeSwitcher, CopyCode). Follow CLAUDE.md's React
+   renders an empty `id=""` and React doesn't). Also done: Avatar, Banner, Code, Progress and the form controls
+   (Input, Textarea, Select, Checkbox, Radio, Toggle, Fieldset); HTML matches Svelte in 25 cases (only
+   serialization differences), and the playground checks controlled/uncontrolled use, prefix padding,
+   indeterminate and the Avatar fallback in a browser. Helpers in `src/utils.ts`: `useControllable` (Select and
+   Checkbox track their value because the placeholder style and check mark depend on it), `useClientWidth`
+   (Svelte's `bind:clientWidth`), `useMergedRefs`. Input/Textarea/Select now take `id` (defaults to `name`), so
+   their labels are linked, in both frameworks. Next: the stateful ones (Tabs, Toast, Layout/Nav, ThemeSwitcher, CopyCode). Follow CLAUDE.md's React
    conventions: snippets → node props, `bind:value` → `value`/`onChange` or `defaultValue`, `className`,
    camelCase events, forwardRef, pass the remaining props through. Check by comparing the HTML each version renders.
    Shared non-UI logic (Tabs keys, toast queue) can be copied in at build time like the CSS. A private package can't

@@ -192,7 +192,7 @@ export default function Example() {
             Help under the field, like the expected format.
         </Text>
         <CodeExample code={example6}>
-            <Input type="text" name="hint" label="Hint" hint="Hint: this is a hint" />
+            <Input type="text" name="example-hint" label="Hint" hint="Hint: this is a hint" />
         </CodeExample>
     </section>
 
@@ -212,7 +212,7 @@ export default function Example() {
             Marks the field as required with an asterisk on its label.
         </Text>
         <CodeExample code={example3}>
-            <Input type="text" name="required" label="Required" placeholder="Required" value="Value" required />
+            <Input type="text" name="example-required" label="Required" placeholder="Required" value="Value" required />
         </CodeExample>
     </section>
 
@@ -222,7 +222,7 @@ export default function Example() {
             For a value people can see but can't change right now.
         </Text>
         <CodeExample code={example2}>
-            <Input type="text" name="disabled" label="Disabled" placeholder="Disabled" disabled />
+            <Input type="text" name="example-disabled" label="Disabled" placeholder="Disabled" disabled />
         </CodeExample>
     </section>
 
@@ -308,6 +308,11 @@ export default function Example() {
                 <TableRow>
                     <TableCell><Code>name</Code></TableCell>
                     <TableCell>Provides the name attribute to the input html element.</TableCell>
+                    <TableCell><Code>string</Code></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell><Code>id</Code></TableCell>
+                    <TableCell>The field's id, which its label points at. Defaults to <Code>name</Code>.</TableCell>
                     <TableCell><Code>string</Code></TableCell>
                 </TableRow>
                 <TableRow>

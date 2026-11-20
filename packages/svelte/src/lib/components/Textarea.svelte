@@ -5,6 +5,7 @@
      *   label?: string,
      *   value?: string,
      *   name: string,
+     *   id?: string,
      *   expanded?: boolean,
      *   required?: boolean,
      *   error?: string,
@@ -18,6 +19,7 @@
         label = "",
         value = $bindable(""),
         name,
+        id = undefined,
         expanded = false,
         required = false,
         error = "",
@@ -27,11 +29,14 @@
         style = undefined,
         ...rest
     } = $props();
+
+    // The label points at the field: its id, or its name when no id is given
+    const fieldId = $derived(id || name);
 </script>
 
 <div class="m-label-wrapper">
     {#if label}
-        <label class="m-label" for={name}>
+        <label class="m-label" for={fieldId}>
           {label}
           {#if required}
             <span class="m-required">*</span>
@@ -41,6 +46,7 @@
 
     <div class="m-textarea-wrapper {expanded ? "is-expanded" : undefined}">
         <textarea
+            id={fieldId}
             {name}
             {required}
             {autocomplete}

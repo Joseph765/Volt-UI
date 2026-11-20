@@ -138,7 +138,7 @@ export default function Example() {
             Says what went wrong, under the field. Keep what the person typed so they can fix it.
         </Text>
         <CodeExample code={example4}>
-            <Textarea label="Message" placeholder="Enter a message" name="error" error="Incorrect format" />
+            <Textarea label="Message" placeholder="Enter a message" name="example-error" error="Incorrect format" />
         </CodeExample>
     </section>
 
@@ -148,7 +148,7 @@ export default function Example() {
             Marks the field as required with an asterisk on its label.
         </Text>
         <CodeExample code={example3}>
-            <Textarea label="Message" placeholder="Enter a message" name="required" required />
+            <Textarea label="Message" placeholder="Enter a message" name="example-required" required />
         </CodeExample>
     </section>
 
@@ -158,7 +158,7 @@ export default function Example() {
             For a value people can see but can't change right now.
         </Text>
         <CodeExample code={example2}>
-            <Textarea label="Message" placeholder="Enter a message" name="disabled" disabled />
+            <Textarea label="Message" placeholder="Enter a message" name="example-disabled" disabled />
         </CodeExample>
     </section>
 
@@ -206,6 +206,11 @@ export default function Example() {
                 <TableRow>
                     <TableCell><Code>name</Code></TableCell>
                     <TableCell>Provides the name attribute to the input html element.</TableCell>
+                    <TableCell><Code>string</Code></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell><Code>id</Code></TableCell>
+                    <TableCell>The field's id, which its label points at. Defaults to <Code>name</Code>.</TableCell>
                     <TableCell><Code>string</Code></TableCell>
                 </TableRow>
                 <TableRow>

@@ -1,6 +1,6 @@
 <script>
     import { Search } from "@lucide/svelte";
-    // Scratch page for reviewing form design. Not linked from the nav; visit /form-preview.
+    // Scratch page for reviewing form design. Not linked from the nav; visit /examples/forms.
     import {
         Button,
         Card,
@@ -58,7 +58,7 @@
     let timezone = $state("pst");
 </script>
 
-<Seo title="Form preview · Moth UI" description="Internal page for reviewing form design." path="/form-preview" noindex />
+<Seo title="Form preview · Moth UI" description="Internal page for reviewing form design." path="/examples/forms" noindex />
 
 <Container size="xl" align="center">
     <Flex direction="column" gap="xl">

@@ -27,7 +27,8 @@
 		"prepack": "npm run build && publint"
 	},
 	"files": [
-		"dist"
+		"dist",
+		"THIRD_PARTY_NOTICES.md"
 	],
 	"sideEffects": [
 		"**/*.css"

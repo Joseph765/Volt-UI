@@ -170,7 +170,7 @@ We're simplifying the documentation site. Goals so far:
 - **SEO:**
   - Every page renders `src/routes/Seo.svelte`; component pages get it from `components/+layout.svelte`.
   - `static/robots.txt` and `src/routes/sitemap.xml/+server.js` list the routes. Add new pages there.
-  - `/form-preview` and `/examples/*` (dashboard, settings, tasks, forms, focus) are private design test benches with
+  - `/examples/*` (dashboard, settings, tasks, forms, focus) are private design test benches with
     `noindex`, disallowed in robots.txt and not in the nav or sitemap. They're realistic app screens for checking
     how the system holds up. Use them (and add to them) when testing component changes.
 
@@ -325,6 +325,9 @@ Every code example on the docs site exists in Svelte and React and follows the f
   reverted on purpose.
 - **Component API notes:**
   - `Text` takes `class` (style it from a page with `:global(...)`) and `id`.
+  - `Input`, `Textarea` and `Select` take `id`, defaulting to `name`; the label's `for` uses it. So a field's
+    `name` must be unique on the page and not clash with another id (e.g. a section `h2`): live demos use
+    `name="example-…"` where they would.
   - `TableCell` takes `colspan` (e.g. a full-width "No results" row).
   - `Radio` supports `bind:group` (one variable on every radio in a set) and takes `onchange`. Without
     `bind:group`, `checked` works as before.

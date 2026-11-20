@@ -496,6 +496,11 @@ export default function Example() {
                     <TableCell><Code>string</Code></TableCell>
                 </TableRow>
                 <TableRow>
+                    <TableCell><Code>id</Code></TableCell>
+                    <TableCell>The field's id, which its label points at. Defaults to <Code>name</Code>.</TableCell>
+                    <TableCell><Code>string</Code></TableCell>
+                </TableRow>
+                <TableRow>
                     <TableCell><Code>expanded</Code></TableCell>
                     <TableCell>Allows the select element to stretch to full width.</TableCell>
                     <TableCell><Code>boolean</Code></TableCell>

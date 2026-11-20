@@ -6,6 +6,7 @@
      *   value?: string,
      *   type?: string,
      *   name: string,
+     *   id?: string,
      *   expanded?: boolean,
      *   required?: boolean,
      *   error?: string,
@@ -22,6 +23,7 @@
         value = $bindable(""),
         type = "text",
         name,
+        id = undefined,
         expanded = false,
         required = false,
         error = "",
@@ -34,13 +36,16 @@
         ...rest
     } = $props();
 
+    // The label points at the field: its id, or its name when no id is given
+    const fieldId = $derived(id || name);
+
     let prefixWidth = $state(0);
     let suffixWidth = $state(0);
 </script>
 
 <div class="m-label-wrapper">
     {#if label}
-        <label class="m-label" for={name}>
+        <label class="m-label" for={fieldId}>
           {label}
           {#if required}
             <span class="m-required">*</span>
@@ -57,6 +62,7 @@
 
         <input
             {type}
+            id={fieldId}
             {name}
             {required}
             {autocomplete}
