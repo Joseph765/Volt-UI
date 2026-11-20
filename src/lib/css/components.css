@@ -1034,11 +1034,6 @@
     display: flex;
     flex-direction: column;
     width: 16rem;
-    /* The nav itself scrolls (not an inner element): iOS Safari treated a non-scrolling drawer as a bar at the
-       bottom edge and, once the slide finished, popped in a solid bar under its toolbar */
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--m-gray-4) transparent;
     background-color: var(--m-color-surface);
     border-inline-end: 1px solid var(--m-color-border);
     /* Closed: off-screen and hidden from focus/AT; visibility flips after the slide finishes */
@@ -1053,20 +1048,34 @@
     transition: transform 0.2s ease-out;
 }
 
-/* Grows to fill the nav, so the footer sits at the bottom even when there are few items */
+/*
+ * iOS Safari (26+) fills the strip under its floating toolbar with one solid color: a fixed element's background if
+ * one at the bottom edge spans most of the screen, otherwise the html/body background. The drawer is too narrow to
+ * count, so while it's open the page background takes the drawer's color and the strip continues it, instead of
+ * showing a black bar under it. Nothing else shows the root background here (the layout covers it).
+ */
+@media not all and (min-width: 66rem) {
+    html:has(.m-layout > .m-layout-nav.is-open),
+    html:has(.m-layout > .m-layout-nav.is-open) body {
+        background-color: var(--m-color-surface);
+    }
+}
+
+/* The items scroll on their own, so the footer stays pinned to the bottom of the nav */
 .m-layout-nav-items {
-    flex-grow: 1;
+    flex: 1;
+    min-height: 0;
     display: flex;
     flex-direction: column;
     gap: var(--m-space-m);
     padding-block: var(--m-space-l);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--m-gray-4) transparent;
 }
 
-/* Global actions (the signed-in user, settings, a theme switcher), split from the nav items by a divider.
-   Sticky, so it stays at the bottom while a long nav scrolls under it (its fill hides the items behind it) */
+/* Global actions (the signed-in user, settings, a theme switcher), split from the nav items by a divider */
 .m-layout-nav-footer {
-    position: sticky;
-    bottom: 0;
     flex-shrink: 0;
     display: flex;
     flex-wrap: wrap;
@@ -1075,7 +1084,6 @@
     gap: var(--m-space-s);
     padding: var(--m-space-m);
     border-block-start: 1px solid var(--m-color-border);
-    background-color: var(--m-color-surface);
 }
 
 .m-layout-content {
@@ -1172,8 +1180,6 @@
     .m-layout-nav-footer {
         margin-inline-start: var(--m-space-xl);
         padding-block-end: var(--m-space-xl);
-        /* The sidebar sits on the page, not a surface */
-        background-color: var(--m-color-background);
     }
 
     /* The sidebar is always shown here, so `open` has no effect and the content stays sharp */
