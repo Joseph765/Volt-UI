@@ -35,22 +35,37 @@ export function useControllable<T>(controlled: T | undefined, defaultValue: T): 
 }
 
 /**
- * The element's clientWidth, kept up to date (Svelte's bind:clientWidth). Pass the returned callback as the
- * element's ref. 0 until measured, and when the element isn't rendered.
+ * The element's clientWidth or clientHeight, kept up to date (Svelte's bind:clientWidth / bind:clientHeight). Pass
+ * the returned callback as the element's ref. 0 until measured, and when the element isn't rendered.
  */
-export function useClientWidth<T extends HTMLElement>(): [(node: T | null) => void, number] {
+function useClientSize<T extends HTMLElement>(
+	dimension: "clientWidth" | "clientHeight"
+): [(node: T | null) => void, number] {
 	const [element, setElement] = useState<T | null>(null);
-	const [width, setWidth] = useState(0);
+	const [size, setSize] = useState(0);
 	useIsomorphicLayoutEffect(() => {
 		if (!element) {
-			setWidth(0);
+			setSize(0);
 			return;
 		}
-		const update = () => setWidth(element.clientWidth);
+		const update = () => setSize(element[dimension]);
 		update();
 		const observer = new ResizeObserver(update);
 		observer.observe(element);
 		return () => observer.disconnect();
-	}, [element]);
-	return [setElement, width];
+	}, [element, dimension]);
+	return [setElement, size];
+}
+
+export function useClientWidth<T extends HTMLElement>() {
+	return useClientSize<T>("clientWidth");
+}
+
+export function useClientHeight<T extends HTMLElement>() {
+	return useClientSize<T>("clientHeight");
+}
+
+/** Whether the user asked for less motion. Read at call time (only call it in the browser). */
+export function prefersReducedMotion(): boolean {
+	return typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
 }

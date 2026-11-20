@@ -27,7 +27,7 @@ apps/docs/          moth-ui-docs (private): the SvelteKit docs site, Vercel root
 apps/react-playground/  moth-ui-react-playground (private): Vite + React page for trying the React components
 packages/css/       @moth-ui/css (private): tokens.css, components.css, highlight.css, index.css in src/
 packages/svelte/    moth-ui-svelte (published): components in src/lib, CHANGELOG.md, THIRD_PARTY_NOTICES.md
-packages/react/     moth-ui-react (in progress; see MONOREPO_HANDOFF.md): components in src/components/*.tsx
+packages/react/     moth-ui-react (all components ported, not published; see MONOREPO_HANDOFF.md): src/components/*.tsx
 ```
 - **React package build:** plain `tsc` (no bundler), one ESM `.js` + `.d.ts` per file in `dist/`, like
   `svelte-package`. `NodeNext` resolution, so relative imports end in `.js` (`from "./components/Divider.js"`).
@@ -37,7 +37,8 @@ packages/react/     moth-ui-react (in progress; see MONOREPO_HANDOFF.md): compon
   build`, `npm run check` (tsc) and `npx publint` in `packages/react`; compare HTML with `renderToStaticMarkup`.
   ESLint doesn't lint `.ts`/`.tsx` yet.
 - **React playground** (`apps/react-playground`, `npm run dev:react` from the root, port 5200): one page
-  (`src/App.tsx`) with a section per ported component and a dark/light toggle. Vite aliases `moth-ui-react` to
+  (`src/App.tsx`) built with the React `Layout`/`Nav` (a sidebar link per section) and a `ThemeSwitcher` in the
+  nav footer, with a section per component. Vite aliases `moth-ui-react` to
   `packages/react/src/index.ts` and `moth-ui-react/css/*` to `packages/css/src/*` (tsconfig `paths` matches), so
   component and CSS edits hot-reload with no build. Add a section when porting a component. `@vitejs/plugin-react`
   stays on 5.x until the workspace moves to Vite 8 (6.x needs it).

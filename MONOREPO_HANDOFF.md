@@ -67,11 +67,20 @@ render the same markup and class names. The CSS is shared, not rewritten.
    indeterminate and the Avatar fallback in a browser. Helpers in `src/utils.ts`: `useControllable` (Select and
    Checkbox track their value because the placeholder style and check mark depend on it), `useClientWidth`
    (Svelte's `bind:clientWidth`), `useMergedRefs`. Input/Textarea/Select now take `id` (defaults to `name`), so
-   their labels are linked, in both frameworks. Next: the stateful ones (Tabs, Toast, Layout/Nav, ThemeSwitcher, CopyCode). Follow CLAUDE.md's React
-   conventions: snippets → node props, `bind:value` → `value`/`onChange` or `defaultValue`, `className`,
-   camelCase events, forwardRef, pass the remaining props through. Check by comparing the HTML each version renders.
-   Shared non-UI logic (Tabs keys, toast queue) can be copied in at build time like the CSS. A private package can't
-   be a runtime import.
+   their labels are linked, in both frameworks. **All 40 components are ported** (2026-11-20): the
+   stateful ones too (Tabs/Tab, Toast/ToastGroup, Layout*, Nav*, ThemeSwitcher, CopyCode, Table*), grouped one file
+   per family in `src/components/`. Both packages export the same 40 names; HTML matches Svelte in 32 more cases;
+   the playground is now built with Layout/Nav/ThemeSwitcher and checks the drawer (Esc returns focus, outside
+   click, link click), Tabs keys and indicator, toasts, theme saving and CopyCode in a browser.
+   React notes: ThemeSwitcher's shared choice is a module-level store read with `useSyncExternalStore`; LayoutNav's
+   window listeners read the latest props through a ref; Nav `icon` is a node or `(animate) => node`; Toast flies
+   in on mount with the Web Animations API (skipped with reduced motion). Open questions for the user:
+   - Toast has no fly-out in React (Svelte's `transition:fly` also plays on removal; React needs the group to keep
+     a removed toast mounted for 250ms).
+   - Nav items are plain `<a href>`, so in Next.js/React Router they do a full page load instead of client-side
+     navigation. Probably needs a way to pass the router's Link component.
+   - Tabs (both frameworks): `aria-controls="panel-{id}"` but the `Tab` panel's id is `{id}`, so it points at
+     nothing.
 6. **`apps/react-playground`**: done (2026-11-20), `npm run dev:react`, port 5200; uses the React sources directly
    (Vite alias), so no build needed. Add a section for each newly ported component. Still to do: rebuild a couple of
    the docs' `/examples/*` pages there once the form controls and Layout are ported.
