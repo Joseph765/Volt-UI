@@ -597,6 +597,51 @@
     }
 }
 
+/* Copy Button: a circle at the shared control height (36px). On hover it matches Button's secondary variant: the
+   outline turns the text color and glows */
+.m-copy-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--m-control-height);
+    height: var(--m-control-height);
+    padding: 0;
+    border: 1px solid var(--m-gray-7);
+    border-radius: var(--m-radius-full);
+    background: var(--m-color-background);
+    color: var(--m-color-text);
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    /* Own layer at all times, so the icon doesn't snap when the hover grow finishes */
+    will-change: transform;
+}
+
+.m-copy-button:focus-visible {
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    border-color: var(--m-color-text);
+    box-shadow: 0 0 20px -4px color-mix(in srgb, var(--m-accent-9) 60%, transparent);
+    transform: scale(1.06);
+}
+
+@media (pointer: fine) {
+    .m-copy-button:hover {
+        border-color: var(--m-color-text);
+        box-shadow: 0 0 20px -4px color-mix(in srgb, var(--m-accent-9) 60%, transparent);
+        transform: scale(1.06);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .m-copy-button {
+        transition: none;
+    }
+
+    .m-copy-button:focus-visible,
+    .m-copy-button:hover {
+        transform: none;
+    }
+}
+
 /* Copy Code */
 .m-copy-code {
     display: flex;

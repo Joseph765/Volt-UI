@@ -89,7 +89,9 @@ We're simplifying the documentation site. Goals so far:
     `Tabs onClick` and `Toast onDismiss` keep their names.
   - In code-example template strings, escape a literal `$` before `{` as `\${` (e.g. a `$` prefix snippet).
 - **Where styles live:**
-  - Component CSS: `src/lib/css/components.css`.
+  - Component CSS: `src/lib/css/components.css`. Library components have no `<style>` blocks: every class is a
+    global `m-` class there, so consumers get it from the one stylesheet (CopyButton's scoped styles were the last
+    ones, moved to `/* Copy Button */` on purpose). Docs-only components in `src/routes` may keep scoped styles.
   - Tokens: `src/lib/css/tokens.css`.
   - Global and page styles: `src/lib/css/index.css`.
   - Code highlighting: `src/lib/css/highlight.css`.
@@ -393,6 +395,23 @@ Every code example on the docs site exists in Svelte and React and follows the f
 - The user commits and pushes themselves. Don't commit unless asked.
 
 ## Open items / ideas not yet done
+- **iOS Safari bar under the mobile nav pops in late.** Current state (restored from commit a085b30 on purpose): while
+  the drawer is open below 66rem, `html`/`body` turn `--m-color-surface`, so Safari's solid strip under its floating
+  toolbar matches the drawer, but Safari only applies it after the slide finishes. Tried and reverted: an always-on
+  surface background, and making the nav itself the scroll container with a sticky footer. Untested idea: the bar may
+  come from Safari treating the fixed drawer as a bottom-edge bar; needs a real iPhone to test
+  (`npx vite dev --host --port 5199`, open the Network URL on the phone).
+- **CopyButton focus ring:** `.m-copy-button:focus-visible` sets `box-shadow` to the hover glow only, so it shows the
+  glow instead of `--m-shadow-focus` (breaks the "one focus indicator everywhere" rule; elements with their own
+  shadow should list both). Its rest border is `--m-gray-7`, not `--m-color-border`. Left as is when the styles were
+  moved; ask before changing.
+- **React assumptions to confirm when the React package ships:** package name `moth-ui-react` (`packageName()` in
+  `src/routes/framework.svelte.js`), "React 18 or later" on Getting Started → Requirements, and the React API
+  conventions under "Code examples in both frameworks".
+- **FrameworkSwitcher flash:** with React saved, the chip shows "Svelte" until hydration (no inline script like the
+  theme's). Same for code examples.
+- **Avatar in light mode:** the letter avatar's gray-4 fill is faint on the gray-3 page (fine on white cards); a step
+  stronger was suggested, not done. `/examples/settings` still draws its own avatars instead of using `Avatar`.
 - Status text in components should use `--m-color-text-<status>` (as Foundations → Colors says), but `.m-text.is-danger`
   and friends in `components.css` still use the fill tokens (`--m-color-danger` etc.). Switch them over.
 - If button text still "drops" after hovering, fake the grow with the light layer instead of `transform`.
