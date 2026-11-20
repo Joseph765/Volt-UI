@@ -22,7 +22,7 @@
         TableRow,
         Tabs,
         Text
-    } from "$lib";
+    } from "moth-ui-svelte";
     import Seo from "../../Seo.svelte";
 
     const ranges = [

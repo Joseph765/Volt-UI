@@ -4,7 +4,7 @@
         Flex,
         Link,
         Text
-    } from "$lib";
+    } from "moth-ui-svelte";
     import CodeExample from "../CodeExample.svelte";
 
     const example1 = {

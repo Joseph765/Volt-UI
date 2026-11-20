@@ -11,7 +11,7 @@
         TableRow,
         Text,
         Textarea
-    } from "$lib";
+    } from "moth-ui-svelte";
     import CodeExample from "../CodeExample.svelte";
     import ForFramework from "../../ForFramework.svelte";
 

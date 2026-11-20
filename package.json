@@ -1,0 +1,23 @@
+{
+	"name": "moth-ui-monorepo",
+	"private": true,
+	"type": "module",
+	"workspaces": ["packages/*", "apps/*"],
+	"scripts": {
+		"build": "npm run build -w moth-ui-docs",
+		"dev": "npm run dev -w moth-ui-docs",
+		"check": "npm run check -w moth-ui-docs",
+		"format": "prettier --write .",
+		"lint": "prettier --check . && eslint ."
+	},
+	"devDependencies": {
+		"@eslint/compat": "^1.4.0",
+		"@eslint/js": "^9.39.1",
+		"eslint": "^9.39.1",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-svelte": "^3.13.1",
+		"globals": "^16.5.0",
+		"prettier": "^3.7.4",
+		"prettier-plugin-svelte": "^3.4.0"
+	}
+}

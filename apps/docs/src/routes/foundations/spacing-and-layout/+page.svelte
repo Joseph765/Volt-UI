@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import { Code, Container, Flex, Text } from "$lib";
+    import { Code, Container, Flex, Text } from "moth-ui-svelte";
     import CodeExample from "../../components/CodeExample.svelte";
     import TokenCopy from "../TokenCopy.svelte";
     import Seo from "../../Seo.svelte";

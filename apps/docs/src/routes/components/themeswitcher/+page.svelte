@@ -11,7 +11,7 @@
         TableRow,
         Text,
         ThemeSwitcher
-    } from "$lib";
+    } from "moth-ui-svelte";
     import CodeExample from "../CodeExample.svelte";
     import { eventName, forFramework } from "../../framework.svelte.js";
 

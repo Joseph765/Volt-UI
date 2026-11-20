@@ -26,7 +26,7 @@
         Toast,
         ToastGroup,
         Toggle
-    } from "$lib";
+    } from "moth-ui-svelte";
     import Seo from "../../Seo.svelte";
 
     const tabs = [

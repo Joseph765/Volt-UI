@@ -5,7 +5,7 @@
         Flex,
         Input,
         Text
-    } from "$lib";
+    } from "moth-ui-svelte";
 
     let searchTerm = $state("");
 

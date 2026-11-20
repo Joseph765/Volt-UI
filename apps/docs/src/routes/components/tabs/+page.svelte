@@ -11,7 +11,7 @@
         TableRow,
         Tabs,
         Text
-    } from "$lib";
+    } from "moth-ui-svelte";
     import CodeExample from "../CodeExample.svelte";
 
 

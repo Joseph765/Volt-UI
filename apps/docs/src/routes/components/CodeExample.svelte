@@ -1,8 +1,8 @@
 <script>
     import { tick, untrack } from 'svelte';
     import hljs from 'highlight.js';
-    import Button from '$lib/components/Button.svelte';
-    import CopyButton from '$lib/components/CopyButton.svelte';
+    import { Button } from "moth-ui-svelte";
+    import CopyButton from "../../../../../packages/svelte/src/lib/components/CopyButton.svelte"
     import { forFramework } from '../framework.svelte.js';
 
     /**

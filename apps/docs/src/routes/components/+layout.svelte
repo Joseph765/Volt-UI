@@ -1,6 +1,6 @@
 <script>
     import { page } from "$app/state";
-    import Container from "$lib/components/Container.svelte";
+    import { Container } from "moth-ui-svelte"
     import Seo from "../Seo.svelte";
     import components from "./components.json";
 

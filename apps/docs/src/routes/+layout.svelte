@@ -1,11 +1,11 @@
 <script>
-    import "$lib/css/index.css";
+    import "@moth-ui/css/index.css";
     import "./glow.css";
     import { page } from '$app/state';
     import components from "./components/components.json";
     import MothLogo from "./MothLogo.svelte";
     import FrameworkSwitcher from "./FrameworkSwitcher.svelte";
-    import { version } from "../../package.json";
+    import { version } from "../../../../packages/svelte/package.json";
 
     import { Blocks, Compass, Layers, Rocket } from "@jis3r/icons"; // Compass: the hidden Guidelines group
 
@@ -20,7 +20,7 @@
         NavGroupItem,
         NavItem,
         ThemeSwitcher
-    } from "$lib";
+    } from "moth-ui-svelte";
 
     /** @type {{ children: import('svelte').Snippet }} */
     let { children } = $props();

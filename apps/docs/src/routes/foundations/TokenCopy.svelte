@@ -1,5 +1,5 @@
 <script>
-    import Button from "$lib/components/Button.svelte";
+    import { Button } from "moth-ui-svelte";
 
     /** @type {{ token: string }} e.g. "--m-space-m" */
     let { token } = $props();

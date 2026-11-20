@@ -6,7 +6,7 @@
         Flex,
         Link,
         Text
-    } from "$lib";
+    } from "moth-ui-svelte";
     import CodeExample from "../components/CodeExample.svelte";
     import Seo from "../Seo.svelte";
     import ForFramework from "../ForFramework.svelte";

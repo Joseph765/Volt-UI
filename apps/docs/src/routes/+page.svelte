@@ -19,7 +19,7 @@
         Select,
         Text,
         Toggle
-    } from "$lib";
+    } from "moth-ui-svelte";
 
     // --- Live demo state (the hero card is built entirely from Moth components) ---
     let seats = $state("5");

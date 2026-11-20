@@ -11,7 +11,7 @@
         TableRow,
         Text,
         Toggle
-    } from "$lib";
+    } from "moth-ui-svelte";
     import CodeExample from "../CodeExample.svelte";
     import ForFramework from "../../ForFramework.svelte";
     import { eventName } from "../../framework.svelte.js";

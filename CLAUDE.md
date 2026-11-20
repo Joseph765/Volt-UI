@@ -2,10 +2,9 @@
 
 A design system with a look all its own, for **Svelte and React**, plus its documentation site. The project was previously
 called "Volt UI" and is relaunching as **Moth**, a brand-new design system. Don't add Volt references, migration notes
-or changelog entries for the rename. The local repo folder is still `Volt-UI`; the GitHub repo is
-`Joseph765/moth-ui` (https://github.com/Joseph765/moth-ui).
+or changelog entries for the rename. The GitHub repo is `Joseph765/moth-ui` (https://github.com/Joseph765/moth-ui).
 
-- Package: `moth-ui-svelte` (`package.json`). Docs site: `https://moth-ui.com`.
+- Package: `moth-ui-svelte` (`packages/svelte/package.json`). Docs site: `https://moth-ui.com`.
 - **Svelte and React (positioning):** all copy (landing page, SEO titles and descriptions, Getting Started intro,
   README, `package.json` description) presents Moth as available for both Svelte and React, as if the React version
   already exists. It doesn't yet: the user is building it over the next few days, and nobody is using the package in
@@ -18,9 +17,36 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
   the gradient), subheading "A design system with a look all its own: soft ambient light, polished components, and
   a fast path from empty project to finished UI.", and four cards: Polished on install, Svelte and React, Glows in
   the dark. Shines in the light., Accessible by default.
-- Library: `src/lib` (published as `dist/` via `svelte-package`). Docs site: `src/routes` (SvelteKit).
 - Consumers import `moth-ui-svelte` for components and `moth-ui-svelte/css/index.css` for styles. There is no
-  `$moth` alias any more. Docs code snippets must use these imports; docs pages themselves import from `$lib`.
+  `$moth` alias any more. Docs code snippets must use these imports.
+
+## Repo layout (npm workspaces monorepo)
+```
+package.json        root, private, workspaces ["packages/*", "apps/*"]; prettier/eslint; eslint.config.js
+apps/docs/          moth-ui-docs (private): the SvelteKit docs site, Vercel root directory
+packages/css/       @moth-ui/css (private): tokens.css, components.css, highlight.css, index.css in src/
+packages/svelte/    moth-ui-svelte (published): components in src/lib, CHANGELOG.md, THIRD_PARTY_NOTICES.md
+packages/react/     moth-ui-react (not started; see MONOREPO_HANDOFF.md)
+```
+- **Paths in this file:** `src/routes/…`, `src/app.html`, `static/…`, `vite.config.js` and `svelte.config.js` are in
+  `apps/docs`; `src/lib/components/…` is in `packages/svelte`; CSS is in `packages/css/src`.
+- **Docs pages import the library as a package:** components from `moth-ui-svelte` (a workspace symlink to
+  `packages/svelte`, resolved through its built `dist/`) and styles from `@moth-ui/css/index.css`. There's no `$lib`
+  in the docs. `CopyButton` isn't exported, so `CodeExample.svelte` imports it from the package source by
+  relative path.
+- **The CSS is shared, not copied by hand.** `packages/svelte/scripts/copy-css.js` copies `packages/css/src` into
+  `dist/css` after `svelte-package`, so `moth-ui-svelte/css/index.css` works. The React package will do the same.
+  `@moth-ui/css` is private: a published package can't depend on it at runtime.
+- **The docs need the library built.** `dist/` must exist before the docs build or type check. The docs `build`
+  builds the library first; when running `dev` or `check` after editing library components, run
+  `npm run build -w moth-ui-svelte` (or keep `npm run dev -w moth-ui-svelte`, i.e. `svelte-package --watch`, running).
+- Commands from the root: `npm run build` (library + docs), `npm run dev` (docs dev server), `npm run check`
+  (docs type check), `npm run lint`.
+- **Install quirk:** with npm 12, a fresh `npm install` once left out some workspace devDependencies
+  (`@sveltejs/vite-plugin-svelte`), and the docs build failed with "Cannot find package …". Running `npm install`
+  again fixed it. Try that first.
+- `.svelte-kit`, `dist` and `build` are ignored in every folder. The root `dist/` is stale output from before the
+  move and can be deleted.
 
 ## How the docs site is laid out
 **Keep the docs simple.** The gold standard for simple design system docs is the **Geist Design System**
@@ -89,12 +115,12 @@ We're simplifying the documentation site. Goals so far:
     `Tabs onClick` and `Toast onDismiss` keep their names.
   - In code-example template strings, escape a literal `$` before `{` as `\${` (e.g. a `$` prefix snippet).
 - **Where styles live:**
-  - Component CSS: `src/lib/css/components.css`. Library components have no `<style>` blocks: every class is a
+  - Component CSS: `packages/css/src/components.css`. Library components have no `<style>` blocks: every class is a
     global `m-` class there, so consumers get it from the one stylesheet (CopyButton's scoped styles were the last
     ones, moved to `/* Copy Button */` on purpose). Docs-only components in `src/routes` may keep scoped styles.
-  - Tokens: `src/lib/css/tokens.css`.
-  - Global and page styles: `src/lib/css/index.css`.
-  - Code highlighting: `src/lib/css/highlight.css`.
+  - Tokens: `packages/css/src/tokens.css`.
+  - Global and page styles: `packages/css/src/index.css`.
+  - Code highlighting: `packages/css/src/highlight.css`.
 - **Docs component pages** (`src/routes/components/<name>/+page.svelte`):
   - Layout: an `h1` title (`<Text size="3xl" weight="black" as="h1">`), one `h2` section per example (short copy +
     `CodeExample`), then "API reference" with the props table (Property / Description / Type). See "How the docs
@@ -107,7 +133,7 @@ We're simplifying the documentation site. Goals so far:
   - Code-example strings show consumer imports (`moth-ui-svelte`, `@lucide/svelte`). Icon-only buttons in examples
     get an `aria-label`.
 - **API changes:** breaking changes are fine before launch (no migration notes). Record notable changes in
-  `CHANGELOG.md` under the current `package.json` version. `[0.2.0]` (marked Unreleased) covers everything since the 0.1.0 release;
+  `packages/svelte/CHANGELOG.md` under the current `packages/svelte/package.json` version. `[0.2.0]` (marked Unreleased) covers everything since the 0.1.0 release;
   add to it until it ships. Recently removed on purpose: the `Icon` component,
   `Container`'s `id` prop, and the Card `ghost` and Button `ghost` variants.
 - **`src/routes/components/components.json`** drives the nav, the All Components cards, the landing showcase,
@@ -121,8 +147,9 @@ We're simplifying the documentation site. Goals so far:
   default. The choice is shared state in `src/routes/framework.svelte.js` (`framework.current`, saved in
   localStorage as `moth-framework`). It switches every code example and install line (see "Code examples in both
   frameworks"). Each instance needs a unique `id` (no random ids: they break hydration). The version comes from
-  `package.json`, imported in `src/routes/+layout.svelte`; `vite.config.js` allows `package.json` in `server.fs.allow`,
-  without which the dev server 403s the import and hydration breaks (SSR still looks fine).
+  `packages/svelte/package.json`, imported by relative path in `src/routes/+layout.svelte`; `vite.config.js` sets
+  `server.fs.allow: [searchForWorkspaceRoot(process.cwd())]`, without which the dev server 403s the import and
+  hydration breaks (SSR still looks fine).
   - The menu is `--m-color-surface` (white in light mode) with a shadow; items hover/focus to `--m-color-neutral-weak`.
     Don't use `--m-color-surface-raised` for the menu: in light mode it's gray-4, the same as the hover, so hover
     disappears (and a gray-4 chip vanished on the gray-3 light page).
@@ -306,7 +333,7 @@ Every code example on the docs site exists in Svelte and React and follows the f
   - `@lucide/svelte` and `@jis3r/icons` are docs-only devDependencies. The docs nav uses `@jis3r/icons`
     (movingicons.dev, animated Lucide). NavItem/NavGroupItem pass `animate` to the `icon` snippet (true on hover or
     focus). Guidelines → Icons says to keep animated icons to navigation.
-- **Code highlighting** (`src/lib/css/highlight.css`, highlight.js with `language-xml`, which highlights `<script>`
+- **Code highlighting** (`packages/css/src/highlight.css`, highlight.js with `language-xml`, which highlights `<script>`
   as JS): Geist Mono at `--m-font-size-s`, line-height 1.7, ligatures off. Mostly grayscale with three soft hues
   from the raw step-11 scales (syntax colors are an illustration, not UI): component/tag names and imported
   components `--m-info-11`, strings and attribute `{expressions}` `--m-success-11`, keywords `--m-danger-11`,
@@ -379,12 +406,18 @@ Every code example on the docs site exists in Svelte and React and follows the f
 - Keep this file updated as decisions change: remove finished open items, record "removed on purpose" decisions.
 
 ## Verifying changes
-- Type check: `npx svelte-check --tsconfig ./jsconfig.json`. Keep it at 0 errors and 0 warnings.
-- Package check: `npm run prepack` (svelte-package + publint).
+- Type check: `npm run check` from the root (docs), and `npx svelte-check --tsconfig ./jsconfig.json` in
+  `packages/svelte` (the library). Keep both at 0 errors and 0 warnings.
+- Build: `npm run build` from the root (library, then docs).
+- Package check: `npm run prepack` in `packages/svelte` (build + publint); `npm pack --dry-run` there should list
+  `dist/css/*.css`.
+- Lint: `npx eslint .` from the root reports about 144 errors that predate the monorepo move, mostly
+  `no-useless-escape` on the required `<\/script>` escapes, plus missing each-keys and `{@html}`. Not a build blocker;
+  don't count them as regressions.
 - **Browser checks:**
-  - Start a dev server with `npx vite dev --port 5199`.
+  - Start a dev server with `npx vite dev --port 5199` from `apps/docs`.
   - Check with the Playwright MCP tools; screenshots must go in `.playwright-mcp/` inside the repo.
-  - Afterwards, delete `.playwright-mcp` and stop the server with `pkill -f "vite dev --port 5199"`.
+  - Afterwards, delete `.playwright-mcp` (at the root and in `apps/docs`) and stop the server with `pkill -f "vite dev --port 5199"`.
   - Hidden tab panels are in the DOM: target `:visible` elements in Playwright.
   - The first page load after starting the server can log a spurious hydration warning (or a failed dynamic
     import while Vite optimizes deps). Reload before concluding there's a real problem.

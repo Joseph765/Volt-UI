@@ -1,7 +1,7 @@
 <script>
     // Private test bench for redesigning hover and focus. Not linked from the nav or sitemap; robots.txt disallows /examples.
     // Each variant only overrides tokens inside its own panel, so the library is untouched until one is picked.
-    import { Button, Checkbox, Container, Flex, Input, Select, Text } from "$lib";
+    import { Button, Checkbox, Container, Flex, Input, Select, Text } from "moth-ui-svelte";
     import Seo from "../../Seo.svelte";
 
     const variants = [

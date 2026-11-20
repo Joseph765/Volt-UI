@@ -17,7 +17,7 @@
         Text,
         Toast,
         ToastGroup
-    } from "$lib";
+    } from "moth-ui-svelte";
     import Seo from "../../Seo.svelte";
 
     /** @typedef {{ id: number, title: string, project: string, priority: 'high' | 'medium' | 'low', due: string, done: boolean }} Task */

@@ -1,5 +1,5 @@
 <script>
-    import { Banner, Code, Container, Fieldset, Flex, Radio, Select, Text } from "$lib";
+    import { Banner, Code, Container, Fieldset, Flex, Radio, Select, Text } from "moth-ui-svelte";
     import ColorScales from "../ColorScales.svelte";
     import TokenCopy from "../TokenCopy.svelte";
     import Seo from "../../Seo.svelte";

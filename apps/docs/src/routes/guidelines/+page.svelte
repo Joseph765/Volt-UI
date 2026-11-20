@@ -1,5 +1,5 @@
 <script>
-    import { Button, Code, Container, Flex, Input, Link, Text } from "$lib";
+    import { Button, Code, Container, Flex, Input, Link, Text } from "moth-ui-svelte";
     import { CircleCheck, Plus, Search, Settings } from "@lucide/svelte";
     import Seo from "../Seo.svelte";
 </script>
