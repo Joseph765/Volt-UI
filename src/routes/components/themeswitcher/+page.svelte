@@ -13,23 +13,42 @@
         ThemeSwitcher
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
+    import { eventName, forFramework } from "../../framework.svelte.js";
 
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { ThemeSwitcher } from "moth-ui-svelte";
 <\/script>
 
-<ThemeSwitcher />`;
+<ThemeSwitcher />`,
+        react: `import { ThemeSwitcher } from "moth-ui-react";
 
-    let example2 = `<!-- src/app.html, inside <head> -->
+export default function Example() {
+    return <ThemeSwitcher />;
+}`
+    };
+
+    const example2 = {
+        svelte: `<!-- src/app.html, inside <head> -->
 <script>
     try {
         const saved = localStorage.getItem("moth-theme");
         const light = saved ? saved === "light" : matchMedia("(prefers-color-scheme: light)").matches;
         document.documentElement.dataset.theme = light ? "light" : "dark";
     } catch {}
-<\/script>`;
+<\/script>`,
+        react: `<!-- index.html (Vite), inside <head> -->
+<script>
+    try {
+        const saved = localStorage.getItem("moth-theme");
+        const light = saved ? saved === "light" : matchMedia("(prefers-color-scheme: light)").matches;
+        document.documentElement.dataset.theme = light ? "light" : "dark";
+    } catch {}
+<\/script>`
+    };
 
-    let example3 = `<script>
+    const example3 = {
+        svelte: `<script>
     import { ThemeSwitcher } from "moth-ui-svelte";
 <\/script>
 
@@ -37,7 +56,21 @@
 <ThemeSwitcher storageKey="acme-theme" />
 
 <!-- Not saved: every visit starts on System -->
-<ThemeSwitcher storageKey="" />`;
+<ThemeSwitcher storageKey="" />`,
+        react: `import { ThemeSwitcher } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <>
+            {/* Saved under your own key */}
+            <ThemeSwitcher storageKey="acme-theme" />
+
+            {/* Not saved: every visit starts on System */}
+            <ThemeSwitcher storageKey="" />
+        </>
+    );
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">
@@ -62,11 +95,13 @@
         <Text size="2xl" weight="bold" as="h2">Avoid a flash</Text>
         <Text size="l" variant="weak" measure="l">
             The switcher only runs once the page loads, so a light-mode visitor would see a dark flash first. Add this
-            script to the <Code>head</Code> of <Code>src/app.html</Code> to apply the theme before the first paint.
+            script to the <Code>head</Code> of
+            <Code>{forFramework({ svelte: "src/app.html", react: "index.html" })}</Code> to apply the theme before the first paint.
             Without the switcher, Moth stays dark unless you set <Code>data-theme</Code>; see
             <Link size="l" href="/getting-started#themes">Themes</Link>.
         </Text>
-        <CodeExample codeOnly code={example2} />
+        <!-- Plain HTML in both frameworks; only the file differs -->
+        <CodeExample codeOnly code={forFramework(example2)} />
     </section>
 
     <section class="section" id="storage">
@@ -101,7 +136,7 @@
                     <TableCell><Code>string</Code></TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><Code>onchange</Code></TableCell>
+                    <TableCell><Code>{eventName("onchange")}</Code></TableCell>
                     <TableCell>Fires when someone picks an option, with <Code>system</Code>, <Code>light</Code> or <Code>dark</Code>.</TableCell>
                     <TableCell><Code>function</Code></TableCell>
                 </TableRow>

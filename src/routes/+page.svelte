@@ -5,6 +5,7 @@
     const year = new Date().getFullYear();
     import CodeExample from "./components/CodeExample.svelte";
     import Seo from "./Seo.svelte";
+    import { installCommand } from "./framework.svelte.js";
     import {
         Badge,
         Button,
@@ -45,6 +46,27 @@
 
     const scales = ["gray", "accent", "info", "success", "warning", "danger"];
     const steps = Array.from({ length: 12 }, (_, i) => i + 1);
+
+    // Quick start
+    const stylesCode = {
+        svelte: `<script>
+    import "moth-ui-svelte/css/index.css";
+<\/script>`,
+        react: `import "moth-ui-react/css/index.css";`
+    };
+
+    const usageCode = {
+        svelte: `<script>
+    import { Button } from "moth-ui-svelte";
+<\/script>
+
+<Button variant="primary">Ship it</Button>`,
+        react: `import { Button } from "moth-ui-react";
+
+export default function Example() {
+    return <Button variant="primary">Ship it</Button>;
+}`
+    };
 
     const features = [
         {
@@ -94,7 +116,7 @@
                     <Button size="l" variant="secondary" href="/components">Browse components</Button>
                 </Flex>
                 <div class="install">
-                    <CopyCode code="npm install moth-ui-svelte" />
+                    <CopyCode code={installCommand()} />
                 </div>
             </div>
 
@@ -165,27 +187,21 @@
                     <span class="step-number">1</span>
                     <div class="step-body">
                         <Text size="l" weight="bold" as="h3">Install the package</Text>
-                        <CopyCode code="npm install moth-ui-svelte" />
+                        <CopyCode code={installCommand()} />
                     </div>
                 </li>
                 <li class="step">
                     <span class="step-number">2</span>
                     <div class="step-body">
                         <Text size="l" weight="bold" as="h3">Import the styles once</Text>
-                        <CodeExample codeOnly code={`<script>
-    import "moth-ui-svelte/css/index.css";
-<\/script>`} />
+                        <CodeExample codeOnly code={stylesCode} />
                     </div>
                 </li>
                 <li class="step">
                     <span class="step-number">3</span>
                     <div class="step-body">
                         <Text size="l" weight="bold" as="h3">Use any component</Text>
-                        <CodeExample codeOnly code={`<script>
-    import { Button } from "moth-ui-svelte";
-<\/script>
-
-<Button variant="primary">Ship it</Button>`} />
+                        <CodeExample codeOnly code={usageCode} />
                     </div>
                 </li>
             </ol>

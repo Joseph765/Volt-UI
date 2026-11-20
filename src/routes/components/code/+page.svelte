@@ -7,13 +7,18 @@
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
 
-
-
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Code } from "moth-ui-svelte";
 <\/script>
 
-<Code>Hello World</Code>`;
+<Code>Hello World</Code>`,
+        react: `import { Code } from "moth-ui-react";
+
+export default function Example() {
+    return <Code>Hello World</Code>;
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">

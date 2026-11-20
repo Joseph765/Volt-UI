@@ -15,10 +15,10 @@
         Text
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
+    import { eventName, forFramework, slotType } from "../../framework.svelte.js";
 
-
-
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { NavGroup, NavGroupItem, NavItem } from "moth-ui-svelte";
 <\/script>
 
@@ -27,7 +27,22 @@
     <NavGroupItem href="#">Page 1</NavGroupItem>
     <NavGroupItem href="#">Page 2</NavGroupItem>
     <NavGroupItem href="#">Page 3</NavGroupItem>
-</NavGroup>`;
+</NavGroup>`,
+        react: `import { NavGroup, NavGroupItem, NavItem } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <>
+            <NavItem href="#">Home</NavItem>
+            <NavGroup title="Example">
+                <NavGroupItem href="#">Page 1</NavGroupItem>
+                <NavGroupItem href="#">Page 2</NavGroupItem>
+                <NavGroupItem href="#">Page 3</NavGroupItem>
+            </NavGroup>
+        </>
+    );
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">
@@ -75,11 +90,11 @@
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>NavItem icon</Code></TableCell>
-                    <TableCell>Icon before the label. Receives <Code>animate</Code>, true while the item is hovered or keyboard-focused.</TableCell>
-                    <TableCell><Code>Snippet</Code></TableCell>
+                    <TableCell>Icon before the label. {forFramework({ svelte: "Receives", react: "As a function, it receives" })} <Code>animate</Code>, true while the item is hovered or keyboard-focused.</TableCell>
+                    <TableCell><Code>{slotType({ name: "animate", type: "boolean" })}</Code></TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><Code>NavItem onclick</Code></TableCell>
+                    <TableCell><Code>NavItem {eventName("onclick")}</Code></TableCell>
                     <TableCell>Fires when the item is clicked, for example to close the mobile menu.</TableCell>
                     <TableCell><Code>function</Code></TableCell>
                 </TableRow>
@@ -95,8 +110,8 @@
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>NavGroup icon</Code></TableCell>
-                    <TableCell>Snippet rendered before the title. Receives the same <Code>animate</Code> flag.</TableCell>
-                    <TableCell><Code>Snippet&lt;[boolean]&gt;</Code></TableCell>
+                    <TableCell>Rendered before the title. {forFramework({ svelte: "Receives", react: "As a function, it receives" })} the same <Code>animate</Code> flag.</TableCell>
+                    <TableCell><Code>{slotType({ name: "animate", type: "boolean" })}</Code></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>NavGroupItem href</Code></TableCell>
@@ -110,11 +125,11 @@
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>NavGroupItem icon</Code></TableCell>
-                    <TableCell>Optional icon before the label. Receives <Code>animate</Code>.</TableCell>
-                    <TableCell><Code>Snippet</Code></TableCell>
+                    <TableCell>Optional icon before the label. {forFramework({ svelte: "Receives", react: "As a function, it receives" })} <Code>animate</Code>.</TableCell>
+                    <TableCell><Code>{slotType({ name: "animate", type: "boolean" })}</Code></TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><Code>NavGroupItem onclick</Code></TableCell>
+                    <TableCell><Code>NavGroupItem {eventName("onclick")}</Code></TableCell>
                     <TableCell>Fires when the item is clicked.</TableCell>
                     <TableCell><Code>function</Code></TableCell>
                 </TableRow>

@@ -14,10 +14,11 @@
         Text
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
+    import ForFramework from "../../ForFramework.svelte";
+    import { slotType, slotWord } from "../../framework.svelte.js";
 
-
-
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Select } from "moth-ui-svelte";
 <\/script>
 
@@ -30,8 +31,26 @@
         { value: "mx", label: "Mexico" },
     ]}
     placeholder="Choose a country..."
-/>`;
-    let example2 = `<script>
+/>`,
+        react: `import { Select } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Select
+            name="Country"
+            label="Country"
+            options={[
+                { value: "us", label: "United States" },
+                { value: "ca", label: "Canada" },
+                { value: "mx", label: "Mexico" },
+            ]}
+            placeholder="Choose a country..."
+        />
+    );
+}`
+    };
+    const example2 = {
+        svelte: `<script>
     import { Select } from "moth-ui-svelte";
     import { User } from "@lucide/svelte";
 <\/script>
@@ -41,14 +60,32 @@
     label="Role"
     options={[
         { value: "developer", label: "Developer" },
-        { value: "designer', label: "Designer" },
+        { value: "designer", label: "Designer" },
     ]}
 >
     {#snippet prefix()}
         <User size={16} />
     {/snippet}
-</Select>`;
-    let example3 = `<script>
+</Select>`,
+        react: `import { Select } from "moth-ui-react";
+import { User } from "lucide-react";
+
+export default function Example() {
+    return (
+        <Select
+            name="Role"
+            label="Role"
+            options={[
+                { value: "developer", label: "Developer" },
+                { value: "designer", label: "Designer" },
+            ]}
+            prefix={<User size={16} />}
+        />
+    );
+}`
+    };
+    const example3 = {
+        svelte: `<script>
     import { Select } from "moth-ui-svelte";
     import { User } from "@lucide/svelte";
 <\/script>
@@ -65,8 +102,27 @@
     {#snippet prefix()}
         <User size={16} />
     {/snippet}
-</Select>`;
-    let example4 = `<script>
+</Select>`,
+        react: `import { Select } from "moth-ui-react";
+import { User } from "lucide-react";
+
+export default function Example() {
+    return (
+        <Select
+            name="Expanded"
+            label="Expanded"
+            options={[
+                { value: "developer", label: "Developer" },
+                { value: "designer", label: "Designer" },
+            ]}
+            expanded
+            prefix={<User size={16} />}
+        />
+    );
+}`
+    };
+    const example4 = {
+        svelte: `<script>
     import { Select } from "moth-ui-svelte";
 <\/script>
 
@@ -80,8 +136,28 @@
     ]}
     placeholder="Choose a country..."
     disabled
-/>`;
-    let example5 = `<script>
+/>`,
+        react: `import { Select } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Select
+            name="Disabled"
+            label="Disabled"
+            options={[
+                { value: "us", label: "United States" },
+                { value: "ca", label: "Canada" },
+                { value: "mx", label: "Mexico" },
+            ]}
+            placeholder="Choose a country..."
+            disabled
+        />
+    );
+}`
+    };
+
+    const example5 = {
+        svelte: `<script>
     import { Select } from "moth-ui-svelte";
 <\/script>
 
@@ -95,8 +171,28 @@
     ]}
     placeholder="Choose a country..."
     error="There is an error"
-/>`;
-    let example6 = `<script>
+/>`,
+        react: `import { Select } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Select
+            name="Error"
+            label="Error"
+            options={[
+                { value: "us", label: "United States" },
+                { value: "ca", label: "Canada" },
+                { value: "mx", label: "Mexico" },
+            ]}
+            placeholder="Choose a country..."
+            error="There is an error"
+        />
+    );
+}`
+    };
+
+    const example6 = {
+        svelte: `<script>
     import { Select } from "moth-ui-svelte";
 <\/script>
 
@@ -110,8 +206,28 @@
     ]}
     placeholder="Choose a country..."
     required
-/>`;
-    let example7 = `<script>
+/>`,
+        react: `import { Select } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Select
+            name="Required"
+            label="Label"
+            options={[
+                { value: "us", label: "United States" },
+                { value: "ca", label: "Canada" },
+                { value: "mx", label: "Mexico" },
+            ]}
+            placeholder="Choose a country..."
+            required
+        />
+    );
+}`
+    };
+
+    const example7 = {
+        svelte: `<script>
     import { Select } from "moth-ui-svelte";
 <\/script>
 
@@ -125,8 +241,27 @@
     ]}
     placeholder="Choose a country..."
     hint="Hint: this is a hint"
-/>`;
-    let example8 = `<script>
+/>`,
+        react: `import { Select } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Select
+            name="Hint"
+            label="Hint"
+            options={[
+                { value: "us", label: "United States" },
+                { value: "ca", label: "Canada" },
+                { value: "mx", label: "Mexico" },
+            ]}
+            placeholder="Choose a country..."
+            hint="Hint: this is a hint"
+        />
+    );
+}`
+    };
+    const example8 = {
+        svelte: `<script>
     import { Select } from "moth-ui-svelte";
 <\/script>
 
@@ -140,7 +275,25 @@
     placeholder="Please Select"
     id="customWidth"
     style="width: 22rem;"
-/>`;
+/>`,
+        react: `import { Select } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Select
+            name="CustomWidth"
+            label="Custom Width"
+            options={[
+                { value: "mr", label: "Mr" },
+                { value: "mrs", label: "Mrs" },
+            ]}
+            placeholder="Please Select"
+            id="customWidth"
+            style={{ width: "22rem" }}
+        />
+    );
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">
@@ -251,7 +404,7 @@
     <section class="section" id="prefix">
         <Text size="2xl" weight="bold" as="h2">Prefix</Text>
         <Text size="l" variant="weak" measure="l">
-            A 16px icon in the <Code>prefix</Code> snippet.
+            A 16px icon in the <Code>prefix</Code> {slotWord()}.
         </Text>
         <CodeExample code={example2}>
            <Select
@@ -375,16 +528,16 @@
                 <TableRow>
                     <TableCell><Code>prefix</Code></TableCell>
                     <TableCell>Content shown inside the field before the selected option, such as an icon.</TableCell>
-                    <TableCell><Code>Snippet</Code></TableCell>
+                    <TableCell><Code>{slotType()}</Code></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>suffix</Code></TableCell>
                     <TableCell>Content shown inside the field after the selected option.</TableCell>
-                    <TableCell><Code>Snippet</Code></TableCell>
+                    <TableCell><Code>{slotType()}</Code></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>value</Code></TableCell>
-                    <TableCell>The selected option's value. Use <Code>bind:value</Code> to read and update it.</TableCell>
+                    <TableCell>The selected option's value. <ForFramework>{#snippet svelte()}Use <Code>bind:value</Code> to read and update it.{/snippet}{#snippet react()}Pair it with <Code>onChange</Code> to control it, or use <Code>defaultValue</Code> for a starting value.{/snippet}</ForFramework></TableCell>
                     <TableCell><Code>string</Code></TableCell>
                 </TableRow>
             </TableBody>

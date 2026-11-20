@@ -17,7 +17,8 @@
 
 
 
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Button, Toast, ToastGroup } from "moth-ui-svelte";
 
     /**
@@ -62,14 +63,47 @@
     }
 <\/script>
 
-<Button onclick={() => addToast("Copied to clipboard", "neutral")}>Add Toast</Button>
+<Button onclick={() => addToast("Copied to clipboard")}>Add Toast</Button>
 
 <ToastGroup>
     {#each toasts as toast (toast.id)}
         <Toast id={toast.id} onDismiss={() => removeToast(toast.id)}>{toast.message}</Toast>
     {/each}
-</ToastGroup>`;
-    let example2 = `<script>
+</ToastGroup>`,
+        react: `import { useRef, useState } from "react";
+import { Button, Toast, ToastGroup } from "moth-ui-react";
+
+export default function Example() {
+    const [toasts, setToasts] = useState([]);
+    const nextId = useRef(1);
+
+    function removeToast(id) {
+        setToasts((current) => current.filter((toast) => toast.id !== id));
+    }
+
+    function addToast(message) {
+        const id = String(nextId.current++);
+        setToasts((current) => [...current, { id, message }]);
+        // Auto-dismiss after 2 seconds
+        setTimeout(() => removeToast(id), 2000);
+    }
+
+    return (
+        <>
+            <Button onClick={() => addToast("Copied to clipboard")}>Add Toast</Button>
+            <ToastGroup>
+                {toasts.map((toast) => (
+                    <Toast key={toast.id} id={toast.id} onDismiss={() => removeToast(toast.id)}>
+                        {toast.message}
+                    </Toast>
+                ))}
+            </ToastGroup>
+        </>
+    );
+}`
+    };
+    const example2 = {
+        svelte: `<script>
     import { Button, Toast, ToastGroup } from "moth-ui-svelte";
 
     /**
@@ -122,7 +156,39 @@
     {#each toasts as toast (toast.id)}
         <Toast id={toast.id} onDismiss={() => removeToast(toast.id)} variant={toast.status}>{toast.message}</Toast>
     {/each}
-</ToastGroup>`;
+</ToastGroup>`,
+        react: `import { useRef, useState } from "react";
+import { Button, Toast, ToastGroup } from "moth-ui-react";
+
+export default function Example() {
+    const [toasts, setToasts] = useState([]);
+    const nextId = useRef(1);
+
+    function removeToast(id) {
+        setToasts((current) => current.filter((toast) => toast.id !== id));
+    }
+
+    function addToast(message, variant) {
+        const id = String(nextId.current++);
+        setToasts((current) => [...current, { id, message, variant }]);
+        // Auto-dismiss after 2 seconds
+        setTimeout(() => removeToast(id), 2000);
+    }
+
+    return (
+        <>
+            <Button onClick={() => addToast("No internet connection", "danger")}>Danger Toast</Button>
+            <ToastGroup>
+                {toasts.map((toast) => (
+                    <Toast key={toast.id} id={toast.id} onDismiss={() => removeToast(toast.id)} variant={toast.variant}>
+                        {toast.message}
+                    </Toast>
+                ))}
+            </ToastGroup>
+        </>
+    );
+}`
+    };
 
     /**
      * @typedef { object } Toast

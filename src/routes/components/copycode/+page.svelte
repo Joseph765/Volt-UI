@@ -13,14 +13,20 @@
         Text
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
+    import { forFramework, installCommand } from "../../framework.svelte.js";
 
-
-
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { CopyCode } from "moth-ui-svelte";
 <\/script>
 
-<CopyCode code="npm install moth-ui-svelte" />`;
+<CopyCode code="npm install moth-ui-svelte" />`,
+        react: `import { CopyCode } from "moth-ui-react";
+
+export default function Example() {
+    return <CopyCode code="npm install moth-ui-react" />;
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">
@@ -38,7 +44,7 @@
             href="/components/code">Code</Link>.
         </Text>
         <CodeExample code={example1}>
-            <CopyCode code="npm install moth-ui-svelte" />
+            <CopyCode code={installCommand()} />
         </CodeExample>
     </section>
 
@@ -61,7 +67,7 @@
                 <TableRow>
                     <TableCell><Code>style</Code></TableCell>
                     <TableCell>Inline styles for the wrapper, for example to change its background on a surface.</TableCell>
-                    <TableCell><Code>string</Code></TableCell>
+                    <TableCell><Code>{forFramework({ svelte: "string", react: "CSSProperties" })}</Code></TableCell>
                 </TableRow>
             </TableBody>
         </Table>

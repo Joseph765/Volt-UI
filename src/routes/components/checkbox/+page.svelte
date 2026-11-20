@@ -13,39 +13,84 @@
         Text
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
+    import ForFramework from "../../ForFramework.svelte";
 
-
-
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Checkbox } from "moth-ui-svelte";
 <\/script>
 
-<Checkbox label="I agree to the terms" />`;
-    let example2 = `<script>
+<Checkbox label="I agree to the terms" />`,
+        react: `import { Checkbox } from "moth-ui-react";
+
+export default function Example() {
+    return <Checkbox label="I agree to the terms" />;
+}`
+    };
+
+    const example2 = {
+        svelte: `<script>
     import { Checkbox } from "moth-ui-svelte";
 <\/script>
 
-<Checkbox checked disabled label="This is disabled" />`;
-    let example3 = `<script>
+<Checkbox checked disabled label="This is disabled" />`,
+        react: `import { Checkbox } from "moth-ui-react";
+
+export default function Example() {
+    return <Checkbox defaultChecked disabled label="This is disabled" />;
+}`
+    };
+
+    const example3 = {
+        svelte: `<script>
     import { Checkbox } from "moth-ui-svelte";
 <\/script>
 
-<Checkbox label="Indeterminate" indeterminate />`;
-    let example4 = `<script>
+<Checkbox label="Indeterminate" indeterminate />`,
+        react: `import { Checkbox } from "moth-ui-react";
+
+export default function Example() {
+    return <Checkbox label="Indeterminate" indeterminate />;
+}`
+    };
+
+    const example4 = {
+        svelte: `<script>
     import { Checkbox } from "moth-ui-svelte";
 <\/script>
 
-<Checkbox label="Has error" error="This field has error" />`;
-    let example5 = `<script>
+<Checkbox label="Has error" error="This field has error" />`,
+        react: `import { Checkbox } from "moth-ui-react";
+
+export default function Example() {
+    return <Checkbox label="Has error" error="This field has error" />;
+}`
+    };
+
+    const example5 = {
+        svelte: `<script>
     import { Checkbox } from "moth-ui-svelte";
 <\/script>
 
-<Checkbox label="Has hint" hint="Hint: this is a hint" />`;
-    let example6 = `<script>
+<Checkbox label="Has hint" hint="Hint: this is a hint" />`,
+        react: `import { Checkbox } from "moth-ui-react";
+
+export default function Example() {
+    return <Checkbox label="Has hint" hint="Hint: this is a hint" />;
+}`
+    };
+    const example6 = {
+        svelte: `<script>
     import { Checkbox } from "moth-ui-svelte";
 <\/script>
 
-<Checkbox style="width: 300px;" label="Custom style example" />`;
+<Checkbox style="width: 300px;" label="Custom style example" />`,
+        react: `import { Checkbox } from "moth-ui-react";
+
+export default function Example() {
+    return <Checkbox style={{ width: 300 }} label="Custom style example" />;
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">
@@ -57,7 +102,11 @@
         <Text size="2xl" weight="bold" as="h2">Basic</Text>
         <Text size="l" variant="weak" measure="l">
             For options people can turn on or off independently, or a single agreement. To pick one option from several,
-            use <Link size="l" href="/components/radio">Radio</Link>. Use <Code>bind:checked</Code> to read the value.
+            use <Link size="l" href="/components/radio">Radio</Link>.
+            <ForFramework>
+                {#snippet svelte()}Use <Code>bind:checked</Code> to read the value.{/snippet}
+                {#snippet react()}Use <Code>checked</Code> with <Code>onChange</Code> to read the value.{/snippet}
+            </ForFramework>
         </Text>
         <CodeExample code={example1}>
             <Checkbox label="I agree to the terms" />
@@ -132,7 +181,7 @@
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>checked</Code></TableCell>
-                    <TableCell>Whether the checkbox is checked. Use <Code>bind:checked</Code> to read and update it.</TableCell>
+                    <TableCell>Whether the checkbox is checked. <ForFramework>{#snippet svelte()}Use <Code>bind:checked</Code> to read and update it.{/snippet}{#snippet react()}Pair it with <Code>onChange</Code> to control it, or use <Code>defaultChecked</Code> for a starting value.{/snippet}</ForFramework></TableCell>
                     <TableCell><Code>boolean</Code></TableCell>
                 </TableRow>
                 <TableRow>

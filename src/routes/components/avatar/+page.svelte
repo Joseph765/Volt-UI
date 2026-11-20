@@ -13,17 +13,31 @@
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
 
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Avatar } from "moth-ui-svelte";
 <\/script>
 
-<Avatar name="Ada Lovelace" />`;
+<Avatar name="Ada Lovelace" />`,
+        react: `import { Avatar } from "moth-ui-react";
 
-    let example2 = `<script>
+export default function Example() {
+    return <Avatar name="Ada Lovelace" />;
+}`
+    };
+
+    const example2 = {
+        svelte: `<script>
     import { Avatar } from "moth-ui-svelte";
 <\/script>
 
-<Avatar name="Ada Lovelace" src="/avatars/ada.jpg" />`;
+<Avatar name="Ada Lovelace" src="/avatars/ada.jpg" />`,
+        react: `import { Avatar } from "moth-ui-react";
+
+export default function Example() {
+    return <Avatar name="Ada Lovelace" src="/avatars/ada.jpg" />;
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">

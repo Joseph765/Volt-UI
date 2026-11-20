@@ -9,9 +9,9 @@ or changelog entries for the rename. The local repo folder is still `Volt-UI`; t
 - **Svelte and React (positioning):** all copy (landing page, SEO titles and descriptions, Getting Started intro,
   README, `package.json` description) presents Moth as available for both Svelte and React, as if the React version
   already exists. It doesn't yet: the user is building it over the next few days, and nobody is using the package in
-  the meantime, so this is deliberate. Don't "correct" it or add caveats. Install and setup instructions (install
-  line, Requirements, code snippets) stay Svelte-only for now; next up is a Svelte/React switcher in the left nav
-  that switches them globally. Keep new copy framework-neutral ("the same components, the same look") rather than
+  the meantime, so this is deliberate. Don't "correct" it or add caveats. Code examples, install lines, prose and API
+  tables all switch with the framework switcher; the Svelte/React switcher next to the logo (see
+  "Framework switcher" below) will switch them globally. Keep new copy framework-neutral ("the same components, the same look") rather than
   Svelte-specific, and don't call Moth "dark-first": both themes are designed token by token (dark is still the
   default).
 - **Landing page copy** (`src/routes/+page.svelte`, set by the user): heading "Drawn to the light" ("the light" in
@@ -97,8 +97,8 @@ We're simplifying the documentation site. Goals so far:
   - Layout: an `h1` title (`<Text size="3xl" weight="black" as="h1">`), one `h2` section per example (short copy +
     `CodeExample`), then "API reference" with the props table (Property / Description / Type). See "How the docs
     site is laid out"; Button is the model.
-  - Table rows: props first, then snippets (Type `Snippet`), then callback props (Type `function`, e.g.
-    `onclick`). Pages covering several components prefix the name, e.g. `TableCell align`.
+  - Table rows: props first, then snippets (Type `{slotType()}`), then callback props (Type `function`, name
+    `{eventName("onclick")}`). See "Code examples in both frameworks" for the switching helpers. Pages covering several components prefix the name, e.g. `TableCell align`.
   - Document only callbacks a component actually accepts. Check the source.
   - Bindable props are listed by their plain name with "Use `bind:value`/`bind:checked`" in the description.
     Exception: a prop that only makes sense bound is listed as written, e.g. Radio's `bind:group`.
@@ -112,15 +112,70 @@ We're simplifying the documentation site. Goals so far:
   the sitemap and each component page's SEO. Card previews are static HTML. Use `<span>`/`<div>`, never
   `<button>`/`<a>`, because they sit inside a link. Close every tag (an unclosed `<svg>` broke hydration once).
 - **Page-level `Container`s** on the docs site use `align="center"`.
-- **Version label:** the docs sidebar shows `v{version}` next to the logo, imported from `package.json` in
-  `src/routes/+layout.svelte`. `vite.config.js` allows `package.json` in `server.fs.allow`; without it the dev
-  server 403s the import and hydration breaks (SSR still looks fine).
+- **Framework switcher and version:** next to the logo (desktop and the mobile header) is a "Svelte" chip with a
+  chevron, styled like a small select (surface fill, `--m-color-border` edge that turns control-hover on hover/open) (`src/routes/FrameworkSwitcher.svelte`, docs-only). It opens a menu (`role="menu"`,
+  `menuitemradio` items, arrow keys, Esc, click outside) with Svelte and React, and the package version at the bottom
+  ("Version 0.2.0"): that's where the version lives now (it used to be a `v0.2.0` label beside the logo). Svelte is the
+  default. The choice is shared state in `src/routes/framework.svelte.js` (`framework.current`, saved in
+  localStorage as `moth-framework`). It switches every code example and install line (see "Code examples in both
+  frameworks"). Each instance needs a unique `id` (no random ids: they break hydration). The version comes from
+  `package.json`, imported in `src/routes/+layout.svelte`; `vite.config.js` allows `package.json` in `server.fs.allow`,
+  without which the dev server 403s the import and hydration breaks (SSR still looks fine).
+  - The menu is `--m-color-surface` (white in light mode) with a shadow; items hover/focus to `--m-color-neutral-weak`.
+    Don't use `--m-color-surface-raised` for the menu: in light mode it's gray-4, the same as the hover, so hover
+    disappears (and a gray-4 chip vanished on the gray-3 light page).
+  - On desktop `.m-layout-logo` has `z-index: 2` (above the nav's 1) so the menu opens over the nav.
 - **SEO:**
   - Every page renders `src/routes/Seo.svelte`; component pages get it from `components/+layout.svelte`.
   - `static/robots.txt` and `src/routes/sitemap.xml/+server.js` list the routes. Add new pages there.
   - `/form-preview` and `/examples/*` (dashboard, settings, tasks, forms, focus) are private design test benches with
     `noindex`, disallowed in robots.txt and not in the nav or sitemap. They're realistic app screens for checking
     how the system holds up. Use them (and add to them) when testing component changes.
+
+## Code examples in both frameworks
+Every code example on the docs site exists in Svelte and React and follows the framework switcher.
+- **How:** write each example once per framework, side by side, as a `{ svelte, react }` object (a `PerFramework`,
+  typedef in `src/routes/framework.svelte.js`) and pass it to `CodeExample` as `code`. `CodeExample` picks the chosen
+  one with `forFramework()`, highlights it ("xml" for Svelte, "jsx" for React) and re-highlights when the switcher
+  changes. Name examples in the page script (`const example1 = { svelte: `...`, react: `...` }`, or descriptive
+  names like `stylesCode`); no inline template strings in markup.
+- Anything else that differs per framework (an install command, a file name, a sentence) uses
+  `forFramework({ svelte, react })` in the template. `installCommand()` / `packageName()` give the Moth package.
+- Things that are the same in both (CSS snippets, tokens, HTML like `<html data-theme>`) stay plain strings; pass
+  `language="css"` for CSS. If an HTML snippet differs only by file, pass `forFramework(pair)` (a string) so it's
+  highlighted as HTML (ThemeSwitcher "Avoid a flash": `src/app.html` vs Vite's `index.html`).
+- "Show more" appears when the code is taller than the collapsed block (`.m-code-block` max-height, 20.25rem, about
+  15 lines). `CodeExample` measures this (`scrollHeight` vs `clientHeight`) after each highlight and once fonts load;
+  don't go back to counting lines (a "> 20 lines" rule left 16-20 line examples cut off with no button).
+- In template strings: escape `</script>` as `<\/script>` and `${` as `\${` (both frameworks).
+- **React conventions** (the `moth-ui-react` API as the docs present it; keep every example consistent):
+  - Imports from `moth-ui-react` (CSS: `moth-ui-react/css/index.css`); icons from `lucide-react` (Svelte:
+    `@lucide/svelte`). The animated nav icons (`@jis3r/icons`) are Svelte-only: React examples use plain
+    `lucide-react` icons, and the Layout page's movingicons banner only shows for Svelte.
+  - Same component and prop names. Events are camelCase: `onClick`, `onChange`, `onKeyDown`, `LayoutNav onClose`
+    (Tabs `onClick` and Toast `onDismiss` are already camelCase). `className`, `htmlFor`, `style={{ width: 300 }}`.
+  - Snippets become props of the same name holding React nodes: `start={<Plus size={16} />}`, `prefix="$"`,
+    `header={...}`, `headerEnd`, `logo`, `mobileLogo`, `footer`, `icon`; `children` is children.
+  - Bindings become controlled props: `value`/`checked` + `onChange` with `useState`; a radio group is
+    `checked={plan === "pro"}` + `onChange={(event) => setPlan(event.target.value)}`. A fixed starting value with
+    no handler is uncontrolled: `defaultValue` / `defaultChecked`.
+  - Each example is a complete component: imports, then `export default function Example() { return (...); }`
+    (multi-root markup in a fragment). Layout examples take `pathname` from the app's router instead of
+    SvelteKit's `page` store.
+- **Prose and API tables switch too.** Write wording that's true in both where you can ("Rendered before the title").
+  Otherwise use the helpers in `framework.svelte.js`:
+  - `slotWord()` ("snippet" / "prop"), as in "the <Code>start</Code> {slotWord()}".
+  - `slotType()` (`Snippet` / `ReactNode`) and `slotType({ name: "animate", type: "boolean" })` for slots that receive a
+    value (`Snippet<[boolean]>` / `ReactNode | ((animate: boolean) => ReactNode)`).
+  - `eventName("onclick")` (`onclick` / `onClick`), also inside prefixed names (`LayoutNav {eventName("onclose")}`).
+  - `forFramework({ svelte, react })` for any other plain text (`class`/`className`, `string`/`CSSProperties`, a
+    heading).
+  - `src/routes/ForFramework.svelte` (`svelte` and `react` snippets) for text with markup or rows that exist in one
+    framework only. Bindable props: Svelte "Use `bind:value` to read and update it", React "Pair it with `onChange`
+    to control it, or use `defaultValue` for a starting value". Radio's `bind:group` row is Svelte-only; its React
+    section is "Controlled group" (same `id`).
+  - Live demos on the pages stay real Svelte (the docs site is Svelte); only what readers copy or read switches.
+  - Getting Started Requirements: Svelte 5+, React 18+ (React version assumed; confirm when the package ships).
 
 ## Design decisions (keep consistent)
 - **Accent purple is rare:** primary actions and selected state only (checked, active tab or nav item, text

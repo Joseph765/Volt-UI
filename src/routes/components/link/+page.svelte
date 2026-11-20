@@ -13,14 +13,21 @@
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
 
-
-
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Link } from "moth-ui-svelte";
 <\/script>
 
-<Link href="#">Example link</Link>`;
-    let example2 = `<script>
+<Link href="#">Example link</Link>`,
+        react: `import { Link } from "moth-ui-react";
+
+export default function Example() {
+    return <Link href="#">Example link</Link>;
+}`
+    };
+
+    const example2 = {
+        svelte: `<script>
     import { Flex, Link } from "moth-ui-svelte";
 <\/script>
 
@@ -32,7 +39,23 @@
     <Link href="#" size="xl">Example xl link</Link>
     <Link href="#" size="2xl">Example 2xl link</Link>
     <Link href="#" size="3xl">Example 3xl link</Link>
-</Flex>`;
+</Flex>`,
+        react: `import { Flex, Link } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex direction="column">
+            <Link href="#" size="xs">Example xs link</Link>
+            <Link href="#" size="s">Example s link</Link>
+            <Link href="#" size="m">Example m link</Link>
+            <Link href="#" size="l">Example l link</Link>
+            <Link href="#" size="xl">Example xl link</Link>
+            <Link href="#" size="2xl">Example 2xl link</Link>
+            <Link href="#" size="3xl">Example 3xl link</Link>
+        </Flex>
+    );
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">

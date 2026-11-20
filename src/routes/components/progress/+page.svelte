@@ -13,13 +13,21 @@
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
 
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Progress } from "moth-ui-svelte";
 <\/script>
 
-<Progress label="Uploading files" value={64} />`;
+<Progress label="Uploading files" value={64} />`,
+        react: `import { Progress } from "moth-ui-react";
 
-    let example2 = `<script>
+export default function Example() {
+    return <Progress label="Uploading files" value={64} />;
+}`
+    };
+
+    const example2 = {
+        svelte: `<script>
     import { Flex, Progress } from "moth-ui-svelte";
 <\/script>
 
@@ -27,7 +35,19 @@
     <Progress label="Monthly revenue" value={48290} max={60000} />
     <Progress label="New customers" value={312} max={400} />
     <Progress label="NPS responses" value={188} max={200} />
-</Flex>`;
+</Flex>`,
+        react: `import { Flex, Progress } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex direction="column" gap="l">
+            <Progress label="Monthly revenue" value={48290} max={60000} />
+            <Progress label="New customers" value={312} max={400} />
+            <Progress label="NPS responses" value={188} max={200} />
+        </Flex>
+    );
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">

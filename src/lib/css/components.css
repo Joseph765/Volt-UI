@@ -1148,8 +1148,9 @@
 
     .m-layout-logo {
         top: 0;
-        /* Above the nav, with the page's background: if a long nav ever scrolls up, it passes under the logo */
-        z-index: 1;
+        /* Above the nav (which keeps the drawer's z-index 1), with the page's background: if a long nav ever scrolls
+           up it passes under the logo, and anything opening from the logo area (e.g. a menu) shows over the nav */
+        z-index: 2;
         background-color: var(--m-color-background);
         display: flex;
         align-items: center;

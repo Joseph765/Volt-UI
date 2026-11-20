@@ -14,12 +14,14 @@
         Text
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
+    import ForFramework from "../../ForFramework.svelte";
+    import { eventName, forFramework } from "../../framework.svelte.js";
 
 
     let plan = $state('pro');
 
-
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Fieldset, Flex, Radio } from "moth-ui-svelte";
 <\/script>
 
@@ -28,8 +30,23 @@
         <Radio id="radio" name="testRadio" label="Checked" checked value="1"/>
         <Radio id="radio2" name="testRadio" label="Unchecked" value="2" />
     </Flex>
-</Fieldset>`;
-    let example2 = `<script>
+</Fieldset>`,
+        react: `import { Fieldset, Flex, Radio } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Fieldset label="Radios">
+            <Flex direction="column" gap="s">
+                <Radio id="radio" name="testRadio" label="Checked" defaultChecked value="1"/>
+                <Radio id="radio2" name="testRadio" label="Unchecked" value="2" />
+            </Flex>
+        </Fieldset>
+    );
+}`
+    };
+
+    const example2 = {
+        svelte: `<script>
     import { Fieldset, Flex, Radio } from "moth-ui-svelte";
 <\/script>
 
@@ -38,8 +55,23 @@
         <Radio id="radio3" name="testRadio" label="Checked" checked value="3" disabled />
         <Radio id="radio4" name="testRadio" label="Unchecked" value="4" disabled />
     </Flex>
-</Fieldset>`;
-    let example3 = `<script>
+</Fieldset>`,
+        react: `import { Fieldset, Flex, Radio } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Fieldset label="Radios">
+            <Flex direction="column" gap="s">
+                <Radio id="radio3" name="testRadio" label="Checked" defaultChecked value="3" disabled />
+                <Radio id="radio4" name="testRadio" label="Unchecked" value="4" disabled />
+            </Flex>
+        </Fieldset>
+    );
+}`
+    };
+
+    const example3 = {
+        svelte: `<script>
     import { Fieldset, Flex, Radio } from "moth-ui-svelte";
 <\/script>
 
@@ -48,8 +80,23 @@
         <Radio id="radio5" name="testRadio" label="Checked" checked value="5" />
         <Radio id="radio6" name="testRadio" label="Unchecked" value="6" />
     </Flex>
-</Fieldset>`;
-    let example4 = `<script>
+</Fieldset>`,
+        react: `import { Fieldset, Flex, Radio } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Fieldset label="Radios" required>
+            <Flex direction="column" gap="s">
+                <Radio id="radio5" name="testRadio" label="Checked" defaultChecked value="5" />
+                <Radio id="radio6" name="testRadio" label="Unchecked" value="6" />
+            </Flex>
+        </Fieldset>
+    );
+}`
+    };
+
+    const example4 = {
+        svelte: `<script>
     import { Fieldset, Flex, Radio } from "moth-ui-svelte";
 <\/script>
 
@@ -58,8 +105,23 @@
         <Radio id="radio7" name="testRadio" label="Checked" checked value="7" hint="Hint: this is a hint" />
         <Radio id="radio8" name="testRadio" label="Unchecked" value="8" /> 
     </Flex>
-</Fieldset>`;
-    let example5 = `<script>
+</Fieldset>`,
+        react: `import { Fieldset, Flex, Radio } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Fieldset label="Radios">
+            <Flex direction="column" gap="s">
+                <Radio id="radio7" name="testRadio" label="Checked" defaultChecked value="7" hint="Hint: this is a hint" />
+                <Radio id="radio8" name="testRadio" label="Unchecked" value="8" /> 
+            </Flex>
+        </Fieldset>
+    );
+}`
+    };
+
+    const example5 = {
+        svelte: `<script>
     import { Fieldset, Flex, Radio } from "moth-ui-svelte";
 <\/script>
 
@@ -68,8 +130,22 @@
         <Radio id="radio9" name="testRadio" label="Checked" checked value="9" error="There is an error" />
         <Radio id="radio10" name="testRadio" label="Unchecked" value="10" />
     </Flex>
-</Fieldset>`;
-    let example6 = `<script>
+</Fieldset>`,
+        react: `import { Fieldset, Flex, Radio } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Fieldset label="Radios">
+            <Flex direction="column" gap="s">
+                <Radio id="radio9" name="testRadio" label="Checked" defaultChecked value="9" error="There is an error" />
+                <Radio id="radio10" name="testRadio" label="Unchecked" value="10" />
+            </Flex>
+        </Fieldset>
+    );
+}`
+    };
+    const example6 = {
+        svelte: `<script>
     import { Fieldset, Flex, Radio, Text } from "moth-ui-svelte";
 
     let plan = $state("pro");
@@ -82,7 +158,28 @@
         <Radio id="plan-team" name="plan" label="Team" value="team" bind:group={plan} />
     </Flex>
 </Fieldset>
-<Text variant="weak">Selected: {plan}</Text>`;
+<Text variant="weak">Selected: {plan}</Text>`,
+        react: `import { useState } from "react";
+import { Fieldset, Flex, Radio, Text } from "moth-ui-react";
+
+export default function Example() {
+    const [plan, setPlan] = useState("pro");
+    const choose = (event) => setPlan(event.target.value);
+
+    return (
+        <>
+            <Fieldset label="Plan">
+                <Flex direction="column" gap="s">
+                    <Radio id="plan-starter" name="plan" label="Starter" value="starter" checked={plan === "starter"} onChange={choose} />
+                    <Radio id="plan-pro" name="plan" label="Pro" value="pro" checked={plan === "pro"} onChange={choose} />
+                    <Radio id="plan-team" name="plan" label="Team" value="team" checked={plan === "team"} onChange={choose} />
+                </Flex>
+            </Fieldset>
+            <Text variant="weak">Selected: {plan}</Text>
+        </>
+    );
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">
@@ -108,9 +205,17 @@
     </section>
 
     <section class="section" id="group">
-        <Text size="2xl" weight="bold" as="h2">Group binding</Text>
+        <Text size="2xl" weight="bold" as="h2">{forFramework({ svelte: "Group binding", react: "Controlled group" })}</Text>
         <Text size="l" variant="weak" measure="l">
-            Bind one variable to every radio in the set with <Code>bind:group</Code>; it holds the selected value.
+            <ForFramework>
+                {#snippet svelte()}
+                    Bind one variable to every radio in the set with <Code>bind:group</Code>; it holds the selected value.
+                {/snippet}
+                {#snippet react()}
+                    Keep the selected value in state: each radio is <Code>checked</Code> when its <Code>value</Code>
+                    matches, and <Code>onChange</Code> stores the new one.
+                {/snippet}
+            </ForFramework>
         </Text>
         <CodeExample code={example6}>
             <Flex direction="column" gap="m">
@@ -209,7 +314,12 @@
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>checked</Code></TableCell>
-                    <TableCell>Checks the radio initially. Ignored when <Code>bind:group</Code> is used.</TableCell>
+                    <TableCell>
+                        <ForFramework>
+                            {#snippet svelte()}Checks the radio initially. Ignored when <Code>bind:group</Code> is used.{/snippet}
+                            {#snippet react()}Whether the radio is selected. Pair it with <Code>onChange</Code> to control it, or use <Code>defaultChecked</Code> for a starting value.{/snippet}
+                        </ForFramework>
+                    </TableCell>
                     <TableCell><Code>boolean</Code></TableCell>
                 </TableRow>
                 <TableRow>
@@ -237,13 +347,18 @@
                     <TableCell>The value submitted with the form when this radio is selected.</TableCell>
                     <TableCell><Code>string</Code></TableCell>
                 </TableRow>
+                <!-- React has no group binding: radios are controlled with checked + onChange -->
+                <ForFramework>
+                    {#snippet svelte()}
+                        <TableRow>
+                            <TableCell><Code>bind:group</Code></TableCell>
+                            <TableCell>Binds a variable to the whole set: put it on every radio in the set, and it holds the checked radio's <Code>value</Code>.</TableCell>
+                            <TableCell><Code>string</Code></TableCell>
+                        </TableRow>
+                    {/snippet}
+                </ForFramework>
                 <TableRow>
-                    <TableCell><Code>bind:group</Code></TableCell>
-                    <TableCell>Binds a variable to the whole set: put it on every radio in the set, and it holds the checked radio's <Code>value</Code>.</TableCell>
-                    <TableCell><Code>string</Code></TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell><Code>onchange</Code></TableCell>
+                    <TableCell><Code>{eventName("onchange")}</Code></TableCell>
                     <TableCell>Fires when the user selects this radio.</TableCell>
                     <TableCell><Code>function</Code></TableCell>
                 </TableRow>

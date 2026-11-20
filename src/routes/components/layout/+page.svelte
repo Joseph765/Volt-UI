@@ -25,6 +25,7 @@
         ThemeSwitcher
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
+    import { eventName, forFramework, framework, slotType, slotWord } from "../../framework.svelte.js";
 
     /** @type { boolean } */
     let open = $state(false);
@@ -42,7 +43,8 @@
         openFooter = false;
     }
 
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { page } from '$app/state';
     import { ChartPie, History, Layers, Settings } from "@jis3r/icons";
     import {
@@ -93,9 +95,60 @@
             {@render children()}
         </Container>
     </LayoutContent>
-</Layout>`;
+</Layout>`,
+        react: `import { useState } from "react";
+import { ChartPie, History, Layers, Settings } from "lucide-react";
+import {
+    Container,
+    Layout,
+    LayoutContent,
+    LayoutHeader,
+    LayoutMenuButton,
+    LayoutNav,
+    NavGroup,
+    NavGroupItem,
+    NavItem
+} from "moth-ui-react";
 
-    let example2 = `<script>
+// \`pathname\` comes from your router, e.g. usePathname() in Next.js or useLocation().pathname in React Router
+export default function AppLayout({ pathname, children }) {
+    const [open, setOpen] = useState(false);
+    const close = () => setOpen(false);
+
+    return (
+        <Layout logo={<a href="/" className="logo">Logo</a>}>
+            <LayoutHeader mobileLogo={<a href="/" className="mobile-logo">L</a>}>
+                <LayoutMenuButton open={open} onClick={() => setOpen(!open)} />
+            </LayoutHeader>
+            <LayoutNav open={open} onClose={close}>
+                <NavItem href="/" active={pathname === "/"} onClick={close} icon={<ChartPie />}>
+                    Dashboard
+                </NavItem>
+                <NavItem href="/assets" active={pathname === "/assets"} onClick={close} icon={<Layers />}>
+                    Assets
+                </NavItem>
+                <NavItem href="/transactions" active={pathname === "/transactions"} onClick={close} icon={<History />}>
+                    Transactions
+                </NavItem>
+                <NavGroup title="Settings" icon={<Settings />}>
+                    <NavGroupItem href="/settings/profile" active={pathname === "/settings/profile"} onClick={close}>
+                        Profile
+                    </NavGroupItem>
+                    <NavGroupItem href="/settings/security" active={pathname === "/settings/security"} onClick={close}>
+                        Security
+                    </NavGroupItem>
+                </NavGroup>
+            </LayoutNav>
+            <LayoutContent>
+                <Container>{children}</Container>
+            </LayoutContent>
+        </Layout>
+    );
+}`
+    };
+
+    const example2 = {
+        svelte: `<script>
     import { page } from '$app/state';
     import { ChartPie, Layers } from "@jis3r/icons";
     import {
@@ -136,7 +189,52 @@
     <LayoutContent>
         {@render children()}
     </LayoutContent>
-</Layout>`;
+</Layout>`,
+        react: `import { useState } from "react";
+import { ChartPie, Layers } from "lucide-react";
+import {
+    Avatar,
+    Layout,
+    LayoutContent,
+    LayoutHeader,
+    LayoutMenuButton,
+    LayoutNav,
+    NavItem,
+    ThemeSwitcher
+} from "moth-ui-react";
+
+// \`pathname\` comes from your router, e.g. usePathname() in Next.js or useLocation().pathname in React Router
+export default function AppLayout({ pathname, children }) {
+    const [open, setOpen] = useState(false);
+    const close = () => setOpen(false);
+
+    return (
+        <Layout>
+            <LayoutHeader>
+                <LayoutMenuButton open={open} onClick={() => setOpen(!open)} />
+            </LayoutHeader>
+            <LayoutNav
+                open={open}
+                onClose={close}
+                footer={
+                    <>
+                        <Avatar name="Ada Lovelace" />
+                        <ThemeSwitcher />
+                    </>
+                }
+            >
+                <NavItem href="/" active={pathname === "/"} onClick={close} icon={<ChartPie />}>
+                    Dashboard
+                </NavItem>
+                <NavItem href="/assets" active={pathname === "/assets"} onClick={close} icon={<Layers />}>
+                    Assets
+                </NavItem>
+            </LayoutNav>
+            <LayoutContent>{children}</LayoutContent>
+        </Layout>
+    );
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">
@@ -147,7 +245,10 @@
             On smaller screens the sidebar collapses into a header with a menu button that slides the navigation in from the left.
         </Text>
     </Flex>
-    <Banner>Animated icons shown here are from <Link href="https://www.movingicons.dev" target="_blank">movingicons.dev</Link> (<Code>@jis3r/icons</Code>). Install it to use them.</Banner>
+    <!-- @jis3r/icons is Svelte-only; the React examples use lucide-react -->
+    {#if framework.current === "svelte"}
+        <Banner>Animated icons shown here are from <Link href="https://www.movingicons.dev" target="_blank">movingicons.dev</Link> (<Code>@jis3r/icons</Code>). Install it to use them.</Banner>
+    {/if}
     <section class="section" id="basic">
         <Text size="2xl" weight="bold" as="h2">Basic</Text>
         <Text size="l" variant="weak" measure="l">
@@ -195,7 +296,7 @@
     <section class="section" id="footer">
         <Text size="2xl" weight="bold" as="h2">Footer</Text>
         <Text size="l" variant="weak" measure="l">
-            The <Code>footer</Code> snippet stays at the bottom of the sidebar (and of the slide-in nav on smaller
+            The <Code>footer</Code> {slotWord()} stays at the bottom of the sidebar (and of the slide-in nav on smaller
             screens) while the items above it scroll. Use it for global actions that aren't pages: the signed-in user,
             their settings, or a <Link size="l" href="/components/themeswitcher">ThemeSwitcher</Link>. Keep it to one
             row.
@@ -252,14 +353,14 @@
                     <TableCell><Code>string</Code></TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><Code>LayoutNav onclose</Code></TableCell>
+                    <TableCell><Code>LayoutNav {eventName("onclose")}</Code></TableCell>
                     <TableCell>Fires when the user presses Esc, clicks the blurred page outside the navigation, or clicks a link in the header (such as the logo) while it is open. Set <Code>open</Code> to false in response. On Esc, focus moves back to the menu button if it was inside the navigation.</TableCell>
                     <TableCell><Code>function</Code></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>LayoutNav footer</Code></TableCell>
                     <TableCell>Global actions pinned to the bottom of the navigation, below a divider, such as the signed-in user, settings or a theme switcher. The items above it scroll on their own.</TableCell>
-                    <TableCell><Code>Snippet</Code></TableCell>
+                    <TableCell><Code>{slotType()}</Code></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>LayoutMenuButton open</Code></TableCell>
@@ -267,29 +368,29 @@
                     <TableCell><Code>boolean</Code></TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><Code>LayoutMenuButton onclick</Code></TableCell>
+                    <TableCell><Code>LayoutMenuButton {eventName("onclick")}</Code></TableCell>
                     <TableCell>Fires when the menu button is pressed. Toggle <Code>open</Code> in response.</TableCell>
                     <TableCell><Code>function</Code></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>Layout logo</Code></TableCell>
                     <TableCell>Logo shown above the sidebar on larger screens.</TableCell>
-                    <TableCell><Code>Snippet</Code></TableCell>
+                    <TableCell><Code>{slotType()}</Code></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>LayoutHeader mobileLogo</Code></TableCell>
                     <TableCell>Logo centered in the header on smaller screens.</TableCell>
-                    <TableCell><Code>Snippet</Code></TableCell>
+                    <TableCell><Code>{slotType()}</Code></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>NavItem icon</Code></TableCell>
-                    <TableCell>Icon before the label. Receives <Code>animate</Code>, which is true while the item is hovered or keyboard-focused, so animated icons play for the whole row. Also available on <Code>NavGroupItem</Code>.</TableCell>
-                    <TableCell><Code>Snippet</Code></TableCell>
+                    <TableCell>Icon before the label. {forFramework({ svelte: "Receives", react: "As a function, it receives" })} <Code>animate</Code>, which is true while the item is hovered or keyboard-focused, so animated icons play for the whole row. Also available on <Code>NavGroupItem</Code>.</TableCell>
+                    <TableCell><Code>{slotType({ name: "animate", type: "boolean" })}</Code></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>NavGroup icon</Code></TableCell>
-                    <TableCell>Snippet rendered before the group title. Receives the same <Code>animate</Code> flag.</TableCell>
-                    <TableCell><Code>Snippet&lt;[boolean]&gt;</Code></TableCell>
+                    <TableCell>Rendered before the group title. {forFramework({ svelte: "Receives", react: "As a function, it receives" })} the same <Code>animate</Code> flag.</TableCell>
+                    <TableCell><Code>{slotType({ name: "animate", type: "boolean" })}</Code></TableCell>
                 </TableRow>
             </TableBody>
         </Table>

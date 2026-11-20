@@ -4,6 +4,7 @@
     import { page } from '$app/state';
     import components from "./components/components.json";
     import MothLogo from "./MothLogo.svelte";
+    import FrameworkSwitcher from "./FrameworkSwitcher.svelte";
     import { version } from "../../package.json";
 
     import { Blocks, Compass, Layers, Rocket } from "@jis3r/icons"; // Compass: the hidden Guidelines group
@@ -33,16 +34,19 @@
     <LayoutHeader>
         <LayoutMenuButton {open} onclick={() => open = !open} />
         {#snippet mobileLogo()}
-            <a href="/" class="logo" aria-label="Moth UI home">
-                <MothLogo size={32} wordmark={false} />
-            </a>
+            <div class="mobile-brand">
+                <a href="/" class="logo" aria-label="Moth UI home">
+                    <MothLogo size={32} wordmark={false} />
+                </a>
+                <FrameworkSwitcher id="framework-mobile" {version} />
+            </div>
         {/snippet}
     </LayoutHeader>
     {#snippet logo()}
         <a href="/" class="logo is-desktop">
             <MothLogo size={36} />
         </a>
-        <span class="version">v{version}</span>
+        <FrameworkSwitcher id="framework-desktop" {version} />
     {/snippet}
     <LayoutNav {open} onclose={() => open = false}>
         <NavItem href="/getting-started" active={page.url.pathname === "/getting-started"} onclick={() => open = false}>
@@ -89,18 +93,12 @@
     /* Center the 36px mark on the nav's 24px icon column, so it starts 6px further left */
     .logo.is-desktop {
         margin-inline-start: -6px;
+        margin-inline-end: var(--m-space-s);
     }
 
-    /* Sit the version on the wordmark's baseline ("last" skips the mark, which comes first) */
-    .logo.is-desktop,
-    .version {
-        align-self: last baseline;
-    }
-
-    .version {
-        margin-inline-start: var(--m-space-s);
-        font-family: var(--m-font-mono);
-        font-size: var(--m-font-size-xs);
-        color: var(--m-color-text-weaker);
+    .mobile-brand {
+        display: flex;
+        align-items: center;
+        gap: var(--m-space-s);
     }
 </style>

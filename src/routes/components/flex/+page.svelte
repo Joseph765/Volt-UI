@@ -14,9 +14,8 @@
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
 
-
-
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Card, Flex } from "moth-ui-svelte";
 <\/script>
 
@@ -24,8 +23,22 @@
     <Card>Item 1</Card>
     <Card>Item 2</Card>
     <Card>Item 3</Card>
-</Flex>`;
-    let example2 = `<script>
+</Flex>`,
+        react: `import { Card, Flex } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex>
+            <Card>Item 1</Card>
+            <Card>Item 2</Card>
+            <Card>Item 3</Card>
+        </Flex>
+    );
+}`
+    };
+
+    const example2 = {
+        svelte: `<script>
     import { Card, Flex } from "moth-ui-svelte";
 <\/script>
 
@@ -54,8 +67,43 @@
         <Card>Item 1</Card>
         <Card>Item 2</Card>
     </Flex>
-</Flex>`;
-    let example3 = `<script>
+</Flex>`,
+        react: `import { Card, Flex } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex direction="column">
+            <Flex gap="xs">
+                <Card>Item 1</Card>
+                <Card>Item 2</Card>
+            </Flex>
+            <Flex gap="s">
+                <Card>Item 1</Card>
+                <Card>Item 2</Card>
+            </Flex>
+            <Flex gap="m">
+                <Card>Item 1</Card>
+                <Card>Item 2</Card>
+            </Flex>
+            <Flex gap="l">
+                <Card>Item 1</Card>
+                <Card>Item 2</Card>
+            </Flex>
+            <Flex gap="xl">
+                <Card>Item 1</Card>
+                <Card>Item 2</Card>
+            </Flex>
+            <Flex gap="2xl">
+                <Card>Item 1</Card>
+                <Card>Item 2</Card>
+            </Flex>
+        </Flex>
+    );
+}`
+    };
+
+    const example3 = {
+        svelte: `<script>
     import { Card, Flex } from "moth-ui-svelte";
 <\/script>
 
@@ -70,8 +118,28 @@
         <Card>2</Card>
         <Card>3</Card>
     </Flex>
-</Flex>`;
-    let example4 = `<script>
+</Flex>`,
+        react: `import { Card, Flex } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex gap="l">
+            <Flex direction="row">
+                <Card>1</Card>
+                <Card>2</Card>
+                <Card>3</Card>
+            </Flex>
+            <Flex direction="column">
+                <Card>1</Card>
+                <Card>2</Card>
+                <Card>3</Card>
+            </Flex>
+        </Flex>
+    );
+}`
+    };
+    const example4 = {
+        svelte: `<script>
     import { Card, Flex } from "moth-ui-svelte";
 <\/script>
 
@@ -86,8 +154,28 @@
         <Card style="width: 500px;">2</Card>
         <Card style="width: 500px;">3</Card>
     </Flex>
-</Flex>`;
-    let example5 = `<script>
+</Flex>`,
+        react: `import { Card, Flex } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex direction="column">
+            <Flex wrap>
+                <Card style={{ width: 500 }}>1</Card>
+                <Card style={{ width: 500 }}>2</Card>
+                <Card style={{ width: 500 }}>3</Card>
+            </Flex>
+            <Flex>
+                <Card style={{ width: 500 }}>1</Card>
+                <Card style={{ width: 500 }}>2</Card>
+                <Card style={{ width: 500 }}>3</Card>
+            </Flex>
+        </Flex>
+    );
+}`
+    };
+    const example5 = {
+        svelte: `<script>
     import { Card, Flex } from "moth-ui-svelte";
 <\/script>
 
@@ -107,8 +195,34 @@
         <Card>2</Card>
         <Card>3</Card>
     </Flex>
-</Flex>`;
-    let example6 = `<script>
+</Flex>`,
+        react: `import { Card, Flex } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex direction="column">
+            <Flex justify="center">
+                <Card>1</Card>
+                <Card>2</Card>
+                <Card>3</Card>
+            </Flex>
+            <Flex justify="space-between">
+                <Card>1</Card>
+                <Card>2</Card>
+                <Card>3</Card>
+            </Flex>
+            <Flex justify="space-around">
+                <Card>1</Card>
+                <Card>2</Card>
+                <Card>3</Card>
+            </Flex>
+        </Flex>
+    );
+}`
+    };
+
+    const example6 = {
+        svelte: `<script>
     import { Card, Flex } from "moth-ui-svelte";
 <\/script>
 
@@ -128,7 +242,31 @@
         <Card>2</Card>
         <Card>3</Card>
     </Flex>
-</Flex>`;
+</Flex>`,
+        react: `import { Card, Flex } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex direction="column">
+            <Flex direction="column" align="start">
+                <Card>1</Card>
+                <Card>2</Card>
+                <Card>3</Card>
+            </Flex>
+            <Flex direction="column" align="center">
+                <Card>1</Card>
+                <Card>2</Card>
+                <Card>3</Card>
+            </Flex>
+            <Flex direction="column" align="end">
+                <Card>1</Card>
+                <Card>2</Card>
+                <Card>3</Card>
+            </Flex>
+        </Flex>
+    );
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">

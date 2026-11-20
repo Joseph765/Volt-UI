@@ -9,6 +9,42 @@
     } from "$lib";
     import CodeExample from "../components/CodeExample.svelte";
     import Seo from "../Seo.svelte";
+    import ForFramework from "../ForFramework.svelte";
+    import { forFramework, installCommand } from "../framework.svelte.js";
+
+    const stylesCode = {
+        svelte: `<script>
+    import "moth-ui-svelte/css/index.css";
+<\/script>`,
+        react: `import "moth-ui-react/css/index.css";`
+    };
+
+    const importCode = {
+        svelte: `<script>
+    import { Text } from "moth-ui-svelte";
+<\/script>`,
+        react: `import { Text } from "moth-ui-react";`
+    };
+
+    const iconInstall = { svelte: "npm install @lucide/svelte", react: "npm install lucide-react" };
+
+    const iconCode = {
+        svelte: `<script>
+    import { Button } from "moth-ui-svelte";
+    import { Plus } from "@lucide/svelte";
+<\/script>
+
+<Button>
+    {#snippet start()}<Plus size={16} />{/snippet}
+    New project
+</Button>`,
+        react: `import { Button } from "moth-ui-react";
+import { Plus } from "lucide-react";
+
+export default function Example() {
+    return <Button start={<Plus size={16} />}>New project</Button>;
+}`
+    };
 </script>
 
 <Seo
@@ -34,8 +70,16 @@
         <Flex direction="column">
             <Text size="2xl" weight="bold" as="h2">Requirements</Text>
             <Text size="l" variant="weak" measure="l">
-                The Svelte version needs <Code>svelte</Code> 5 or later. It works in SvelteKit and in any Vite + Svelte
-                project.
+                <ForFramework>
+                    {#snippet svelte()}
+                        The Svelte version needs <Code>svelte</Code> 5 or later. It works in SvelteKit and in any Vite +
+                        Svelte project.
+                    {/snippet}
+                    {#snippet react()}
+                        The React version needs <Code>react</Code> 18 or later. It works in Next.js, Vite and any other
+                        React project.
+                    {/snippet}
+                </ForFramework>
             </Text>
             <Text size="l" variant="weak" measure="l">
                 It targets modern browsers: Chrome and Edge 111+, Safari 16.2+ and Firefox 121+. Its styles use
@@ -46,15 +90,18 @@
         <Flex direction="column">
             <Text size="2xl" weight="bold" as="h2">Installation</Text>
             <Text size="l" variant="weak">Install with npm:</Text>
-            <CopyCode code="npm install moth-ui-svelte" />
+            <CopyCode code={installCommand()} />
         </Flex>
 
         <Flex direction="column">
             <Text size="2xl" weight="bold" as="h2">Importing styles</Text>
-            <Text size="l" variant="weak">Add this to your main Svelte file to enable Moth styling:</Text>
-            <CodeExample codeOnly code={`<script>
-    import "moth-ui-svelte/css/index.css";
-<\/script>`} />
+            <Text size="l" variant="weak">
+                {forFramework({
+                    svelte: "Add this to your root layout (or main Svelte file) to enable Moth styling:",
+                    react: "Import this once in your app's entry file (e.g. main.jsx) to enable Moth styling:"
+                })}
+            </Text>
+            <CodeExample codeOnly code={stylesCode} />
         </Flex>
 
         <Flex direction="column" gap="s">
@@ -100,10 +147,8 @@
 
         <Flex direction="column">
             <Text size="2xl" weight="bold" as="h2">Importing components</Text>
-            <Text size="l" variant="weak">Use this in any svelte file to import components:</Text>
-            <CodeExample codeOnly code={`<script>
-    import { Text } from "moth-ui-svelte";
-<\/script>`} />
+            <Text size="l" variant="weak">Import components in any component file:</Text>
+            <CodeExample codeOnly code={importCode} />
         </Flex>
 
         <Flex direction="column">
@@ -112,16 +157,8 @@
                 Moth doesn't include an icon set. Use Lucide, the family Moth's own components are drawn from.
                 See the <Link size="l" href="/guidelines#icons">icon guidelines</Link> for sizes and colors.
             </Text>
-            <CopyCode code="npm install @lucide/svelte" />
-            <CodeExample codeOnly code={`<script>
-    import { Button } from "moth-ui-svelte";
-    import { Plus } from "@lucide/svelte";
-<\/script>
-
-<Button>
-    {#snippet start()}<Plus size={16} />{/snippet}
-    New project
-</Button>`} />
+            <CopyCode code={forFramework(iconInstall)} />
+            <CodeExample codeOnly code={iconCode} />
         </Flex>
 
         <Flex direction="column" gap="s">

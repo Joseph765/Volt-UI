@@ -14,9 +14,8 @@
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
 
-
-
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Fieldset, Flex, Radio } from "moth-ui-svelte";
 <\/script>
 
@@ -25,8 +24,23 @@
         <Radio id="radio" name="testRadio" label="Checked" checked value="1"/>
         <Radio id="radio2" name="testRadio" label="Unchecked" value="2" />
     </Flex>
-</Fieldset>`;
-    let example2 = `<script>
+</Fieldset>`,
+        react: `import { Fieldset, Flex, Radio } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Fieldset label="Radios">
+            <Flex direction="column" gap="s">
+                <Radio id="radio" name="testRadio" label="Checked" defaultChecked value="1"/>
+                <Radio id="radio2" name="testRadio" label="Unchecked" value="2" />
+            </Flex>
+        </Fieldset>
+    );
+}`
+    };
+
+    const example2 = {
+        svelte: `<script>
     import { Fieldset, Flex, Radio } from "moth-ui-svelte";
 <\/script>
 
@@ -35,7 +49,20 @@
         <Radio id="radio5" name="testRadio" label="Checked" checked value="5" />
         <Radio id="radio6" name="testRadio" label="Unchecked" value="6" />
     </Flex>
-</Fieldset>`;
+</Fieldset>`,
+        react: `import { Fieldset, Flex, Radio } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Fieldset label="Radios" required>
+            <Flex direction="column" gap="s">
+                <Radio id="radio5" name="testRadio" label="Checked" defaultChecked value="5" />
+                <Radio id="radio6" name="testRadio" label="Unchecked" value="6" />
+            </Flex>
+        </Fieldset>
+    );
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">

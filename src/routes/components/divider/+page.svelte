@@ -7,13 +7,18 @@
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
 
-
-
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Divider } from "moth-ui-svelte";
 <\/script>
 
-<Divider />`;
+<Divider />`,
+        react: `import { Divider } from "moth-ui-react";
+
+export default function Example() {
+    return <Divider />;
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">

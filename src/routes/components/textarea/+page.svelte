@@ -13,44 +13,97 @@
         Textarea
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
+    import ForFramework from "../../ForFramework.svelte";
 
-
-
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Textarea } from "moth-ui-svelte";
 <\/script>
 
-<Textarea label="Message" placeholder="Enter a message" name="message" />`;
-    let example2 = `<script>
+<Textarea label="Message" placeholder="Enter a message" name="message" />`,
+        react: `import { Textarea } from "moth-ui-react";
+
+export default function Example() {
+    return <Textarea label="Message" placeholder="Enter a message" name="message" />;
+}`
+    };
+
+    const example2 = {
+        svelte: `<script>
     import { Textarea } from "moth-ui-svelte";
 <\/script>
 
-<Textarea label="Message" placeholder="Enter a message" name="disabled" disabled />`;
-    let example3 = `<script>
+<Textarea label="Message" placeholder="Enter a message" name="disabled" disabled />`,
+        react: `import { Textarea } from "moth-ui-react";
+
+export default function Example() {
+    return <Textarea label="Message" placeholder="Enter a message" name="disabled" disabled />;
+}`
+    };
+
+    const example3 = {
+        svelte: `<script>
     import { Textarea } from "moth-ui-svelte";
 <\/script>
 
-<Textarea label="Message" placeholder="Enter a message" name="required" required />`;
-    let example4 = `<script>
+<Textarea label="Message" placeholder="Enter a message" name="required" required />`,
+        react: `import { Textarea } from "moth-ui-react";
+
+export default function Example() {
+    return <Textarea label="Message" placeholder="Enter a message" name="required" required />;
+}`
+    };
+
+    const example4 = {
+        svelte: `<script>
     import { Textarea } from "moth-ui-svelte";
 <\/script>
 
-<Textarea label="Message" placeholder="Enter a message" name="error" error="Incorrect format" />`;
-    let example5 = `<script>
+<Textarea label="Message" placeholder="Enter a message" name="error" error="Incorrect format" />`,
+        react: `import { Textarea } from "moth-ui-react";
+
+export default function Example() {
+    return <Textarea label="Message" placeholder="Enter a message" name="error" error="Incorrect format" />;
+}`
+    };
+
+    const example5 = {
+        svelte: `<script>
     import { Textarea } from "moth-ui-svelte";
 <\/script>
 
-<Textarea label="Message" placeholder="Expanded Style" value="Expanded style" name="expanded" expanded />`;
-    let example6 = `<script>
+<Textarea label="Message" placeholder="Expanded Style" value="Expanded style" name="expanded" expanded />`,
+        react: `import { Textarea } from "moth-ui-react";
+
+export default function Example() {
+    return <Textarea label="Message" placeholder="Expanded Style" defaultValue="Expanded style" name="expanded" expanded />;
+}`
+    };
+
+    const example6 = {
+        svelte: `<script>
     import { Textarea } from "moth-ui-svelte";
 <\/script>
 
-<Textarea label="Message" placeholder="With helper text" name="helpText" hint="Hint: this is a hint" />`;
-    let example7 = `<script>
+<Textarea label="Message" placeholder="With helper text" name="helpText" hint="Hint: this is a hint" />`,
+        react: `import { Textarea } from "moth-ui-react";
+
+export default function Example() {
+    return <Textarea label="Message" placeholder="With helper text" name="helpText" hint="Hint: this is a hint" />;
+}`
+    };
+    const example7 = {
+        svelte: `<script>
     import { Textarea } from "moth-ui-svelte";
 <\/script>
 
-<Textarea label="Message" placeholder="With custom styling" name="customStyle" style="width: 22rem;" />`;
+<Textarea label="Message" placeholder="With custom styling" name="customStyle" style="width: 22rem;" />`,
+        react: `import { Textarea } from "moth-ui-react";
+
+export default function Example() {
+    return <Textarea label="Message" placeholder="With custom styling" name="customStyle" style={{ width: "22rem" }} />;
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">
@@ -187,7 +240,7 @@
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>value</Code></TableCell>
-                    <TableCell>Current text. Use <Code>bind:value</Code> to read and update it.</TableCell>
+                    <TableCell>Current text. <ForFramework>{#snippet svelte()}Use <Code>bind:value</Code> to read and update it.{/snippet}{#snippet react()}Pair it with <Code>onChange</Code> to control it, or use <Code>defaultValue</Code> for a starting value.{/snippet}</ForFramework></TableCell>
                     <TableCell><Code>string</Code></TableCell>
                 </TableRow>
                 <TableRow>

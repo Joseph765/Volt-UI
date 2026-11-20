@@ -13,10 +13,10 @@
         Text
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
+    import { slotType, slotWord } from "../../framework.svelte.js";
 
-
-
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Badge, Flex } from "moth-ui-svelte";
 <\/script>        
 
@@ -26,8 +26,24 @@
     <Badge variant="warning">Warning</Badge>
     <Badge variant="success">Success</Badge>
     <Badge variant="info">Info</Badge>
-</Flex>`;
-    let example2 = `<script>
+</Flex>`,
+        react: `import { Badge, Flex } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex>
+            <Badge>Neutral</Badge>
+            <Badge variant="danger">Danger</Badge>
+            <Badge variant="warning">Warning</Badge>
+            <Badge variant="success">Success</Badge>
+            <Badge variant="info">Info</Badge>
+        </Flex>
+    );
+}`
+    };
+
+    const example2 = {
+        svelte: `<script>
     import { Badge, Flex } from "moth-ui-svelte";
 <\/script>        
 
@@ -37,16 +53,42 @@
     <Badge variant="warning" strong>Warning</Badge>
     <Badge variant="success" strong>Success</Badge>
     <Badge variant="info" strong>Info</Badge>
-</Flex>`;
-    let example3 = `<script>
-    import { Badge, Flex } from "moth-ui-svelte";
+</Flex>`,
+        react: `import { Badge, Flex } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex>
+            <Badge strong>Neutral</Badge>
+            <Badge variant="danger" strong>Danger</Badge>
+            <Badge variant="warning" strong>Warning</Badge>
+            <Badge variant="success" strong>Success</Badge>
+            <Badge variant="info" strong>Info</Badge>
+        </Flex>
+    );
+}`
+    };
+    const example3 = {
+        svelte: `<script>
+    import { Badge } from "moth-ui-svelte";
     import { ChevronUp } from "@lucide/svelte";
 <\/script>        
 
 <Badge variant="success">
     {#snippet icon()}<ChevronUp size={12} />{/snippet}
     22%
-</Badge>`;
+</Badge>`,
+        react: `import { Badge } from "moth-ui-react";
+import { ChevronUp } from "lucide-react";
+
+export default function Example() {
+    return (
+        <Badge variant="success" icon={<ChevronUp size={12} />}>
+            22%
+        </Badge>
+    );
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">
@@ -91,7 +133,7 @@
     <section class="section" id="with-icon">
         <Text size="2xl" weight="bold" as="h2">With icon</Text>
         <Text size="l" variant="weak" measure="l">
-            Put a 12px icon in the <Code>icon</Code> snippet, for example to show a trend.
+            Put a 12px icon in the <Code>icon</Code> {slotWord()}, for example to show a trend.
         </Text>
         <CodeExample code={example3}>
             <Badge variant="success">
@@ -125,7 +167,7 @@
                 <TableRow>
                     <TableCell><Code>icon</Code></TableCell>
                     <TableCell>An icon shown before the label.</TableCell>
-                    <TableCell><Code>Snippet</Code></TableCell>
+                    <TableCell><Code>{slotType()}</Code></TableCell>
                 </TableRow>
             </TableBody>
         </Table>

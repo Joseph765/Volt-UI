@@ -15,19 +15,26 @@
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
 
-
-    /** @type { string } */
-
-    /** @type { string } */
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Container, Text } from "moth-ui-svelte";
 <\/script>
 
 <Container>
     <Text>Content</Text>
-</Container>`;
-    /** @type { string } */
-    let example2 = `<script>
+</Container>`,
+        react: `import { Container, Text } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Container>
+            <Text>Content</Text>
+        </Container>
+    );
+}`
+    };
+    const example2 = {
+        svelte: `<script>
     import { Card, Container, Flex } from "moth-ui-svelte";
 <\/script>
 
@@ -47,9 +54,33 @@
     <Container size="2xl">
         <Card>Size 2xl</Card>
     </Container>
-</Flex>`;
-    /** @type { string } */
-    let example3 = `<script>
+</Flex>`,
+        react: `import { Card, Container, Flex } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex direction="column">
+            <Container size="s">
+                <Card>Size s</Card>
+            </Container>
+            <Container size="m">
+                <Card>Size m</Card>
+            </Container>
+            <Container size="l">
+                <Card>Size l</Card>
+            </Container>
+            <Container size="xl">
+                <Card>Size xl</Card>
+            </Container>
+            <Container size="2xl">
+                <Card>Size 2xl</Card>
+            </Container>
+        </Flex>
+    );
+}`
+    };
+    const example3 = {
+        svelte: `<script>
     import { Card, Container, Flex } from "moth-ui-svelte";
 <\/script>
 
@@ -63,13 +94,37 @@
     <Container size="s" align="end">
         <Card style="width: 20rem;">Align end</Card>
     </Container>
-</Flex>`;
-    /** @type { string } */
-    let example4 = `<script>
+</Flex>`,
+        react: `import { Card, Container, Flex } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex direction="column">
+            <Container size="s" align="start">
+                <Card style={{ width: "20rem" }}>Align start</Card>
+            </Container>
+            <Container size="s" align="center">
+                <Card style={{ width: "20rem" }}>Align center</Card>
+            </Container>
+            <Container size="s" align="end">
+                <Card style={{ width: "20rem" }}>Align end</Card>
+            </Container>
+        </Flex>
+    );
+}`
+    };
+    const example4 = {
+        svelte: `<script>
     import { Container } from "moth-ui-svelte";
 <\/script>
 
-<Container size="l" debug></Container>`;
+<Container size="l" debug></Container>`,
+        react: `import { Container } from "moth-ui-react";
+
+export default function Example() {
+    return <Container size="l" debug></Container>;
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">

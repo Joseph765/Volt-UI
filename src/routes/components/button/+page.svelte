@@ -14,8 +14,10 @@
         Text
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
+    import { eventName, slotType, slotWord } from "../../framework.svelte.js";
 
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Button, Flex } from "moth-ui-svelte";
 <\/script>
 
@@ -24,13 +26,35 @@
     <Button variant="secondary">Secondary</Button>
     <Button variant="tertiary">Tertiary</Button>
     <Button variant="danger">Danger</Button>
-</Flex>`;
-    let example2 = `<script>
+</Flex>`,
+        react: `import { Button, Flex } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex>
+            <Button>Primary</Button>
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="tertiary">Tertiary</Button>
+            <Button variant="danger">Danger</Button>
+        </Flex>
+    );
+}`
+    };
+
+    const example2 = {
+        svelte: `<script>
     import { Button } from "moth-ui-svelte";
 <\/script>
 
-<Button disabled>Disabled</Button>`;
-    let example3 = `<script>
+<Button disabled>Disabled</Button>`,
+        react: `import { Button } from "moth-ui-react";
+
+export default function Example() {
+    return <Button disabled>Disabled</Button>;
+}`
+    };
+    const example3 = {
+        svelte: `<script>
     import { Button, Flex } from "moth-ui-svelte";
     import { ChevronDown, Minus, Plus, X } from "@lucide/svelte";
 <\/script>
@@ -55,25 +79,74 @@
         {#snippet start()}<X size={16} />{/snippet}
         Delete
     </Button>
-</Flex>`;
-    let example4 = `<script>
+</Flex>`,
+        react: `import { Button, Flex } from "moth-ui-react";
+import { ChevronDown, Minus, Plus, X } from "lucide-react";
+
+export default function Example() {
+    return (
+        <Flex>
+            <Button start={<Plus size={16} />}>Add</Button>
+            <Button end={<Plus size={16} />}>Add</Button>
+            <Button variant="secondary" start={<Minus size={16} />}>
+                Remove
+            </Button>
+            <Button variant="tertiary" aria-label="Show more">
+                <ChevronDown size={24} />
+            </Button>
+            <Button variant="danger" start={<X size={16} />}>
+                Delete
+            </Button>
+        </Flex>
+    );
+}`
+    };
+    const example4 = {
+        svelte: `<script>
     import { Button, Flex } from "moth-ui-svelte";
 <\/script>
 
 <Flex>
     <Button size="m">Medium</Button>
     <Button size="l">Large</Button>
-</Flex>`;
-    let example5 = `<script>
+</Flex>`,
+        react: `import { Button, Flex } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex>
+            <Button size="m">Medium</Button>
+            <Button size="l">Large</Button>
+        </Flex>
+    );
+}`
+    };
+
+    const example5 = {
+        svelte: `<script>
     import { Button } from "moth-ui-svelte";
 <\/script>
 
-<Button expanded>Expanded</Button>`;
-    let example6 = `<script>
+<Button expanded>Expanded</Button>`,
+        react: `import { Button } from "moth-ui-react";
+
+export default function Example() {
+    return <Button expanded>Expanded</Button>;
+}`
+    };
+
+    const example6 = {
+        svelte: `<script>
     import { Button } from "moth-ui-svelte";
 <\/script>
 
-<Button href="/components">View components</Button>`;
+<Button href="/components">View components</Button>`,
+        react: `import { Button } from "moth-ui-react";
+
+export default function Example() {
+    return <Button href="/components">View components</Button>;
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">
@@ -117,7 +190,7 @@
     <section class="section" id="icons">
         <Text size="2xl" weight="bold" as="h2">With icon</Text>
         <Text size="l" variant="weak" measure="l">
-            Put an icon in the <Code>start</Code> or <Code>end</Code> snippet: 16px in medium buttons, 20px in large
+            Put an icon in the <Code>start</Code> or <Code>end</Code> {slotWord()}: 16px in medium buttons, 20px in large
             ones. A button with only an icon needs an <Code>aria-label</Code>.
         </Text>
         <CodeExample code={example3}>
@@ -216,15 +289,15 @@
                 <TableRow>
                     <TableCell><Code>start</Code></TableCell>
                     <TableCell>Content placed before the label, usually an icon.</TableCell>
-                    <TableCell><Code>Snippet</Code></TableCell>
+                    <TableCell><Code>{slotType()}</Code></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>end</Code></TableCell>
                     <TableCell>Content placed after the label, usually an icon.</TableCell>
-                    <TableCell><Code>Snippet</Code></TableCell>
+                    <TableCell><Code>{slotType()}</Code></TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><Code>onclick</Code></TableCell>
+                    <TableCell><Code>{eventName("onclick")}</Code></TableCell>
                     <TableCell>Fires when the button (or link) is clicked.</TableCell>
                     <TableCell><Code>function</Code></TableCell>
                 </TableRow>

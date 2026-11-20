@@ -13,15 +13,23 @@
         Text
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
+    import { slotType, slotWord } from "../../framework.svelte.js";
 
-
-
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Card } from "moth-ui-svelte";
 <\/script>
 
-<Card>Basic</Card>`;
-    let example2 = `<script>
+<Card>Basic</Card>`,
+        react: `import { Card } from "moth-ui-react";
+
+export default function Example() {
+    return <Card>Basic</Card>;
+}`
+    };
+
+    const example2 = {
+        svelte: `<script>
     import { Card, Flex } from "moth-ui-svelte";
 <\/script>
 
@@ -29,16 +37,40 @@
     <Card space="none">No space</Card>
     <Card space="m">Medium space</Card>
     <Card space="l">Large space</Card>
-</Flex>`;
-    let example3 = `<script>
+</Flex>`,
+        react: `import { Card, Flex } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex direction="column">
+            <Card space="none">No space</Card>
+            <Card space="m">Medium space</Card>
+            <Card space="l">Large space</Card>
+        </Flex>
+    );
+}`
+    };
+    const example3 = {
+        svelte: `<script>
     import { Card, Text } from "moth-ui-svelte";
 <\/script>
 
 <Card>
     {#snippet header()}<Text as="h2" weight="bold">Header content</Text>{/snippet}
     <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
-</Card>`;
-    let example4 = `<script>
+</Card>`,
+        react: `import { Card, Text } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Card header={<Text as="h2" weight="bold">Header content</Text>}>
+            <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
+        </Card>
+    );
+}`
+    };
+    const example4 = {
+        svelte: `<script>
     import { Button, Card, Text } from "moth-ui-svelte";
 <\/script>
 
@@ -46,7 +78,20 @@
     {#snippet header()}<Text as="h2" weight="bold">Header content</Text>{/snippet}
     {#snippet headerEnd()}<Button>Action</Button>{/snippet}
     <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
-</Card>`;
+</Card>`,
+        react: `import { Button, Card, Text } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Card
+            header={<Text as="h2" weight="bold">Header content</Text>}
+            headerEnd={<Button>Action</Button>}
+        >
+            <Text measure="none">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla provident aliquid corporis tempora eius quam, quae vel molestias esse maxime aperiam totam suscipit. Nobis consectetur optio reprehenderit animi? Suscipit, quibusdam?</Text>
+        </Card>
+    );
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">
@@ -83,7 +128,7 @@
     <section class="section" id="header">
         <Text size="2xl" weight="bold" as="h2">Header</Text>
         <Text size="l" variant="weak" measure="l">
-            The <Code>header</Code> snippet adds a title above a divider.
+            The <Code>header</Code> {slotWord()} adds a title above a divider.
         </Text>
         <CodeExample code={example3}>
             <Card>
@@ -127,12 +172,12 @@
                 <TableRow>
                     <TableCell><Code>header</Code></TableCell>
                     <TableCell>Content for the card header, shown above a divider.</TableCell>
-                    <TableCell><Code>Snippet</Code></TableCell>
+                    <TableCell><Code>{slotType()}</Code></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>headerEnd</Code></TableCell>
                     <TableCell>Content aligned to the end of the header, such as an action button.</TableCell>
-                    <TableCell><Code>Snippet</Code></TableCell>
+                    <TableCell><Code>{slotType()}</Code></TableCell>
                 </TableRow>
             </TableBody>
         </Table>

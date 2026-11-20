@@ -13,28 +13,57 @@
         Text
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
+    import ForFramework from "../../ForFramework.svelte";
+    import { eventName, slotType, slotWord } from "../../framework.svelte.js";
 
-
-
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Flex, Input } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
     <Input type="text" name="email" label="Email" placeholder="Example@example.com" />
     <Input type="password" name="password" label="Password" placeholder="Password" />
-</Flex>`;
-    let example2 = `<script>
+</Flex>`,
+        react: `import { Flex, Input } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex direction="column">
+            <Input type="text" name="email" label="Email" placeholder="Example@example.com" />
+            <Input type="password" name="password" label="Password" placeholder="Password" />
+        </Flex>
+    );
+}`
+    };
+
+    const example2 = {
+        svelte: `<script>
     import { Input } from "moth-ui-svelte";
 <\/script>
 
-<Input type="text" name="disabled" label="Disabled" placeholder="Disabled" disabled />`;
-    let example3 = `<script>
+<Input type="text" name="disabled" label="Disabled" placeholder="Disabled" disabled />`,
+        react: `import { Input } from "moth-ui-react";
+
+export default function Example() {
+    return <Input type="text" name="disabled" label="Disabled" placeholder="Disabled" disabled />;
+}`
+    };
+
+    const example3 = {
+        svelte: `<script>
     import { Input } from "moth-ui-svelte";
 <\/script>
 
-<Input type="text" name="required" label="Required" placeholder="Required" value="Value" required />`;
-    let example4 = `<script>
+<Input type="text" name="required" label="Required" placeholder="Required" value="Value" required />`,
+        react: `import { Input } from "moth-ui-react";
+
+export default function Example() {
+    return <Input type="text" name="required" label="Required" placeholder="Required" defaultValue="Value" required />;
+}`
+    };
+    const example4 = {
+        svelte: `<script>
     import { Flex, Input } from "moth-ui-svelte";
 <\/script>
 
@@ -45,18 +74,45 @@
     <Input label="Suffix" type="text" name="amount">
         {#snippet suffix()}cm{/snippet}
     </Input>
-</Flex>`;
-    let example5 = `<script>
+</Flex>`,
+        react: `import { Flex, Input } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex direction="column">
+            <Input label="Prefix" name="money" prefix="$" />
+            <Input label="Suffix" type="text" name="amount" suffix="cm" />
+        </Flex>
+    );
+}`
+    };
+    const example5 = {
+        svelte: `<script>
     import { Input } from "moth-ui-svelte";
 <\/script>
 
-<Input type="text" name="expanded" expanded label="Expanded" placeholder="Expanded" />`;
-    let example6 = `<script>
+<Input type="text" name="expanded" expanded label="Expanded" placeholder="Expanded" />`,
+        react: `import { Input } from "moth-ui-react";
+
+export default function Example() {
+    return <Input type="text" name="expanded" expanded label="Expanded" placeholder="Expanded" />;
+}`
+    };
+
+    const example6 = {
+        svelte: `<script>
     import { Input } from "moth-ui-svelte";
 <\/script>
 
-<Input type="text" name="hint" label="Hint" hint="Hint: this is a hint" />`;
-    let example7 = `<script>
+<Input type="text" name="hint" label="Hint" hint="Hint: this is a hint" />`,
+        react: `import { Input } from "moth-ui-react";
+
+export default function Example() {
+    return <Input type="text" name="hint" label="Hint" hint="Hint: this is a hint" />;
+}`
+    };
+    const example7 = {
+        svelte: `<script>
     import { Flex, Input } from "moth-ui-svelte";
     import { Phone, Search } from "@lucide/svelte";
 <\/script>
@@ -72,17 +128,43 @@
             <Phone size={16} />
         {/snippet}
     </Input>
-</Flex>`;
-    let example8 = `<script>
+</Flex>`,
+        react: `import { Flex, Input } from "moth-ui-react";
+import { Phone, Search } from "lucide-react";
+
+export default function Example() {
+    return (
+        <Flex direction="column">
+            <Input label="Icon Prefix" name="iconPrefix" prefix={<Search size={16} />} />
+            <Input label="Icon Prefix 2" name="iconPrefix2" prefix={<Phone size={16} />} />
+        </Flex>
+    );
+}`
+    };
+    const example8 = {
+        svelte: `<script>
     import { Input } from "moth-ui-svelte";
 <\/script>
 
-<Input type="text" name="custom" label="Custom Width" style="width: 22rem;" />`;
-    let example9 = `<script>
+<Input type="text" name="custom" label="Custom Width" style="width: 22rem;" />`,
+        react: `import { Input } from "moth-ui-react";
+
+export default function Example() {
+    return <Input type="text" name="custom" label="Custom Width" style={{ width: "22rem" }} />;
+}`
+    };
+    const example9 = {
+        svelte: `<script>
     import { Input } from "moth-ui-svelte";
 <\/script>
 
-<Input type="text" name="errorPresent" label="Error" error="Incorrect format" />`;
+<Input type="text" name="errorPresent" label="Error" error="Incorrect format" />`,
+        react: `import { Input } from "moth-ui-react";
+
+export default function Example() {
+    return <Input type="text" name="errorPresent" label="Error" error="Incorrect format" />;
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">
@@ -164,7 +246,7 @@
     <section class="section" id="icon-prefix">
         <Text size="2xl" weight="bold" as="h2">Icon prefix</Text>
         <Text size="l" variant="weak" measure="l">
-            A 16px icon in the <Code>prefix</Code> snippet, like a search icon.
+            A 16px icon in the <Code>prefix</Code> {slotWord()}, like a search icon.
         </Text>
         <CodeExample code={example7}>
             <Flex direction="column">
@@ -260,7 +342,7 @@
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>value</Code></TableCell>
-                    <TableCell>Current text. Use <Code>bind:value</Code> to read and update it.</TableCell>
+                    <TableCell>Current text. <ForFramework>{#snippet svelte()}Use <Code>bind:value</Code> to read and update it.{/snippet}{#snippet react()}Pair it with <Code>onChange</Code> to control it, or use <Code>defaultValue</Code> for a starting value.{/snippet}</ForFramework></TableCell>
                     <TableCell><Code>string</Code></TableCell>
                 </TableRow>
                 <TableRow>
@@ -276,20 +358,20 @@
                 <TableRow>
                     <TableCell><Code>prefix</Code></TableCell>
                     <TableCell>Content shown inside the field before the text, such as an icon or a unit.</TableCell>
-                    <TableCell><Code>Snippet</Code></TableCell>
+                    <TableCell><Code>{slotType()}</Code></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell><Code>suffix</Code></TableCell>
                     <TableCell>Content shown inside the field after the text, such as a unit.</TableCell>
-                    <TableCell><Code>Snippet</Code></TableCell>
+                    <TableCell><Code>{slotType()}</Code></TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><Code>onchange</Code></TableCell>
+                    <TableCell><Code>{eventName("onchange")}</Code></TableCell>
                     <TableCell>Fires when the value is committed (on blur or Enter).</TableCell>
                     <TableCell><Code>function</Code></TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><Code>onkeydown</Code></TableCell>
+                    <TableCell><Code>{eventName("onkeydown")}</Code></TableCell>
                     <TableCell>Fires for each key press while the field is focused.</TableCell>
                     <TableCell><Code>function</Code></TableCell>
                 </TableRow>

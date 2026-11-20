@@ -16,7 +16,8 @@
 
 
 
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Tab, Tabs, Text } from "moth-ui-svelte";
 
     /** @type { string } */
@@ -44,7 +45,34 @@
     <Tab id="settings" selected={selectedTab}>
         <Text variant="weak">Manage notifications and security.</Text>
     </Tab>
-</Tabs>`;
+</Tabs>`,
+        react: `import { useState } from "react";
+import { Tab, Tabs, Text } from "moth-ui-react";
+
+const tabs = [
+    { id: "overview", label: "Overview" },
+    { id: "activity", label: "Activity" },
+    { id: "settings", label: "Settings" },
+];
+
+export default function Example() {
+    const [selectedTab, setSelectedTab] = useState("overview");
+
+    return (
+        <Tabs tabs={tabs} selected={selectedTab} onClick={setSelectedTab}>
+            <Tab id="overview" selected={selectedTab}>
+                <Text variant="weak">Your portfolio is up 4.2% this week.</Text>
+            </Tab>
+            <Tab id="activity" selected={selectedTab}>
+                <Text variant="weak">3 transactions in the last 24 hours.</Text>
+            </Tab>
+            <Tab id="settings" selected={selectedTab}>
+                <Text variant="weak">Manage notifications and security.</Text>
+            </Tab>
+        </Tabs>
+    );
+}`
+    };
 
     /** @type { string } */
     let selectedTab = $state("overview");

@@ -13,38 +13,84 @@
         Toggle
     } from "$lib";
     import CodeExample from "../CodeExample.svelte";
+    import ForFramework from "../../ForFramework.svelte";
+    import { eventName } from "../../framework.svelte.js";
 
-
-
-    let example1 = `<script>
+    const example1 = {
+        svelte: `<script>
     import { Flex, Toggle } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
     <Toggle label="Checked" name="checkedToggle" checked />
     <Toggle label="Unchecked" name="unchecked" />
-</Flex>`;
-    let example2 = `<script>
+</Flex>`,
+        react: `import { Flex, Toggle } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex direction="column">
+            <Toggle label="Checked" name="checkedToggle" defaultChecked />
+            <Toggle label="Unchecked" name="unchecked" />
+        </Flex>
+    );
+}`
+    };
+
+    const example2 = {
+        svelte: `<script>
     import { Flex, Toggle } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
     <Toggle label="Checked" name="checkedDisabled" checked disabled />
     <Toggle label="Unchecked" name="uncheckedDisabled" disabled />
-</Flex>`;
-    let example3 = `<script>
+</Flex>`,
+        react: `import { Flex, Toggle } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex direction="column">
+            <Toggle label="Checked" name="checkedDisabled" defaultChecked disabled />
+            <Toggle label="Unchecked" name="uncheckedDisabled" disabled />
+        </Flex>
+    );
+}`
+    };
+
+    const example3 = {
+        svelte: `<script>
     import { Flex, Toggle } from "moth-ui-svelte";
 <\/script>
 
 <Flex direction="column">
     <Toggle label="Checked" name="checkedError" checked error="There is an error" />
     <Toggle label="Unchecked" name="uncheckedError" error="There is an error" />
-</Flex>`;
-    let example4 = `<script>
+</Flex>`,
+        react: `import { Flex, Toggle } from "moth-ui-react";
+
+export default function Example() {
+    return (
+        <Flex direction="column">
+            <Toggle label="Checked" name="checkedError" defaultChecked error="There is an error" />
+            <Toggle label="Unchecked" name="uncheckedError" error="There is an error" />
+        </Flex>
+    );
+}`
+    };
+
+    const example4 = {
+        svelte: `<script>
     import { Toggle } from "moth-ui-svelte";
 <\/script>
 
-<Toggle label="Label" name="helpText" hint="Hint: this is a hint" />`;
+<Toggle label="Label" name="helpText" hint="Hint: this is a hint" />`,
+        react: `import { Toggle } from "moth-ui-react";
+
+export default function Example() {
+    return <Toggle label="Label" name="helpText" hint="Hint: this is a hint" />;
+}`
+    };
 </script>
 
 <Flex direction="column" gap="2xl">
@@ -115,7 +161,7 @@
             <TableBody>
                 <TableRow>
                     <TableCell><Code>checked</Code></TableCell>
-                    <TableCell>Whether the toggle is on. Use <Code>bind:checked</Code> to read and update it.</TableCell>
+                    <TableCell>Whether the toggle is on. <ForFramework>{#snippet svelte()}Use <Code>bind:checked</Code> to read and update it.{/snippet}{#snippet react()}Pair it with <Code>onChange</Code> to control it, or use <Code>defaultChecked</Code> for a starting value.{/snippet}</ForFramework></TableCell>
                     <TableCell><Code>boolean</Code></TableCell>
                 </TableRow>
                 <TableRow>
@@ -144,7 +190,7 @@
                     <TableCell><Code>string</Code></TableCell>
                 </TableRow>
                 <TableRow>
-                    <TableCell><Code>onchange</Code></TableCell>
+                    <TableCell><Code>{eventName("onchange")}</Code></TableCell>
                     <TableCell>Fires when the toggle is switched.</TableCell>
                     <TableCell><Code>function</Code></TableCell>
                 </TableRow>
