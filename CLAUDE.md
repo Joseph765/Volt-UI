@@ -4,71 +4,113 @@ A design system with a look all its own, for **Svelte and React**, plus its docu
 called "Volt UI" and is relaunching as **Moth**, a brand-new design system. Don't add Volt references, migration notes
 or changelog entries for the rename. The GitHub repo is `Joseph765/moth-ui` (https://github.com/Joseph765/moth-ui).
 
-- Package: `moth-ui-svelte` (`packages/svelte/package.json`). Docs site: `https://moth-ui.com`.
-- **Svelte and React (positioning):** all copy (landing page, SEO titles and descriptions, Getting Started intro,
-  README, `package.json` description) presents Moth as available for both Svelte and React, as if the React version
-  already exists. It doesn't yet: the user is building it over the next few days, and nobody is using the package in
-  the meantime, so this is deliberate. Don't "correct" it or add caveats. Code examples, install lines, prose and API
-  tables all switch with the framework switcher; the Svelte/React switcher next to the logo (see
-  "Framework switcher" below) will switch them globally. Keep new copy framework-neutral ("the same components, the same look") rather than
-  Svelte-specific, and don't call Moth "dark-first": both themes are designed token by token (dark is still the
-  default).
+- Packages: `moth-ui-svelte` and `moth-ui-react`, both published on npm (0.2.0, released 2026-11-20). Docs site:
+  `https://moth-ui.com`.
+- **Svelte and React:** all copy (landing page, SEO titles and descriptions, Getting Started intro, READMEs,
+  `package.json` descriptions) presents Moth as one design system for both. Code examples, install lines, prose and
+  API tables switch with the framework switcher next to the logo (see "Framework switcher" below). Keep new copy
+  framework-neutral ("the same components, the same look") rather than Svelte-specific, and don't call Moth
+  "dark-first": both themes are designed token by token (dark is still the default).
 - **Landing page copy** (`src/routes/+page.svelte`, set by the user): heading "Drawn to the light" ("the light" in
   the gradient), subheading "A design system with a look all its own: soft ambient light, polished components, and
   a fast path from empty project to finished UI.", and four cards: Polished on install, Svelte and React, Glows in
   the dark. Shines in the light., Accessible by default.
-- Consumers import `moth-ui-svelte` for components and `moth-ui-svelte/css/index.css` for styles. There is no
-  `$moth` alias any more. Docs code snippets must use these imports.
+- Consumers import components from `moth-ui-svelte` / `moth-ui-react` and styles from
+  `moth-ui-svelte/css/index.css` / `moth-ui-react/css/index.css`. There is no `$moth` alias any more. Docs code
+  snippets must use these imports.
 
 ## Repo layout (npm workspaces monorepo)
 ```
-package.json        root, private, workspaces ["packages/*", "apps/*"]; prettier/eslint; eslint.config.js
-apps/docs/          moth-ui-docs (private): the SvelteKit docs site, Vercel root directory
+package.json            root, private, workspaces ["packages/*", "apps/*"]; prettier, eslint, changesets
+apps/docs/              moth-ui-docs (private): the SvelteKit docs site, Vercel root directory
 apps/react-playground/  moth-ui-react-playground (private): Vite + React page for trying the React components
-packages/css/       @moth-ui/css (private): tokens.css, components.css, highlight.css, index.css in src/
-packages/svelte/    moth-ui-svelte (published): components in src/lib, CHANGELOG.md, THIRD_PARTY_NOTICES.md
-packages/react/     moth-ui-react (all components ported, not published; see MONOREPO_HANDOFF.md): src/components/*.tsx
+packages/css/           @moth-ui/css (private): tokens.css, components.css, highlight.css, index.css in src/
+packages/svelte/        moth-ui-svelte: components in src/lib
+packages/react/         moth-ui-react: components in src/components/*.tsx (one file per family, e.g. Table.tsx)
 ```
-- **React package build:** plain `tsc` (no bundler), one ESM `.js` + `.d.ts` per file in `dist/`, like
-  `svelte-package`. `NodeNext` resolution, so relative imports end in `.js` (`from "./components/Divider.js"`).
-  Same `copy-css.js` as Svelte. Peer deps `react`/`react-dom` `^18 || ^19`. Components use `forwardRef` (React 18
-  has no ref-as-prop), merge `className` with the `cx()` helper in `src/utils.ts`, and spread the remaining props
-  onto the root element. Stateful/effect components need `"use client"` at the top for Next.js. Check: `npm run
-  build`, `npm run check` (tsc) and `npx publint` in `packages/react`; compare HTML with `renderToStaticMarkup`.
-  ESLint doesn't lint `.ts`/`.tsx` yet.
-- **React playground** (`apps/react-playground`, `npm run dev:react` from the root, port 5200): one page
-  (`src/App.tsx`) built with the React `Layout`/`Nav` (a sidebar link per section) and a `ThemeSwitcher` in the
-  nav footer, with a section per component. Vite aliases `moth-ui-react` to
-  `packages/react/src/index.ts` and `moth-ui-react/css/*` to `packages/css/src/*` (tsconfig `paths` matches), so
-  component and CSS edits hot-reload with no build. Add a section when porting a component. `@vitejs/plugin-react`
-  stays on 5.x until the workspace moves to Vite 8 (6.x needs it).
+Each published package has its own README, LICENSE, CHANGELOG and THIRD_PARTY_NOTICES.md (npm reads them from the
+package folder); the root README is the repo overview.
+
 - **Paths in this file:** `src/routes/…`, `src/app.html`, `static/…`, `vite.config.js` and `svelte.config.js` are in
   `apps/docs`; `src/lib/components/…` is in `packages/svelte`; CSS is in `packages/css/src`.
-- **Docs pages import the library as a package:** components from `moth-ui-svelte` (a workspace symlink to
-  `packages/svelte`, resolved through its built `dist/`) and styles from `@moth-ui/css/index.css`. There's no `$lib`
-  in the docs. `CopyButton` isn't exported, so `CodeExample.svelte` imports it from the package source by
-  relative path.
-- **The CSS is shared, not copied by hand.** `packages/svelte/scripts/copy-css.js` copies `packages/css/src` into
-  `dist/css` after `svelte-package`, so `moth-ui-svelte/css/index.css` works. The React package will do the same.
-  `@moth-ui/css` is private: a published package can't depend on it at runtime.
-- **The docs need the library built.** `dist/` must exist before the docs build or type check. The docs `build`
-  builds the library first; when running `dev` or `check` after editing library components, run
-  `npm run build -w moth-ui-svelte` (or keep `npm run dev -w moth-ui-svelte`, i.e. `svelte-package --watch`, running).
-- **Releasing (Changesets):** `moth-ui-svelte` and `moth-ui-react` are a `fixed` group (always the same version);
-  private workspaces are never released. Releasing: merge changes (with changesets) to `main` → merge the
-  "Version packages" PR → run the Release workflow by hand. The repo must allow GitHub Actions to create pull
-  requests (Settings → Actions → General). `.github/workflows/release.yml`: a push to `main` opens/updates the "Version packages" PR
-  (never publishes); publishing only runs when the workflow is started by hand, using npm trusted publishing (OIDC,
-  no token; both packages' trusted publishers have "Allow npm publish" ticked, without which npm only allows
-  `npm stage publish` and returns `403 OIDC permission denied`) and stopping if unversioned changesets remain. Each package has its own README, LICENSE and
-  CHANGELOG (npm reads them from the package folder); the root README is the repo overview.
-- Commands from the root: `npm run build` (library + docs), `npm run dev` (docs dev server), `npm run check`
-  (docs type check), `npm run lint`.
+- **The CSS is shared, not copied by hand.** Both packages' `scripts/copy-css.js` copy `packages/css/src` into
+  `dist/css` after building, so `moth-ui-*/css/index.css` works. `@moth-ui/css` is private: a published package
+  can't depend on it at runtime.
+- **Commands from the root:** `npm run build` (Svelte library, docs, React package), `npm run dev` (docs dev
+  server), `npm run dev:react` (React playground), `npm run check` (docs type check), `npm run lint`.
 - **Install quirk:** with npm 12, a fresh `npm install` once left out some workspace devDependencies
   (`@sveltejs/vite-plugin-svelte`), and the docs build failed with "Cannot find package …". Running `npm install`
   again fixed it. Try that first.
 - `.svelte-kit`, `dist` and `build` are ignored in every folder. The root `dist/` is stale output from before the
   move and can be deleted.
+
+## Two packages, one look
+Every component exists in both packages under the same name (40 exports each), and both render **the same markup
+and class names**: all styling is the global `m-` classes in `packages/css`, so the React components are a second
+renderer of the same HTML, not a second design. A change to a component's markup, props or behavior goes into both
+packages (and both docs code examples) in the same change.
+
+- **Svelte package (`packages/svelte`):** built with `svelte-package` (`build` = `svelte-package && node
+  scripts/copy-css.js`, `dev` = `svelte-package --watch`, `prepack` = build + publint). It needs its own standalone
+  `jsconfig.json` (without it, svelte-package fails with "Failed to locate tsconfig or jsconfig").
+- **React package (`packages/react`):** plain `tsc` (no bundler), one ESM `.js` + `.d.ts` per file in `dist/`, like
+  `svelte-package`. `NodeNext` resolution, so relative imports end in `.js` (`from "./components/Divider.js"`).
+  Peer deps `react`/`react-dom` `^18 || ^19` (React 18 confirmed on 18.3.1: renders, hydrates, works and
+  type-checks). Patterns:
+  - `forwardRef` (React 18 has no ref-as-prop); `className` merged with `cx()`; remaining props spread onto the main
+    element (for Button, Input etc. that's the `<button>`/`<input>`, not the wrapper), as in Svelte.
+  - Snippets become `ReactNode` props; Nav `icon` is a node or `(animate) => node`.
+  - Stateful/effect components start with `"use client"` (Next.js); `tsc` keeps the directive.
+  - Helpers in `src/utils.ts`: `cx`, `useControllable` (Select and Checkbox track their value even when
+    uncontrolled, since the placeholder style and check mark depend on it), `useClientWidth`/`useClientHeight`
+    (Svelte's `bind:clientWidth`/`clientHeight`), `useMergedRefs`, `useIsomorphicLayoutEffect`,
+    `prefersReducedMotion`.
+  - ThemeSwitcher's shared choice is a module-level store read with `useSyncExternalStore`. LayoutNav's window
+    listeners read the latest props through a ref. `CopyButton` is internal (not exported), as in Svelte.
+  - Toast flies in and out with the Web Animations API (skipped with reduced motion). `ToastGroup` tracks its
+    children by `key` and keeps a removed toast mounted (a `leaving` context) for the 250ms fly-out, so toasts in a
+    group need a `key`.
+  - React-only: `NavItem`/`NavGroupItem` `as` (the router's Link; see "React conventions").
+  - Check: `npm run build`, `npm run check` (tsc) and `npx publint` in `packages/react`. ESLint doesn't lint
+    `.ts`/`.tsx` yet.
+- **Checking parity:** render both versions on the server with the same props and compare the HTML: Svelte with
+  `render()` from `svelte/server` (loaded through Vite's `ssrLoadModule` with the Svelte plugin, so the script has
+  to run from inside `apps/docs` to resolve its packages; snippets via `createRawSnippet`), React with
+  `renderToStaticMarkup`. Normalize before comparing: class order, attribute order and case (`autoComplete`), style
+  spacing, Svelte's `value=""` on inputs and duplicate `selected` on the Select placeholder, React 19's image
+  preload `<link>`. Known remaining difference: Svelte `Text` renders an empty `id=""` (its default), React omits
+  it.
+- **React playground** (`apps/react-playground`, port 5200): one page (`src/App.tsx`) built with the React
+  `Layout`/`Nav` (a sidebar link per section, via a stand-in router link for `as`) and a `ThemeSwitcher` in the nav
+  footer, with a section per component. Vite aliases `moth-ui-react` to `packages/react/src/index.ts` and
+  `moth-ui-react/css/*` to `packages/css/src/*` (tsconfig `paths` matches), so component and CSS edits hot-reload
+  with no build. Add a section for new components. `@vitejs/plugin-react` stays on 5.x until the workspace moves to
+  Vite 8 (6.x needs it).
+- **Docs pages import the Svelte library as a package:** components from `moth-ui-svelte` (a workspace symlink to
+  `packages/svelte`, resolved through its built `dist/`) and styles from `@moth-ui/css/index.css`. There's no `$lib`
+  in the docs. `CopyButton` isn't exported, so `CodeExample.svelte` imports it from the package source by
+  relative path.
+- **The docs need the library built.** `dist/` must exist before the docs build or type check. The docs `build`
+  builds the library first; when running `dev` or `check` after editing library components, run
+  `npm run build -w moth-ui-svelte` (or keep `npm run dev -w moth-ui-svelte` running).
+
+## Releasing (Changesets)
+- `moth-ui-svelte` and `moth-ui-react` are a `fixed` group (always the same version); private workspaces are never
+  released. Each change that touches a package gets a changeset (`npx changeset`), committed with the change. Don't
+  edit versions or CHANGELOGs by hand.
+- Flow: merge to `main` → `.github/workflows/release.yml` opens/updates the "Version packages" PR (never publishes)
+  → merge it → run the Release workflow by hand (Actions → Release → Run workflow, on `main`). The repo must allow
+  GitHub Actions to create pull requests (Settings → Actions → General).
+- The publish job uses npm trusted publishing (OIDC, no token; npm upgraded to latest for it), sets a git identity
+  (Changesets' tags are annotated), refuses if unversioned changesets remain, prints `changeset publish-plan`, runs
+  `changeset publish` (each package's prepack builds and runs publint) and pushes the tags.
+- On npmjs.com both packages' trusted publishers are GitHub Actions, `Joseph765` / `moth-ui` / `release.yml`, no
+  environment, with **"Allow npm publish" ticked**: without it npm only allows `npm stage publish` and the workflow
+  fails with `403 OIDC permission denied`. A new package must be published once by hand before a trusted publisher
+  can be added (that's how `moth-ui-react` 0.2.0 went out). A first publish answering `404 Not Found - PUT` means
+  the local npm login expired (`npm login` again).
+- Changesets v3 inserts each release above the first heading that starts with a version number, so CHANGELOG
+  headings are `## 0.2.0`, not `## [0.2.0]`.
 
 ## How the docs site is laid out
 **Keep the docs simple.** The gold standard for simple design system docs is the **Geist Design System**
@@ -435,11 +477,14 @@ Every code example on the docs site exists in Svelte and React and follows the f
 - Keep this file updated as decisions change: remove finished open items, record "removed on purpose" decisions.
 
 ## Verifying changes
-- Type check: `npm run check` from the root (docs), and `npx svelte-check --tsconfig ./jsconfig.json` in
-  `packages/svelte` (the library). Keep both at 0 errors and 0 warnings.
-- Build: `npm run build` from the root (library, then docs).
-- Package check: `npm run prepack` in `packages/svelte` (build + publint); `npm pack --dry-run` there should list
-  `dist/css/*.css`.
+- Type check: `npm run check` from the root (docs), `npx svelte-check --tsconfig ./jsconfig.json` in
+  `packages/svelte`, `npm run check` in `packages/react` and `npx tsc --noEmit` in `apps/react-playground`. Keep
+  them all at 0 errors and 0 warnings.
+- Build: `npm run build` from the root (Svelte library, docs, React package).
+- Package check: `npm run prepack` in each package (build + publint); `npm pack --dry-run` should list
+  `dist/css/*.css`, README, LICENSE and THIRD_PARTY_NOTICES.md.
+- Component changes: compare the Svelte and React HTML (see "Checking parity") and try the React side in the
+  playground (`npx vite --port 5200` from `apps/react-playground`; stop it with `pkill -f "vite --port 5200"`).
 - Lint: `npx eslint .` from the root reports about 144 errors that predate the monorepo move, mostly
   `no-useless-escape` on the required `<\/script>` escapes, plus missing each-keys and `{@html}`. Not a build blocker;
   don't count them as regressions.
@@ -457,6 +502,11 @@ Every code example on the docs site exists in Svelte and React and follows the f
 - The user commits and pushes themselves. Don't commit unless asked.
 
 ## Open items / ideas not yet done
+- **React playground:** rebuild a couple of the docs' `/examples/*` pages there (dashboard, settings) to see the React
+  components in a realistic app screen.
+- **npm hardening (optional):** on both packages, require 2FA and disallow tokens, since CI publishes without one.
+- **Svelte `Text` empty `id=""`:** its `id` defaults to `""`, so it renders an empty id attribute (React omits it).
+  Harmless; default it to `undefined` if it ever matters.
 - **iOS Safari bar under the mobile nav pops in late.** Current state (restored from commit a085b30 on purpose): while
   the drawer is open below 66rem, `html`/`body` turn `--m-color-surface`, so Safari's solid strip under its floating
   toolbar matches the drawer, but Safari only applies it after the slide finishes. Tried and reverted: an always-on
