@@ -191,9 +191,11 @@ We're simplifying the documentation site. Goals so far:
     `.m-layout-nav-items` (scrolls on its own) and `.m-layout-nav-footer`; on desktop the nav has a fixed
     `height` (window below the logo) so the footer sits at the bottom of the window. The footer lines up with the
     items (divider starts where they do, content where their icons do).
-  - The mobile drawer's `::after` carries its fill (and right border) 100vh below its bottom edge. iOS Safari's
-    floating toolbar shows the page under it, and a fixed `bottom: 0` drawer stops above it, which left a black bar
-    under the drawer. Don't put `overflow` on `.m-layout-nav` (it would clip this); the items div scrolls instead.
+  - iOS Safari 26 fills the strip under its floating toolbar with one solid color: a fixed element at the bottom
+    edge only counts if it's ~80%+ of the screen wide (pseudo-elements never count), otherwise it uses the
+    html/body background. The drawer (16rem) is too narrow, which showed a black bar under it, so while it's open
+    below 66rem `html`/`body` take `--m-color-surface` (`html:has(.m-layout > .m-layout-nav.is-open)` in
+    `components.css`). An `::after` extending the drawer was tried and doesn't work.
 - **Docs component cards** (All Components and the landing showcase):
   - Previews stay grayscale.
   - Hover is a "moth to the light" glow with a fixed position (no cursor tracking): light behind the preview, a

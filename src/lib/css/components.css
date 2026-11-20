@@ -1048,19 +1048,17 @@
     transition: transform 0.2s ease-out;
 }
 
-/* Carries the drawer's fill on below its bottom edge. Mobile browsers with a floating toolbar (iOS Safari) show
-   the page under the toolbar, and a fixed bottom: 0 element stops above it, so without this the page's background
-   shows through as a bar under the drawer. Off-screen everywhere else */
-.m-layout-nav::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: -1px;
-    height: 100vh;
-    background-color: inherit;
-    border-inline-end: inherit;
-    pointer-events: none;
+/*
+ * iOS Safari (26+) fills the strip under its floating toolbar with one solid color: a fixed element's background if
+ * one at the bottom edge spans most of the screen, otherwise the html/body background. The drawer is too narrow to
+ * count, so while it's open the page background takes the drawer's color and the strip continues it, instead of
+ * showing a black bar under it. Nothing else shows the root background here (the layout covers it).
+ */
+@media not all and (min-width: 66rem) {
+    html:has(.m-layout > .m-layout-nav.is-open),
+    html:has(.m-layout > .m-layout-nav.is-open) body {
+        background-color: var(--m-color-surface);
+    }
 }
 
 /* The items scroll on their own, so the footer stays pinned to the bottom of the nav */
@@ -1172,10 +1170,6 @@
         transform: none;
         visibility: visible;
         transition: none;
-    }
-
-    .m-layout-nav::after {
-        display: none;
     }
 
     .m-layout-nav-items {
