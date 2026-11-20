@@ -7,7 +7,8 @@
 	"homepage": "https://moth-ui.com",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Joseph765/moth-ui"
+		"url": "git+https://github.com/Joseph765/moth-ui.git",
+		"directory": "packages/svelte"
 	},
 	"bugs": {
 		"url": "https://github.com/Joseph765/moth-ui/issues"
