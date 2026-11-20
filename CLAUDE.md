@@ -187,16 +187,15 @@ We're simplifying the documentation site. Goals so far:
     `pointer-events: none`, so that click doesn't also follow a link.
   - The desktop logo area has the page background and sits above the nav, so a scrolling nav passes under it.
   - `LayoutNav footer` (snippet): global actions (user, settings, theme switcher) pinned to the bottom of the
-    sidebar and the drawer, below a `--m-color-border` divider (a divider, so it's allowed). The nav renders
-    `.m-layout-nav-items` (scrolls on its own) and `.m-layout-nav-footer`; on desktop the nav has a fixed
-    `height` (window below the logo) so the footer sits at the bottom of the window. The footer lines up with the
-    items (divider starts where they do, content where their icons do).
-  - iOS Safari 26 fills the strip under its floating toolbar with one solid color: a fixed element at the bottom
-    edge only counts if it's ~80%+ of the screen wide (pseudo-elements never count), otherwise it uses the
-    html/body background. The drawer (16rem) is too narrow, which showed a black bar under it, so below 66rem
-    `html`/`body` are always `--m-color-surface` (`html:has(.m-layout)` in `components.css`), matching the drawer and
-    header. Switching it only while the drawer was open popped in late (Safari recolors the strip after the slide
-    ends), and an `::after` extending the drawer doesn't work; both were tried.
+    sidebar and the drawer, below a `--m-color-border` divider (a divider, so it's allowed). The nav itself is the
+    scroll container; it renders `.m-layout-nav-items` (`flex-grow: 1`) and `.m-layout-nav-footer`
+    (`position: sticky; bottom: 0` with an opaque fill: surface in the drawer, page background on desktop). On
+    desktop the nav has a fixed `height` (window below the logo) so the footer sits at the bottom of the window. The
+    footer lines up with the items (divider starts where they do, content where their icons do).
+  - iOS Safari 26: keep `.m-layout-nav` the scroll container. A non-scrolling drawer (flex column with a scrolling
+    inner div) made Safari pop in a solid bar under its floating toolbar once the slide finished. Tried and didn't
+    help: an `::after` extending the drawer (Safari ignores pseudo-elements), and setting `html`/`body` to the
+    surface color (the color wasn't the problem; the switch to a solid bar was).
 - **Docs component cards** (All Components and the landing showcase):
   - Previews stay grayscale.
   - Hover is a "moth to the light" glow with a fixed position (no cursor tracking): light behind the preview, a
