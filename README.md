@@ -1,40 +1,34 @@
 # Moth UI
 
 A design system with a look all its own: soft ambient light, polished components, and a fast path from empty
-project to finished UI. Moth comes for Svelte and React; this is the Svelte package.
+project to finished UI. The same components, the same look, for Svelte and React.
 
 **Documentation:** [moth-ui.com](https://moth-ui.com)
 
-## Install
+| Package | Install |
+|---|---|
+| [`moth-ui-svelte`](./packages/svelte) | `npm install moth-ui-svelte` |
+| [`moth-ui-react`](./packages/react) | `npm install moth-ui-react` |
+
+## This repository
+
+An npm workspaces monorepo:
+
+- `packages/svelte`: the Svelte package.
+- `packages/react`: the React package.
+- `packages/css`: the stylesheet both packages ship (tokens and component styles).
+- `apps/docs`: the documentation site (SvelteKit).
+- `apps/react-playground`: a page for trying the React components.
 
 ```sh
-npm install moth-ui-svelte
+npm install
+npm run dev         # docs site
+npm run dev:react   # React playground
+npm run build       # both packages and the docs
 ```
 
-Requires Svelte 5. Works in SvelteKit and any Vite + Svelte project.
-
-## Use
-
-Import the stylesheet once, in your root layout or main Svelte file:
-
-```svelte
-<script>
-    import "moth-ui-svelte/css/index.css";
-</script>
-```
-
-Then import components anywhere:
-
-```svelte
-<script>
-    import { Button } from "moth-ui-svelte";
-</script>
-
-<Button>Save changes</Button>
-```
-
-The stylesheet loads the Outfit and Geist Mono fonts from Google Fonts and sets global page styles. See
-[Getting started](https://moth-ui.com/getting-started) for details.
+Releases use [Changesets](https://github.com/changesets/changesets): add one with `npx changeset` alongside a change.
+See [.changeset/README.md](./.changeset/README.md).
 
 ## License
 

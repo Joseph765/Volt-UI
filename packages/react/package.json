@@ -1,0 +1,60 @@
+{
+	"name": "moth-ui-react",
+	"version": "0.2.0",
+	"description": "A design system with a look all its own, for Svelte and React. This is the React package.",
+	"author": "Joseph Chauvin (https://github.com/Joseph765)",
+	"license": "MIT",
+	"homepage": "https://moth-ui.com",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Joseph765/moth-ui.git",
+		"directory": "packages/react"
+	},
+	"bugs": {
+		"url": "https://github.com/Joseph765/moth-ui/issues"
+	},
+	"keywords": [
+		"design-system",
+		"react",
+		"ui-library",
+		"react-components",
+		"component-library"
+	],
+	"scripts": {
+		"build": "rm -rf dist && tsc -p tsconfig.build.json && node scripts/copy-css.js",
+		"dev": "tsc -p tsconfig.build.json --watch",
+		"check": "tsc --noEmit",
+		"prepack": "npm run build && publint"
+	},
+	"files": [
+		"dist",
+		"THIRD_PARTY_NOTICES.md"
+	],
+	"sideEffects": [
+		"**/*.css"
+	],
+	"type": "module",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		},
+		"./css/*": "./dist/css/*"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"peerDependencies": {
+		"react": "^18.0.0 || ^19.0.0",
+		"react-dom": "^18.0.0 || ^19.0.0"
+	},
+	"devDependencies": {
+		"@types/react": "^19.0.0",
+		"@types/react-dom": "^19.0.0",
+		"publint": "^0.3.15",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"typescript": "^5.9.3"
+	}
+}

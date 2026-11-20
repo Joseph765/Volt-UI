@@ -1,0 +1,2398 @@
+/* Grayscale */
+.is-grayscale .m-checkbox-input.example-version ~ .m-checkbox-box {
+    background-color: var(--m-gray-9) !important;
+    border-color: var(--m-gray-9) !important;
+}
+
+/* Tabs example: the sliding bar drawn statically under the selected tab, in gray */
+.m-tabs-indicator.tabs-example-indicator {
+    --m-tabs-indicator-x: 0px;
+    --m-tabs-indicator-width: 100%;
+    /* Sit on the tab list's bottom line, below the tab's own 2px border */
+    bottom: -2px;
+}
+
+.is-grayscale .tabs-example-indicator {
+    background: var(--m-gray-11);
+}
+
+/* Active nav row in the Layout and Navigation examples, in gray */
+.is-grayscale .layout-example-active,
+.is-grayscale .nav-example-active {
+    background: color-mix(in srgb, var(--m-gray-12) 12%, transparent);
+}
+
+.nav-example-active {
+    color: var(--m-color-text);
+}
+
+/* Avatar: a 32px circle with a photo, or the first letter of the name on a soft gray fill (gray, not the accent:
+   a person isn't a primary action or a selection) */
+.m-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--m-radius-full);
+    background-color: var(--m-color-neutral-weak);
+    color: var(--m-color-text-on-neutral-weak);
+    font-family: var(--m-font);
+    font-size: var(--m-font-size-s);
+    font-weight: var(--m-font-weight-bold);
+    line-height: 1;
+    object-fit: cover;
+    user-select: none;
+}
+
+/* Badge */
+.m-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--m-space-xs);
+    width: min-content;
+    height: min-content;
+    font-family: var(--m-font);
+    font-size: var(--m-font-size-s);
+    font-weight: var(--m-font-weight-regular);
+    letter-spacing: var(--m-letter-spacing-s);
+    background-color: var(--m-color-neutral-weak);
+    color: var(--m-color-text-on-neutral-weak);
+    border-radius: var(--m-radius-full);
+    padding: var(--m-space-xs) var(--m-space-s);
+    border: 2px solid var(--m-color-border-neutral-weak);
+    white-space: nowrap;
+}
+
+.m-badge.is-strong {
+    background-color: var(--m-color-neutral);
+    border-color: var(--m-color-neutral);
+    color: var(--m-color-text-on-neutral);
+}
+
+.m-badge.is-danger {
+    background-color: var(--m-color-danger-weak);
+    border-color: var(--m-color-border-danger-weak);
+    color: var(--m-color-text-on-danger-weak);
+}
+
+.m-badge.is-danger.is-strong {
+    background-color: var(--m-color-danger);
+    border-color: var(--m-color-danger);
+    color: var(--m-color-text-on-danger);
+}
+
+.m-badge.is-warning {
+    background-color: var(--m-color-warning-weak);
+    border-color: var(--m-color-border-warning-weak);
+    color: var(--m-color-text-on-warning-weak);
+}
+
+.m-badge.is-warning.is-strong {
+    background-color: var(--m-color-warning);
+    border-color: var(--m-color-warning);
+    color: var(--m-color-text-on-warning);
+}
+
+.m-badge.is-success {
+    background-color: var(--m-color-success-weak);
+    border-color: var(--m-color-border-success-weak);
+    color: var(--m-color-text-on-success-weak);
+}
+
+.m-badge.is-success.is-strong {
+    background-color: var(--m-color-success);
+    border-color: var(--m-color-success);
+    color: var(--m-color-text-on-success);
+}
+
+.m-badge.is-info {
+    background-color: var(--m-color-info-weak);
+    border-color: var(--m-color-border-info-weak);
+    color: var(--m-color-text-on-info-weak);
+}
+
+.m-badge.is-info.is-strong {
+    background-color: var(--m-color-info);
+    border-color: var(--m-color-info);
+    color: var(--m-color-text-on-info);
+}
+
+/* Banner */
+.m-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--m-space-s);
+    padding: var(--m-space-m);
+    background-color: var(--m-color-info-weak);
+    border: none;
+    color: var(--m-color-text);
+    border-radius: var(--m-radius);
+    font-family: var(--m-font);
+    font-size: var(--m-font-size-m);
+    line-height: var(--m-line-height-m);
+    letter-spacing: var(--m-letter-spacing-m);
+    gap: var(--m-space-s);
+}
+
+.m-banner-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.m-banner.is-info,
+.m-banner.is-info .m-link {
+    color: var(--m-color-text-on-info-weak);
+}
+
+.m-banner.is-warning,
+.m-banner.is-warning .m-link {
+    color: var(--m-color-text-on-warning-weak);
+}
+
+.m-banner.is-danger,
+.m-banner.is-danger .m-link {
+    color: var(--m-color-text-on-danger-weak);
+}
+
+.m-banner.is-success,
+.m-banner.is-success .m-link {
+    color: var(--m-color-text-on-success-weak);
+}
+
+.m-banner.is-warning {
+    background-color: var(--m-color-warning-weak);
+}
+
+.m-banner.is-danger {
+    background-color: var(--m-color-danger-weak);
+}
+
+.m-banner.is-success {
+    background-color: var(--m-color-success-weak);
+}
+
+/* Button */
+.m-button-wrapper {
+    position: relative;
+    width: max-content;
+    /* Non-auto height opts out of flex/grid stretch so the wrapper matches the button, not the row */
+    height: fit-content;
+    cursor: pointer;
+}
+
+.m-button-wrapper.is-expanded {
+    width: 100%;
+}
+
+.m-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--m-space-s);
+    font-family: var(--m-font);
+    font-size: var(--m-font-size-m);
+    font-weight: var(--m-font-weight-regular);
+    letter-spacing: var(--m-letter-spacing-m);
+    line-height: var(--m-line-height-m);
+    border: 1px solid var(--m-color-accent);
+    border-radius: var(--m-radius-full);
+    background-color: var(--m-color-accent);
+    height: var(--m-control-height);
+    width: max-content;
+    color: var(--m-color-text-on-accent);
+    cursor: pointer;
+    padding-block: 0;
+    padding-inline: var(--m-space-m);
+    text-decoration: none;
+    /*
+     * Moth-inspired hover: the button switches on like a lamp. Filled buttons fill with light (bright at the
+     * center) and their label turns dark; every variant can cast a soft halo. Variants set the values below.
+     */
+    --m-button-lit-background: radial-gradient(ellipse at center, var(--m-gray-12) 0%, var(--m-accent-12) 45%, var(--m-accent-11) 100%);
+    --m-button-lit-color: var(--m-color-text-inverse);
+    --m-button-halo: 0 0 24px -2px color-mix(in srgb, var(--m-accent-9) 75%, transparent);
+    position: relative;
+    isolation: isolate;
+    transition: box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    /* Keep the button on its own layer at all times; otherwise the browser re-draws the label when the
+       hover grow finishes and the text can snap down by a subpixel */
+    will-change: transform;
+}
+
+/* The light: fades in over the button's background, below its label */
+.m-button::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    border-radius: inherit;
+    background: var(--m-button-lit-background);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.m-button:focus-visible {
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+}
+
+.m-button.is-expanded {
+    width: 100%;
+}
+
+.m-button.is-size-l {
+    font-size: var(--m-font-size-l);
+    height: auto;
+    padding: var(--m-space-s) var(--m-space-l);
+}
+
+.m-button.is-secondary {
+    background-color: var(--m-color-background);
+    color: var(--m-color-text);
+    border-color: var(--m-gray-7);
+    /* Outlined: no fill; the outline turns white and glows */
+    --m-button-lit-background: none;
+    --m-button-lit-color: var(--m-color-text);
+    --m-button-halo: 0 0 20px -4px color-mix(in srgb, var(--m-accent-9) 60%, transparent);
+}
+
+.m-button.is-tertiary {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--m-color-text-weak);
+    /* Quiet: a gray pill and a brighter label, no glow */
+    --m-button-lit-background: var(--m-gray-4);
+    --m-button-lit-color: var(--m-color-text);
+    /* No glow; a no-op shadow rather than none, so the focus shadow list stays valid */
+    --m-button-halo: 0 0 0 transparent;
+}
+
+.m-button.is-danger {
+    background-color: var(--m-color-danger);
+    border-color: var(--m-color-danger);
+    color: var(--m-color-text-on-danger);
+    --m-button-lit-background: radial-gradient(ellipse at center, var(--m-gray-12) 0%, var(--m-danger-12) 45%, var(--m-danger-11) 100%);
+    --m-button-halo: 0 0 24px -2px color-mix(in srgb, var(--m-danger-9) 70%, transparent);
+}
+
+.m-button:disabled {
+    background-color: var(--m-gray-4);
+    border-color: var(--m-gray-3);
+    color: var(--m-color-text-weaker);
+    cursor: not-allowed;
+}
+
+.m-button.is-secondary:disabled {
+    background-color: var(--m-gray-1);
+    color: var(--m-gray-4);
+    border-color: var(--m-gray-3);
+}
+
+.m-button.is-tertiary:disabled {
+    background-color: var(--m-color-background);
+    border-color: transparent;
+    color: var(--m-gray-4);
+}
+
+.m-button.is-danger:disabled {
+    background-color: var(--m-danger-2);
+    border-color: var(--m-danger-2);
+    color: var(--m-gray-4);
+}
+
+.m-button-wrapper:has(.m-button:disabled) {
+    cursor: not-allowed;
+}
+
+/* Lit state: on hover and on keyboard focus */
+.m-button:focus-visible::before {
+    opacity: 1;
+}
+
+.m-button:focus-visible {
+    color: var(--m-button-lit-color);
+    /* The focus ring plus the lit halo */
+    box-shadow: var(--m-shadow-focus), var(--m-button-halo);
+    /* Grows slightly when lit. transform doesn't affect layout, so neighboring fields and buttons don't move */
+    transform: scale(1.03);
+}
+
+.m-button.is-expanded:focus-visible {
+    transform: scale(1.01);
+}
+
+.m-button.is-secondary:focus-visible {
+    border-color: var(--m-color-text);
+}
+
+@media (pointer: fine) {
+    .m-button:not(:disabled):hover::before {
+        opacity: 1;
+    }
+
+    .m-button:not(:disabled):hover {
+        color: var(--m-button-lit-color);
+        box-shadow: var(--m-button-halo);
+        transform: scale(1.03);
+    }
+
+    /* Full-width buttons grow by the same few pixels as others, so they don't poke past the fields above them */
+    .m-button.is-expanded:not(:disabled):hover {
+        transform: scale(1.01);
+    }
+
+    .m-button.is-secondary:not(:disabled):hover {
+        border-color: var(--m-color-text);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .m-button,
+    .m-button::before {
+        transition: none;
+    }
+
+    .m-button:focus-visible,
+    .m-button:hover {
+        transform: none;
+    }
+}
+
+/* Card */
+.m-card {
+    background-color: var(--m-color-surface);
+    border: none;
+    border-radius: var(--m-radius);
+}
+
+/* More contrast: a card is only one shade lighter than the page, so give it an edge (--m-color-border is 3:1 here) */
+@media (prefers-contrast: more) {
+    .m-card {
+        border: 1px solid var(--m-color-border);
+    }
+}
+
+.m-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--m-space-m);
+    border-block-end: 1px solid var(--m-color-border);
+}
+
+.m-card-content {
+    padding: var(--m-space-m);
+    height: calc(100% - var(--m-space-xl));
+}
+
+.m-card.has-space-none .m-card-content,
+.m-card.has-space-none .m-card-header {
+    padding: 0;
+}
+
+.m-card.has-space-m .m-card-content,
+.m-card.has-space-m .m-card-header {
+    padding: var(--m-space-m);
+}
+
+.m-card.has-space-l .m-card-content,
+.m-card.has-space-l .m-card-header {
+    padding: var(--m-space-l);
+}
+
+/* Checkbox */
+.m-checkbox-wrapper {
+    display: inline-flex;
+    /* Don't align on the content baseline: it moves when the check icon appears, shifting the line height */
+    vertical-align: middle;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-family: var(--m-font);
+    font-size: var(--m-font-size-m);
+    font-weight: var(--m-font-weight-regular);
+    letter-spacing: var(--m-letter-spacing-m);
+    line-height: var(--m-line-height-m);
+}
+
+.m-checkbox-wrapper.is-danger,
+.m-checkbox-wrapper.has-hint {
+    align-items: flex-start;
+}
+
+.m-checkbox-wrapper:has(input:disabled) {
+    opacity: 0.6;
+    cursor: not-allowed;
+    color: var(--color-text-weaker);
+}
+
+.m-checkbox-input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.m-checkbox-box {
+    position: relative;
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    border: 1px solid var(--m-color-border);
+    border-radius: var(--m-radius-sharp);
+    background-color: var(--m-color-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.m-checkbox-box.is-danger {
+    border: 1px solid var(--m-color-danger);
+}
+
+.m-checkbox-wrapper.is-danger .m-checkbox-input:checked ~ .m-checkbox-box {
+    background-color: var(--m-color-danger);
+    border-color: var(--m-color-danger);
+}
+
+.m-checkbox-input:checked ~ .m-checkbox-box {
+    background-color: var(--m-color-accent);
+    border-color: var(--m-color-accent);
+}
+
+.m-checkbox-input:disabled ~ .m-checkbox-box {
+    background-color: var(--m-gray-10);
+    border-color: var(--m-gray-10);
+}
+
+.m-checkbox-input:focus-visible ~ .m-checkbox-box {
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
+}
+
+.m-checkbox-check {
+    opacity: 0;
+    color: var(--m-color-text-on-accent);
+    min-width: 24px;
+}
+
+.m-checkbox-indeterminate {
+    color: var(--m-color-text-on-accent);
+}
+
+.m-checkbox-wrapper.is-danger .m-checkbox-check {
+    color: var(--m-color-text-on-danger);
+}
+
+.m-checkbox-input:indeterminate ~ .m-checkbox-box {
+    background-color: var(--m-color-accent);
+    border-color: var(--m-color-accent);
+}
+
+.m-checkbox-input:checked ~ .m-checkbox-box .m-checkbox-check,
+.m-checkbox-wrapper .m-checkbox-box .m-checkbox-indeterminate {
+    opacity: 1;
+}
+
+.m-checkbox-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: var(--m-space-xs);
+    -webkit-user-select: none; /* Safari, Chrome, Opera, Android */
+    -moz-user-select: none; /* Firefox (historical prefix) */
+    -ms-user-select: none; /* IE 10+ (historical prefix) */
+    user-select: none; /* Standard syntax (IE 11+, Edge, modern browsers) */
+}
+
+/* Code */
+.m-code {
+    font-family: var(--m-font-mono);
+    font-size: var(--m-font-size-m);
+    line-height: var(--m-line-height-m);
+    background: var(--m-gray-5);
+    padding-inline: var(--m-space-s);
+    border-radius: var(--m-radius);
+    width: min-content;
+    height: min-content;
+    white-space: nowrap;
+}
+
+/* Code Example */
+.m-code-example-wrapper.is-code-only .hljs {
+    border-radius: var(--m-radius);
+}
+
+/* The preview is a dot-grid canvas on the page background, not a surface, so components show on the color
+   they're usually placed on. A soft light around the inside edge (not a border) marks where it starts */
+.m-code-example {
+    background-color: var(--m-color-background);
+    background-image: radial-gradient(circle, var(--m-gray-7) 1px, transparent 1.5px);
+    background-size: 16px 16px;
+    background-position: center;
+    box-shadow: inset 0 0 64px color-mix(in srgb, var(--m-gray-4) 70%, transparent);
+    max-height: 33dvh;
+    max-width: 100%;
+    overflow-y: auto;
+    /* Room for the dots to read as a canvas, not as a dotted outline */
+    padding: var(--m-space-xl);
+    resize: horizontal;
+    border-radius: var(--m-radius) var(--m-radius) 0 0;
+}
+
+/* Container */
+.m-container {
+    padding: var(--m-space-l);
+    padding-block: 0;
+    padding-block-start: 3rem;
+}
+
+.m-container.is-size-s {
+    max-width: var(--m-breakpoint-s);
+}
+
+.m-container.is-size-m {
+    max-width: var(--m-breakpoint-m);
+}
+
+.m-container.is-size-l {
+    max-width: var(--m-breakpoint-l);
+}
+
+.m-container.is-size-xl {
+    max-width: var(--m-breakpoint-xl);
+}
+
+.m-container.is-size-2xl {
+    max-width: var(--m-breakpoint-2xl);
+}
+
+.m-container.is-align-start {
+    margin: 0;
+}
+
+.m-container.is-align-center {
+    margin: auto;
+    margin: 0;
+    margin-inline: auto;
+}
+
+.m-container.is-align-end {
+    margin-inline-start: auto;
+}
+
+.m-container.is-debug {
+    outline: 1px dashed var(--m-color-danger);
+}
+
+.m-container.has-space-none {
+    padding: 0;
+}
+
+@media (min-width: 82rem) {
+    .m-container {
+        padding: var(--m-space-2xl);
+    }
+}
+
+/* Copy Button: a circle at the shared control height (36px). On hover it matches Button's secondary variant: the
+   outline turns the text color and glows */
+.m-copy-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--m-control-height);
+    height: var(--m-control-height);
+    padding: 0;
+    border: 1px solid var(--m-gray-7);
+    border-radius: var(--m-radius-full);
+    background: var(--m-color-background);
+    color: var(--m-color-text);
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    /* Own layer at all times, so the icon doesn't snap when the hover grow finishes */
+    will-change: transform;
+}
+
+.m-copy-button:focus-visible {
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    border-color: var(--m-color-text);
+    box-shadow: 0 0 20px -4px color-mix(in srgb, var(--m-accent-9) 60%, transparent);
+    transform: scale(1.06);
+}
+
+@media (pointer: fine) {
+    .m-copy-button:hover {
+        border-color: var(--m-color-text);
+        box-shadow: 0 0 20px -4px color-mix(in srgb, var(--m-accent-9) 60%, transparent);
+        transform: scale(1.06);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .m-copy-button {
+        transition: none;
+    }
+
+    .m-copy-button:focus-visible,
+    .m-copy-button:hover {
+        transform: none;
+    }
+}
+
+/* Copy Code */
+.m-copy-code {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--m-font-mono);
+    font-size: var(--m-font-size-m);
+    line-height: var(--m-line-height-m);
+    /* Same background as multi-line code blocks */
+    background: var(--m-color-surface);
+    padding: var(--m-space-s) var(--m-space-s) var(--m-space-s) var(--m-space-m);
+    border-radius: var(--m-radius);
+}
+
+/* The command's parts, in the same colors as the code blocks (see highlight.css) */
+.m-copy-code-text {
+    min-width: 0;
+    overflow-x: auto;
+    white-space: pre;
+    font: inherit;
+    font-variant-ligatures: none;
+    color: var(--m-color-text);
+}
+
+.m-copy-code-command {
+    color: var(--m-info-11);
+}
+
+.m-copy-code-argument {
+    color: var(--m-success-11);
+}
+
+.m-copy-code-flag {
+    color: var(--m-color-text-weaker);
+}
+
+/* More contrast: the same edge cards and code examples get */
+@media (prefers-contrast: more) {
+    .m-copy-code {
+        border: 1px solid var(--m-color-border);
+    }
+}
+
+/* Divider */
+.m-divider {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border-block-end: 1px solid var(--m-color-border);
+}
+
+/* Fieldset */
+.m-fieldset {
+    position: relative;
+    margin: 0;
+    border: none;
+    padding: 0;
+    padding-block-start: var(--m-space-s);
+}
+
+.m-fieldset-legend {
+    display: flex;
+    padding: 0;
+    gap: var(--m-space-xs);
+}
+
+.m-fieldset-required {
+    font-family: var(--m-font);
+    font-size: var(--m-font-size-xl);
+    letter-spacing: var(--m-letter-spacing-xl);
+    font-weight: var(--m-font-weight-regular);
+    color: var(--m-color-danger);
+}
+
+.m-fieldset-label {
+    font-family: var(--m-font);
+    font-size: var(--m-font-size-m);
+    font-weight: var(--m-font-weight-regular);
+    letter-spacing: var(--m-letter-spacing-m);
+}
+
+/* Flex */
+.m-flex {
+    display: flex;
+    gap: var(--m-space-m);
+    flex-direction: row;
+    justify-content: start;
+    align-items: initial;
+    width: 100%;
+}
+
+/* Inside a row, a Flex is one item among siblings: size it to its content (like any flex item) instead of taking
+   the full row, so e.g. a title group and an actions group can sit side by side with justify="between" */
+.m-flex:is(.has-direction-row, .has-direction-row-reverse) > .m-flex {
+    width: auto;
+}
+
+.m-flex.has-direction-row {
+    flex-direction: row;
+}
+
+.m-flex.has-direction-column {
+    flex-direction: column;
+}
+
+.m-flex.has-direction-column-reverse {
+    flex-direction: column-reverse;
+}
+
+.m-flex.has-direction-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.m-flex.has-gap-none {
+    gap: 0;
+}
+
+.m-flex.has-gap-xs {
+    gap: var(--m-space-xs);
+}
+
+.m-flex.has-gap-s {
+    gap: var(--m-space-s);
+}
+
+.m-flex.has-gap-l {
+    gap: var(--m-space-l);
+}
+
+.m-flex.has-gap-xl {
+    gap: var(--m-space-xl);
+}
+
+.m-flex.has-gap-2xl {
+    gap: var(--m-space-2xl);
+}
+
+.m-flex.has-flex-wrap {
+    flex-wrap: wrap;
+}
+
+.m-flex.has-flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+.m-flex.has-justify-start {
+    justify-content: start;
+}
+
+.m-flex.has-justify-end {
+    justify-content: end;
+}
+
+.m-flex.has-justify-flex-start {
+    justify-content: flex-start;
+}
+
+.m-flex.has-justify-flex-end {
+    justify-content: flex-end;
+}
+
+.m-flex.has-justify-center {
+    justify-content: center;
+}
+
+.m-flex.has-justify-between {
+    justify-content: space-between;
+}
+
+.m-flex.has-justify-around {
+    justify-content: space-around;
+}
+
+.m-flex.has-justify-evenly {
+    justify-content: space-evenly;
+}
+
+.m-flex.is-align-initial {
+    align-items: initial;
+}
+
+.m-flex.is-align-stretch {
+    align-items: stretch;
+}
+
+.m-flex.is-align-flex-start {
+    align-items: flex-start;
+}
+
+.m-flex.is-align-flex-end {
+    align-items: flex-end;
+}
+
+.m-flex.is-align-center {
+    align-items: center;
+}
+
+.m-flex.is-align-baseline {
+    align-items: baseline;
+}
+
+.m-flex.is-align-start {
+    align-items: start;
+}
+
+.m-flex.is-align-end {
+    align-items: end;
+}
+
+.m-flex.is-align-self-start {
+    align-items: self-start;
+}
+
+.m-flex.is-align-self-end {
+    align-items: self-end;
+}
+
+/* Input */
+.m-input-wrapper {
+    position: relative;
+    width: max-content;
+    box-sizing: border-box;
+}
+
+.m-input-wrapper.is-expanded {
+    width: 100%;
+}
+
+.m-input {
+    padding: var(--m-space-s) var(--m-space-s);
+    border: 1px solid var(--m-color-border);
+    border-radius: var(--m-radius);
+    font-family: var(--m-font);
+    font-size: var(--m-font-size-m);
+    font-weight: var(--m-font-weight-regular);
+    letter-spacing: var(--m-letter-spacing-m);
+    background-color: var(--m-color-surface);
+    color: var(--m-color-text);
+    width: 16rem;
+    height: var(--m-control-height);
+    box-sizing: border-box;
+}
+
+.m-input.is-expanded {
+    width: 100%;
+}
+
+.m-input:focus {
+    outline: none;
+}
+
+/* Focus: a near-white border, a lifted fill and the focus glow every element shares (also while hovered) */
+.m-input:focus-visible,
+.m-input:focus-visible:hover {
+    border-color: var(--m-color-border-control-focus);
+    /* The field lights up: its fill lifts a step */
+    background-color: var(--m-color-surface-raised);
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
+}
+
+.m-input.is-danger:focus-visible {
+    border-color: var(--m-color-danger);
+}
+
+/* Disabled: flat (no recessed fill), faint border and dimmed text, so it recedes */
+.m-input:disabled {
+    background-color: transparent;
+    border-color: var(--m-gray-3);
+    color: var(--m-color-text-weaker);
+    cursor: not-allowed;
+}
+
+.m-input::placeholder {
+    color: var(--m-color-text-weakest);
+}
+
+.m-input.is-danger {
+    border-color: var(--m-color-danger);
+}
+
+.m-input.is-align-end {
+    text-align: end;
+}
+
+.m-input-prefix,
+.m-input-suffix {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 var(--m-space-s);
+    color: var(--m-color-text-weaker);
+    font-family: var(--m-font);
+    font-size: var(--font-size-m);
+    font-weight: var(--m-font-weight-regular);
+    letter-spacing: var(--m-letter-spacing-m);
+    user-select: none;
+    pointer-events: none;
+}
+
+.m-input-prefix {
+    left: 0;
+    padding-inline-start: var(--m-space-s);
+}
+
+.m-input-suffix {
+    right: 0;
+    padding-inline-end: var(--m-space-s);
+}
+
+@media (pointer: fine) {
+    .m-input:hover {
+        border-color: var(--m-color-border-control-hover);
+    }
+
+    .m-input:disabled:hover {
+        border-color: var(--m-gray-3);
+    }
+
+    .m-input.is-danger:hover {
+        border-color: var(--m-color-danger);
+    }
+}
+
+/* Label */
+.m-label-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--m-space-s);
+}
+
+/* Hint and error text belong to the field above, so pull them in closer than the label-to-field gap */
+.m-label-wrapper > .m-text {
+    margin-block-start: calc(var(--m-space-xs) - var(--m-space-s));
+}
+
+.m-label {
+    font-family: var(--m-font);
+    font-size: var(--m-font-size-m);
+    font-weight: var(--m-font-weight-regular);
+    letter-spacing: var(--m-letter-spacing-m);
+    color: var(--m-color-text);
+    display: flex;
+    align-items: center;
+    gap: var(--m-space-xs);
+}
+
+/* Hero */
+.m-hero {
+    padding: calc(var(--m-space-2xl));
+}
+
+/* Layout */
+/*
+ * Mobile first: a top header with a menu button, and a nav drawer that slides in from the left.
+ * At 66rem (--m-breakpoint-l) and up, the nav becomes a sidebar with the logo above it. That includes common
+ * laptop windows like 1280px (a 1920px screen at 150% scaling), which would otherwise get the mobile menu.
+ *
+ * The page scrolls the browser window (not an inner element), so routers like SvelteKit reset and restore
+ * the scroll position on navigation as usual. The header and sidebar stay put with position: sticky/fixed.
+ */
+.m-layout {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 4rem auto;
+    grid-template-areas:
+        "header"
+        "content";
+    min-height: 100dvh;
+    background-color: var(--m-color-background);
+}
+
+/* Anchor links (#section) land below the sticky header instead of under it */
+:root:has(.m-layout) {
+    scroll-padding-top: 4rem;
+}
+
+.m-layout-header {
+    grid-area: header;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: var(--m-space-m);
+    background-color: var(--m-color-surface);
+    border-block-end: 1px solid var(--m-color-border);
+}
+
+.m-layout-mobile-logo {
+    position: absolute;
+    /* Span the header's full height so the logo is centered vertically, whatever its size */
+    inset-block: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.m-layout-menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: var(--m-space-xs);
+    height: 32px;
+    width: 32px;
+    border-radius: var(--m-radius-sharp);
+    color: var(--m-color-text);
+}
+
+.m-layout-menu-button:focus-visible {
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
+}
+
+.m-layout-logo {
+    display: none;
+    grid-area: logo;
+}
+
+.m-layout-nav {
+    position: fixed;
+    top: 4rem;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 16rem;
+    background-color: var(--m-color-surface);
+    border-inline-end: 1px solid var(--m-color-border);
+    /* Closed: off-screen and hidden from focus/AT; visibility flips after the slide finishes */
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.2s ease-out, visibility 0s linear 0.2s;
+}
+
+.m-layout-nav.is-open {
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform 0.2s ease-out;
+}
+
+/*
+ * iOS Safari (26+) fills the strip under its floating toolbar with one solid color: a fixed element's background if
+ * one at the bottom edge spans most of the screen, otherwise the html/body background. The drawer is too narrow to
+ * count, so while it's open the page background takes the drawer's color and the strip continues it, instead of
+ * showing a black bar under it. Nothing else shows the root background here (the layout covers it).
+ */
+@media not all and (min-width: 66rem) {
+    html:has(.m-layout > .m-layout-nav.is-open),
+    html:has(.m-layout > .m-layout-nav.is-open) body {
+        background-color: var(--m-color-surface);
+    }
+}
+
+/* The items scroll on their own, so the footer stays pinned to the bottom of the nav */
+.m-layout-nav-items {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--m-space-m);
+    padding-block: var(--m-space-l);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--m-gray-4) transparent;
+}
+
+/* Global actions (the signed-in user, settings, a theme switcher), split from the nav items by a divider */
+.m-layout-nav-footer {
+    flex-shrink: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--m-space-s);
+    padding: var(--m-space-m);
+    border-block-start: 1px solid var(--m-color-border);
+}
+
+.m-layout-content {
+    grid-area: content;
+    min-width: 0;
+    background-color: var(--m-color-background);
+    transition: filter 0.2s ease-out;
+}
+
+/* While the slide-in nav is open, blur the page behind it so the menu stands out. The blurred page can't be
+   interacted with: a click on it just closes the nav (LayoutNav dispatches `close`) instead of following a link.
+   Direct children only (`>`), so a Layout nested inside another (e.g. a docs example) only blurs its own content */
+.m-layout:has(> .m-layout-nav.is-open) > .m-layout-content {
+    filter: blur(4px);
+    pointer-events: none;
+}
+
+/*
+ * Caps the content at the centered column's width (the widest Container size, so any Container fits).
+ * Use a Container's size to set the content width.
+ */
+.m-layout-content-inner {
+    max-width: var(--m-breakpoint-2xl);
+}
+
+@media (min-width: 66rem) {
+    /*
+     * Centered layout: the content column (as wide as the largest Container) sits in the middle of
+     * the page, with the sidebar hugging its left edge. The gutters share the leftover space equally,
+     * but the left one never shrinks below the sidebar's 18rem, so on narrower screens the content
+     * shifts right instead of the sidebar getting squeezed.
+     *
+     * Logo and nav share one full-height "sidebar" column and stick to the top of the window while the
+     * page scrolls: the logo at the top, the nav right below it (Layout measures the logo's height).
+     */
+    .m-layout {
+        --m-layout-logo-offset: var(--m-layout-logo-height, 6.25rem);
+        grid-template-columns:
+            minmax(18rem, 1fr)
+            minmax(0, var(--m-breakpoint-2xl))
+            minmax(0, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas: "sidebar content content";
+    }
+
+    :root:has(.m-layout) {
+        scroll-padding-top: 0;
+    }
+
+    .m-layout-header {
+        display: none;
+    }
+
+    .m-layout-logo,
+    .m-layout-nav {
+        grid-area: sidebar;
+        align-self: start;
+        justify-self: end;
+        width: 18rem;
+        position: sticky;
+    }
+
+    .m-layout-logo {
+        top: 0;
+        /* Above the nav (which keeps the drawer's z-index 1), with the page's background: if a long nav ever scrolls
+           up it passes under the logo, and anything opening from the logo area (e.g. a menu) shows over the nav */
+        z-index: 2;
+        background-color: var(--m-color-background);
+        display: flex;
+        align-items: center;
+        padding: var(--m-space-xl) var(--m-space-m) var(--m-space-l) calc(var(--m-space-xl) + var(--m-space-m));
+    }
+
+    .m-layout-nav {
+        top: var(--m-layout-logo-offset);
+        /* Undo the mobile drawer's fixed insets */
+        bottom: auto;
+        left: auto;
+        margin-block-start: var(--m-layout-logo-offset);
+        /* Fills the window below the logo: a long list of items scrolls on its own, and the footer sits at the
+           bottom of the window */
+        height: calc(100dvh - var(--m-layout-logo-offset));
+        background-color: transparent;
+        border: none;
+        transform: none;
+        visibility: visible;
+        transition: none;
+    }
+
+    .m-layout-nav-items {
+        padding: 0 0 var(--m-space-xl) var(--m-space-xl);
+    }
+
+    /* Lines up with the items: the divider starts where they do, the content where their icons do */
+    .m-layout-nav-footer {
+        margin-inline-start: var(--m-space-xl);
+        padding-block-end: var(--m-space-xl);
+    }
+
+    /* The sidebar is always shown here, so `open` has no effect and the content stays sharp */
+    .m-layout:has(> .m-layout-nav.is-open) > .m-layout-content {
+        filter: none;
+        pointer-events: auto;
+    }
+}
+
+@media (pointer: fine) {
+    .m-layout-menu-button:hover {
+        background-color: var(--m-gray-4);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .m-layout-nav,
+    .m-layout-nav.is-open,
+    .m-layout-content {
+        transition: none;
+    }
+}
+
+/* Link */
+.m-link {
+    font-family: var(--m-font);
+    font-size: var(--font-size-m);
+    font-weight: var(--m-font-weight-regular);
+    line-height: var(--m-line-height-m);
+    letter-spacing: var(--m-letter-spacing-m);
+    line-height: var(--m-line-height-m);
+    margin: 0;
+    padding: 0;
+    text-decoration: underline;
+    color: var(--m-color-text-accent);
+}
+
+.m-link.is-size-xs {
+    font-size: var(--m-font-size-xs);
+    line-height: var(--m-line-height-xs);
+    letter-spacing: var(--m-letter-spacing-xs);
+}
+
+.m-link.is-size-s {
+    font-size: var(--m-font-size-s);
+    line-height: var(--m-line-height-s);
+    letter-spacing: var(--m-letter-spacing-s);
+}
+
+.m-link.is-size-m {
+    font-size: var(--m-font-size-m);
+    line-height: var(--m-line-height-m);
+    letter-spacing: var(--m-letter-spacing-m);
+}
+
+.m-link.is-size-l {
+    font-size: var(--m-font-size-l);
+    line-height: var(--m-line-height-l);
+    letter-spacing: var(--m-letter-spacing-l);
+}
+
+.m-link.is-size-xl {
+    font-size: var(--m-font-size-xl);
+    line-height: var(--m-line-height-xl);
+    letter-spacing: var(--m-letter-spacing-xl);
+}
+
+.m-link.is-size-2xl {
+    font-size: var(--m-font-size-2xl);
+    line-height: var(--m-line-height-2xl);
+    letter-spacing: var(--m-letter-spacing-2xl);
+}
+
+.m-link.is-size-3xl {
+    font-size: var(--m-font-size-3xl);
+    line-height: var(--m-line-height-3xl);
+    letter-spacing: var(--m-letter-spacing-3xl);
+}
+
+@media (pointer: fine) {
+    .m-link:hover {
+        text-decoration: none;
+    }
+}
+
+/* Nav */
+.m-nav-item,
+.m-nav-group-expander {
+    display: flex;
+    align-items: center;
+    gap: var(--m-space-s);
+    padding: var(--m-space-m);
+    border: none;
+    border-radius: var(--m-radius);
+    background: transparent;
+    font-family: var(--m-font);
+    font-weight: var(--m-font-weight-regular);
+    font-size: var(--m-font-size-l);
+    line-height: 1;
+    letter-spacing: var(--m-letter-spacing-l);
+    color: var(--m-color-text);
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.m-nav-item[aria-current="true"],
+.m-nav-group-item[aria-current="true"] {
+    /* A flat, subtle accent tint: clearly "you are here" without competing with primary actions */
+    background: color-mix(in srgb, var(--m-accent-9) 35%, transparent);
+    color: var(--m-color-text);
+}
+
+.m-nav-item:focus-visible,
+.m-nav-group-expander:focus-visible,
+.m-nav-group-item:focus-visible {
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
+}
+
+.m-nav-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--m-space-xs);
+}
+
+.m-nav-group-expander {
+    cursor: pointer;
+    text-align: start;
+}
+
+.m-nav-group-heading {
+    flex: 1;
+}
+
+.m-nav-group-items {
+    display: none;
+    flex-direction: column;
+    gap: var(--m-space-xs);
+}
+
+.m-nav-group.is-expanded .m-nav-group-items {
+    display: flex;
+}
+
+.m-nav-group-item {
+    display: flex;
+    align-items: center;
+    gap: var(--m-space-s);
+    /* Indent so the label lines up with the group heading's text (after its 24px icon) */
+    padding: var(--m-space-s) var(--m-space-m) var(--m-space-s) calc(var(--m-space-m) + 24px + var(--m-space-s));
+    border-radius: var(--m-radius);
+    font-family: var(--m-font);
+    font-weight: var(--m-font-weight-regular);
+    font-size: var(--m-font-size-m);
+    line-height: var(--m-line-height-m);
+    letter-spacing: var(--m-letter-spacing-m);
+    color: var(--m-color-text-weak);
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+@media (pointer: fine) {
+    .m-nav-item:hover,
+    .m-nav-group-expander:hover,
+    .m-nav-group-item:hover {
+        background-color: var(--m-gray-4);
+        color: var(--m-color-text);
+    }
+
+    /* Keep the selected tint underneath the light */
+    .m-nav-item[aria-current="true"]:hover,
+    .m-nav-group-item[aria-current="true"]:hover {
+        --m-nav-glow-opacity: 1;
+        background: color-mix(in srgb, var(--m-accent-9) 35%, transparent);
+    }
+}
+
+/* Selected item: on hover (or keyboard focus) it lights up like the docs site's component cards, without the grow.
+   A light glows from its center and its edge catches the light, brightest along the top. */
+.m-nav-item[aria-current="true"],
+.m-nav-group-item[aria-current="true"] {
+    --m-nav-glow-opacity: 0;
+    position: relative;
+    isolation: isolate;
+}
+
+.m-nav-item[aria-current="true"]:focus-visible,
+.m-nav-group-item[aria-current="true"]:focus-visible {
+    --m-nav-glow-opacity: 1;
+}
+
+.m-nav-item[aria-current="true"]::before,
+.m-nav-group-item[aria-current="true"]::before,
+.m-nav-item[aria-current="true"]::after,
+.m-nav-group-item[aria-current="true"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: var(--m-nav-glow-opacity);
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+/* The light */
+.m-nav-item[aria-current="true"]::before,
+.m-nav-group-item[aria-current="true"]::before {
+    z-index: -1;
+    background: radial-gradient(
+        ellipse 60% 120% at 50% 50%,
+        color-mix(in srgb, var(--m-accent-9) 70%, transparent),
+        transparent 75%
+    );
+}
+
+/* Rim light on the 1px edge */
+.m-nav-item[aria-current="true"]::after,
+.m-nav-group-item[aria-current="true"]::after {
+    padding: 1px;
+    background: radial-gradient(
+        ellipse 70% 100% at 50% 0%,
+        var(--m-accent-11),
+        transparent 80%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .m-nav-item[aria-current="true"]::before,
+    .m-nav-group-item[aria-current="true"]::before,
+    .m-nav-item[aria-current="true"]::after,
+    .m-nav-group-item[aria-current="true"]::after {
+        transition: none;
+    }
+}
+
+/* Progress: a slim gray bar (gray, not the accent: progress isn't a primary action or a selection) */
+.m-progress {
+    display: flex;
+    flex-direction: column;
+    gap: var(--m-space-xs);
+    width: 100%;
+}
+
+.m-progress-header {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--m-space-s);
+    font-family: var(--m-font);
+    font-size: var(--m-font-size-s);
+    line-height: var(--m-line-height-s);
+    letter-spacing: var(--m-letter-spacing-s);
+}
+
+.m-progress-label {
+    color: var(--m-color-text);
+}
+
+.m-progress-value {
+    font-family: var(--m-font-mono);
+    color: var(--m-color-text-weak);
+}
+
+.m-progress-track {
+    height: 6px;
+    border-radius: var(--m-radius-full);
+    background-color: var(--m-color-neutral-weak);
+    overflow: hidden;
+}
+
+.m-progress-fill {
+    height: 100%;
+    border-radius: inherit;
+    background-color: var(--m-gray-11);
+    transition: width 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .m-progress-fill {
+        transition: none;
+    }
+}
+
+/* Radio */
+.m-radio-wrapper {
+    width: max-content;
+    border-radius: var(--m-radius);
+}
+
+.m-radio-wrapper .m-radio {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.m-radio-wrapper .m-radio-label {
+    position: relative;
+    padding-inline-start: 28px;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 20px;
+}
+
+.m-radio-wrapper .m-radio-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--m-color-border);
+    border-radius: 50%;
+    background: var(--m-color-surface-raised);
+    margin: 0;
+    padding: 0;
+}
+
+.m-radio-wrapper.is-danger .m-radio-label::before {
+    border-color: var(--m-color-danger);
+}
+
+.m-radio-wrapper.is-danger .m-radio:checked + .m-radio-label::before {
+    background-color: var(--m-color-danger);
+    border-color: var(--m-color-danger);
+}
+
+.m-radio-label {
+    font-family: var(--m-font);
+    font-size: var(--m-font-size-m);
+    font-weight: var(--m-font-weight-regular);
+    letter-spacing: var(--m-letter-spacing-m);
+    line-height: var(--m-line-height-m);
+}
+
+.m-radio-wrapper.has-hint .m-radio-label,
+.m-radio-wrapper.is-danger .m-radio-label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--m-space-xs);
+}
+
+.m-radio-wrapper.is-disabled .m-radio-label {
+    color: var(--m-color-text-weakest);
+    cursor: not-allowed;
+}
+
+.m-radio-wrapper.is-disabled .m-radio-label::before {
+    background-color: var(--m-gray-3);
+}
+
+.m-radio-wrapper.is-disabled .m-radio:checked + .m-radio-label::before {
+    background-color: var(--m-gray-9);
+    border-color: var(--m-color-border);
+}
+
+.m-radio-wrapper .m-radio:checked + .m-radio-label::before {
+    border-color: var(--m-color-accent);
+    background-color: var(--m-color-accent);
+}
+
+.m-radio-wrapper.example-version .m-radio:checked + .m-radio-label::before {
+    border-color: var(--m-gray-9);
+    background-color: var(--m-gray-9);
+}
+
+.m-radio-wrapper .m-radio-label::after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    background: var(--m-accent-1);
+    border-radius: 50%;
+}
+
+.m-radio-wrapper .m-radio:checked + .m-radio-label::after {
+    display: block;
+}
+
+/* The ring goes around the circle, like the checkbox's box */
+.m-radio:focus-visible + .m-radio-label::before {
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
+}
+
+/* Required */
+.m-required {
+    font-family: var(--m-font);
+    font-size: var(--m-font-size-xl);
+    color: var(--m-color-danger);
+    height: 18px;
+}
+
+/* Select  */
+.m-select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: var(--m-color-surface);
+    border: 1px solid var(--m-color-border);
+    border-radius: var(--m-radius);
+    min-width: 12rem;
+    width: fit-content;
+    max-width: 100%;
+    height: var(--m-control-height);
+    box-sizing: border-box;
+}
+
+.m-select-wrapper.is-expanded {
+    width: 100%;
+}
+
+.m-select {
+    font-family: var(--m-font);
+    font-size: var(--m-font-size-m);
+    font-weight: var(--m-font-weight-regular);
+    letter-spacing: var(--m-letter-spacing-m);
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 100%;
+    padding: 0 2.5rem 0 0.75rem;
+    border: none;
+    background: transparent;
+    color: var(--m-color-text);
+    cursor: pointer;
+}
+
+.m-select:focus-within {
+    box-shadow: none;
+    outline: none;
+    border: none;
+}
+
+.m-select-wrapper:has(.m-select:focus-visible) {
+    border-color: var(--m-color-border-control-focus);
+    /* The field lights up: its fill lifts a step */
+    background-color: var(--m-color-surface-raised);
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
+}
+
+.m-select-wrapper.is-danger:has(.m-select:focus-visible) {
+    border-color: var(--m-color-danger);
+}
+
+/* Disabled: flat, faint border and dimmed text and arrow, matching Input */
+.m-select-wrapper:has(.m-select:disabled) {
+    background-color: transparent;
+    border-color: var(--m-gray-3);
+    cursor: not-allowed;
+}
+
+.m-select:disabled,
+.m-select-wrapper:has(.m-select:disabled) .m-select-arrow {
+    color: var(--m-color-text-weaker);
+    cursor: not-allowed;
+}
+
+.m-select-wrapper.is-danger {
+    border-color: var(--m-color-danger);
+}
+
+.m-select.has-placeholder {
+    color: var(--m-color-text-weakest);
+}
+
+.m-select-prefix,
+.m-select-suffix {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 var(--m-space-s);
+    color: var(--m-color-text-weaker);
+    font-family: var(--m-font);
+    font-size: var(--font-size-m);
+    font-weight: var(--m-font-weight-regular);
+    letter-spacing: var(--m-letter-spacing-m);
+    user-select: none;
+    pointer-events: none;
+}
+
+.m-select-prefix {
+    left: 0;
+    padding-inline-start: var(--m-space-s);
+}
+
+.m-select-suffix {
+    right: 0;
+    padding-inline-end: var(--m-space-s);
+}
+
+.m-select-arrow {
+    position: absolute;
+    right: 0;
+    pointer-events: none;
+    padding: 0 var(--m-space-s);
+    color: var(--color-text-weak);
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.m-select-arrow svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+@media (pointer: fine) {
+    .m-select-wrapper:hover {
+        border-color: var(--m-color-border-control-hover);
+    }
+
+    .m-select-wrapper:has(.m-select:disabled):hover {
+        border-color: var(--m-gray-3);
+    }
+
+    .m-select-wrapper.is-danger:hover {
+        border-color: var(--m-color-danger);
+    }
+}
+
+/* Table */
+.m-table-wrapper {
+    /* The table is a card: a borderless surface with rounded corners (overflow also clips the corners) */
+    overflow-x: auto;
+    width: 100%;
+    background-color: var(--m-color-surface);
+    border-radius: var(--m-radius);
+}
+
+/* More contrast: the same edge cards get, since a table is a borderless card */
+@media (prefers-contrast: more) {
+    .m-table-wrapper {
+        border: 1px solid var(--m-color-border);
+    }
+}
+
+.m-table {
+    table-layout: auto;
+    width: 100%;
+    font-family: var(--m-font);
+    font-weight: var(--m-font-weight-regular);
+    border-collapse: collapse;
+    overflow: scroll;
+}
+
+.m-table-caption {
+    text-align: start;
+    font-family: var(--m-font);
+    font-weight: var(--m-font-weight-bold);
+    font-size: var(--m-font-size-2xl);
+    letter-spacing: var(--m-letter-spacing-2xl);
+    /* Sits inside the table's card like a card header */
+    padding: var(--m-space-m);
+}
+
+.m-table-header {
+    text-align: start;
+    padding: var(--m-space-m);
+    font-family: var(--m-font);
+    font-weight: var(--m-font-weight-regular);
+    font-size: var(--m-font-size-m);
+    letter-spacing: var(--m-letter-spacing-m);
+    border-block-end: 1px solid var(--m-color-border);
+    background-color: var(--m-color-surface-raised);
+}
+
+.m-table-cell {
+    text-align: start;
+    font-family: var(--m-font);
+    font-weight: var(--m-font-weight-regular);
+    font-size: var(--m-font-size-m);
+    font-variant-numeric: tabular-nums lining-nums;
+    padding: var(--m-space-m);
+    border-block-end: 1px solid var(--m-color-border);
+}
+
+/* The card's edge ends the table, so the last row doesn't need a divider */
+.m-table-body .m-table-row:last-child .m-table-cell {
+    border-block-end-color: transparent;
+}
+
+/* Stripes and hover are a light wash on the row (cells are transparent), so they work on any background */
+.m-table.is-striped .m-table-body .m-table-row:nth-child(even) {
+    background-color: color-mix(in srgb, var(--m-color-text) 5%, transparent);
+}
+
+.m-table.is-interactive .m-table-body .m-table-row {
+    transition: background-color 0.2s ease;
+}
+
+.m-table-cell.is-align-start {
+    text-align: start;
+}
+
+.m-table-cell.is-align-center {
+    text-align: center;
+}
+
+.m-table-cell.is-align-end {
+    text-align: end;
+}
+
+.m-table-header.is-align-start {
+    text-align: start;
+}
+
+.m-table-header.is-align-center {
+    text-align: center;
+}
+
+.m-table-header.is-align-end {
+    text-align: end;
+}
+
+/* Text inherits the cell's alignment; also move its (width-capped) block so long text reaches the cell's edge */
+.m-table-cell.is-align-center > .m-text,
+.m-table-header.is-align-center > .m-text {
+    margin-inline: auto;
+}
+
+.m-table-cell.is-align-end > .m-text,
+.m-table-header.is-align-end > .m-text {
+    margin-inline-start: auto;
+}
+
+.m-table-cell.is-truncated {
+    max-inline-size: 0;
+    inline-size: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (pointer: fine) {
+    /* Stronger than a stripe, so it still shows on striped rows */
+    .m-table.is-interactive .m-table-body .m-table-row:hover {
+        background-color: color-mix(in srgb, var(--m-color-text) 8%, transparent);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .m-table.is-interactive .m-table-body .m-table-row {
+        transition: none;
+    }
+}
+
+/* Tabs */
+.m-tabs {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--m-space-xl);
+    box-shadow: 0 -1px 0 var(--m-color-border) inset;
+}
+
+.m-tab {
+    position: relative;
+    padding: var(--m-space-xs) 0 var(--m-space-s);
+    font-family: var(--m-font);
+    font-weight: var(--m-font-weight-regular);
+    letter-spacing: var(--m-letter-spacing-l);
+    font-size: var(--m-font-size-l);
+    background: none;
+    border: none;
+    border-block-end: 2px solid transparent;
+    cursor: pointer;
+    color: var(--m-color-text-weaker);
+    transition: color 0.2s ease;
+}
+
+.m-tab[aria-selected="true"] {
+    color: var(--m-color-text);
+}
+
+/* Before the indicator is measured (and in static previews), mark the selected tab with an underline */
+.m-tabs:not(.has-indicator) .m-tab[aria-selected="true"] {
+    border-block-end-color: var(--m-color-accent);
+}
+
+/* Bar that slides to the selected tab */
+.m-tabs-indicator {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: var(--m-tabs-indicator-width);
+    height: 2px;
+    border-radius: var(--m-radius-full);
+    background: var(--m-color-accent);
+    transform: translateX(var(--m-tabs-indicator-x));
+    pointer-events: none;
+}
+
+.m-tabs-indicator.is-animated {
+    /* Same timing as the button hover */
+    transition: transform 0.2s ease, width 0.2s ease;
+}
+
+.m-tab-panel {
+    padding-block-start: var(--m-space-m);
+}
+
+/* Panel content eases in each time its tab is selected */
+.m-tab-panel:not([hidden]) {
+    animation: m-tab-panel-in 0.2s ease;
+}
+
+@keyframes m-tab-panel-in {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+}
+
+.m-tabs:focus-visible,
+.m-tab:focus-visible,
+.m-tab-panel:focus-visible {
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
+    border-radius: var(--m-radius);
+    border-color: transparent;
+}
+
+/* The tab list keeps its bottom line under the ring */
+.m-tabs:focus-visible {
+    box-shadow: var(--m-shadow-focus), 0 -1px 0 var(--m-color-border) inset;
+}
+
+@media (pointer: fine) {
+    .m-tab:hover {
+        color: var(--m-color-text);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .m-tab,
+    .m-tabs-indicator.is-animated {
+        transition: none;
+    }
+
+    .m-tab-panel:not([hidden]) {
+        animation: none;
+    }
+}
+
+/* Text */
+.m-text {
+    font-family: var(--m-font);
+    font-weight: var(--m-font-weight-body);
+    font-size: var(--m-font-size-m);
+    line-height: var(--m-line-height-m);
+    letter-spacing: var(--m-letter-spacing-m);
+    margin: 0;
+    padding: 0;
+}
+
+.m-text.is-mono {
+    font-family: var(--m-font-mono);
+}
+
+.m-text.is-size-xs {
+    font-size: var(--m-font-size-xs);
+    line-height: var(--m-line-height-xs);
+    letter-spacing: var(--m-letter-spacing-xs);
+}
+
+.m-text.is-size-s {
+    font-size: var(--m-font-size-s);
+    line-height: var(--m-line-height-s);
+    letter-spacing: var(--m-letter-spacing-s);
+}
+
+.m-text.is-size-m {
+    font-size: var(--m-font-size-m);
+    line-height: var(--m-line-height-m);
+    letter-spacing: var(--m-letter-spacing-m);
+}
+
+.m-text.is-size-l {
+    font-size: var(--m-font-size-l);
+    line-height: var(--m-line-height-l);
+    letter-spacing: var(--m-letter-spacing-l);
+}
+
+.m-text.is-size-xl {
+    font-size: var(--m-font-size-xl);
+    line-height: var(--m-line-height-xl);
+    letter-spacing: var(--m-letter-spacing-xl);
+}
+
+.m-text.is-size-2xl {
+    font-size: var(--m-font-size-2xl);
+    line-height: var(--m-line-height-2xl);
+    letter-spacing: var(--m-letter-spacing-2xl);
+}
+
+.m-text.is-size-3xl {
+    font-size: var(--m-font-size-3xl);
+    line-height: var(--m-line-height-3xl);
+    letter-spacing: var(--m-letter-spacing-3xl);
+}
+
+.m-text.is-size-4xl {
+    font-size: var(--m-font-size-4xl);
+    line-height: var(--m-line-height-4xl);
+    letter-spacing: var(--m-letter-spacing-4xl);
+}
+
+.m-text.is-weak {
+    color: var(--m-color-text-weak);
+}
+
+.m-text.is-weaker {
+    color: var(--m-color-text-weaker);
+}
+
+.m-text.is-weakest {
+    color: var(--m-color-text-weakest);
+}
+
+.m-text.is-warning {
+    color: var(--m-color-warning);
+}
+
+.m-text.is-danger {
+    color: var(--m-color-danger);
+}
+
+.m-text.is-success {
+    color: var(--m-color-success);
+}
+
+.m-text.has-weight-regular {
+    font-weight: var(--m-font-weight-regular);
+}
+
+.m-text.has-weight-bold {
+    font-weight: var(--m-font-weight-bold);
+}
+
+.m-text.has-weight-black {
+    font-weight: var(--m-font-weight-black);
+}
+
+.m-text.has-measure-none {
+    max-width: none;
+}
+
+.m-text.has-measure-s {
+    max-width: 40ch;
+}
+
+.m-text.has-measure-m {
+    max-width: 60ch;
+}
+
+.m-text.has-measure-l {
+    max-width: 80ch;
+}
+
+.m-text.is-align-start {
+    text-align: start;
+}
+
+/* Aligning also moves the block: Text has a max-width (measure), so center/end push the whole box over,
+   not just the lines inside it */
+.m-text.is-align-center {
+    text-align: center;
+    margin-inline: auto;
+}
+
+.m-text.is-align-end {
+    text-align: end;
+    margin-inline-start: auto;
+}
+
+/* Textarea */
+.m-textarea-wrapper {
+    position: relative;
+    width: max-content;
+    box-sizing: border-box;
+}
+
+.m-textarea-wrapper.is-expanded {
+    width: 100%;
+}
+
+.m-textarea {
+    font-family: var(--m-font);
+    font-weight: var(--m-font-weight-regular);
+    letter-spacing: var(--m-letter-spacing-m);
+    line-height: var(--m-line-height-m);
+    padding: var(--m-space-s) var(--m-space-s);
+    border: 1px solid var(--m-color-border);
+    border-radius: var(--m-radius);
+    font-size: var(--m-font-size-m);
+    background-color: var(--m-color-surface);
+    color: var(--m-color-text);
+    width: 16rem;
+    box-sizing: border-box;
+}
+
+.m-textarea.is-expanded {
+    width: 100%;
+}
+
+.m-textarea:focus {
+    outline: none;
+}
+
+.m-textarea:focus-visible,
+.m-textarea:focus-visible:hover {
+    border-color: var(--m-color-border-control-focus);
+    /* The field lights up: its fill lifts a step */
+    background-color: var(--m-color-surface-raised);
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
+}
+
+.m-textarea.is-danger:focus-visible {
+    border-color: var(--m-color-danger);
+}
+
+.m-textarea:disabled {
+    background-color: transparent;
+    border-color: var(--m-gray-3);
+    color: var(--m-color-text-weaker);
+    cursor: not-allowed;
+}
+
+.m-textarea::placeholder {
+    color: var(--m-color-text-weakest);
+}
+
+.m-textarea.is-danger {
+    border-color: var(--m-color-danger);
+}
+
+.m-textarea.is-align-end {
+    text-align: end;
+}
+
+@media (pointer: fine) {
+    .m-textarea:hover {
+        border-color: var(--m-color-border-control-hover);
+    }
+
+    .m-textarea:disabled:hover {
+        border-color: var(--m-gray-3);
+    }
+
+    .m-textarea.is-danger:hover {
+        border-color: var(--m-color-danger);
+    }
+}
+
+/* Theme Switcher: a pill of three icon buttons; the chosen one sits on a gray circle (gray, not the accent: a
+   theme is a preference, not a primary selection) */
+.m-theme-switcher {
+    display: inline-flex;
+    gap: 2px;
+    padding: 2px;
+    border: 1px solid var(--m-color-border);
+    border-radius: var(--m-radius-full);
+}
+
+.m-theme-switcher-option {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: none;
+    border-radius: var(--m-radius-full);
+    background: transparent;
+    color: var(--m-color-text-weaker);
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.m-theme-switcher-option[aria-checked="true"] {
+    background-color: var(--m-color-surface-raised);
+    color: var(--m-color-text);
+}
+
+.m-theme-switcher-option:focus-visible {
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
+}
+
+@media (pointer: fine) {
+    .m-theme-switcher-option[aria-checked="false"]:hover {
+        color: var(--m-color-text);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .m-theme-switcher-option {
+        transition: none;
+    }
+}
+
+/* Toast */
+.m-toast {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--m-color-neutral);
+    color: var(--m-color-text-on-neutral);
+    border: 1px solid var(--m-color-neutral);
+    padding: var(--m-space-m) var(--m-space-m) var(--m-space-m) var(--m-space-l);
+    border-radius: var(--m-radius-full);
+    width: 17rem;
+    height: 3rem;
+}
+
+.m-toast.is-danger {
+    background-color: var(--m-color-danger);
+    border-color: var(--m-color-danger);
+    color: var(--m-color-text-on-danger);
+}
+
+.m-toast-message {
+    font-family: var(--m-font);
+    font-size: var(--m-font-size-m);
+    font-weight: var(--m-font-weight-regular);
+    letter-spacing: var(--m-letter-spacing-m);
+    line-height: var(--m-line-height-m);
+}
+
+.m-toast-dismiss {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    height: 32px;
+    width: 32px;
+    border-radius: var(--m-radius-full);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Follow the toast's on-color */
+    color: inherit;
+}
+
+
+@media (pointer: fine) {
+    .m-toast.is-danger .m-toast-dismiss:hover {
+        background-color: var(--m-danger-10);
+    }
+    
+    .m-toast-dismiss:hover {
+        background: var(--m-gray-10);
+    }
+}
+
+/* Toast Group */
+/* Pinned to the viewport (not the page), so toasts stay in view however far the page is scrolled,
+   and above the sticky header and mobile nav */
+.m-toast-group {
+    position: fixed;
+    z-index: 10;
+    right: var(--m-space-xl);
+    bottom: var(--m-space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--m-space-m);
+    overflow: hidden;
+}
+
+/* Toggle */
+.m-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--m-space-s);
+}
+
+.m-toggle-wrapper.is-danger,
+.m-toggle-wrapper.has-hint {
+    align-items: flex-start;
+}
+
+.m-toggle-wrapper.is-danger .m-toggle:checked {
+    background-color: var(--m-color-danger);
+}
+
+.m-toggle-wrapper.is-danger .m-toggle:checked:before {
+    background-color: var(--m-color-text-on-danger);
+}
+
+.m-toggle {
+    appearance: none;
+    position: relative;
+    min-width: 48px;
+    height: 28px;
+    margin: 0;
+    background-color: var(--m-toggle-track);
+    border-radius: var(--m-radius-full);
+    cursor: pointer;
+}
+
+.m-toggle:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 5px;
+    background-color: var(--m-toggle-knob);
+    -webkit-transition: .2s;
+    transition: .2s;
+    border-radius: 100%;
+}
+
+.m-toggle:checked:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(22px);
+    background-color: var(--m-color-text-on-accent);
+}
+
+.m-toggle:checked {
+    background-color: var(--m-color-accent);
+}
+
+.m-toggle.example-version:checked {
+    background-color: var(--m-gray-9);
+}
+
+.m-toggle:disabled {
+    background-color: var(--m-gray-3);
+    cursor: not-allowed;
+}
+
+.m-toggle:disabled:before {
+    background-color: var(--m-gray-9);
+}
+
+.m-toggle:checked:disabled {
+    background-color: var(--m-accent-4);
+}
+
+.m-toggle:checked:disabled:before {
+    background-color: var(--m-gray-9);
+}
+
+.m-toggle-wrapper.is-disabled .m-toggle-label {
+    color: var(--m-color-text-weaker);
+    cursor: not-allowed;
+}
+
+.m-toggle-label {
+    font-family: var(--m-font);
+    font-size: var(--m-font-size-m);
+    letter-spacing: var(--m-letter-spacing-m);
+    font-weight: var(--m-font-weight-regular);
+}
+
+.m-toggle:focus-visible {
+    outline: 2px solid transparent; /* shows in forced-colors mode, where box-shadows are dropped */
+    box-shadow: var(--m-shadow-focus);
+}

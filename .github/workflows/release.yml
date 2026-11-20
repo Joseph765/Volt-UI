@@ -1,0 +1,66 @@
+name: Release
+
+# Push to main: open or update the "Version packages" pull request (never publishes).
+# Run by hand (Actions → Release → Run workflow): publish what's versioned but not yet on npm.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  version:
+    name: Version packages pull request
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - uses: changesets/action@v1
+        with:
+          version: npm run version-packages
+          commit: "Version packages"
+          title: "Version packages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish:
+    name: Publish to npm
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # push the release tags
+      id-token: write # npm trusted publishing (no token) and provenance
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      # Trusted publishing needs npm 11.5.1 or later
+      - run: npm install --global npm@latest
+      - run: npm ci
+      - name: Stop if changesets haven't been versioned
+        run: |
+          if find .changeset -name '*.md' ! -name 'README.md' | grep -q .; then
+            echo "::error::There are unreleased changesets. Merge the \"Version packages\" pull request first."
+            exit 1
+          fi
+      - name: What will be published
+        run: npx changeset publish-plan
+      # changeset publish creates annotated tags, which need a committer
+      - name: Set the git identity for release tags
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      # Each package's prepack builds it (and runs publint) before npm publish
+      - run: npm run release
+      - run: git push origin --tags
