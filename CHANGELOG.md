@@ -87,6 +87,8 @@ All notable changes to this project will be documented in this file.
   unchanged.
 
 ### Changed
+- `LayoutNav onclose` also fires when a link in the header (such as the mobile logo) is clicked while the nav is
+  open, so the slide-in nav closes as the page changes.
 - Focus redesign: every focusable element gets the same soft glow (`--m-shadow-focus`). Focused fields also
   brighten their border and lift their fill, hovered fields brighten their border, and the radio's glow hugs the
   circle.

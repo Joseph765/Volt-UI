@@ -1,6 +1,7 @@
 <script>
     /**
-     * `onclose` is called when the user presses Esc, or clicks the blurred page outside the open nav.
+     * `onclose` is called when the user presses Esc, clicks the blurred page outside the open nav, or clicks a link
+     * in the header (e.g. the logo).
      * Set `open` to false in response.
      * `footer` stays pinned to the bottom of the nav while the items above it scroll: global actions like the
      * signed-in user, settings or a theme switcher.
@@ -31,16 +32,21 @@
     }
 
     /**
-     * Clicking outside the open nav (on the blurred page, not the nav or header) closes it.
+     * Clicking outside the open nav (on the blurred page) closes it, and so does a link in the header (e.g. the
+     * logo), since it leaves the page. Other header clicks don't: the menu button toggles the nav itself.
      * The blurred content ignores pointer events, so the click lands on the layout itself rather than on a link.
      * @param { MouseEvent } event
      */
     function handleClick(event) {
-        if (!open || !(event.target instanceof Node)) return;
+        if (!open || !(event.target instanceof Element)) return;
         const layout = nav.closest(".m-layout");
         if (!layout?.contains(event.target)) return;
         if (nav.contains(event.target)) return;
-        if (layout.querySelector(".m-layout-header")?.contains(event.target)) return;
+        const header = layout.querySelector(".m-layout-header");
+        if (header?.contains(event.target)) {
+            const link = event.target.closest("a[href]");
+            if (!link || !header.contains(link)) return;
+        }
         onclose?.();
     }
 </script>

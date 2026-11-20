@@ -182,7 +182,8 @@ We're simplifying the documentation site. Goals so far:
     `100dvh`.
   - The mobile nav blurs its own Layout's content. The selectors use direct children (`>`), so a nested Layout
     doesn't blur the outer page.
-  - Esc or a click on the blurred content closes the nav via `LayoutNav onclose`. The blurred content has
+  - Esc, a click on the blurred content, or a click on a link in the header (e.g. the mobile logo) closes the nav
+    via `LayoutNav onclose`. Other header clicks don't (the menu button toggles it). The blurred content has
     `pointer-events: none`, so that click doesn't also follow a link.
   - The desktop logo area has the page background and sits above the nav, so a scrolling nav passes under it.
   - `LayoutNav footer` (snippet): global actions (user, settings, theme switcher) pinned to the bottom of the
@@ -190,6 +191,9 @@ We're simplifying the documentation site. Goals so far:
     `.m-layout-nav-items` (scrolls on its own) and `.m-layout-nav-footer`; on desktop the nav has a fixed
     `height` (window below the logo) so the footer sits at the bottom of the window. The footer lines up with the
     items (divider starts where they do, content where their icons do).
+  - The mobile drawer's `::after` carries its fill (and right border) 100vh below its bottom edge. iOS Safari's
+    floating toolbar shows the page under it, and a fixed `bottom: 0` drawer stops above it, which left a black bar
+    under the drawer. Don't put `overflow` on `.m-layout-nav` (it would clip this); the items div scrolls instead.
 - **Docs component cards** (All Components and the landing showcase):
   - Previews stay grayscale.
   - Hover is a "moth to the light" glow with a fixed position (no cursor tracking): light behind the preview, a

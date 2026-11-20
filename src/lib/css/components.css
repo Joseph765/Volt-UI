@@ -1048,6 +1048,21 @@
     transition: transform 0.2s ease-out;
 }
 
+/* Carries the drawer's fill on below its bottom edge. Mobile browsers with a floating toolbar (iOS Safari) show
+   the page under the toolbar, and a fixed bottom: 0 element stops above it, so without this the page's background
+   shows through as a bar under the drawer. Off-screen everywhere else */
+.m-layout-nav::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: -1px;
+    height: 100vh;
+    background-color: inherit;
+    border-inline-end: inherit;
+    pointer-events: none;
+}
+
 /* The items scroll on their own, so the footer stays pinned to the bottom of the nav */
 .m-layout-nav-items {
     flex: 1;
@@ -1157,6 +1172,10 @@
         transform: none;
         visibility: visible;
         transition: none;
+    }
+
+    .m-layout-nav::after {
+        display: none;
     }
 
     .m-layout-nav-items {
