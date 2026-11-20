@@ -1,7 +1,7 @@
 {
 	"name": "moth-ui-svelte",
 	"version": "0.2.0",
-	"description": "A polished, dark-first design system for Svelte 5.",
+	"description": "A design system with a look all its own, for Svelte and React. This is the Svelte package.",
 	"author": "Joseph Chauvin (https://github.com/Joseph765)",
 	"license": "MIT",
 	"homepage": "https://moth-ui.com",

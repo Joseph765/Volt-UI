@@ -14,14 +14,14 @@
 
 {#if component}
     <Seo
-        title="{component.name} · Svelte component · Moth UI"
+        title="{component.name} · Svelte and React component · Moth UI"
         description={component.description}
         path={page.url.pathname}
     />
 {:else}
     <Seo
         title="Components · Moth UI"
-        description="Every Moth UI component for Svelte 5: buttons, forms, navigation, tables, layout and more, ready to drop into your app."
+        description="Every Moth UI component for Svelte and React: buttons, forms, navigation, tables, layout and more, ready to drop into your app."
         path="/components"
     />
 {/if}

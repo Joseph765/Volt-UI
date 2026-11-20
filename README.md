@@ -1,7 +1,7 @@
 # Moth UI
 
-The design system Svelte was missing: a complete set of polished, dark-first components for Svelte 5 that look
-finished the moment you install them. No theming, no config.
+A design system with a look all its own: soft ambient light, polished components, and a fast path from empty
+project to finished UI. Moth comes for Svelte and React; this is the Svelte package.
 
 **Documentation:** [moth-ui.com](https://moth-ui.com)
 

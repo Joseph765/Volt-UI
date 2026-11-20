@@ -1,11 +1,23 @@
 # Moth UI
 
-A polished, dark-first design system for **Svelte 5**, plus its documentation site. The project was previously
+A design system with a look all its own, for **Svelte and React**, plus its documentation site. The project was previously
 called "Volt UI" and is relaunching as **Moth**, a brand-new design system. Don't add Volt references, migration notes
 or changelog entries for the rename. The local repo folder is still `Volt-UI`; the GitHub repo is
 `Joseph765/moth-ui` (https://github.com/Joseph765/moth-ui).
 
 - Package: `moth-ui-svelte` (`package.json`). Docs site: `https://moth-ui.com`.
+- **Svelte and React (positioning):** all copy (landing page, SEO titles and descriptions, Getting Started intro,
+  README, `package.json` description) presents Moth as available for both Svelte and React, as if the React version
+  already exists. It doesn't yet: the user is building it over the next few days, and nobody is using the package in
+  the meantime, so this is deliberate. Don't "correct" it or add caveats. Install and setup instructions (install
+  line, Requirements, code snippets) stay Svelte-only for now; next up is a Svelte/React switcher in the left nav
+  that switches them globally. Keep new copy framework-neutral ("the same components, the same look") rather than
+  Svelte-specific, and don't call Moth "dark-first": both themes are designed token by token (dark is still the
+  default).
+- **Landing page copy** (`src/routes/+page.svelte`, set by the user): heading "Drawn to the light" ("the light" in
+  the gradient), subheading "A design system with a look all its own: soft ambient light, polished components, and
+  a fast path from empty project to finished UI.", and four cards: Polished on install, Svelte and React, Glows in
+  the dark. Shines in the light., Accessible by default.
 - Library: `src/lib` (published as `dist/` via `svelte-package`). Docs site: `src/routes` (SvelteKit).
 - Consumers import `moth-ui-svelte` for components and `moth-ui-svelte/css/index.css` for styles. There is no
   `$moth` alias any more. Docs code snippets must use these imports; docs pages themselves import from `$lib`.

@@ -13,7 +13,7 @@
 
 <Seo
     title="Getting started · Moth UI"
-    description="Install Moth UI, import its stylesheet and start using Svelte components in three steps."
+    description="Install Moth UI, import its stylesheet and start using its components in three steps."
     path="/getting-started"
 />
 
@@ -22,21 +22,20 @@
         <Flex direction="column">
             <Text size="3xl" weight="black" as="h1">Getting Started</Text>
             <Text size="l" variant="weak">
-                Moth UI is a modern design system for building consistent, high-quality interfaces fast. 
-                It gives you reusable components, design tokens, and utilities so your UI stays cohesive 
-                without slowing you down.
+                Moth UI is a design system with a look all its own: soft ambient light, polished components, and a
+                fast path from empty project to finished UI.
             </Text>
             <Text size="l" variant="weak">
-                Built on Svelte — chosen for its simplicity, tiny bundles, near-zero runtime, 
-                and code that feels like plain HTML/CSS/JS. Our mission: make beautiful interfaces 
-                quick and enjoyable to build.
+                It comes for Svelte and React: the same components and the same look, in whichever framework you
+                build with.
             </Text>
         </Flex>
 
         <Flex direction="column">
             <Text size="2xl" weight="bold" as="h2">Requirements</Text>
             <Text size="l" variant="weak" measure="l">
-                Moth UI needs <Code>svelte</Code> 5 or later. It works in SvelteKit and in any Vite + Svelte project.
+                The Svelte version needs <Code>svelte</Code> 5 or later. It works in SvelteKit and in any Vite + Svelte
+                project.
             </Text>
             <Text size="l" variant="weak" measure="l">
                 It targets modern browsers: Chrome and Edge 111+, Safari 16.2+ and Firefox 121+. Its styles use
@@ -80,8 +79,8 @@
                 </li>
                 <li>
                     <Text size="l" variant="weak" measure="l">
-                        <strong>Is dark by default.</strong> Moth is designed dark-first, and has a light theme too
-                        (see Themes below).
+                        <strong>Is dark by default.</strong> The light theme is one attribute away (see Themes
+                        below); both are designed token by token.
                     </Text>
                 </li>
             </ul>
